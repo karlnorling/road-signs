@@ -70,21 +70,37 @@ const downloadSvg = async (dest: string, url: string): Promise<void> => {
 };
 
 /**
- * Injects explicit width/height into an SVG at the target pixel size so
- * librsvg knows what canvas to render onto. Without this, SVGs that only
- * have a viewBox (or no dimensions at all) trigger a NoMemory crash inside
- * sharp's libvips/librsvg backend when the renderer tries an unbounded size.
+ * Normalises an SVG with SVGO then stamps explicit width/height so librsvg
+ * renders onto a known-size canvas. Without explicit dimensions librsvg uses
+ * the raw viewBox units as pixels — some Wikimedia SVGs have coordinate
+ * spaces in the tens of thousands, causing a NoMemory crash inside sharp.
  */
-const stampSvgSize = (svg: string, size: number): Buffer => {
-  const viewBoxMatch = svg.match(/viewBox="([^"]*)"/);
-  let out = svg
-    .replace(/\s*\bwidth="[^"]*"/, '')
-    .replace(/\s*\bheight="[^"]*"/, '')
-    .replace(/<svg\b/, `<svg width="${size}" height="${size}"`);
-  if (!viewBoxMatch) {
-    out = out.replace(/<svg\b/, `<svg viewBox="0 0 ${size} ${size}"`);
+const prepareSvg = (raw: string, size: number): Buffer => {
+  let svg: string;
+  try {
+    svg = optimize(raw, {
+      multipass: true,
+      plugins: [
+        'preset-default',
+        // Keep the viewBox — we rely on it below.
+        { name: 'removeViewBox', active: false },
+      ],
+    }).data;
+  } catch {
+    svg = raw;
   }
-  return Buffer.from(out, 'utf-8');
+
+  const viewBoxMatch = svg.match(/viewBox="([^"]*)"/);
+  svg = svg
+    .replace(/\s*\bwidth="[^"]*"/g, '')
+    .replace(/\s*\bheight="[^"]*"/g, '')
+    .replace(/<svg\b/, `<svg width="${size}" height="${size}"`);
+
+  if (!viewBoxMatch) {
+    svg = svg.replace(/<svg\b/, `<svg viewBox="0 0 ${size} ${size}"`);
+  }
+
+  return Buffer.from(svg, 'utf-8');
 };
 
 const convertToRaster = async (svgPath: string): Promise<void> => {
@@ -105,11 +121,15 @@ const convertToRaster = async (svgPath: string): Promise<void> => {
       } catch {
         // does not exist — create it
       }
-      const svgBuffer = stampSvgSize(svgText, size);
-      await sharp(svgBuffer, { density: 96 })
-        .resize(size, size, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
-        [method as 'jpeg' | 'png' | 'webp']({ quality: 90 })
-        .toFile(outFile);
+      try {
+        const svgBuffer = prepareSvg(svgText, size);
+        await sharp(svgBuffer, { density: 96 })
+          .resize(size, size, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
+          [method as 'jpeg' | 'png' | 'webp']({ quality: 90 })
+          .toFile(outFile);
+      } catch (err) {
+        console.warn(`  Skipping ${path.basename(outFile)}: ${(err as Error).message}`);
+      }
     }
   }
 };
