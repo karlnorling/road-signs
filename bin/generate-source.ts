@@ -1,3 +1,5 @@
+/* oxlint-disable no-await-in-loop */
+
 /**
  * generate-source.ts
  *
@@ -38,7 +40,10 @@ const normalizeSvg = (svg: string): string => {
 
 const scopeIds = (body: string, prefix: string): string => {
   const ids = new Set<string>();
-  body.replace(/\bid="([^"]+)"/g, (_, id: string) => { ids.add(id); return _; });
+  body.replace(/\bid="([^"]+)"/g, (_, id: string) => {
+    ids.add(id);
+    return _;
+  });
   if (ids.size === 0) return body;
   let out = body;
   for (const id of ids) {
@@ -55,8 +60,16 @@ const buildAssets = (svgRelPath: string) => {
   const dir = path.dirname(svgRelPath);
   const base = path.basename(svgRelPath, path.extname(svgRelPath));
   const makeRecord = (ext: string): Record<number, string> =>
-    Object.fromEntries(IMAGE_SIZES.map((s) => [s, `${dir}/${base}_${s}x${s}.${ext}`])) as Record<number, string>;
-  return { jpg: makeRecord('jpg'), png: makeRecord('png'), svg: svgRelPath, webp: makeRecord('webp') };
+    Object.fromEntries(IMAGE_SIZES.map((s) => [s, `${dir}/${base}_${s}x${s}.${ext}`])) as Record<
+      number,
+      string
+    >;
+  return {
+    jpg: makeRecord('jpg'),
+    png: makeRecord('png'),
+    svg: svgRelPath,
+    webp: makeRecord('webp'),
+  };
 };
 
 const findSvgForSign = (code: string, assetsRoot: string): string | undefined => {
@@ -90,7 +103,10 @@ export const generateSource = async (cc: string): Promise<void> => {
   ];
 
   let count = 0;
-  for (const [category, signs] of Object.entries(scraped) as [string, Array<{ code: string; name: string; imageUrl: string | null }>][]) {
+  for (const [category, signs] of Object.entries(scraped) as [
+    string,
+    Array<{ code: string; name: string; imageUrl: string | null }>,
+  ][]) {
     for (const sign of signs) {
       const id = slugify(`${sign.code}-${sign.name}`);
       const svgFile = findSvgForSign(sign.code, assetsRoot);

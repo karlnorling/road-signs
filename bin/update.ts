@@ -1,3 +1,5 @@
+/* oxlint-disable no-await-in-loop */
+
 /**
  * update.ts
  *
@@ -25,7 +27,9 @@ const getCountries = (): string[] => {
     process.exit(1);
   }
   if (!SCRAPERS[cc]) {
-    console.error(`No scraper registered for country "${cc}". Available: ${Object.keys(SCRAPERS).join(', ')}`);
+    console.error(
+      `No scraper registered for country "${cc}". Available: ${Object.keys(SCRAPERS).join(', ')}`,
+    );
     process.exit(1);
   }
   return [cc];

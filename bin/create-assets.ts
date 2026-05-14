@@ -87,9 +87,9 @@ const convertToRaster = async (svgPath: string): Promise<void> => {
       } catch {
         // does not exist — create it
       }
-      await (sharp(buffer).resize(size, size) as ReturnType<typeof sharp>)[
-        method as 'jpeg' | 'png' | 'webp'
-      ]({ quality: 90 }).toFile(outFile);
+      await (sharp(buffer).resize(size, size) as ReturnType<typeof sharp>)
+        [method as 'jpeg' | 'png' | 'webp']({ quality: 90 })
+        .toFile(outFile);
     }
   }
 };
@@ -148,7 +148,10 @@ const createSvgSprite = async (assetsRoot: string, pkgDir: string): Promise<void
     seen.add(id);
 
     const optimized = optimize(raw, { multipass: true, plugins: ['preset-default'] }).data;
-    const svgContent = optimized.replace(/<\?xml[^>]*\?>/, '').replace(/<!DOCTYPE[^>]*>/, '').trim();
+    const svgContent = optimized
+      .replace(/<\?xml[^>]*\?>/, '')
+      .replace(/<!DOCTYPE[^>]*>/, '')
+      .trim();
     const svgAttrsMatch = svgContent.match(/<svg([^>]*)>/);
     const svgAttrs = svgAttrsMatch ? svgAttrsMatch[1] : '';
     const viewBoxMatch = svgAttrs.match(/viewBox="([^"]*)"/);

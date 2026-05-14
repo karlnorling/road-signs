@@ -85,7 +85,12 @@ const scrapeGallery = (
     const caption = captionEl?.textContent?.trim() ?? '';
 
     const code = extractCode(caption) ?? (href ? extractCode(decodeURIComponent(href)) : null);
-    const name = caption.replace(code ?? '', '').replace(/^[\s\-–—]+/, '').trim() || (code ?? '');
+    const name =
+      caption
+        .replace(code ?? '', '')
+        .replace(/^[\s\-–—]+/, '')
+        .trim() ||
+      (code ?? '');
 
     if (!code && !name) continue;
     signs.push({ code: code ?? slugify(name), name, imageUrl, category });
@@ -93,10 +98,7 @@ const scrapeGallery = (
   return signs;
 };
 
-const scrapeTable = (
-  tableNode: ReturnType<typeof parse>,
-  category: USCategory,
-): ScrapedSign[] => {
+const scrapeTable = (tableNode: ReturnType<typeof parse>, category: USCategory): ScrapedSign[] => {
   const signs: ScrapedSign[] = [];
   const rows = tableNode.querySelectorAll('tr');
 
@@ -117,7 +119,10 @@ const scrapeTable = (
       const found = extractCode(text);
       if (found && !code) {
         code = found;
-        name = text.replace(found, '').replace(/^[\s\-–—]+/, '').trim();
+        name = text
+          .replace(found, '')
+          .replace(/^[\s\-–—]+/, '')
+          .trim();
       }
     }
 
