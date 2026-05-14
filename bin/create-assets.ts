@@ -69,8 +69,26 @@ const downloadSvg = async (dest: string, url: string): Promise<void> => {
   }
 };
 
+/**
+ * Injects explicit width/height into an SVG at the target pixel size so
+ * librsvg knows what canvas to render onto. Without this, SVGs that only
+ * have a viewBox (or no dimensions at all) trigger a NoMemory crash inside
+ * sharp's libvips/librsvg backend when the renderer tries an unbounded size.
+ */
+const stampSvgSize = (svg: string, size: number): Buffer => {
+  const viewBoxMatch = svg.match(/viewBox="([^"]*)"/);
+  let out = svg
+    .replace(/\s*\bwidth="[^"]*"/, '')
+    .replace(/\s*\bheight="[^"]*"/, '')
+    .replace(/<svg\b/, `<svg width="${size}" height="${size}"`);
+  if (!viewBoxMatch) {
+    out = out.replace(/<svg\b/, `<svg viewBox="0 0 ${size} ${size}"`);
+  }
+  return Buffer.from(out, 'utf-8');
+};
+
 const convertToRaster = async (svgPath: string): Promise<void> => {
-  const buffer = await fs.promises.readFile(svgPath);
+  const svgText = await fs.promises.readFile(svgPath, 'utf-8');
   const dir = path.dirname(svgPath);
   const base = path.basename(svgPath, '.svg');
 
@@ -87,7 +105,9 @@ const convertToRaster = async (svgPath: string): Promise<void> => {
       } catch {
         // does not exist — create it
       }
-      await (sharp(buffer).resize(size, size) as ReturnType<typeof sharp>)
+      const svgBuffer = stampSvgSize(svgText, size);
+      await sharp(svgBuffer, { density: 96 })
+        .resize(size, size, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
         [method as 'jpeg' | 'png' | 'webp']({ quality: 90 })
         .toFile(outFile);
     }
