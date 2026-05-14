@@ -1,0 +1,21 @@
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+.pnp.*
+node_modules
+dist/
+
+# Generated data cache (re-created by yarn update)
+data/
+
+# Generated assets (re-created by yarn update)
+packages/@road-signs/*/assets/
+
+# Astro
+apps/docs/.astro/
+
+.DS_Store

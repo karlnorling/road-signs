@@ -1,0 +1,32 @@
+{
+  "plugins": [
+    "typescript",
+    "unicorn",
+    "react",
+    "react-hooks",
+    "jsx-a11y",
+    "import",
+    "promise"
+  ],
+  "env": { "browser": true, "es2022": true },
+  "rules": {
+    "no-console": "off",
+    "no-await-in-loop": "warn",
+    "no-undef": "off",
+    "typescript/no-explicit-any": "warn",
+    "typescript/consistent-type-imports": ["error", { "prefer": "type-imports" }],
+    "typescript/no-unused-vars": [
+      "error",
+      { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }
+    ],
+    "react/react-in-jsx-scope": "off"
+  },
+  "ignorePatterns": [
+    "dist",
+    "node_modules",
+    "coverage",
+    "data",
+    "packages/@road-signs/*/assets",
+    "packages/@road-signs/*/src/signs.generated.ts"
+  ]
+}

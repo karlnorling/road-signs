@@ -1,0 +1,59 @@
+{
+  "name": "@road-signs/vue",
+  "version": "0.1.0",
+  "description": "Accessible Vue 3 components for road signs — works with any @road-signs/* country package",
+  "keywords": [
+    "road-signs",
+    "signs",
+    "svg",
+    "typescript",
+    "vue",
+    "vue3"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/karlnorling/road-signs",
+    "directory": "packages/@road-signs/vue"
+  },
+  "files": [
+    "dist/",
+    "package.json",
+    "README.md"
+  ],
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js",
+      "types": "./dist/esm/index.d.ts"
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p tsconfig.cjs.json && tsc -p tsconfig.esm.json && node -e \"require('fs').writeFileSync('dist/cjs/package.json', JSON.stringify({type:'commonjs'})); require('fs').writeFileSync('dist/esm/package.json', JSON.stringify({type:'module'}))\"",
+    "test": "jest",
+    "type-check": "tsc --noEmit -p tsconfig.json"
+  },
+  "dependencies": {
+    "@road-signs/core": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@vue/compiler-dom": "^3.5.13",
+    "@vue/test-utils": "^2.4.6",
+    "jest": "^30.3.0",
+    "jest-environment-jsdom": "^30.3.0",
+    "ts-jest": "^29.4.0",
+    "typescript": "^6.0.0",
+    "vue": "^3.5.13"
+  },
+  "peerDependencies": {
+    "vue": ">=3"
+  },
+  "author": {
+    "name": "Karl Norling",
+    "url": "https://github.com/karlnorling"
+  }
+}

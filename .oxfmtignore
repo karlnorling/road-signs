@@ -1,0 +1,10 @@
+dist/
+coverage/
+data/
+packages/@road-signs/*/assets/
+packages/@road-signs/*/src/signs.generated.ts
+**/CHANGELOG.md
+node_modules
+package.json
+src
+tsconfig.json

@@ -1,0 +1,52 @@
+{
+  "name": "road-signs-monorepo",
+  "private": true,
+  "description": "Road sign SVGs, React, Vue 3, and web components — one package per country",
+  "workspaces": [
+    "packages/@road-signs/*",
+    "apps/*"
+  ],
+  "scripts": {
+    "build": "yarn update && yarn compile",
+    "build-docs": "yarn workspace @road-signs-docs/app build",
+    "changeset": "changeset",
+    "check": "manypkg check",
+    "compile": "yarn workspaces foreach -A --topological-dev run compile",
+    "docs": "yarn workspace @road-signs-docs/app dev",
+    "format": "oxfmt --write --ignore-path=.oxfmtignore .",
+    "format:check": "oxfmt --check --ignore-path=.oxfmtignore .",
+    "generate": "tsx bin/generate-source.ts",
+    "lint": "oxlint .",
+    "prepare": "lefthook install",
+    "publish": "yarn changeset publish",
+    "test": "yarn workspaces foreach -A run test",
+    "type-check": "yarn workspaces foreach -A --include '@road-signs/*' run type-check",
+    "update": "tsx bin/update.ts"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.27.10",
+    "@manypkg/cli": "^0.23.0",
+    "@types/node": "^22.10.7",
+    "glob": "^13.0.6",
+    "lefthook": "^2.1.6",
+    "node-html-parser": "^7.0.1",
+    "oxfmt": "^0.45.0",
+    "oxlint": "^1.60.0",
+    "sharp": "^0.33.5",
+    "svgo": "^4.0.1",
+    "tsx": "^4.19.4",
+    "typescript": "^6.0.0"
+  },
+  "resolutions": {
+    "brace-expansion": "^2.0.3",
+    "flatted": "^3.4.2",
+    "js-yaml": "^4.1.1",
+    "minimatch": "^9.0.7",
+    "picomatch": "^4.0.4",
+    "tar": "^7.5.13"
+  },
+  "engines": {
+    "node": ">= 24.0.0"
+  },
+  "packageManager": "yarn@4.6.0"
+}

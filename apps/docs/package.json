@@ -1,0 +1,24 @@
+{
+  "name": "@road-signs-docs/app",
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/react": "^4.0.0",
+    "@road-signs/core": "workspace:*",
+    "@road-signs/react": "workspace:*",
+    "@road-signs/us": "workspace:*",
+    "astro": "^5.0.0",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5"
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19",
+    "typescript": "^6.0.0"
+  }
+}

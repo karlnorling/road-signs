@@ -1,0 +1,54 @@
+{
+  "name": "@road-signs/us",
+  "version": "0.1.0",
+  "description": "US MUTCD road signs — TypeScript registry, inline SVGs, and image assets",
+  "keywords": [
+    "mutcd",
+    "road-signs",
+    "signs",
+    "svg",
+    "typescript",
+    "united-states",
+    "us"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/karlnorling/road-signs",
+    "directory": "packages/@road-signs/us"
+  },
+  "files": [
+    "dist/",
+    "assets/",
+    "package.json",
+    "README.md"
+  ],
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/esm/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js",
+      "types": "./dist/esm/index.d.ts"
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p tsconfig.cjs.json && tsc -p tsconfig.esm.json && node -e \"require('fs').writeFileSync('dist/cjs/package.json', JSON.stringify({type:'commonjs'})); require('fs').writeFileSync('dist/esm/package.json', JSON.stringify({type:'module'}))\"",
+    "test": "jest",
+    "type-check": "tsc --noEmit -p tsconfig.cjs.json"
+  },
+  "dependencies": {
+    "@road-signs/core": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "jest": "^30.3.0",
+    "ts-jest": "^29.4.0",
+    "typescript": "^6.0.0"
+  },
+  "author": {
+    "name": "Karl Norling",
+    "url": "https://github.com/karlnorling"
+  }
+}
