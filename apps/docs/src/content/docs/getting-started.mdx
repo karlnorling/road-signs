@@ -1,0 +1,124 @@
+---
+title: Getting started
+description: Install a road signs country package and display your first sign in minutes.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+## Installation
+
+Install a country package and a framework adapter:
+
+<Tabs>
+  <TabItem label="React">
+    ```sh
+    npm install @road-signs/us @road-signs/react
+    ```
+  </TabItem>
+  <TabItem label="Vue 3">
+    ```sh
+    npm install @road-signs/us @road-signs/vue
+    ```
+  </TabItem>
+  <TabItem label="Web Components">
+    ```sh
+    npm install @road-signs/us @road-signs/elements
+    ```
+  </TabItem>
+  <TabItem label="CSS sprite">
+    ```sh
+    npm install @road-signs/us
+    ```
+  </TabItem>
+</Tabs>
+
+## Quick start
+
+<Tabs>
+  <TabItem label="React">
+    ```tsx
+    import { getSign } from '@road-signs/us';
+    import { RoadSign } from '@road-signs/react';
+
+    const sign = getSign('w1-1-turn');
+
+    export default function App() {
+      return <RoadSign sign={sign} size={64} />;
+    }
+    ```
+  </TabItem>
+  <TabItem label="Vue 3">
+    ```vue
+    <script setup>
+    import { getSign } from '@road-signs/us';
+    import { RoadSign } from '@road-signs/vue';
+
+    const sign = getSign('w1-1-turn');
+    </script>
+
+    <template>
+      <RoadSign :sign="sign" :size="64" />
+    </template>
+    ```
+  </TabItem>
+  <TabItem label="Web Components">
+    ```ts
+    import { RoadSignElement } from '@road-signs/elements';
+    import { getSign } from '@road-signs/us';
+
+    customElements.define('road-sign', RoadSignElement);
+
+    const el = document.createElement('road-sign') as RoadSignElement;
+    el.sign = getSign('w1-1-turn')!;
+    document.body.appendChild(el);
+    ```
+  </TabItem>
+  <TabItem label="CSS sprite">
+    ```html
+    <!-- Import the sprite stylesheet from the package dist -->
+    <link rel="stylesheet" href="node_modules/@road-signs/us/dist/sprite.css" />
+
+    <span
+      class="rs-us-w1-1"
+      style="display:inline-block;width:64px;height:64px"
+      role="img"
+      aria-label="Turn"
+    ></span>
+    ```
+  </TabItem>
+</Tabs>
+
+## Finding sign IDs
+
+Every sign has a slug ID derived from its code and name: `{code-lowercase}-{name-slugified}`,
+e.g. `w1-1-turn`.
+
+Browse all signs in the [Sign Gallery](/road-signs/gallery/) — the code is shown below each card.
+
+You can also look up signs programmatically:
+
+```ts
+import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/us';
+
+// All signs
+signs;
+
+// By slug ID
+getSign('w1-1-turn');
+
+// By MUTCD code
+getSignByCode('W1-1');
+
+// By category
+getSignsByCategory('warning');
+```
+
+## TypeScript
+
+All packages ship full TypeScript types. Country packages narrow the `category` field to their
+specific union:
+
+```ts
+import type { USSign, USCategory } from '@road-signs/us';
+import type { Sign } from '@road-signs/core';
+```

@@ -1,0 +1,69 @@
+---
+title: Road Signs
+description: >-
+  Road sign SVGs, React, Vue 3, Web Components, and static assets — one package per country.
+  Fully typed. Zero runtime dependencies. Accessible by default.
+hero:
+  tagline: >-
+    Road signs for React, Vue 3, Web Components, and CSS — one npm package per country.
+    Fully typed. Accessible by default.
+  actions:
+    - text: Get started
+      link: /road-signs/getting-started/
+      icon: right-arrow
+    - text: Browse signs
+      link: /road-signs/gallery/
+      icon: seti:image
+      variant: secondary
+    - text: GitHub
+      link: https://github.com/karlnorling/road-signs
+      icon: github
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## Why Road Signs?
+
+Road signs are legally mandated, precisely specified, and used in safety-critical contexts. This
+library packages official signs as accessible, fully typed components ready to drop into any
+project — one npm package per country, so you only ship what you need.
+
+<CardGrid>
+  <Card title="Per-country packages" icon="puzzle">
+    Install only the countries you need. `@road-signs/us` for MUTCD, `@road-signs/uk` for TSRGD,
+    and so on. Each package is self-contained with SVGs, raster assets, and a TypeScript registry.
+  </Card>
+  <Card title="React, Vue 3 & Web Components" icon="laptop">
+    Generic framework adapters work with signs from any country package. One `<RoadSign>` component,
+    any country's data.
+  </Card>
+  <Card title="CSS & SVG sprite" icon="seti:css">
+    Each country package ships `sprite.svg` and `sprite.css` in its dist — use any sign with a
+    single class, zero JavaScript.
+  </Card>
+  <Card title="Accessible by default" icon="approve-check-circle">
+    Every component renders with `role="img"`, `aria-labelledby`, `<title>`, and `<desc>` inside
+    the SVG.
+  </Card>
+</CardGrid>
+
+## Country packages
+
+| Package | Standard | Status |
+| ------- | -------- | ------ |
+| [`@road-signs/us`](/road-signs/countries/us/) | FHWA MUTCD | Available |
+| `@road-signs/uk` | TSRGD 2016 | Coming soon |
+| `@road-signs/ca` | MUTCDC | Coming soon |
+| `@road-signs/de` | Vienna Convention / StVO | Coming soon |
+| `@road-signs/fr` | Vienna Convention / Code de la route | Coming soon |
+| `@road-signs/nl` | Vienna Convention / RVV 1990 | Coming soon |
+
+## Framework packages
+
+| Package | Description |
+| ------- | ----------- |
+| [`@road-signs/react`](/road-signs/packages/react/) | Generic React component — works with any country |
+| [`@road-signs/vue`](/road-signs/packages/vue/) | Generic Vue 3 component |
+| [`@road-signs/elements`](/road-signs/packages/elements/) | Generic Web Components (Custom Elements) |
+| [`@road-signs/core`](/road-signs/packages/core/) | Shared TypeScript types and lookup helpers |

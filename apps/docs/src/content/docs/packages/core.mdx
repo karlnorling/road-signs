@@ -1,0 +1,58 @@
+---
+title: Core API
+description: Shared TypeScript types and generic lookup helpers used by all road-signs packages.
+---
+
+`@road-signs/core` provides the shared `Sign` interface and generic lookup helpers. You typically
+won't install it directly — it is a dependency of the framework and country packages — but you
+can import its types when you need them.
+
+## Installation
+
+```sh
+npm install @road-signs/core
+```
+
+## Types
+
+```ts
+import type { Sign, SignAssets } from '@road-signs/core';
+
+interface SignAssets {
+  svg: string;
+  png: Record<number, string>;   // { 240: '...', 512: '...', ... }
+  jpg: Record<number, string>;
+  webp: Record<number, string>;
+}
+
+interface Sign<TCategory extends string = string> {
+  id: string;          // slug, e.g. "w1-1-turn"
+  code: string;        // official code, e.g. "W1-1"
+  name: string;        // e.g. "Turn"
+  description: string;
+  category: TCategory; // narrowed per country, e.g. USCategory
+  svg: string;         // inline SVG string, SVGO-optimised
+  assets: SignAssets;
+}
+```
+
+## Generic helpers
+
+The helpers are generic so they can operate on any country's narrowed sign type:
+
+```ts
+import { getAllSigns, getSign, getSignByCode, getSignsByCategory } from '@road-signs/core';
+import { signs } from '@road-signs/us';
+
+getAllSigns(signs);                        // USSign[]
+getSign(signs, 'w1-1-turn');              // USSign | undefined
+getSignByCode(signs, 'W1-1');             // USSign | undefined
+getSignsByCategory(signs, 'warning');     // USSign[]
+```
+
+Country packages re-export these pre-bound to their own registry:
+
+```ts
+// Equivalent — pre-bound in @road-signs/us
+import { getSign, getSignsByCategory } from '@road-signs/us';
+```

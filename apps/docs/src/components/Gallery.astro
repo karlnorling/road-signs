@@ -1,0 +1,256 @@
+---
+import { getAllSigns } from '@road-signs/us';
+
+const usSigns = getAllSigns();
+
+const countries = [{ id: 'us', label: 'United States', signs: usSigns }];
+
+const categoryMeta: Record<string, { label: string; color: string }> = {
+  warning: { label: 'Warning', color: '#e67e22' },
+  regulatory: { label: 'Regulatory', color: '#e74c3c' },
+  guide: { label: 'Guide', color: '#27ae60' },
+  school: { label: 'School', color: '#f39c12' },
+  construction: { label: 'Construction', color: '#d35400' },
+  recreational: { label: 'Recreational', color: '#2980b9' },
+  informational: { label: 'Informational', color: '#8e44ad' },
+};
+
+const allSigns = countries.flatMap(({ id, signs }) => signs.map((s) => ({ ...s, country: id })));
+
+const categoryCounts = Object.fromEntries(
+  Object.keys(categoryMeta).map((id) => [id, allSigns.filter((s) => s.category === id).length]),
+);
+---
+
+<div class="gallery">
+  <div class="gallery-controls">
+    <input
+      type="search"
+      id="gallery-search"
+      placeholder="Search by name or code…"
+      aria-label="Search signs"
+    />
+
+    <div class="country-filters" role="group" aria-label="Filter by country">
+      {
+        countries.map((c) => (
+          <button class="filter-btn country-btn" data-country={c.id} aria-pressed="false">
+            {c.label}
+            <span class="count">({c.signs.length})</span>
+          </button>
+        ))
+      }
+    </div>
+
+    <div class="category-filters" role="group" aria-label="Filter by category">
+      {
+        Object.entries(categoryMeta).map(([id, { label, color }]) => (
+          <button
+            class="filter-btn"
+            data-category={id}
+            style={`--cat-color: ${color}`}
+            aria-pressed="false"
+          >
+            {label}
+            <span class="count">({categoryCounts[id] ?? 0})</span>
+          </button>
+        ))
+      }
+    </div>
+  </div>
+
+  <p class="gallery-count" id="gallery-count">
+    {allSigns.length} sign{allSigns.length !== 1 ? 's' : ''}
+  </p>
+
+  <div class="sign-grid" id="sign-grid">
+    {
+      allSigns.map((sign) => (
+        <div
+          class="sign-card"
+          data-country={sign.country}
+          data-category={sign.category}
+          data-name={sign.name.toLowerCase()}
+          data-code={sign.code.toLowerCase()}
+          title={sign.description}
+        >
+          <div class="sign-svg" set:html={sign.svg} />
+          <span class="sign-code">{sign.code}</span>
+          <span class="sign-name">{sign.name}</span>
+        </div>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  .gallery-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  #gallery-search {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.375rem;
+    background: var(--sl-color-bg);
+    color: var(--sl-color-text);
+    font-size: 0.9rem;
+    width: 100%;
+    max-width: 380px;
+    outline-offset: 2px;
+  }
+
+  #gallery-search:focus {
+    outline: 2px solid var(--sl-color-accent);
+  }
+
+  .country-filters,
+  .category-filters {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .filter-btn {
+    padding: 0.3rem 0.85rem;
+    border-radius: 999px;
+    border: 1.5px solid var(--cat-color, var(--sl-color-gray-5));
+    background: transparent;
+    color: var(--sl-color-text);
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition:
+      background 0.15s,
+      color 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+
+  .country-btn {
+    --cat-color: var(--sl-color-accent);
+  }
+
+  .filter-btn .count {
+    font-size: 0.72rem;
+    opacity: 0.7;
+  }
+
+  .filter-btn[aria-pressed='true'] {
+    background: var(--cat-color);
+    color: #fff;
+    border-color: var(--cat-color);
+  }
+
+  .filter-btn[aria-pressed='true'] .count {
+    opacity: 0.9;
+  }
+
+  .gallery-count {
+    font-size: 0.8rem;
+    color: var(--sl-color-gray-3);
+    margin: 0 0 1rem;
+  }
+
+  .sign-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .sign-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+    padding: 0.75rem 0.5rem 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--sl-color-gray-6);
+    background: var(--sl-color-bg-sidebar);
+    transition: border-color 0.15s;
+    cursor: default;
+  }
+
+  .sign-card:hover {
+    border-color: var(--sl-color-accent);
+  }
+
+  .sign-card.hidden {
+    display: none;
+  }
+
+  .sign-svg :global(svg) {
+    width: 56px;
+    height: 56px;
+    display: block;
+  }
+
+  .sign-code {
+    font-family: var(--sl-font-mono);
+    font-size: 0.65rem;
+    color: var(--sl-color-gray-3);
+    margin-top: 0.3rem;
+  }
+
+  .sign-name {
+    font-size: 0.68rem;
+    text-align: center;
+    color: var(--sl-color-gray-2);
+    line-height: 1.3;
+  }
+</style>
+
+<script>
+  const searchInput = document.getElementById('gallery-search') as HTMLInputElement;
+  const grid = document.getElementById('sign-grid')!;
+  const countEl = document.getElementById('gallery-count')!;
+  const categoryBtns = document.querySelectorAll<HTMLButtonElement>('.filter-btn[data-category]');
+  const countryBtns = document.querySelectorAll<HTMLButtonElement>('.filter-btn[data-country]');
+
+  let activeCategory: string | null = null;
+  let activeCountry: string | null = null;
+
+  function update() {
+    const q = searchInput.value.toLowerCase().trim();
+    let visible = 0;
+
+    grid.querySelectorAll<HTMLElement>('.sign-card').forEach((card) => {
+      const matchesSearch =
+        !q || card.dataset.name!.includes(q) || card.dataset.code!.includes(q);
+      const matchesCategory = !activeCategory || card.dataset.category === activeCategory;
+      const matchesCountry = !activeCountry || card.dataset.country === activeCountry;
+      const show = matchesSearch && matchesCategory && matchesCountry;
+      card.classList.toggle('hidden', !show);
+      if (show) visible++;
+    });
+
+    countEl.textContent = `${visible} sign${visible !== 1 ? 's' : ''}`;
+  }
+
+  searchInput.addEventListener('input', update);
+
+  categoryBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const cat = btn.dataset.category!;
+      activeCategory = activeCategory === cat ? null : cat;
+      categoryBtns.forEach((b) =>
+        b.setAttribute('aria-pressed', String(b.dataset.category === activeCategory)),
+      );
+      update();
+    });
+  });
+
+  countryBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const country = btn.dataset.country!;
+      activeCountry = activeCountry === country ? null : country;
+      countryBtns.forEach((b) =>
+        b.setAttribute('aria-pressed', String(b.dataset.country === activeCountry)),
+      );
+      update();
+    });
+  });
+</script>

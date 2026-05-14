@@ -1,0 +1,58 @@
+---
+title: Vue 3
+description: Generic Vue 3 component for road signs — works with any @road-signs/* country package.
+---
+
+`@road-signs/vue` exports a single generic `<RoadSign>` component that renders any sign from
+any country package.
+
+## Installation
+
+```sh
+npm install @road-signs/vue @road-signs/us   # or any other country package
+```
+
+## Usage
+
+```vue
+<script setup>
+import { getSign, getSignsByCategory } from '@road-signs/us';
+import { RoadSign } from '@road-signs/vue';
+
+const sign = getSign('w1-1-turn');
+const warnings = getSignsByCategory('warning');
+</script>
+
+<template>
+  <!-- Single sign -->
+  <RoadSign :sign="sign" :size="64" />
+
+  <!-- With explicit width/height -->
+  <RoadSign :sign="sign" :width="80" :height="80" />
+
+  <!-- With custom accessibility text -->
+  <RoadSign :sign="sign" :size="64" title="Turn ahead" />
+
+  <!-- List -->
+  <RoadSign v-for="s in warnings" :key="s.id" :sign="s" :size="48" />
+</template>
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `sign` | `Sign` | required | A sign object from any country package |
+| `size` | `number \| string` | `64` | Sets both width and height |
+| `width` | `number \| string` | — | Overrides `size` width |
+| `height` | `number \| string` | — | Overrides `size` height |
+| `title` | `string` | `sign.name` | Accessible `<title>` inside the SVG |
+| `description` | `string` | `sign.description` | Accessible `<desc>` inside the SVG |
+
+## Peer dependencies
+
+```json
+"peerDependencies": {
+  "vue": ">=3"
+}
+```

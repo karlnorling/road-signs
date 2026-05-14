@@ -1,0 +1,52 @@
+---
+title: React
+description: Generic React component for road signs — works with any @road-signs/* country package.
+---
+
+`@road-signs/react` exports a single generic `<RoadSign>` component that renders any sign from
+any country package. It has no opinion about which country's data you use.
+
+## Installation
+
+```sh
+npm install @road-signs/react @road-signs/us   # or any other country package
+```
+
+## Usage
+
+```tsx
+import { getSign, getSignsByCategory } from '@road-signs/us';
+import { RoadSign } from '@road-signs/react';
+
+// Single sign
+const sign = getSign('w1-1-turn')!;
+<RoadSign sign={sign} size={64} />
+
+// With explicit width/height
+<RoadSign sign={sign} width={80} height={80} />
+
+// With custom accessibility label
+<RoadSign sign={sign} size={64} title="Turn ahead" description="A warning sign indicating a turn" />
+```
+
+## Props
+
+| Prop | Type | Default | Description |
+| ---- | ---- | ------- | ----------- |
+| `sign` | `Sign` | required | A sign object from any country package |
+| `size` | `number \| string` | `64` | Sets both width and height |
+| `width` | `number \| string` | — | Overrides `size` width |
+| `height` | `number \| string` | — | Overrides `size` height |
+| `title` | `string` | `sign.name` | Accessible `<title>` inside the SVG |
+| `description` | `string` | `sign.description` | Accessible `<desc>` inside the SVG |
+| `className` | `string` | — | Class on the wrapping `<span>` |
+| `style` | `CSSProperties` | — | Style on the wrapping `<span>` |
+| `aria-label` | `string` | — | Overrides `aria-labelledby` with a direct label |
+
+## Peer dependencies
+
+```json
+"peerDependencies": {
+  "react": ">=18"
+}
+```

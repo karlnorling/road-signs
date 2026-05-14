@@ -1,0 +1,114 @@
+---
+title: United States (US)
+description: MUTCD road signs for the United States — categories, installation, and usage.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+The `@road-signs/us` package contains US road signs from the **Manual on Uniform Traffic Control
+Devices (MUTCD)**, published by the Federal Highway Administration (FHWA). Signs are sourced
+from Wikipedia / Wikimedia Commons and are in the public domain.
+
+## Installation
+
+```sh
+npm install @road-signs/us
+```
+
+## Sign categories
+
+| Category | MUTCD series | Description |
+| -------- | ------------ | ----------- |
+| `warning` | W series | Warn drivers of conditions ahead — diamond-shaped, yellow |
+| `regulatory` | R series | Inform drivers of laws and regulations — white/red |
+| `guide` | D/G series | Destination and mileage information — green/blue |
+| `school` | S series | School zone and pedestrian crossing — fluorescent yellow-green |
+| `construction` | C series | Work zone signs — orange |
+| `recreational` | RA series | Recreation and cultural interest — brown |
+| `informational` | M/I series | Motorist services and general information |
+
+## Usage
+
+<Tabs>
+  <TabItem label="TypeScript">
+    ```ts
+    import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/us';
+
+    // All signs
+    signs.length;
+
+    // By slug ID
+    const turn = getSign('w1-1-turn');
+
+    // By MUTCD code
+    const stop = getSignByCode('R1-1');
+
+    // All warning signs
+    const warnings = getSignsByCategory('warning');
+    ```
+  </TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { getSignsByCategory } from '@road-signs/us';
+    import { RoadSign } from '@road-signs/react';
+
+    const warnings = getSignsByCategory('warning');
+
+    export default function WarningGrid() {
+      return (
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          {warnings.map((sign) => (
+            <RoadSign key={sign.id} sign={sign} size={64} />
+          ))}
+        </div>
+      );
+    }
+    ```
+  </TabItem>
+  <TabItem label="Vue 3">
+    ```vue
+    <script setup>
+    import { getSignsByCategory } from '@road-signs/us';
+    import { RoadSign } from '@road-signs/vue';
+
+    const warnings = getSignsByCategory('warning');
+    </script>
+
+    <template>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <RoadSign v-for="sign in warnings" :key="sign.id" :sign="sign" :size="64" />
+      </div>
+    </template>
+    ```
+  </TabItem>
+</Tabs>
+
+## TypeScript types
+
+```ts
+import type { USSign, USCategory } from '@road-signs/us';
+
+type USCategory =
+  | 'construction'
+  | 'guide'
+  | 'informational'
+  | 'recreational'
+  | 'regulatory'
+  | 'school'
+  | 'warning';
+
+interface USSign {
+  id: string;        // e.g. "w1-1-turn"
+  code: string;      // e.g. "W1-1"
+  name: string;      // e.g. "Turn"
+  description: string;
+  category: USCategory;
+  svg: string;       // inline SVG string
+  assets: {
+    svg: string;
+    png: Record<number, string>;
+    jpg: Record<number, string>;
+    webp: Record<number, string>;
+  };
+}
+```

@@ -1,0 +1,51 @@
+---
+title: Web Components
+description: Generic Custom Elements for road signs — framework-agnostic, works anywhere.
+---
+
+`@road-signs/elements` exports `RoadSignElement`, a base class for Custom Elements. It is
+framework-agnostic and works in plain HTML, Angular, Svelte, or any environment that supports
+the Custom Elements API.
+
+## Installation
+
+```sh
+npm install @road-signs/elements @road-signs/us
+```
+
+## Usage
+
+```ts
+import { RoadSignElement } from '@road-signs/elements';
+import { getSign } from '@road-signs/us';
+
+// Register under any tag name
+customElements.define('road-sign', RoadSignElement);
+
+// Attach a sign via the .sign setter
+const el = document.createElement('road-sign') as RoadSignElement;
+el.sign = getSign('w1-1-turn')!;
+el.setAttribute('size', '64');
+document.body.appendChild(el);
+```
+
+```html
+<!-- Observed attributes update the rendered SVG -->
+<road-sign size="64" title="Turn ahead"></road-sign>
+```
+
+## Observed attributes
+
+| Attribute | Default | Description |
+| --------- | ------- | ----------- |
+| `size` | `64` | Sets both width and height in pixels |
+| `width` | — | Overrides `size` width |
+| `height` | — | Overrides `size` height |
+| `title` | `sign.name` | Accessible `<title>` inside the SVG |
+| `description` | `sign.description` | Accessible `<desc>` inside the SVG |
+
+## Properties
+
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| `sign` | `Sign` | Set the sign to render. Triggers a re-render. |
