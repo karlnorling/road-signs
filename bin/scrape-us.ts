@@ -154,6 +154,44 @@ const scrapeTable = (tableNode: ReturnType<typeof parse>, category: USCategory):
   return signs;
 };
 
+const HALLSIGNS_RECREATION_URL =
+  'https://www.hallsigns.com/signs/traffic-signs/recreation-signs/';
+
+/** RS-XXX code prefix followed by the sign name, e.g. "RS-068 Hiking Trail" */
+const RS_CODE_RE = /^(RS-\d+)\s+(.+)$/;
+
+const scrapeHallsignsPage = async (url: string): Promise<ScrapedSign[]> => {
+  const res = await fetch(url, { headers: { 'User-Agent': USER_AGENT } });
+  if (!res.ok) throw new Error(`Failed to fetch ${url}: ${res.status}`);
+  const doc = parse(await res.text());
+  const signs: ScrapedSign[] = [];
+  for (const h4 of doc.querySelectorAll('h4 a')) {
+    const text = h4.textContent?.trim() ?? '';
+    const m = text.match(RS_CODE_RE);
+    if (!m) continue;
+    const code = m[1];
+    const name = m[2];
+    signs.push({
+      code,
+      name,
+      imageUrl: `https://commons.wikimedia.org/wiki/File:MUTCD_${code}.svg`,
+      category: 'recreational',
+    });
+  }
+  return signs;
+};
+
+const scrapeRecreational = async (): Promise<ScrapedSign[]> => {
+  const pages = [HALLSIGNS_RECREATION_URL, `${HALLSIGNS_RECREATION_URL}?page=2`];
+  const results: ScrapedSign[] = [];
+  for (const url of pages) {
+    results.push(...(await scrapeHallsignsPage(url)));
+  }
+  // Deduplicate by code.
+  const seen = new Set<string>();
+  return results.filter(({ code }) => (seen.has(code) ? false : seen.add(code) && true));
+};
+
 const scrape = async (): Promise<ScrapedData> => {
   const res = await fetch(WIKIPEDIA_URL, { headers: { 'User-Agent': USER_AGENT } });
   if (!res.ok) throw new Error(`Failed to fetch Wikipedia: ${res.status}`);
@@ -208,6 +246,9 @@ const scrape = async (): Promise<ScrapedData> => {
       result[activeCategory].push(...scrapeTable(node, activeCategory));
     }
   }
+
+  console.log('  Fetching recreational signs from hallsigns.com...');
+  result.recreational = await scrapeRecreational();
 
   for (const [cat, signs] of Object.entries(result)) {
     if (signs.length === 0) {
