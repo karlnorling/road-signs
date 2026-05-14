@@ -36,15 +36,31 @@ const USER_AGENT = 'road-signs/0.0.0 (https://github.com/karlnorling/road-signs;
 
 /**
  * Maps heading text patterns to MUTCD categories.
- * Wikipedia headings vary — we match on lowercase substrings.
+ * Longer/more-specific patterns must come before shorter ones so they match first.
  */
 const HEADING_CATEGORY_MAP: Array<{ pattern: string; category: USCategory }> = [
+  // Warning
   { pattern: 'warning', category: 'warning' },
+  // Regulatory
   { pattern: 'regulatory', category: 'regulatory' },
+  // Guide / destination
+  { pattern: 'destination', category: 'guide' },
+  { pattern: 'route marker', category: 'guide' },
+  { pattern: 'freeway', category: 'guide' },
+  { pattern: 'expressway', category: 'guide' },
   { pattern: 'guide', category: 'guide' },
+  // School
   { pattern: 'school', category: 'school' },
+  // Construction / work zone
   { pattern: 'construction', category: 'construction' },
+  { pattern: 'work zone', category: 'construction' },
+  // Recreational
   { pattern: 'recreational', category: 'recreational' },
+  { pattern: 'recreation', category: 'recreational' },
+  // Informational
+  { pattern: 'general information', category: 'informational' },
+  { pattern: 'emergency management', category: 'informational' },
+  { pattern: 'motorist', category: 'informational' },
   { pattern: 'informational', category: 'informational' },
   { pattern: 'service', category: 'informational' },
 ];
@@ -155,7 +171,6 @@ const scrape = async (): Promise<ScrapedData> => {
     informational: [],
   };
 
-  // Walk all heading + sibling nodes, assigning content to the active category.
   let activeCategory: USCategory | null = null;
   const body = doc.querySelector('#mw-content-text');
   if (!body) throw new Error('Could not find Wikipedia article body');
@@ -166,10 +181,22 @@ const scrape = async (): Promise<ScrapedData> => {
 
   for (const node of nodes) {
     const tag = node.tagName?.toLowerCase();
+    const cls = node.getAttribute('class') ?? '';
 
-    if (tag === 'h2' || tag === 'h3' || tag === 'div') {
-      const text = node.textContent?.trim() ?? '';
-      activeCategory = resolveCategory(text);
+    const isH2 = tag === 'h2' || cls.includes('mw-heading2');
+    const isH3 = tag === 'h3' || cls.includes('mw-heading3');
+
+    if (isH2) {
+      // H2 always sets (or clears) the active category for a new top-level section.
+      activeCategory = resolveCategory(node.textContent?.trim() ?? '');
+      continue;
+    }
+
+    if (isH3) {
+      // H3 only overrides the active category when it explicitly matches a category.
+      // Sub-headings like "R1 series: Stop and yield" inherit the parent H2's category.
+      const resolved = resolveCategory(node.textContent?.trim() ?? '');
+      if (resolved) activeCategory = resolved;
       continue;
     }
 

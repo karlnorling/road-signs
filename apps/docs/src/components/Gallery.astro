@@ -182,10 +182,20 @@ const categoryCounts = Object.fromEntries(
     display: none;
   }
 
-  .sign-svg :global(svg) {
+  .sign-svg {
     width: 56px;
     height: 56px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sign-svg :global(svg) {
+    width: 56px !important;
+    height: 56px !important;
     display: block;
+    flex-shrink: 0;
   }
 
   .sign-code {

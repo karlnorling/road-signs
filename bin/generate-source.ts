@@ -29,13 +29,43 @@ const cleanSvg = (svg: string): string =>
     .replace(/<!DOCTYPE[^>]*>/g, '')
     .trim();
 
+const UNIT_TO_PX: Record<string, number> = {
+  '': 1, px: 1, in: 96, cm: 37.795, mm: 3.7795, pt: 1.333, pc: 16,
+};
+
+const parsePx = (val: string): number | null => {
+  const m = val.match(/^([0-9.]+)(px|in|cm|mm|pt|pc|)$/i);
+  if (!m) return null;
+  const n = parseFloat(m[1]);
+  if (isNaN(n) || n <= 0) return null;
+  return n * (UNIT_TO_PX[m[2].toLowerCase()] ?? 1);
+};
+
 const normalizeSvg = (svg: string): string => {
   const cleaned = cleanSvg(svg);
-  if (/\bviewBox="/i.test(cleaned)) return cleaned;
-  const wm = cleaned.match(/\bwidth="([0-9.]+)(?:px)?"/);
-  const hm = cleaned.match(/\bheight="([0-9.]+)(?:px)?"/);
-  if (!wm || !hm) return cleaned;
-  return cleaned.replace(/<svg\b/, `<svg viewBox="0 0 ${wm[1]} ${hm[1]}"`);
+  const hasViewBox = /\bviewBox="/i.test(cleaned);
+
+  // Always strip explicit w/h — CSS controls the rendered size.
+  // Read them first while they're still in the string.
+  const wm = cleaned.match(/\bwidth="([^"]*)"/);
+  const hm = cleaned.match(/\bheight="([^"]*)"/);
+
+  let out = cleaned
+    .replace(/\s*\bwidth="[^"]*"/g, '')
+    .replace(/\s*\bheight="[^"]*"/g, '');
+
+  if (hasViewBox) return out;
+
+  // Synthesise viewBox from width/height (handling px, in, cm, mm, pt units).
+  const w = wm ? parsePx(wm[1]) : null;
+  const h = hm ? parsePx(hm[1]) : null;
+
+  if (w && h) {
+    return out.replace(/<svg\b/, `<svg viewBox="0 0 ${Math.round(w)} ${Math.round(h)}"`);
+  }
+
+  // Fallback: neutral square canvas.
+  return out.replace(/<svg\b/, `<svg viewBox="0 0 100 100"`);
 };
 
 const scopeIds = (body: string, prefix: string): string => {
@@ -108,19 +138,17 @@ export const generateSource = async (cc: string): Promise<void> => {
     Array<{ code: string; name: string; imageUrl: string | null }>,
   ][]) {
     for (const sign of signs) {
-      const id = slugify(`${sign.code}-${sign.name}`);
       const svgFile = findSvgForSign(sign.code, assetsRoot);
-      let inlineSvg = '';
-
-      if (svgFile) {
-        const raw = await fs.promises.readFile(svgFile, 'utf-8');
-        const optimized = optimize(raw, { multipass: true, plugins: ['preset-default'] }).data;
-        inlineSvg = scopeIds(normalizeSvg(cleanSvg(optimized)), id);
+      if (!svgFile) {
+        console.warn(`  Skipping ${sign.code}: no matching SVG file`);
+        continue;
       }
 
-      const assets = svgFile
-        ? buildAssets(path.relative(pkgDir, svgFile).replace(/\\/g, '/'))
-        : { jpg: {}, png: {}, svg: '', webp: {} };
+      const id = slugify(`${sign.code}-${sign.name}`);
+      const raw = await fs.promises.readFile(svgFile, 'utf-8');
+      const optimized = optimize(raw, { multipass: true, plugins: ['preset-default'] }).data;
+      const inlineSvg = scopeIds(normalizeSvg(cleanSvg(optimized)), id);
+      const assets = buildAssets(path.relative(pkgDir, svgFile).replace(/\\/g, '/'));
 
       lines.push(
         `  {`,
