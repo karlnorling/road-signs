@@ -171,7 +171,13 @@ const processSign = async (
   if (directUrl) {
     await downloadSvg(dest, directUrl);
     await sleep(300);
-    await convertToRaster(dest);
+    // downloadSvg may skip non-SVG content — only convert if file was actually written.
+    try {
+      const stat = await fs.promises.stat(dest);
+      if (stat.size > 0) await convertToRaster(dest);
+    } catch {
+      // file not written — nothing to convert
+    }
   }
 };
 
