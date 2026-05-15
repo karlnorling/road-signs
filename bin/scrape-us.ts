@@ -182,13 +182,10 @@ const scrapeHallsignsPage = async (url: string): Promise<ScrapedSign[]> => {
 
 const scrapeRecreational = async (): Promise<ScrapedSign[]> => {
   const pages = [HALLSIGNS_RECREATION_URL, `${HALLSIGNS_RECREATION_URL}?page=2`];
-  const results: ScrapedSign[] = [];
-  for (const url of pages) {
-    results.push(...(await scrapeHallsignsPage(url)));
-  }
+  const all = (await Promise.all(pages.map(scrapeHallsignsPage))).flat();
   // Deduplicate by code.
   const seen = new Set<string>();
-  return results.filter(({ code }) => (seen.has(code) ? false : seen.add(code) && true));
+  return all.filter(({ code }) => (seen.has(code) ? false : seen.add(code) && true));
 };
 
 const scrape = async (): Promise<ScrapedData> => {

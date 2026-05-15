@@ -130,6 +130,7 @@ export const generateSource = async (cc: string): Promise<void> => {
   const lines: string[] = [
     `// THIS FILE IS AUTO-GENERATED. DO NOT EDIT MANUALLY.`,
     `// Run 'yarn update --country=${cc}' to regenerate.`,
+    `// @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.`,
     ``,
     `import type { USSign } from './types';`,
     ``,
