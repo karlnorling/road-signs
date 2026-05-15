@@ -51,7 +51,9 @@ const resolveWikimediaDirectUrl = async (filePageUrl: string): Promise<string | 
     const html = await res.text();
     const doc = parse(html);
     const href = doc.querySelector('.fullImageLink a')?.getAttribute('href');
-    return href ? `https:${href}` : undefined;
+    if (!href) return undefined;
+    // Wikipedia uses protocol-relative //upload... ; Commons uses full https://upload...
+    return href.startsWith('http') ? href : `https:${href}`;
   } catch (err) {
     console.error(`  Error resolving image page ${filePageUrl}:`, (err as Error).message);
     return undefined;
