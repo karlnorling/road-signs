@@ -61,7 +61,17 @@ const resolveWikimediaDirectUrl = async (filePageUrl: string): Promise<string | 
 const downloadSvg = async (dest: string, url: string): Promise<void> => {
   try {
     const res = await fetchWithRetry(url);
+    const ct = res.headers.get('content-type') ?? '';
+    // Wikimedia occasionally serves a PNG for an .svg page URL — skip it.
+    if (ct.includes('image/png') || ct.includes('image/jpeg')) {
+      console.warn(`  Skipping non-SVG content-type "${ct}" for ${path.basename(dest)}`);
+      return;
+    }
     const content = await res.text();
+    if (!content.trimStart().startsWith('<')) {
+      console.warn(`  Skipping non-SVG content for ${path.basename(dest)}`);
+      return;
+    }
     await fs.promises.writeFile(dest, content);
     console.log(`  Downloaded: ${path.basename(dest)}`);
   } catch (err) {
@@ -183,11 +193,18 @@ const createSvgSprite = async (assetsRoot: string, pkgDir: string): Promise<void
   const symbols: string[] = [];
 
   for (const [key, raw] of Object.entries(svgMap)) {
+    if (!raw.trimStart().startsWith('<')) continue;
     const id = sanitize(path.basename(key, '.svg')).replace(/_/g, '-');
     if (seen.has(id)) continue;
     seen.add(id);
 
-    const optimized = optimize(raw, { multipass: true, plugins: ['preset-default'] }).data;
+    let optimized: string;
+    try {
+      optimized = optimize(raw, { multipass: true, plugins: ['preset-default'] }).data;
+    } catch {
+      console.warn(`  Skipping corrupt SVG in sprite: ${key}`);
+      continue;
+    }
     const svgContent = optimized
       .replace(/<\?xml[^>]*\?>/, '')
       .replace(/<!DOCTYPE[^>]*>/, '')
