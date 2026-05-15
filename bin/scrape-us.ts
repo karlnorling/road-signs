@@ -1,11 +1,12 @@
+/* oxlint-disable no-await-in-loop */
+
 /**
  * scrape-us.ts
  *
- * Scrapes US MUTCD road sign data from the Wikipedia article
- * "Road signs in the United States".
- *
- * Returns structured data grouped by MUTCD category, with Wikimedia Commons
- * image URLs and descriptions for each sign.
+ * Primary source: Wikipedia "Road signs in the United States".
+ * Supplement: hallsigns.com (fills gaps Wikipedia misses — recreational,
+ * bicycle facility, railroad crossing, plus any codes absent from Wikipedia's
+ * tables for regulatory/warning/guide/school/construction).
  *
  * Run via: yarn update --country=us
  */
@@ -31,33 +32,31 @@ export interface ScrapedSign {
 export type ScrapedData = Record<USCategory, ScrapedSign[]>;
 
 const WIKIPEDIA_URL = 'https://en.wikipedia.org/wiki/Road_signs_in_the_United_States';
+const HALLSIGNS_BASE = 'https://www.hallsigns.com/signs/traffic-signs/';
 
 const USER_AGENT = 'road-signs/0.0.0 (https://github.com/karlnorling/road-signs; build-script)';
 
+// ---------------------------------------------------------------------------
+// Wikipedia scraper helpers
+// ---------------------------------------------------------------------------
+
 /**
  * Maps heading text patterns to MUTCD categories.
- * Longer/more-specific patterns must come before shorter ones so they match first.
+ * Longer/more-specific patterns must come before shorter ones.
  */
 const HEADING_CATEGORY_MAP: Array<{ pattern: string; category: USCategory }> = [
-  // Warning
   { pattern: 'warning', category: 'warning' },
-  // Regulatory
   { pattern: 'regulatory', category: 'regulatory' },
-  // Guide / destination
   { pattern: 'destination', category: 'guide' },
   { pattern: 'route marker', category: 'guide' },
   { pattern: 'freeway', category: 'guide' },
   { pattern: 'expressway', category: 'guide' },
   { pattern: 'guide', category: 'guide' },
-  // School
   { pattern: 'school', category: 'school' },
-  // Construction / work zone
   { pattern: 'construction', category: 'construction' },
   { pattern: 'work zone', category: 'construction' },
-  // Recreational
   { pattern: 'recreational', category: 'recreational' },
   { pattern: 'recreation', category: 'recreational' },
-  // Informational
   { pattern: 'general information', category: 'informational' },
   { pattern: 'emergency management', category: 'informational' },
   { pattern: 'motorist', category: 'informational' },
@@ -144,49 +143,114 @@ const scrapeTable = (tableNode: ReturnType<typeof parse>, category: USCategory):
 
     if (!code && !imageUrl) continue;
     const finalName = name || code || '';
-    signs.push({
-      code: code ?? slugify(finalName),
-      name: finalName,
-      imageUrl,
-      category,
-    });
+    signs.push({ code: code ?? slugify(finalName), name: finalName, imageUrl, category });
   }
   return signs;
 };
 
-const HALLSIGNS_RECREATION_URL = 'https://www.hallsigns.com/signs/traffic-signs/recreation-signs/';
+// ---------------------------------------------------------------------------
+// hallsigns.com supplement helpers
+// ---------------------------------------------------------------------------
 
-/** RS-XXX code prefix followed by the sign name, e.g. "RS-068 Hiking Trail" */
-const RS_CODE_RE = /^(RS-\d+)\s+(.+)$/;
+/**
+ * hallsigns.com sign text is always "{CODE} {Description}".
+ * Matches codes like R3-17aP, RS-068, W11-15, HS2-1, CW1-2.
+ * Rejects non-code tokens like "AHA" (no digit/dash separator).
+ */
+const HALLSIGNS_CODE_RE = /^([A-Za-z]{1,4}[-\d][\w-]*)\s+(.+)$/;
 
-const scrapeHallsignsPage = async (url: string): Promise<ScrapedSign[]> => {
-  const res = await fetch(url, { headers: { 'User-Agent': USER_AGENT } });
-  if (!res.ok) throw new Error(`Failed to fetch ${url}: ${res.status}`);
-  const doc = parse(await res.text());
+/**
+ * Infer MUTCD category from sign code prefix.
+ * RS must be checked before R to avoid false match.
+ */
+const inferCategoryFromCode = (code: string): USCategory => {
+  const u = code.toUpperCase();
+  if (u.startsWith('RS')) return 'recreational';
+  if (u.startsWith('R')) return 'regulatory';
+  if (u.startsWith('CW') || u.startsWith('W')) return 'warning';
+  if (/^(D|E|I|M)/.test(u)) return 'guide';
+  if (/^(G|OM)/.test(u)) return 'construction';
+  if (/^(S|HS|SCHOOL)/.test(u)) return 'school';
+  if (u.startsWith('EM')) return 'informational';
+  return 'informational';
+};
+
+/**
+ * All hallsigns.com traffic-sign categories to supplement Wikipedia with.
+ * Pages are known from inspection; we stop early if a page returns nothing.
+ */
+const HALLSIGNS_SLUGS: Array<{ slug: string; pages: number }> = [
+  { slug: 'regulatory-signs', pages: 5 },
+  { slug: 'warning-signs', pages: 5 },
+  { slug: 'guide-signs', pages: 3 },
+  { slug: 'bicycle-facility-signs', pages: 2 },
+  { slug: 'school-zone-signs', pages: 2 },
+  { slug: 'temporary-traffic-control-signs', pages: 3 },
+  { slug: 'railroad-and-light-rail-crossing-signs', pages: 2 },
+  { slug: 'recreation-signs', pages: 2 },
+];
+
+const sleep = (ms: number): Promise<void> => new Promise((r) => setTimeout(r, ms));
+
+const scrapeHallsignsSlug = async (slug: string, maxPages: number): Promise<ScrapedSign[]> => {
   const signs: ScrapedSign[] = [];
-  for (const h4 of doc.querySelectorAll('h4 a')) {
-    const text = h4.textContent?.trim() ?? '';
-    const m = text.match(RS_CODE_RE);
-    if (!m) continue;
-    const code = m[1];
-    const name = m[2];
-    signs.push({
-      code,
-      name,
-      imageUrl: `https://commons.wikimedia.org/wiki/File:MUTCD_${code}.svg`,
-      category: 'recreational',
-    });
+  for (let page = 1; page <= maxPages; page++) {
+    const url = `${HALLSIGNS_BASE}${slug}/?page=${page}`;
+    try {
+      const res = await fetch(url, { headers: { 'User-Agent': USER_AGENT } });
+      if (!res.ok) break;
+      const doc = parse(await res.text());
+      const h4s = doc.querySelectorAll('h4 a');
+      if (h4s.length === 0) break;
+      for (const h4 of h4s) {
+        const text = h4.textContent?.trim() ?? '';
+        const m = text.match(HALLSIGNS_CODE_RE);
+        if (!m) continue;
+        const code = m[1];
+        const name = m[2];
+        signs.push({
+          code,
+          name,
+          imageUrl: `https://commons.wikimedia.org/wiki/File:MUTCD_${code}.svg`,
+          category: inferCategoryFromCode(code),
+        });
+      }
+    } catch (err) {
+      console.warn(`  Warning: failed to fetch ${url}: ${(err as Error).message}`);
+      break;
+    }
+    if (page < maxPages) await sleep(300);
   }
   return signs;
 };
 
-const scrapeRecreational = async (): Promise<ScrapedSign[]> => {
-  const pages = [HALLSIGNS_RECREATION_URL, `${HALLSIGNS_RECREATION_URL}?page=2`];
-  const all = (await Promise.all(pages.map(scrapeHallsignsPage))).flat();
-  // Deduplicate by code.
-  const seen = new Set<string>();
-  return all.filter(({ code }) => (seen.has(code) ? false : seen.add(code) && true));
+/**
+ * Scrapes all hallsigns.com categories and merges new signs into `result`.
+ * Deduplicates globally by code — a sign already present in any category
+ * (from Wikipedia) is never duplicated.
+ */
+const supplementFromHallsigns = async (result: ScrapedData): Promise<void> => {
+  const existingCodes = new Set(Object.values(result).flat().map((s) => s.code));
+  let added = 0;
+
+  for (const { slug, pages } of HALLSIGNS_SLUGS) {
+    console.log(`  hallsigns.com/${slug}...`);
+    const signs = await scrapeHallsignsSlug(slug, pages);
+    for (const sign of signs) {
+      if (!existingCodes.has(sign.code)) {
+        result[sign.category].push(sign);
+        existingCodes.add(sign.code);
+        added++;
+      }
+    }
+  }
+
+  console.log(`  Added ${added} signs from hallsigns.com not in Wikipedia`);
 };
+
+// ---------------------------------------------------------------------------
+// Main scrape entry point
+// ---------------------------------------------------------------------------
 
 const scrape = async (): Promise<ScrapedData> => {
   const res = await fetch(WIKIPEDIA_URL, { headers: { 'User-Agent': USER_AGENT } });
@@ -221,14 +285,12 @@ const scrape = async (): Promise<ScrapedData> => {
     const isH3 = tag === 'h3' || cls.includes('mw-heading3');
 
     if (isH2) {
-      // H2 always sets (or clears) the active category for a new top-level section.
       activeCategory = resolveCategory(node.textContent?.trim() ?? '');
       continue;
     }
 
     if (isH3) {
-      // H3 only overrides the active category when it explicitly matches a category.
-      // Sub-headings like "R1 series: Stop and yield" inherit the parent H2's category.
+      // Only override if this H3 explicitly names a category; otherwise inherit H2's.
       const resolved = resolveCategory(node.textContent?.trim() ?? '');
       if (resolved) activeCategory = resolved;
       continue;
@@ -243,8 +305,8 @@ const scrape = async (): Promise<ScrapedData> => {
     }
   }
 
-  console.log('  Fetching recreational signs from hallsigns.com...');
-  result.recreational = await scrapeRecreational();
+  console.log('  Supplementing with hallsigns.com...');
+  await supplementFromHallsigns(result);
 
   for (const [cat, signs] of Object.entries(result)) {
     if (signs.length === 0) {
