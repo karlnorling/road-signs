@@ -30,7 +30,13 @@ const cleanSvg = (svg: string): string =>
     .trim();
 
 const UNIT_TO_PX: Record<string, number> = {
-  '': 1, px: 1, in: 96, cm: 37.795, mm: 3.7795, pt: 1.333, pc: 16,
+  '': 1,
+  px: 1,
+  in: 96,
+  cm: 37.795,
+  mm: 3.7795,
+  pt: 1.333,
+  pc: 16,
 };
 
 const parsePx = (val: string): number | null => {
@@ -50,9 +56,7 @@ const normalizeSvg = (svg: string): string => {
   const wm = cleaned.match(/\bwidth="([^"]*)"/);
   const hm = cleaned.match(/\bheight="([^"]*)"/);
 
-  let out = cleaned
-    .replace(/\s*\bwidth="[^"]*"/g, '')
-    .replace(/\s*\bheight="[^"]*"/g, '');
+  let out = cleaned.replace(/\s*\bwidth="[^"]*"/g, '').replace(/\s*\bheight="[^"]*"/g, '');
 
   if (hasViewBox) return out;
 

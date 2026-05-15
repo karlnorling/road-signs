@@ -154,8 +154,7 @@ const scrapeTable = (tableNode: ReturnType<typeof parse>, category: USCategory):
   return signs;
 };
 
-const HALLSIGNS_RECREATION_URL =
-  'https://www.hallsigns.com/signs/traffic-signs/recreation-signs/';
+const HALLSIGNS_RECREATION_URL = 'https://www.hallsigns.com/signs/traffic-signs/recreation-signs/';
 
 /** RS-XXX code prefix followed by the sign name, e.g. "RS-068 Hiking Trail" */
 const RS_CODE_RE = /^(RS-\d+)\s+(.+)$/;
