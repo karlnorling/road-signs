@@ -1,0 +1,60 @@
+---
+title: Cape Verde (CV)
+description: Cape Verde road signs — categories, installation, and usage.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+The `@road-signs/cv` package contains Cape Verde road signs.
+
+## Installation
+
+```sh
+npm install @road-signs/cv
+```
+
+## Usage
+
+<Tabs>
+  <TabItem label="TypeScript">
+    ```ts
+    import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/cv';
+
+    // All signs
+    signs.length;
+
+    // By slug ID
+    const sign = getSign("example-sign");
+
+    // By sign code
+    const s = getSignByCode("1.1");
+
+    // All warning signs
+    const filtered = getSignsByCategory('warning');
+    ```
+  </TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { getSignsByCategory } from '@road-signs/cv';
+    import { RoadSign } from '@road-signs/react';
+
+    const warnings = getSignsByCategory('warning');
+
+    export default function WarningGrid() {
+      return (
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          {warnings.map((sign) => (
+            <RoadSign key={sign.id} sign={sign} size={64} />
+          ))}
+        </div>
+      );
+    }
+    ```
+  </TabItem>
+</Tabs>
+
+## TypeScript types
+
+```ts
+import type { CVSign, CVCategory } from '@road-signs/cv';
+```

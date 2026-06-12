@@ -1,0 +1,10 @@
+---
+title: Central African Republic — Sign Gallery
+description: Browse Central African Republic road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/cf';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

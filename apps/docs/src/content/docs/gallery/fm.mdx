@@ -1,0 +1,10 @@
+---
+title: Federated States of Micronesia — Sign Gallery
+description: Browse Federated States of Micronesia road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/fm';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

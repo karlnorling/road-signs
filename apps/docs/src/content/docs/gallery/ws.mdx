@@ -1,0 +1,10 @@
+---
+title: Samoa — Sign Gallery
+description: Browse Samoa road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/ws';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

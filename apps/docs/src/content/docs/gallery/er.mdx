@@ -1,0 +1,10 @@
+---
+title: Eritrea — Sign Gallery
+description: Browse Eritrea road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/er';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

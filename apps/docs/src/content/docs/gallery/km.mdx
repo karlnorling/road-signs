@@ -1,0 +1,10 @@
+---
+title: Comoros — Sign Gallery
+description: Browse Comoros road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/km';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

@@ -1,0 +1,10 @@
+---
+title: Republic of the Congo — Sign Gallery
+description: Browse Republic of the Congo road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/cg';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

@@ -1,0 +1,10 @@
+---
+title: Gabon — Sign Gallery
+description: Browse Gabon road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/ga';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

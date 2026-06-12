@@ -1,0 +1,10 @@
+---
+title: Somalia — Sign Gallery
+description: Browse Somalia road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/so';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

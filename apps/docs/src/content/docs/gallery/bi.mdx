@@ -1,0 +1,10 @@
+---
+title: Burundi — Sign Gallery
+description: Browse Burundi road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/bi';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

@@ -1,0 +1,10 @@
+---
+title: São Tomé and Príncipe — Sign Gallery
+description: Browse São Tomé and Príncipe road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/st';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

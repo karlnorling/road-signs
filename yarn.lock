@@ -3493,6 +3493,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@road-signs/af@workspace:packages/@road-signs/af":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/af@workspace:packages/@road-signs/af"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
 "@road-signs/ag@workspace:packages/@road-signs/ag":
   version: 0.0.0-use.local
   resolution: "@road-signs/ag@workspace:packages/@road-signs/ag"
@@ -3637,9 +3649,57 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@road-signs/bf@workspace:packages/@road-signs/bf":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/bf@workspace:packages/@road-signs/bf"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
 "@road-signs/bg@workspace:packages/@road-signs/bg":
   version: 0.0.0-use.local
   resolution: "@road-signs/bg@workspace:packages/@road-signs/bg"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/bh@workspace:packages/@road-signs/bh":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/bh@workspace:packages/@road-signs/bh"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/bi@workspace:packages/@road-signs/bi":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/bi@workspace:packages/@road-signs/bi"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/bj@workspace:packages/@road-signs/bj":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/bj@workspace:packages/@road-signs/bj"
   dependencies:
     "@road-signs/core": "workspace:*"
     "@types/jest": "npm:^30.0.0"
@@ -3697,6 +3757,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@road-signs/bt@workspace:packages/@road-signs/bt":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/bt@workspace:packages/@road-signs/bt"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
 "@road-signs/bw@workspace:packages/@road-signs/bw":
   version: 0.0.0-use.local
   resolution: "@road-signs/bw@workspace:packages/@road-signs/bw"
@@ -3736,6 +3808,42 @@ __metadata:
 "@road-signs/ca@workspace:packages/@road-signs/ca":
   version: 0.0.0-use.local
   resolution: "@road-signs/ca@workspace:packages/@road-signs/ca"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/cd@workspace:packages/@road-signs/cd":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/cd@workspace:packages/@road-signs/cd"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/cf@workspace:packages/@road-signs/cf":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/cf@workspace:packages/@road-signs/cf"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/cg@workspace:packages/@road-signs/cg":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/cg@workspace:packages/@road-signs/cg"
   dependencies:
     "@road-signs/core": "workspace:*"
     "@types/jest": "npm:^30.0.0"
@@ -3852,6 +3960,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@road-signs/cv@workspace:packages/@road-signs/cv":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/cv@workspace:packages/@road-signs/cv"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
 "@road-signs/cy@workspace:packages/@road-signs/cy":
   version: 0.0.0-use.local
   resolution: "@road-signs/cy@workspace:packages/@road-signs/cy"
@@ -3879,6 +3999,18 @@ __metadata:
 "@road-signs/de@workspace:packages/@road-signs/de":
   version: 0.0.0-use.local
   resolution: "@road-signs/de@workspace:packages/@road-signs/de"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/dj@workspace:packages/@road-signs/dj":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/dj@workspace:packages/@road-signs/dj"
   dependencies:
     "@road-signs/core": "workspace:*"
     "@types/jest": "npm:^30.0.0"
@@ -3991,6 +4123,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@road-signs/er@workspace:packages/@road-signs/er":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/er@workspace:packages/@road-signs/er"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
 "@road-signs/es@workspace:packages/@road-signs/es":
   version: 0.0.0-use.local
   resolution: "@road-signs/es@workspace:packages/@road-signs/es"
@@ -4039,9 +4183,33 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@road-signs/fm@workspace:packages/@road-signs/fm":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/fm@workspace:packages/@road-signs/fm"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
 "@road-signs/fr@workspace:packages/@road-signs/fr":
   version: 0.0.0-use.local
   resolution: "@road-signs/fr@workspace:packages/@road-signs/fr"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/ga@workspace:packages/@road-signs/ga":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/ga@workspace:packages/@road-signs/ga"
   dependencies:
     "@road-signs/core": "workspace:*"
     "@types/jest": "npm:^30.0.0"
@@ -4087,6 +4255,42 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@road-signs/gm@workspace:packages/@road-signs/gm":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/gm@workspace:packages/@road-signs/gm"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/gn@workspace:packages/@road-signs/gn":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/gn@workspace:packages/@road-signs/gn"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/gq@workspace:packages/@road-signs/gq":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/gq@workspace:packages/@road-signs/gq"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
 "@road-signs/gr@workspace:packages/@road-signs/gr":
   version: 0.0.0-use.local
   resolution: "@road-signs/gr@workspace:packages/@road-signs/gr"
@@ -4102,6 +4306,18 @@ __metadata:
 "@road-signs/gt@workspace:packages/@road-signs/gt":
   version: 0.0.0-use.local
   resolution: "@road-signs/gt@workspace:packages/@road-signs/gt"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/gw@workspace:packages/@road-signs/gw":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/gw@workspace:packages/@road-signs/gw"
   dependencies:
     "@road-signs/core": "workspace:*"
     "@types/jest": "npm:^30.0.0"
@@ -4339,6 +4555,30 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@road-signs/ki@workspace:packages/@road-signs/ki":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/ki@workspace:packages/@road-signs/ki"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/km@workspace:packages/@road-signs/km":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/km@workspace:packages/@road-signs/km"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
 "@road-signs/kn@workspace:packages/@road-signs/kn":
   version: 0.0.0-use.local
   resolution: "@road-signs/kn@workspace:packages/@road-signs/kn"
@@ -4450,6 +4690,18 @@ __metadata:
 "@road-signs/lk@workspace:packages/@road-signs/lk":
   version: 0.0.0-use.local
   resolution: "@road-signs/lk@workspace:packages/@road-signs/lk"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/lr@workspace:packages/@road-signs/lr":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/lr@workspace:packages/@road-signs/lr"
   dependencies:
     "@road-signs/core": "workspace:*"
     "@types/jest": "npm:^30.0.0"
@@ -4579,9 +4831,33 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@road-signs/mh@workspace:packages/@road-signs/mh":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/mh@workspace:packages/@road-signs/mh"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
 "@road-signs/mk@workspace:packages/@road-signs/mk":
   version: 0.0.0-use.local
   resolution: "@road-signs/mk@workspace:packages/@road-signs/mk"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/ml@workspace:packages/@road-signs/ml":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/ml@workspace:packages/@road-signs/ml"
   dependencies:
     "@road-signs/core": "workspace:*"
     "@types/jest": "npm:^30.0.0"
@@ -4615,6 +4891,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@road-signs/mr@workspace:packages/@road-signs/mr":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/mr@workspace:packages/@road-signs/mr"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
 "@road-signs/mt@workspace:packages/@road-signs/mt":
   version: 0.0.0-use.local
   resolution: "@road-signs/mt@workspace:packages/@road-signs/mt"
@@ -4630,6 +4918,18 @@ __metadata:
 "@road-signs/mu@workspace:packages/@road-signs/mu":
   version: 0.0.0-use.local
   resolution: "@road-signs/mu@workspace:packages/@road-signs/mu"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/mv@workspace:packages/@road-signs/mv":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/mv@workspace:packages/@road-signs/mv"
   dependencies:
     "@road-signs/core": "workspace:*"
     "@types/jest": "npm:^30.0.0"
@@ -4699,6 +4999,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@road-signs/ne@workspace:packages/@road-signs/ne":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/ne@workspace:packages/@road-signs/ne"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
 "@road-signs/ng@workspace:packages/@road-signs/ng":
   version: 0.0.0-use.local
   resolution: "@road-signs/ng@workspace:packages/@road-signs/ng"
@@ -4750,6 +5062,18 @@ __metadata:
 "@road-signs/np@workspace:packages/@road-signs/np":
   version: 0.0.0-use.local
   resolution: "@road-signs/np@workspace:packages/@road-signs/np"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/nr@workspace:packages/@road-signs/nr":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/nr@workspace:packages/@road-signs/nr"
   dependencies:
     "@road-signs/core": "workspace:*"
     "@types/jest": "npm:^30.0.0"
@@ -4855,9 +5179,33 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@road-signs/ps@workspace:packages/@road-signs/ps":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/ps@workspace:packages/@road-signs/ps"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
 "@road-signs/pt@workspace:packages/@road-signs/pt":
   version: 0.0.0-use.local
   resolution: "@road-signs/pt@workspace:packages/@road-signs/pt"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/pw@workspace:packages/@road-signs/pw":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/pw@workspace:packages/@road-signs/pw"
   dependencies:
     "@road-signs/core": "workspace:*"
     "@types/jest": "npm:^30.0.0"
@@ -4970,6 +5318,42 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@road-signs/sb@workspace:packages/@road-signs/sb":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/sb@workspace:packages/@road-signs/sb"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/sc@workspace:packages/@road-signs/sc":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/sc@workspace:packages/@road-signs/sc"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/sd@workspace:packages/@road-signs/sd":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/sd@workspace:packages/@road-signs/sd"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
 "@road-signs/se@workspace:packages/@road-signs/se":
   version: 0.0.0-use.local
   resolution: "@road-signs/se@workspace:packages/@road-signs/se"
@@ -5018,6 +5402,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@road-signs/sl@workspace:packages/@road-signs/sl":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/sl@workspace:packages/@road-signs/sl"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
 "@road-signs/sm@workspace:packages/@road-signs/sm":
   version: 0.0.0-use.local
   resolution: "@road-signs/sm@workspace:packages/@road-signs/sm"
@@ -5043,9 +5439,45 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@road-signs/so@workspace:packages/@road-signs/so":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/so@workspace:packages/@road-signs/so"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
 "@road-signs/sr@workspace:packages/@road-signs/sr":
   version: 0.0.0-use.local
   resolution: "@road-signs/sr@workspace:packages/@road-signs/sr"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/ss@workspace:packages/@road-signs/ss":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/ss@workspace:packages/@road-signs/ss"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/st@workspace:packages/@road-signs/st":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/st@workspace:packages/@road-signs/st"
   dependencies:
     "@road-signs/core": "workspace:*"
     "@types/jest": "npm:^30.0.0"
@@ -5091,6 +5523,30 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@road-signs/td@workspace:packages/@road-signs/td":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/td@workspace:packages/@road-signs/td"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/tg@workspace:packages/@road-signs/tg":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/tg@workspace:packages/@road-signs/tg"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
 "@road-signs/th@workspace:packages/@road-signs/th":
   version: 0.0.0-use.local
   resolution: "@road-signs/th@workspace:packages/@road-signs/th"
@@ -5106,6 +5562,18 @@ __metadata:
 "@road-signs/tj@workspace:packages/@road-signs/tj":
   version: 0.0.0-use.local
   resolution: "@road-signs/tj@workspace:packages/@road-signs/tj"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/tl@workspace:packages/@road-signs/tl":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/tl@workspace:packages/@road-signs/tl"
   dependencies:
     "@road-signs/core": "workspace:*"
     "@types/jest": "npm:^30.0.0"
@@ -5139,6 +5607,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@road-signs/to@workspace:packages/@road-signs/to":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/to@workspace:packages/@road-signs/to"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
 "@road-signs/tr@workspace:packages/@road-signs/tr":
   version: 0.0.0-use.local
   resolution: "@road-signs/tr@workspace:packages/@road-signs/tr"
@@ -5154,6 +5634,18 @@ __metadata:
 "@road-signs/tt@workspace:packages/@road-signs/tt":
   version: 0.0.0-use.local
   resolution: "@road-signs/tt@workspace:packages/@road-signs/tt"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/tv@workspace:packages/@road-signs/tv":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/tv@workspace:packages/@road-signs/tv"
   dependencies:
     "@road-signs/core": "workspace:*"
     "@types/jest": "npm:^30.0.0"
@@ -5259,6 +5751,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@road-signs/va@workspace:packages/@road-signs/va":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/va@workspace:packages/@road-signs/va"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@road-signs/it": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
 "@road-signs/vc@workspace:packages/@road-signs/vc":
   version: 0.0.0-use.local
   resolution: "@road-signs/vc@workspace:packages/@road-signs/vc"
@@ -5295,6 +5800,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@road-signs/vu@workspace:packages/@road-signs/vu":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/vu@workspace:packages/@road-signs/vu"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
 "@road-signs/vue@workspace:packages/@road-signs/vue":
   version: 0.0.0-use.local
   resolution: "@road-signs/vue@workspace:packages/@road-signs/vue"
@@ -5310,6 +5827,18 @@ __metadata:
     vue: "npm:^3.5.13"
   peerDependencies:
     vue: ">=3"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/ws@workspace:packages/@road-signs/ws":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/ws@workspace:packages/@road-signs/ws"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
   languageName: unknown
   linkType: soft
 

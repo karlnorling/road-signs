@@ -1,0 +1,10 @@
+---
+title: Timor-Leste — Sign Gallery
+description: Browse Timor-Leste road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/tl';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

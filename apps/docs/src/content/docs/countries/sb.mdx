@@ -1,0 +1,60 @@
+---
+title: Solomon Islands (SB)
+description: Solomon Islands road signs — categories, installation, and usage.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+The `@road-signs/sb` package contains Solomon Islands road signs.
+
+## Installation
+
+```sh
+npm install @road-signs/sb
+```
+
+## Usage
+
+<Tabs>
+  <TabItem label="TypeScript">
+    ```ts
+    import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/sb';
+
+    // All signs
+    signs.length;
+
+    // By slug ID
+    const sign = getSign("example-sign");
+
+    // By sign code
+    const s = getSignByCode("1.1");
+
+    // All warning signs
+    const filtered = getSignsByCategory('warning');
+    ```
+  </TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { getSignsByCategory } from '@road-signs/sb';
+    import { RoadSign } from '@road-signs/react';
+
+    const warnings = getSignsByCategory('warning');
+
+    export default function WarningGrid() {
+      return (
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          {warnings.map((sign) => (
+            <RoadSign key={sign.id} sign={sign} size={64} />
+          ))}
+        </div>
+      );
+    }
+    ```
+  </TabItem>
+</Tabs>
+
+## TypeScript types
+
+```ts
+import type { SBSign, SBCategory } from '@road-signs/sb';
+```

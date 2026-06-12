@@ -1,0 +1,10 @@
+---
+title: Bhutan — Sign Gallery
+description: Browse Bhutan road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/bt';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

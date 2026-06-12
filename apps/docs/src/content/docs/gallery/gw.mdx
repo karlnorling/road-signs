@@ -1,0 +1,10 @@
+---
+title: Guinea-Bissau — Sign Gallery
+description: Browse Guinea-Bissau road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/gw';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

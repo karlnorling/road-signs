@@ -1,0 +1,10 @@
+---
+title: Nauru — Sign Gallery
+description: Browse Nauru road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/nr';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

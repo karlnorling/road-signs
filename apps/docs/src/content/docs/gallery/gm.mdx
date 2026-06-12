@@ -1,0 +1,10 @@
+---
+title: Gambia — Sign Gallery
+description: Browse Gambia road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/gm';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

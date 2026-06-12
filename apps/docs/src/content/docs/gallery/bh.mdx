@@ -1,0 +1,10 @@
+---
+title: Bahrain — Sign Gallery
+description: Browse Bahrain road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/bh';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

@@ -1,0 +1,10 @@
+---
+title: Togo — Sign Gallery
+description: Browse Togo road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/tg';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

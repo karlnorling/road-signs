@@ -1,0 +1,10 @@
+---
+title: South Sudan — Sign Gallery
+description: Browse South Sudan road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/ss';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

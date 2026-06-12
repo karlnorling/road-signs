@@ -1,0 +1,10 @@
+---
+title: Seychelles — Sign Gallery
+description: Browse Seychelles road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/sc';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

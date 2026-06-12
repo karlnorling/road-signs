@@ -1,0 +1,10 @@
+---
+title: Palestine — Sign Gallery
+description: Browse Palestine road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/ps';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

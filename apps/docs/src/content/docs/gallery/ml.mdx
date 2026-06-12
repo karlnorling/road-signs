@@ -1,0 +1,10 @@
+---
+title: Mali — Sign Gallery
+description: Browse Mali road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/ml';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

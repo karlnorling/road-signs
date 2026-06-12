@@ -12,6 +12,7 @@ const countryCodes = [
   'core',
   'ad',
   'ae',
+  'af',
   'ag',
   'al',
   'am',
@@ -24,15 +25,23 @@ const countryCodes = [
   'bb',
   'bd',
   'be',
+  'bf',
   'bg',
+  'bh',
+  'bi',
+  'bj',
   'bn',
   'bo',
   'br',
   'bs',
+  'bt',
   'bw',
   'by',
   'bz',
   'ca',
+  'cd',
+  'cf',
+  'cg',
   'ch',
   'ci',
   'cl',
@@ -41,9 +50,11 @@ const countryCodes = [
   'co',
   'cr',
   'cu',
+  'cv',
   'cy',
   'cz',
   'de',
+  'dj',
   'dk',
   'dm',
   'do',
@@ -51,20 +62,27 @@ const countryCodes = [
   'ec',
   'ee',
   'eg',
+  'er',
   'es',
   'et',
-  'fj',
   'fi',
+  'fj',
+  'fm',
   'fr',
+  'ga',
   'gd',
   'ge',
   'gh',
+  'gm',
+  'gn',
+  'gq',
   'gr',
   'gt',
+  'gw',
   'gy',
   'hn',
-  'ht',
   'hr',
+  'ht',
   'hu',
   'id',
   'ie',
@@ -80,17 +98,19 @@ const countryCodes = [
   'ke',
   'kg',
   'kh',
+  'ki',
+  'km',
   'kn',
   'kp',
   'kr',
   'kw',
   'kz',
-  'xk',
   'la',
   'lb',
   'lc',
   'li',
   'lk',
+  'lr',
   'ls',
   'lt',
   'lu',
@@ -101,21 +121,27 @@ const countryCodes = [
   'md',
   'me',
   'mg',
+  'mh',
   'mk',
+  'ml',
   'mm',
   'mn',
+  'mr',
   'mt',
   'mu',
+  'mv',
   'mw',
   'mx',
   'my',
   'mz',
   'na',
+  'ne',
   'ng',
   'ni',
   'nl',
   'no',
   'np',
+  'nr',
   'nz',
   'om',
   'pa',
@@ -124,7 +150,9 @@ const countryCodes = [
   'ph',
   'pk',
   'pl',
+  'ps',
   'pt',
+  'pw',
   'py',
   'qa',
   'ro',
@@ -132,22 +160,34 @@ const countryCodes = [
   'ru',
   'rw',
   'sa',
+  'sb',
+  'sc',
+  'sd',
   'se',
   'sg',
   'si',
   'sk',
+  'sl',
   'sm',
   'sn',
+  'so',
   'sr',
+  'ss',
+  'st',
   'sv',
   'sy',
   'sz',
+  'td',
+  'tg',
   'th',
   'tj',
+  'tl',
   'tm',
   'tn',
+  'to',
   'tr',
   'tt',
+  'tv',
   'tw',
   'tz',
   'ua',
@@ -156,9 +196,13 @@ const countryCodes = [
   'us',
   'uy',
   'uz',
+  'va',
   'vc',
   've',
   'vn',
+  'vu',
+  'ws',
+  'xk',
   'ye',
   'za',
   'zm',
@@ -799,6 +843,13 @@ export default defineConfig({
                     { label: 'Gallery', slug: 'gallery/sm' },
                   ],
                 },
+              {
+                label: 'Vatican City (VA)',
+                items: [
+                  { label: 'Overview', slug: 'countries/va' },
+                  { label: 'Gallery', slug: 'gallery/va' },
+                ],
+              },
               ],
             },
             {
@@ -1014,6 +1065,97 @@ export default defineConfig({
                     { label: 'Gallery', slug: 'gallery/kp' },
                   ],
                 },
+              {
+                label: 'Bhutan (BT)',
+                items: [
+                  { label: 'Overview', slug: 'countries/bt' },
+                  { label: 'Gallery', slug: 'gallery/bt' },
+                ],
+              },
+              {
+                label: 'Federated States of Micronesia (FM)',
+                items: [
+                  { label: 'Overview', slug: 'countries/fm' },
+                  { label: 'Gallery', slug: 'gallery/fm' },
+                ],
+              },
+              {
+                label: 'Kiribati (KI)',
+                items: [
+                  { label: 'Overview', slug: 'countries/ki' },
+                  { label: 'Gallery', slug: 'gallery/ki' },
+                ],
+              },
+              {
+                label: 'Marshall Islands (MH)',
+                items: [
+                  { label: 'Overview', slug: 'countries/mh' },
+                  { label: 'Gallery', slug: 'gallery/mh' },
+                ],
+              },
+              {
+                label: 'Maldives (MV)',
+                items: [
+                  { label: 'Overview', slug: 'countries/mv' },
+                  { label: 'Gallery', slug: 'gallery/mv' },
+                ],
+              },
+              {
+                label: 'Nauru (NR)',
+                items: [
+                  { label: 'Overview', slug: 'countries/nr' },
+                  { label: 'Gallery', slug: 'gallery/nr' },
+                ],
+              },
+              {
+                label: 'Palau (PW)',
+                items: [
+                  { label: 'Overview', slug: 'countries/pw' },
+                  { label: 'Gallery', slug: 'gallery/pw' },
+                ],
+              },
+              {
+                label: 'Solomon Islands (SB)',
+                items: [
+                  { label: 'Overview', slug: 'countries/sb' },
+                  { label: 'Gallery', slug: 'gallery/sb' },
+                ],
+              },
+              {
+                label: 'Timor-Leste (TL)',
+                items: [
+                  { label: 'Overview', slug: 'countries/tl' },
+                  { label: 'Gallery', slug: 'gallery/tl' },
+                ],
+              },
+              {
+                label: 'Tonga (TO)',
+                items: [
+                  { label: 'Overview', slug: 'countries/to' },
+                  { label: 'Gallery', slug: 'gallery/to' },
+                ],
+              },
+              {
+                label: 'Tuvalu (TV)',
+                items: [
+                  { label: 'Overview', slug: 'countries/tv' },
+                  { label: 'Gallery', slug: 'gallery/tv' },
+                ],
+              },
+              {
+                label: 'Vanuatu (VU)',
+                items: [
+                  { label: 'Overview', slug: 'countries/vu' },
+                  { label: 'Gallery', slug: 'gallery/vu' },
+                ],
+              },
+              {
+                label: 'Samoa (WS)',
+                items: [
+                  { label: 'Overview', slug: 'countries/ws' },
+                  { label: 'Gallery', slug: 'gallery/ws' },
+                ],
+              },
               ],
             },
             {
@@ -1299,6 +1441,216 @@ export default defineConfig({
                     { label: 'Gallery', slug: 'gallery/mu' },
                   ],
                 },
+              {
+                label: 'Afghanistan (AF)',
+                items: [
+                  { label: 'Overview', slug: 'countries/af' },
+                  { label: 'Gallery', slug: 'gallery/af' },
+                ],
+              },
+              {
+                label: 'Burkina Faso (BF)',
+                items: [
+                  { label: 'Overview', slug: 'countries/bf' },
+                  { label: 'Gallery', slug: 'gallery/bf' },
+                ],
+              },
+              {
+                label: 'Bahrain (BH)',
+                items: [
+                  { label: 'Overview', slug: 'countries/bh' },
+                  { label: 'Gallery', slug: 'gallery/bh' },
+                ],
+              },
+              {
+                label: 'Burundi (BI)',
+                items: [
+                  { label: 'Overview', slug: 'countries/bi' },
+                  { label: 'Gallery', slug: 'gallery/bi' },
+                ],
+              },
+              {
+                label: 'Benin (BJ)',
+                items: [
+                  { label: 'Overview', slug: 'countries/bj' },
+                  { label: 'Gallery', slug: 'gallery/bj' },
+                ],
+              },
+              {
+                label: 'DR Congo (CD)',
+                items: [
+                  { label: 'Overview', slug: 'countries/cd' },
+                  { label: 'Gallery', slug: 'gallery/cd' },
+                ],
+              },
+              {
+                label: 'Central African Republic (CF)',
+                items: [
+                  { label: 'Overview', slug: 'countries/cf' },
+                  { label: 'Gallery', slug: 'gallery/cf' },
+                ],
+              },
+              {
+                label: 'Republic of the Congo (CG)',
+                items: [
+                  { label: 'Overview', slug: 'countries/cg' },
+                  { label: 'Gallery', slug: 'gallery/cg' },
+                ],
+              },
+              {
+                label: 'Cape Verde (CV)',
+                items: [
+                  { label: 'Overview', slug: 'countries/cv' },
+                  { label: 'Gallery', slug: 'gallery/cv' },
+                ],
+              },
+              {
+                label: 'Djibouti (DJ)',
+                items: [
+                  { label: 'Overview', slug: 'countries/dj' },
+                  { label: 'Gallery', slug: 'gallery/dj' },
+                ],
+              },
+              {
+                label: 'Eritrea (ER)',
+                items: [
+                  { label: 'Overview', slug: 'countries/er' },
+                  { label: 'Gallery', slug: 'gallery/er' },
+                ],
+              },
+              {
+                label: 'Gabon (GA)',
+                items: [
+                  { label: 'Overview', slug: 'countries/ga' },
+                  { label: 'Gallery', slug: 'gallery/ga' },
+                ],
+              },
+              {
+                label: 'Gambia (GM)',
+                items: [
+                  { label: 'Overview', slug: 'countries/gm' },
+                  { label: 'Gallery', slug: 'gallery/gm' },
+                ],
+              },
+              {
+                label: 'Guinea (GN)',
+                items: [
+                  { label: 'Overview', slug: 'countries/gn' },
+                  { label: 'Gallery', slug: 'gallery/gn' },
+                ],
+              },
+              {
+                label: 'Equatorial Guinea (GQ)',
+                items: [
+                  { label: 'Overview', slug: 'countries/gq' },
+                  { label: 'Gallery', slug: 'gallery/gq' },
+                ],
+              },
+              {
+                label: 'Guinea-Bissau (GW)',
+                items: [
+                  { label: 'Overview', slug: 'countries/gw' },
+                  { label: 'Gallery', slug: 'gallery/gw' },
+                ],
+              },
+              {
+                label: 'Comoros (KM)',
+                items: [
+                  { label: 'Overview', slug: 'countries/km' },
+                  { label: 'Gallery', slug: 'gallery/km' },
+                ],
+              },
+              {
+                label: 'Liberia (LR)',
+                items: [
+                  { label: 'Overview', slug: 'countries/lr' },
+                  { label: 'Gallery', slug: 'gallery/lr' },
+                ],
+              },
+              {
+                label: 'Mali (ML)',
+                items: [
+                  { label: 'Overview', slug: 'countries/ml' },
+                  { label: 'Gallery', slug: 'gallery/ml' },
+                ],
+              },
+              {
+                label: 'Mauritania (MR)',
+                items: [
+                  { label: 'Overview', slug: 'countries/mr' },
+                  { label: 'Gallery', slug: 'gallery/mr' },
+                ],
+              },
+              {
+                label: 'Niger (NE)',
+                items: [
+                  { label: 'Overview', slug: 'countries/ne' },
+                  { label: 'Gallery', slug: 'gallery/ne' },
+                ],
+              },
+              {
+                label: 'Palestine (PS)',
+                items: [
+                  { label: 'Overview', slug: 'countries/ps' },
+                  { label: 'Gallery', slug: 'gallery/ps' },
+                ],
+              },
+              {
+                label: 'Seychelles (SC)',
+                items: [
+                  { label: 'Overview', slug: 'countries/sc' },
+                  { label: 'Gallery', slug: 'gallery/sc' },
+                ],
+              },
+              {
+                label: 'Sudan (SD)',
+                items: [
+                  { label: 'Overview', slug: 'countries/sd' },
+                  { label: 'Gallery', slug: 'gallery/sd' },
+                ],
+              },
+              {
+                label: 'Sierra Leone (SL)',
+                items: [
+                  { label: 'Overview', slug: 'countries/sl' },
+                  { label: 'Gallery', slug: 'gallery/sl' },
+                ],
+              },
+              {
+                label: 'Somalia (SO)',
+                items: [
+                  { label: 'Overview', slug: 'countries/so' },
+                  { label: 'Gallery', slug: 'gallery/so' },
+                ],
+              },
+              {
+                label: 'South Sudan (SS)',
+                items: [
+                  { label: 'Overview', slug: 'countries/ss' },
+                  { label: 'Gallery', slug: 'gallery/ss' },
+                ],
+              },
+              {
+                label: 'São Tomé and Príncipe (ST)',
+                items: [
+                  { label: 'Overview', slug: 'countries/st' },
+                  { label: 'Gallery', slug: 'gallery/st' },
+                ],
+              },
+              {
+                label: 'Chad (TD)',
+                items: [
+                  { label: 'Overview', slug: 'countries/td' },
+                  { label: 'Gallery', slug: 'gallery/td' },
+                ],
+              },
+              {
+                label: 'Togo (TG)',
+                items: [
+                  { label: 'Overview', slug: 'countries/tg' },
+                  { label: 'Gallery', slug: 'gallery/tg' },
+                ],
+              },
               ],
             },
           ],

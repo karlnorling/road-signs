@@ -1,0 +1,10 @@
+---
+title: DR Congo — Sign Gallery
+description: Browse DR Congo road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/cd';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

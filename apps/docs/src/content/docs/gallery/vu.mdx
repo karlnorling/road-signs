@@ -1,0 +1,10 @@
+---
+title: Vanuatu — Sign Gallery
+description: Browse Vanuatu road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/vu';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

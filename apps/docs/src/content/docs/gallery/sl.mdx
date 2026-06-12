@@ -1,0 +1,10 @@
+---
+title: Sierra Leone — Sign Gallery
+description: Browse Sierra Leone road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/sl';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

@@ -1,0 +1,10 @@
+---
+title: Kiribati — Sign Gallery
+description: Browse Kiribati road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/ki';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

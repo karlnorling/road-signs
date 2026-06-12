@@ -1,0 +1,10 @@
+---
+title: Maldives — Sign Gallery
+description: Browse Maldives road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/mv';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

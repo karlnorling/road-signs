@@ -1,0 +1,10 @@
+---
+title: Afghanistan — Sign Gallery
+description: Browse Afghanistan road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/af';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

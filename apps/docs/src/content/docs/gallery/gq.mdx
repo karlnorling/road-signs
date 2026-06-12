@@ -1,0 +1,10 @@
+---
+title: Equatorial Guinea — Sign Gallery
+description: Browse Equatorial Guinea road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/gq';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

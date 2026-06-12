@@ -1,0 +1,10 @@
+---
+title: Tonga — Sign Gallery
+description: Browse Tonga road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/to';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

@@ -1,0 +1,10 @@
+---
+title: Burkina Faso — Sign Gallery
+description: Browse Burkina Faso road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/bf';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

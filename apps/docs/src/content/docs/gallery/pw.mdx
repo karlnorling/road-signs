@@ -1,0 +1,10 @@
+---
+title: Palau — Sign Gallery
+description: Browse Palau road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/pw';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

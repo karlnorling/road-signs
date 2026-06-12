@@ -1,0 +1,10 @@
+---
+title: Liberia — Sign Gallery
+description: Browse Liberia road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/lr';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

@@ -1,0 +1,10 @@
+---
+title: Mauritania — Sign Gallery
+description: Browse Mauritania road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/mr';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />
