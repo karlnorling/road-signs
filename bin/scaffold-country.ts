@@ -33,7 +33,11 @@ interface Opts {
 
 const parseArgs = (): Opts => {
   const get = (k: string): string | undefined =>
-    process.argv.find((a) => a.startsWith(`--${k}=`))?.split('=').slice(1).join('=');
+    process.argv
+      .find((a) => a.startsWith(`--${k}=`))
+      ?.split('=')
+      .slice(1)
+      .join('=');
   const cc = get('cc');
   const name = get('name');
   if (!cc || !name) {
@@ -42,7 +46,12 @@ const parseArgs = (): Opts => {
     );
     process.exit(1);
   }
-  return { cc: cc.toLowerCase(), name, reexport: get('reexport')?.toLowerCase(), standard: get('standard') };
+  return {
+    cc: cc.toLowerCase(),
+    name,
+    reexport: get('reexport')?.toLowerCase(),
+    standard: get('standard'),
+  };
 };
 
 const writeIfMissing = (p: string, content: string): void => {
@@ -277,7 +286,9 @@ const main = (): void => {
   const pkgDir = path.join('packages', '@road-signs', cc);
   const docsDir = path.join('apps', 'docs', 'src', 'content', 'docs');
 
-  console.log(`Scaffolding @road-signs/${cc} (${name})${reexport ? ` — re-exports ${reexport}` : ''}`);
+  console.log(
+    `Scaffolding @road-signs/${cc} (${name})${reexport ? ` — re-exports ${reexport}` : ''}`,
+  );
 
   writeIfMissing(path.join(pkgDir, 'package.json'), packageJson(cc, name, reexport));
   writeIfMissing(path.join(pkgDir, 'tsconfig.json'), tsconfigBase);

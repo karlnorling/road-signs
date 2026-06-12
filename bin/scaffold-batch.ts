@@ -68,12 +68,7 @@ const COUNTRIES: Entry[] = [
 
 for (const c of COUNTRIES) {
   console.log(`\n=== ${c.cc.toUpperCase()} ${c.name} ===`);
-  const args = [
-    'tsx',
-    'bin/scaffold-country.ts',
-    `--cc=${c.cc}`,
-    `--name=${c.name}`,
-  ];
+  const args = ['tsx', 'bin/scaffold-country.ts', `--cc=${c.cc}`, `--name=${c.name}`];
   if (c.reexport) args.push(`--reexport=${c.reexport}`);
   const r = spawnSync('yarn', args, { stdio: 'inherit' });
   if (r.status !== 0) {
