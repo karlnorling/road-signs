@@ -1,13 +1,22 @@
 /**
- * dedup-scraped.ts
+ * dedup-scraped.ts — manual recovery tool
  *
- * One-shot utility: deduplicates all existing data/{cc}/scraped.json files
- * in place, then regenerates source for each country.
+ * Note: `update.ts` already runs a dedup pass on every scrape, so under normal
+ * operation this script is unnecessary. Use it only when:
+ *
+ *   - `fill-gaps` introduced duplicates by Commons-supplementing the same
+ *     image under a different code, OR
+ *   - a historical `scraped.json` was generated before the inline dedup was
+ *     added (pre-Mar 2026), OR
+ *   - you need to audit a single country without re-scraping.
+ *
+ * Walks every `data/<cc>/scraped.json`, applies the same two-pass dedup as
+ * `update.ts`, and re-generates the country's source if anything changed.
  *
  * Pass 1 — globally by imageUrl (same image = same sign, across categories).
  * Pass 2 — within each category by code (first occurrence wins).
  *
- * Usage: yarn tsx bin/dedup-scraped.ts
+ * Usage:  yarn tsx bin/dedup-scraped.ts
  */
 
 import fs from 'fs';

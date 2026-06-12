@@ -156,27 +156,95 @@ const findPrimaryAsset = (code: string, assetsRoot: string): PrimaryAsset | unde
   return undefined;
 };
 
-export const generateSource = async (cc: string): Promise<void> => {
-  const scrapedPath = path.join('data', cc, 'scraped.json');
-  const pkgDir = path.join('packages', '@road-signs', cc);
-  const assetsRoot = path.join(pkgDir, 'assets');
-
-  if (!fs.existsSync(scrapedPath)) {
-    throw new Error(`Missing ${scrapedPath}. Run 'yarn update --country=${cc}' first.`);
+/** Build the literal-object lines for a single sign (no leading/trailing array brackets). */
+const buildSignLiteral = async (
+  category: string,
+  sign: { code: string; name: string },
+  asset: PrimaryAsset,
+  relPath: string,
+): Promise<string[]> => {
+  const id = slugify(`${sign.code}-${sign.name}`);
+  const assets = buildAssets(relPath);
+  if (asset.isPng) {
+    return [
+      `  {`,
+      `    assets: {`,
+      `      jpg: ${JSON.stringify(assets.jpg)},`,
+      `      png: ${JSON.stringify(assets.png)},`,
+      `      webp: ${JSON.stringify(assets.webp)},`,
+      `    },`,
+      `    category: ${JSON.stringify(category)},`,
+      `    code: ${JSON.stringify(sign.code)},`,
+      `    description: ${JSON.stringify(sign.name)},`,
+      `    id: ${JSON.stringify(id)},`,
+      `    name: ${JSON.stringify(sign.name)},`,
+      `  },`,
+    ];
   }
+  const raw = await fs.promises.readFile(asset.filePath, 'utf-8');
+  let optimized: string;
+  try {
+    optimized = optimize(raw, { multipass: true, plugins: ['preset-default'] }).data;
+  } catch {
+    // Some SVGs (Inkscape bspline-heavy files) exceed SVGO's entity limit — use raw.
+    optimized = raw;
+  }
+  const inlineSvg = scopeIds(normalizeSvg(cleanSvg(optimized)), id);
+  return [
+    `  {`,
+    `    assets: {`,
+    `      jpg: ${JSON.stringify(assets.jpg)},`,
+    `      png: ${JSON.stringify(assets.png)},`,
+    `      svg: ${JSON.stringify(assets.svg)},`,
+    `      webp: ${JSON.stringify(assets.webp)},`,
+    `    },`,
+    `    category: ${JSON.stringify(category)},`,
+    `    code: ${JSON.stringify(sign.code)},`,
+    `    description: ${JSON.stringify(sign.name)},`,
+    `    id: ${JSON.stringify(id)},`,
+    `    name: ${JSON.stringify(sign.name)},`,
+    `    svg: ${JSON.stringify(inlineSvg)},`,
+    `  },`,
+  ];
+};
 
-  const scraped = JSON.parse(fs.readFileSync(scrapedPath, 'utf-8'));
-  const lines: string[] = [
+/** GitHub's "large file" warning kicks in at 50MB. Stay safely under it. */
+const SHARD_THRESHOLD_BYTES = 30 * 1024 * 1024;
+
+/**
+ * Wrap one sign-chunk into a shard file body. Empty `name` produces the
+ * primary signs.generated.ts that imports the shards.
+ */
+const wrapShard = (cc: string, name: string, body: string[]): string => {
+  const header = [
     `// THIS FILE IS AUTO-GENERATED. DO NOT EDIT MANUALLY.`,
     `// Run 'yarn update --country=${cc}' to regenerate.`,
     `// @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.`,
     ``,
     `import type { ${cc.toUpperCase()}Sign } from './types';`,
     ``,
-    `export const signs: ${cc.toUpperCase()}Sign[] = [`,
+    `export const signs${name}: ${cc.toUpperCase()}Sign[] = [`,
   ];
+  return [...header, ...body, `];`, ``].join('\n');
+};
 
+export const generateSource = async (cc: string): Promise<void> => {
+  const scrapedPath = path.join('data', cc, 'scraped.json');
+  const pkgDir = path.join('packages', '@road-signs', cc);
+  const assetsRoot = path.join(pkgDir, 'assets');
+  const srcDir = path.join(pkgDir, 'src');
+
+  if (!fs.existsSync(scrapedPath)) {
+    throw new Error(`Missing ${scrapedPath}. Run 'yarn update --country=${cc}' first.`);
+  }
+
+  const scraped = JSON.parse(fs.readFileSync(scrapedPath, 'utf-8'));
+
+  // First pass: build all sign-literal lines, partitioned by category, with running byte size.
+  const perCategory: Record<string, { lines: string[]; bytes: number }> = {};
+  let totalBytes = 0;
   let count = 0;
+
   for (const [category, signs] of Object.entries(scraped) as [
     string,
     Array<{ code: string; name: string; imageUrl: string | null }>,
@@ -187,65 +255,99 @@ export const generateSource = async (cc: string): Promise<void> => {
         console.warn(`  Skipping ${sign.code}: no matching asset file`);
         continue;
       }
-
-      const id = slugify(`${sign.code}-${sign.name}`);
       const relPath = path.relative(pkgDir, asset.filePath).replace(/\\/g, '/');
-      const assets = buildAssets(relPath);
-
-      if (asset.isPng) {
-        // PDF-extracted sign: PNG primary asset, no inline SVG.
-        lines.push(
-          `  {`,
-          `    assets: {`,
-          `      jpg: ${JSON.stringify(assets.jpg)},`,
-          `      png: ${JSON.stringify(assets.png)},`,
-          `      webp: ${JSON.stringify(assets.webp)},`,
-          `    },`,
-          `    category: ${JSON.stringify(category)},`,
-          `    code: ${JSON.stringify(sign.code)},`,
-          `    description: ${JSON.stringify(sign.name)},`,
-          `    id: ${JSON.stringify(id)},`,
-          `    name: ${JSON.stringify(sign.name)},`,
-          `  },`,
-        );
-      } else {
-        // SVG-sourced sign: inline SVG + full asset set.
-        const raw = await fs.promises.readFile(asset.filePath, 'utf-8');
-        let optimized: string;
-        try {
-          optimized = optimize(raw, { multipass: true, plugins: ['preset-default'] }).data;
-        } catch {
-          // Some SVGs (Inkscape bspline-heavy files) exceed SVGO's entity limit — use raw.
-          optimized = raw;
-        }
-        const inlineSvg = scopeIds(normalizeSvg(cleanSvg(optimized)), id);
-        lines.push(
-          `  {`,
-          `    assets: {`,
-          `      jpg: ${JSON.stringify(assets.jpg)},`,
-          `      png: ${JSON.stringify(assets.png)},`,
-          `      svg: ${JSON.stringify(assets.svg)},`,
-          `      webp: ${JSON.stringify(assets.webp)},`,
-          `    },`,
-          `    category: ${JSON.stringify(category)},`,
-          `    code: ${JSON.stringify(sign.code)},`,
-          `    description: ${JSON.stringify(sign.name)},`,
-          `    id: ${JSON.stringify(id)},`,
-          `    name: ${JSON.stringify(sign.name)},`,
-          `    svg: ${JSON.stringify(inlineSvg)},`,
-          `  },`,
-        );
-      }
+      const literal = await buildSignLiteral(category, sign, asset, relPath);
+      const bytes = literal.reduce((s, l) => s + l.length + 1, 0);
+      if (!perCategory[category]) perCategory[category] = { lines: [], bytes: 0 };
+      perCategory[category].lines.push(...literal);
+      perCategory[category].bytes += bytes;
+      totalBytes += bytes;
       count++;
     }
   }
 
-  lines.push(`];`);
+  // Clean any stale shard files before writing fresh ones.
+  for (const f of fs.readdirSync(srcDir)) {
+    if (/^signs\.[a-z0-9_]+\.generated\.ts$/i.test(f)) fs.unlinkSync(path.join(srcDir, f));
+  }
 
-  const outPath = path.join(pkgDir, 'src', 'signs.generated.ts');
-  fs.writeFileSync(outPath, lines.join('\n') + '\n', 'utf-8');
-  console.log(`  Written ${outPath} (${count} signs)`);
+  // Single file path: under threshold → emit one signs.generated.ts the legacy way.
+  if (totalBytes < SHARD_THRESHOLD_BYTES) {
+    const lines: string[] = [];
+    for (const cat of Object.keys(perCategory)) lines.push(...perCategory[cat].lines);
+    fs.writeFileSync(path.join(srcDir, 'signs.generated.ts'), wrapShard(cc, '', lines), 'utf-8');
+    console.log(`  Written signs.generated.ts (${count} signs, ${(totalBytes / 1024 / 1024).toFixed(1)}MB)`);
+    return;
+  }
+
+  // Sharded path: emit one file per chunk and a primary signs.generated.ts that re-exports.
+  const shards: Array<{ name: string; lines: string[] }> = [];
+  for (const [category, { lines, bytes }] of Object.entries(perCategory)) {
+    if (bytes <= SHARD_THRESHOLD_BYTES) {
+      shards.push({ name: category, lines });
+      continue;
+    }
+    // Sub-chunk a single oversized category. Sign sizes vary by orders of
+    // magnitude (some inline SVGs are 200KB+, others a few hundred bytes),
+    // so split by accumulated bytes, not by sign count.
+    const targetBytes = 25 * 1024 * 1024;
+    let chunkIdx = 0;
+    let buf: string[] = [];
+    let bufBytes = 0;
+    for (const line of lines) {
+      buf.push(line);
+      bufBytes += line.length + 1;
+      // Close-of-sign boundary: decide whether to flush this chunk.
+      if (line === '  },' && bufBytes >= targetBytes) {
+        chunkIdx++;
+        shards.push({ name: `${category}_${chunkIdx}`, lines: buf });
+        buf = [];
+        bufBytes = 0;
+      }
+    }
+    if (buf.length > 0) {
+      chunkIdx++;
+      shards.push({ name: `${category}_${chunkIdx}`, lines: buf });
+    }
+  }
+
+  // Write each shard to disk.
+  for (const shard of shards) {
+    const slug = shard.name.replace(/[^a-z0-9]+/gi, '_').toLowerCase();
+    fs.writeFileSync(
+      path.join(srcDir, `signs.${slug}.generated.ts`),
+      wrapShard(cc, `_${pascalCase(slug)}`, shard.lines),
+      'utf-8',
+    );
+  }
+
+  // Write the primary signs.generated.ts that concatenates the shards.
+  const primary: string[] = [
+    `// THIS FILE IS AUTO-GENERATED. DO NOT EDIT MANUALLY.`,
+    `// Run 'yarn update --country=${cc}' to regenerate.`,
+    `// Sharded across ${shards.length} files because the combined registry exceeded ${SHARD_THRESHOLD_BYTES / 1024 / 1024}MB.`,
+    ``,
+    `import type { ${cc.toUpperCase()}Sign } from './types';`,
+  ];
+  for (const shard of shards) {
+    const slug = shard.name.replace(/[^a-z0-9]+/gi, '_').toLowerCase();
+    primary.push(`import { signs_${pascalCase(slug)} } from './signs.${slug}.generated';`);
+  }
+  primary.push(
+    ``,
+    `export const signs: ${cc.toUpperCase()}Sign[] = [`,
+    ...shards.map((s) => `  ...signs_${pascalCase(s.name.replace(/[^a-z0-9]+/gi, '_').toLowerCase())},`),
+    `];`,
+    ``,
+  );
+  fs.writeFileSync(path.join(srcDir, 'signs.generated.ts'), primary.join('\n'), 'utf-8');
+  console.log(
+    `  Written ${shards.length} shards + signs.generated.ts (${count} signs, ${(totalBytes / 1024 / 1024).toFixed(1)}MB total)`,
+  );
 };
+
+const pascalCase = (s: string): string =>
+  s.replace(/(^|_)([a-z0-9])/g, (_, __, ch: string) => ch.toUpperCase());
 
 if (process.argv[1]?.includes('generate-source')) {
   const cc = process.argv.find((a) => a.startsWith('--country='))?.split('=')[1];

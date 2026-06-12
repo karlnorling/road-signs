@@ -4255,7 +4255,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@road-signs/it@workspace:packages/@road-signs/it":
+"@road-signs/it@workspace:*, @road-signs/it@workspace:packages/@road-signs/it":
   version: 0.0.0-use.local
   resolution: "@road-signs/it@workspace:packages/@road-signs/it"
   dependencies:
@@ -5023,6 +5023,7 @@ __metadata:
   resolution: "@road-signs/sm@workspace:packages/@road-signs/sm"
   dependencies:
     "@road-signs/core": "workspace:*"
+    "@road-signs/it": "workspace:*"
     "@types/jest": "npm:^30.0.0"
     jest: "npm:^30.3.0"
     ts-jest: "npm:^29.4.0"
@@ -9401,10 +9402,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"js-cookie@npm:^3.0.5":
-  version: 3.0.5
-  resolution: "js-cookie@npm:3.0.5"
-  checksum: 10c0/04a0e560407b4489daac3a63e231d35f4e86f78bff9d792011391b49c59f721b513411cd75714c418049c8dc9750b20fcddad1ca5a2ca616c3aca4874cce5b3a
+"js-cookie@npm:^3.0.7":
+  version: 3.0.8
+  resolution: "js-cookie@npm:3.0.8"
+  checksum: 10c0/421912a4a55535bda32b3059835864e1182c3af5b4516df00a060edc1fa5a53d38bb8d5a91d5d305e396206f4fd11e829f17850aa5aa8164118c04d8ebf1ff5d
   languageName: node
   linkType: hard
 
@@ -11269,13 +11270,6 @@ __metadata:
   version: 4.1.0
   resolution: "peek-readable@npm:4.1.0"
   checksum: 10c0/f9b81ce3eed185cc9ebbf7dff0b6e130dd6da7b05f1802bbf726a78e4d84990b0a65f8e701959c50eb1124cc2ad352205147954bf39793faba29bb00ce742a44
-  languageName: node
-  linkType: hard
-
-"phin@npm:^2.9.1":
-  version: 2.9.3
-  resolution: "phin@npm:2.9.3"
-  checksum: 10c0/5bb94493f1bf1f0b66ca08aee6aaa488c46f4a8af2722d94ef9c8e4aaa3a5952e19aeff37f832ed64a71c98124c73936a30caef42973be21350b36af5fc33ab8
   languageName: node
   linkType: hard
 

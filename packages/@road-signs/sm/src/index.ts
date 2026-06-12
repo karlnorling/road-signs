@@ -1,16 +1,29 @@
-import type { SMCategory, SMSign } from './types';
-import { signs } from './signs.generated';
+/**
+ * @road-signs/sm — San Marino road signs.
+ *
+ * San Marino is fully integrated into the Italian road-sign system
+ * (Codice della Strada). Rather than ship a duplicate ~60MB registry,
+ * this package re-exports the Italian catalogue under SM-prefixed names.
+ */
 
-export type { SMCategory, SMSign } from './types';
+import {
+  signs,
+  getAllSigns as itGetAllSigns,
+  getSign as itGetSign,
+  getSignByCode as itGetSignByCode,
+  getSignsByCategory as itGetSignsByCategory,
+} from '@road-signs/it';
+import type { ITCategory, ITSign } from '@road-signs/it';
+
+export type { ITCategory as SMCategory, ITSign as SMSign } from '@road-signs/it';
+
 export { signs };
 
-export const getAllSigns = (): SMSign[] => [...signs];
+export const getAllSigns = (): ITSign[] => itGetAllSigns();
 
-export const getSign = (id: string): SMSign | undefined =>
-  signs.find((s) => s.id === id);
+export const getSign = (id: string): ITSign | undefined => itGetSign(id);
 
-export const getSignByCode = (code: string): SMSign | undefined =>
-  signs.find((s) => s.code === code);
+export const getSignByCode = (code: string): ITSign | undefined => itGetSignByCode(code);
 
-export const getSignsByCategory = (category: SMCategory): SMSign[] =>
-  signs.filter((s) => s.category === category);
+export const getSignsByCategory = (category: ITCategory): ITSign[] =>
+  itGetSignsByCategory(category);
