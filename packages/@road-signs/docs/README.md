@@ -4,7 +4,7 @@ Coverage documentation for the [`@road-signs/*`](https://github.com/karlnorling/
 All SVG assets are sourced from [Wikimedia Commons](https://commons.wikimedia.org/) and are in the public domain
 (Creative Commons or similar open licences).
 
-_Last updated: 2026-06-03_
+_Last updated: 2026-06-12_
 
 ## Coverage Summary
 

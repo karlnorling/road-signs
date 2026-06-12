@@ -51,7 +51,10 @@ const parseAllowedCategories = (typesPath: string, cc: string): Set<string> | nu
   // Case 2: inline union, possibly multi-line.
   // Match `export type FOOCategory = 'a' | 'b';` allowing newlines and whitespace.
   const inline = src.match(
-    new RegExp(`export\\s+type\\s+${upper}Category\\s*=\\s*((?:\\s*\\|?\\s*['"][^'"]+['"])+)\\s*;`, 'm'),
+    new RegExp(
+      `export\\s+type\\s+${upper}Category\\s*=\\s*((?:\\s*\\|?\\s*['"][^'"]+['"])+)\\s*;`,
+      'm',
+    ),
   );
   if (inline) {
     const literals = inline[1].match(/['"]([^'"]+)['"]/g);
@@ -144,9 +147,7 @@ const main = (): void => {
     }
     if (result.mismatches.size > 0) {
       failed++;
-      const detail = [...result.mismatches]
-        .map(([c, n]) => `"${c}" ×${n}`)
-        .join(', ');
+      const detail = [...result.mismatches].map(([c, n]) => `"${c}" ×${n}`).join(', ');
       const allowedList = [...result.allowed].sort().join(' | ');
       console.error(
         `  FAIL  ${cc.toUpperCase()} — unexpected categories: ${detail}\n` +
@@ -156,9 +157,7 @@ const main = (): void => {
     totalChecked++;
   }
 
-  console.log(
-    `\nChecked ${totalChecked} countries (${skipped} skipped). ${failed} failed.`,
-  );
+  console.log(`\nChecked ${totalChecked} countries (${skipped} skipped). ${failed} failed.`);
   if (failed > 0) process.exit(1);
 };
 

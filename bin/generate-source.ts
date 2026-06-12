@@ -276,7 +276,9 @@ export const generateSource = async (cc: string): Promise<void> => {
     const lines: string[] = [];
     for (const cat of Object.keys(perCategory)) lines.push(...perCategory[cat].lines);
     fs.writeFileSync(path.join(srcDir, 'signs.generated.ts'), wrapShard(cc, '', lines), 'utf-8');
-    console.log(`  Written signs.generated.ts (${count} signs, ${(totalBytes / 1024 / 1024).toFixed(1)}MB)`);
+    console.log(
+      `  Written signs.generated.ts (${count} signs, ${(totalBytes / 1024 / 1024).toFixed(1)}MB)`,
+    );
     return;
   }
 
@@ -336,7 +338,9 @@ export const generateSource = async (cc: string): Promise<void> => {
   primary.push(
     ``,
     `export const signs: ${cc.toUpperCase()}Sign[] = [`,
-    ...shards.map((s) => `  ...signs_${pascalCase(s.name.replace(/[^a-z0-9]+/gi, '_').toLowerCase())},`),
+    ...shards.map(
+      (s) => `  ...signs_${pascalCase(s.name.replace(/[^a-z0-9]+/gi, '_').toLowerCase())},`,
+    ),
     `];`,
     ``,
   );
