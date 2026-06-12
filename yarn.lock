@@ -490,7 +490,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/runtime@npm:^7.5.5":
+"@babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.7.2":
   version: 7.29.2
   resolution: "@babel/runtime@npm:7.29.2"
   checksum: 10c0/30b80a0140d16467792e1bbeb06f655b0dab70407da38dfac7fedae9c859f9ae9d846ef14ad77bd3814c064295fe9b1bc551f1541ea14646ae9f22b71a8bc17a
@@ -2040,6 +2040,854 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@jimp/bmp@npm:^0.14.0":
+  version: 0.14.0
+  resolution: "@jimp/bmp@npm:0.14.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.14.0"
+    bmp-js: "npm:^0.1.0"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+  checksum: 10c0/54021a937fa487e88defd4f7156f4f49396304384443b969e3d44e2572595e72509400d6d145b01883103a69aaf1a02e22ca1bddf5b8f7b52fa7bce66946ede3
+  languageName: node
+  linkType: hard
+
+"@jimp/bmp@npm:^0.16.13":
+  version: 0.16.13
+  resolution: "@jimp/bmp@npm:0.16.13"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.16.13"
+    bmp-js: "npm:^0.1.0"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+  checksum: 10c0/f1c848f2347eca262d7a63c90909d32d7469db9d841a476184228ac9761c5fffe5c5f3ed55bbf77ed7c7467deb6b27a70b0bed6b1d98800489acd3cc94ca8379
+  languageName: node
+  linkType: hard
+
+"@jimp/core@npm:^0.14.0":
+  version: 0.14.0
+  resolution: "@jimp/core@npm:0.14.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.14.0"
+    any-base: "npm:^1.1.0"
+    buffer: "npm:^5.2.0"
+    exif-parser: "npm:^0.1.12"
+    file-type: "npm:^9.0.0"
+    load-bmfont: "npm:^1.3.1"
+    mkdirp: "npm:^0.5.1"
+    phin: "npm:^2.9.1"
+    pixelmatch: "npm:^4.0.2"
+    tinycolor2: "npm:^1.4.1"
+  checksum: 10c0/77f3d309cdaad533f2f976b916cce6b01aa6235385668a0cd904a6bf16b4f11932fd4b8a99fd1db3cb0b588c408e4e3230e003b59f19c191654e3619fdc0b1ba
+  languageName: node
+  linkType: hard
+
+"@jimp/core@npm:^0.16.13":
+  version: 0.16.13
+  resolution: "@jimp/core@npm:0.16.13"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.16.13"
+    any-base: "npm:^1.1.0"
+    buffer: "npm:^5.2.0"
+    exif-parser: "npm:^0.1.12"
+    file-type: "npm:^16.5.4"
+    load-bmfont: "npm:^1.3.1"
+    mkdirp: "npm:^0.5.1"
+    phin: "npm:^2.9.1"
+    pixelmatch: "npm:^4.0.2"
+    tinycolor2: "npm:^1.4.1"
+  checksum: 10c0/6554c98da909050164850bcc34b12d08cb156d16b5684bddb9cc97e51ca317b9ac310faf09a6d1813d8cbf7b8853365388acf1ee62be25134e9fc09afb573e9a
+  languageName: node
+  linkType: hard
+
+"@jimp/custom@npm:^0.14.0":
+  version: 0.14.0
+  resolution: "@jimp/custom@npm:0.14.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/core": "npm:^0.14.0"
+  checksum: 10c0/f181b8eb63e759a36f904ebdbeee674953d16f8613c0b6ee97116632bf5a2f753d7bbbbd6da9bac99b16acbf738f750aaa39bbdbb0d715a2014a387224203d97
+  languageName: node
+  linkType: hard
+
+"@jimp/custom@npm:^0.16.1":
+  version: 0.16.13
+  resolution: "@jimp/custom@npm:0.16.13"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/core": "npm:^0.16.13"
+  checksum: 10c0/b494873e9477e8baf709d24cfa90f9b4576c76d72e682229a2f64751677b43044528932df0c6af125c228929d1ddc2d13e8acec7048c91964da4addec4d3edd5
+  languageName: node
+  linkType: hard
+
+"@jimp/gif@npm:^0.14.0":
+  version: 0.14.0
+  resolution: "@jimp/gif@npm:0.14.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.14.0"
+    gifwrap: "npm:^0.9.2"
+    omggif: "npm:^1.0.9"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+  checksum: 10c0/33b63ee7d44cca955d58e49a77a7d4275cef192c5c5376ed007959e286de3093f6fe705700a5dc9f0a78f85cbcbf777396f8fbb31cfc83b49d5924a5896d17be
+  languageName: node
+  linkType: hard
+
+"@jimp/gif@npm:^0.16.13":
+  version: 0.16.13
+  resolution: "@jimp/gif@npm:0.16.13"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.16.13"
+    gifwrap: "npm:^0.9.2"
+    omggif: "npm:^1.0.9"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+  checksum: 10c0/eea13192429371fcd814f3321f8f236d15e4fdd1ae7ae3f28dbe6cde5d43adffcc7ee3459cf420a0b963581f8f9331f19cc10637b6f419900be10bf8a1679212
+  languageName: node
+  linkType: hard
+
+"@jimp/jpeg@npm:^0.14.0":
+  version: 0.14.0
+  resolution: "@jimp/jpeg@npm:0.14.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.14.0"
+    jpeg-js: "npm:^0.4.0"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+  checksum: 10c0/2665b96a34e0a92120bdbb5dae947fe12a79d6102942659d983cb1a3cae13891e9fffb7d17ff979ce26030e9cddd03847ef72ecdf7c51f14191f9d34012e89b5
+  languageName: node
+  linkType: hard
+
+"@jimp/jpeg@npm:^0.16.13":
+  version: 0.16.13
+  resolution: "@jimp/jpeg@npm:0.16.13"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.16.13"
+    jpeg-js: "npm:^0.4.2"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+  checksum: 10c0/2d0765fd996d5ebe376ab09ad225f25c6efe404fe10d658d07c48746b0e124a8e0b5a37145d0f464e1ad2b2a7aca329b04b59db624106a0e21566707630bb357
+  languageName: node
+  linkType: hard
+
+"@jimp/plugin-blit@npm:^0.14.0":
+  version: 0.14.0
+  resolution: "@jimp/plugin-blit@npm:0.14.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.14.0"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+  checksum: 10c0/0fe90b3b0549e6b35a6358701eae91d1237567a4b42302f317002c3fb6e62f5cd8f22f0695b81ff23e1eb7c6d4e489dcf35f84cacbfa61a093c9f60524751e96
+  languageName: node
+  linkType: hard
+
+"@jimp/plugin-blit@npm:^0.16.13":
+  version: 0.16.13
+  resolution: "@jimp/plugin-blit@npm:0.16.13"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.16.13"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+  checksum: 10c0/3093a89dd9869adb0fa35bab3d701d016f34acc040bd5ad39a1515db84187c5f507a77b2fa8070aeed248280653e5cf3a8b97e9ffaa5a1445eb10edb1843dfac
+  languageName: node
+  linkType: hard
+
+"@jimp/plugin-blur@npm:^0.14.0":
+  version: 0.14.0
+  resolution: "@jimp/plugin-blur@npm:0.14.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.14.0"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+  checksum: 10c0/7dcf4b4ff53946fa3879cd552e4e7a221c24bba8683ca389d283cfe78f14e1a799ba0f856939e8ddbad69076be5fc6da3f85b88c053a6772a5f58f232667512d
+  languageName: node
+  linkType: hard
+
+"@jimp/plugin-blur@npm:^0.16.13":
+  version: 0.16.13
+  resolution: "@jimp/plugin-blur@npm:0.16.13"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.16.13"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+  checksum: 10c0/c9b71941e767b525dd9ad4f6af796435561a1993a9c8030bbae17d25f1ae45542b7fbace0302e862a020bc4982001a0f17ab5f5b8a72afd2000838eb1107d2aa
+  languageName: node
+  linkType: hard
+
+"@jimp/plugin-circle@npm:^0.14.0":
+  version: 0.14.0
+  resolution: "@jimp/plugin-circle@npm:0.14.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.14.0"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+  checksum: 10c0/c9e0badaf830b584b650fdb99572d84744d93e5df3c346a237df75539f7d904e4814f1ea610a946e8db8fce934f9f229f5fcc7f7cfd39a98be5607d21e149e89
+  languageName: node
+  linkType: hard
+
+"@jimp/plugin-circle@npm:^0.16.13":
+  version: 0.16.13
+  resolution: "@jimp/plugin-circle@npm:0.16.13"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.16.13"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+  checksum: 10c0/a60e9815cb8ddc48910bd725c121e43b3ccf2bdf3e700d1137889346ab55f1f988ea9ebac89e6e35c7d8972d29a02fb0cbaa57805e7ae4ffd714b33d5284aebc
+  languageName: node
+  linkType: hard
+
+"@jimp/plugin-color@npm:^0.14.0":
+  version: 0.14.0
+  resolution: "@jimp/plugin-color@npm:0.14.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.14.0"
+    tinycolor2: "npm:^1.4.1"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+  checksum: 10c0/096c5a114eafe5568be2bffac1f75a2fe89cc1c96c725ef8553015986dba36c2e27fab35587efd51d980e00c72a45ad830d00ae0e32d9a65b9e06a8d5e120853
+  languageName: node
+  linkType: hard
+
+"@jimp/plugin-color@npm:^0.16.13":
+  version: 0.16.13
+  resolution: "@jimp/plugin-color@npm:0.16.13"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.16.13"
+    tinycolor2: "npm:^1.4.1"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+  checksum: 10c0/45774210868a90a05773e441234e1238d0a54cc906f3eac4dc11b919b73fb1eb7fe35939a8e821cc540ce039ccb93e1e9b2921f74e110ebefa101b2d74335d2b
+  languageName: node
+  linkType: hard
+
+"@jimp/plugin-contain@npm:^0.14.0":
+  version: 0.14.0
+  resolution: "@jimp/plugin-contain@npm:0.14.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.14.0"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+    "@jimp/plugin-blit": ">=0.3.5"
+    "@jimp/plugin-resize": ">=0.3.5"
+    "@jimp/plugin-scale": ">=0.3.5"
+  checksum: 10c0/91b07f0de6b76d12f2c5a00aecb78755cb34c7b0f2f8045ab1058ac7bbc739b6f81f9d332aa6c6612d8743e7b79cf91033562bb508c05e2187a05e4ce68a99de
+  languageName: node
+  linkType: hard
+
+"@jimp/plugin-contain@npm:^0.16.13":
+  version: 0.16.13
+  resolution: "@jimp/plugin-contain@npm:0.16.13"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.16.13"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+    "@jimp/plugin-blit": ">=0.3.5"
+    "@jimp/plugin-resize": ">=0.3.5"
+    "@jimp/plugin-scale": ">=0.3.5"
+  checksum: 10c0/cbde61ed91de8137a9a7b456e45fcec72152a86c5766304072b6d155179a7d93e6483ece86f162aa45f3e3b12c0de90efcd8264215cce05cdfb50b8c36107ad1
+  languageName: node
+  linkType: hard
+
+"@jimp/plugin-cover@npm:^0.14.0":
+  version: 0.14.0
+  resolution: "@jimp/plugin-cover@npm:0.14.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.14.0"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+    "@jimp/plugin-crop": ">=0.3.5"
+    "@jimp/plugin-resize": ">=0.3.5"
+    "@jimp/plugin-scale": ">=0.3.5"
+  checksum: 10c0/3743c55fda276b7d3bf0dcd3abc811471bcbd0d7ea97007f2bf2f6e3465e1386372b8620eb592c7cd65ade3f909a9afef4d098c1876ff4c8be7b703bf6cec1f5
+  languageName: node
+  linkType: hard
+
+"@jimp/plugin-cover@npm:^0.16.13":
+  version: 0.16.13
+  resolution: "@jimp/plugin-cover@npm:0.16.13"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.16.13"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+    "@jimp/plugin-crop": ">=0.3.5"
+    "@jimp/plugin-resize": ">=0.3.5"
+    "@jimp/plugin-scale": ">=0.3.5"
+  checksum: 10c0/8ba286d728530a9574d08864a071e8cb6e2622a58877310a130c69a88fde01e71357baf625ae5f0d1c2662530b73c78544cb22194cf927c6f9090d45ff3f38ad
+  languageName: node
+  linkType: hard
+
+"@jimp/plugin-crop@npm:^0.14.0":
+  version: 0.14.0
+  resolution: "@jimp/plugin-crop@npm:0.14.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.14.0"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+  checksum: 10c0/d5f1025c061512feab2dedc4dca94c37872b1be7900fabeb0acf507c2b6d03806031f194d504306cc42f1193ddb53679491950d1ffee6152ce185cb3efce4f2f
+  languageName: node
+  linkType: hard
+
+"@jimp/plugin-crop@npm:^0.16.13":
+  version: 0.16.13
+  resolution: "@jimp/plugin-crop@npm:0.16.13"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.16.13"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+  checksum: 10c0/83ba3169c25591376cb55e8f099315b6e83a778611d357af3bfbdd7b68389f99e127555c81326cff177e86e320fd88c547639e8d83b032c853766cc3eb916643
+  languageName: node
+  linkType: hard
+
+"@jimp/plugin-displace@npm:^0.14.0":
+  version: 0.14.0
+  resolution: "@jimp/plugin-displace@npm:0.14.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.14.0"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+  checksum: 10c0/73bdeb4dade40536ba500c755a55cad563f93dcaf6aa6fb43403f3e2e3512e9fe8d997ad8b4423fb53a04c0f1991dd85ddafac492888bc13b620186891227d18
+  languageName: node
+  linkType: hard
+
+"@jimp/plugin-displace@npm:^0.16.13":
+  version: 0.16.13
+  resolution: "@jimp/plugin-displace@npm:0.16.13"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.16.13"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+  checksum: 10c0/6ded4193dd6633f2d1bb46016c10bb017ded32aa5fd54d38424c51e0a5d85fec34e4f9d8bc30d93266a14e65506a9328e37d35043f662e5f9ed0777cccdfa213
+  languageName: node
+  linkType: hard
+
+"@jimp/plugin-dither@npm:^0.14.0":
+  version: 0.14.0
+  resolution: "@jimp/plugin-dither@npm:0.14.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.14.0"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+  checksum: 10c0/eea2131c063b6016dad2678b3f6d4fcee4031df7bdbb819b3e96f6014d94a9bb9b987de75fb4408e202c08ce4724d732c12a85bf970547cb7e322577a3b88bcc
+  languageName: node
+  linkType: hard
+
+"@jimp/plugin-dither@npm:^0.16.13":
+  version: 0.16.13
+  resolution: "@jimp/plugin-dither@npm:0.16.13"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.16.13"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+  checksum: 10c0/463fc30327f661a46d4acf3d0f9aa78b1c0dc4d06407ae1c375775c294b3b7bd28c010db2d334b7c5dc9edd402302edad4522c2d324554ec3f34ce94da44a956
+  languageName: node
+  linkType: hard
+
+"@jimp/plugin-fisheye@npm:^0.14.0":
+  version: 0.14.0
+  resolution: "@jimp/plugin-fisheye@npm:0.14.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.14.0"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+  checksum: 10c0/b62034d96ad51c573a1e3306d761c70fdcf73890eea4bffb59e6144ac585e163b17abde2ec8d89e8fbb03b4d022159815c2c573dd0304d0f8c1fa83a428f906f
+  languageName: node
+  linkType: hard
+
+"@jimp/plugin-fisheye@npm:^0.16.13":
+  version: 0.16.13
+  resolution: "@jimp/plugin-fisheye@npm:0.16.13"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.16.13"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+  checksum: 10c0/21c3600e289bc2e696ad5933dcbe885c9b42a02bd1afc6a3ab0b67728d96b8a09fd4db1ef757588039716801e49290016d7dea1d0e9e32ca43ca028d7c2cf132
+  languageName: node
+  linkType: hard
+
+"@jimp/plugin-flip@npm:^0.14.0":
+  version: 0.14.0
+  resolution: "@jimp/plugin-flip@npm:0.14.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.14.0"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+    "@jimp/plugin-rotate": ">=0.3.5"
+  checksum: 10c0/88f38c9facd5102b228198996b9b909eae6d85902614e6fbcb21d66ceccf1af58820b696c0c8836d1ec7fb0af6f89ed11661a5c693a7c91310db483356441dbd
+  languageName: node
+  linkType: hard
+
+"@jimp/plugin-flip@npm:^0.16.13":
+  version: 0.16.13
+  resolution: "@jimp/plugin-flip@npm:0.16.13"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.16.13"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+    "@jimp/plugin-rotate": ">=0.3.5"
+  checksum: 10c0/6487156ad8fb94f51706506ff5f9418a1b804efc8cdb9dbf62a80bd72930d88aade881a606b7c1ee76ad610179e5d8ff09ed139a9bb43d42bf0319f09194418b
+  languageName: node
+  linkType: hard
+
+"@jimp/plugin-gaussian@npm:^0.14.0":
+  version: 0.14.0
+  resolution: "@jimp/plugin-gaussian@npm:0.14.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.14.0"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+  checksum: 10c0/8de5173b70424c8f43f5de4a41713f35d4f0a7495cd638a3c0e88867d8a009c7bcf80ed75b8cab69b80293390dc2764bfeb125d8161a61f9db7631ef36856c68
+  languageName: node
+  linkType: hard
+
+"@jimp/plugin-gaussian@npm:^0.16.13":
+  version: 0.16.13
+  resolution: "@jimp/plugin-gaussian@npm:0.16.13"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.16.13"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+  checksum: 10c0/9ea4fc2b6a4f03ebbfd545e1ec75fccd91e6a7d200bde84cfdaefcb0c5f945c138984accbdcb8ac326cacae395e3a22a8b05a742042d1f04b1b029bb793ca5ed
+  languageName: node
+  linkType: hard
+
+"@jimp/plugin-invert@npm:^0.14.0":
+  version: 0.14.0
+  resolution: "@jimp/plugin-invert@npm:0.14.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.14.0"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+  checksum: 10c0/5c9ab8884d1426930a426ee9de7503b7a03506c543d26dea3cda77c2f0b52318e9c0d72af72b67db124337ab74f2859616965021d0ef636f6898cb177f0ff92e
+  languageName: node
+  linkType: hard
+
+"@jimp/plugin-invert@npm:^0.16.13":
+  version: 0.16.13
+  resolution: "@jimp/plugin-invert@npm:0.16.13"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.16.13"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+  checksum: 10c0/fb606b5324aa16f2dd73c7bccc0d67b536235d726d53f0dd209ca54c8ce5cfee3932ace9876991f093a35a551105102a9abb0424dee37152d873f56cf3811b3f
+  languageName: node
+  linkType: hard
+
+"@jimp/plugin-mask@npm:^0.14.0":
+  version: 0.14.0
+  resolution: "@jimp/plugin-mask@npm:0.14.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.14.0"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+  checksum: 10c0/8e8b8b790267e39b89296dd793f4786a9661b232669215b9f331ed3b2dac2e1248ac192608f294b88471db5859eb65cabfa286e82ba485b7e189ac719856be6d
+  languageName: node
+  linkType: hard
+
+"@jimp/plugin-mask@npm:^0.16.13":
+  version: 0.16.13
+  resolution: "@jimp/plugin-mask@npm:0.16.13"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.16.13"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+  checksum: 10c0/fb14710a69dde875ce88d70549176bfa73fd46ce16960520e8328a00d31bcc2e9d73f0f9b125fca15f2e37963abe4be1880ba9d6c8d3c186d6ece36c03f51bf1
+  languageName: node
+  linkType: hard
+
+"@jimp/plugin-normalize@npm:^0.14.0":
+  version: 0.14.0
+  resolution: "@jimp/plugin-normalize@npm:0.14.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.14.0"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+  checksum: 10c0/0c82f46c152ab7d5e211c30e6ea37110b96a3f851cf4b5ef1c964469a02d13abe51948e97bd3182e92542a89cf3706fc0b878eef937a99bc75a6e824903be645
+  languageName: node
+  linkType: hard
+
+"@jimp/plugin-normalize@npm:^0.16.13":
+  version: 0.16.13
+  resolution: "@jimp/plugin-normalize@npm:0.16.13"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.16.13"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+  checksum: 10c0/0bb9436c3283f8140a7eca1e2816e3eed1ed7dc227a12d4c775889fdbda6fe419475a595eed3e31592e4f210a099c31483bb256be815de7d5e471c759850e61a
+  languageName: node
+  linkType: hard
+
+"@jimp/plugin-print@npm:^0.14.0":
+  version: 0.14.0
+  resolution: "@jimp/plugin-print@npm:0.14.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.14.0"
+    load-bmfont: "npm:^1.4.0"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+    "@jimp/plugin-blit": ">=0.3.5"
+  checksum: 10c0/b2c47dcd6f82a445815f8651adc5ac5863c8639d146af474dfb5efd480464d7559baf7a33e99fffaa52abfb0a6b9299f6c69f6765a39503063ce33bb4c36c59d
+  languageName: node
+  linkType: hard
+
+"@jimp/plugin-print@npm:^0.16.13":
+  version: 0.16.13
+  resolution: "@jimp/plugin-print@npm:0.16.13"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.16.13"
+    load-bmfont: "npm:^1.4.0"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+    "@jimp/plugin-blit": ">=0.3.5"
+  checksum: 10c0/dca1eee958e846708bc6304a01353fda2093146c91db47d5f650421d90828e979f127153b7ed13d857f643ba0367a761debaea31944c7a14d8fa4919f0278ccf
+  languageName: node
+  linkType: hard
+
+"@jimp/plugin-resize@npm:^0.14.0":
+  version: 0.14.0
+  resolution: "@jimp/plugin-resize@npm:0.14.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.14.0"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+  checksum: 10c0/667686b6caf9814b9de6b9c8269dd16b5b1b42767baac087908f1815a23c1b93c07cb2c57194a8f32df884cfad9fb2e629a4db42287bea6ce499dc7484e1676e
+  languageName: node
+  linkType: hard
+
+"@jimp/plugin-resize@npm:^0.16.13":
+  version: 0.16.13
+  resolution: "@jimp/plugin-resize@npm:0.16.13"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.16.13"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+  checksum: 10c0/4eb26ed6408e33d4ce380007669cfdaa4f88cf36685dffb63093c330f5d5860d46ed552cfffa366f3f3d38686b365d45c1051499a9688a57f51cebc3d9e5a4d4
+  languageName: node
+  linkType: hard
+
+"@jimp/plugin-rotate@npm:^0.14.0":
+  version: 0.14.0
+  resolution: "@jimp/plugin-rotate@npm:0.14.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.14.0"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+    "@jimp/plugin-blit": ">=0.3.5"
+    "@jimp/plugin-crop": ">=0.3.5"
+    "@jimp/plugin-resize": ">=0.3.5"
+  checksum: 10c0/8fac43a296717133f080ade2ac1e2c8f4aa0aab5dc2f1f43561c70b44f8b08bba7b0b85f8e0a28b573015d6ec164ed3962289321b719de2559b628456344817d
+  languageName: node
+  linkType: hard
+
+"@jimp/plugin-rotate@npm:^0.16.13":
+  version: 0.16.13
+  resolution: "@jimp/plugin-rotate@npm:0.16.13"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.16.13"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+    "@jimp/plugin-blit": ">=0.3.5"
+    "@jimp/plugin-crop": ">=0.3.5"
+    "@jimp/plugin-resize": ">=0.3.5"
+  checksum: 10c0/2cd302a83ce20bcf8ee65f7d3bb68326fba44de16521f27df197df673c9076ad21a77d6d49922127f6a1a07b42a5bb00d7e95f9fbe220018d796df3df3417d92
+  languageName: node
+  linkType: hard
+
+"@jimp/plugin-scale@npm:^0.14.0":
+  version: 0.14.0
+  resolution: "@jimp/plugin-scale@npm:0.14.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.14.0"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+    "@jimp/plugin-resize": ">=0.3.5"
+  checksum: 10c0/864fff100d09fca0d1ba89d1d8a645c791c41fe382849dcb1ce10d4d8f2e5f21d035b40ef6ed42c398fd9be54844bbb2c7feccba82362e008e1524913bf6bc0e
+  languageName: node
+  linkType: hard
+
+"@jimp/plugin-scale@npm:^0.16.13":
+  version: 0.16.13
+  resolution: "@jimp/plugin-scale@npm:0.16.13"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.16.13"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+    "@jimp/plugin-resize": ">=0.3.5"
+  checksum: 10c0/004df71ba5afa2e30f6ca3945f90b781adbe1e259b293ec40e3d0fabb1656d0dc61b47ec2985cf6f0400020a97e12a5e071dd48c827d5ebb6aee98df3883cb6a
+  languageName: node
+  linkType: hard
+
+"@jimp/plugin-shadow@npm:^0.14.0":
+  version: 0.14.0
+  resolution: "@jimp/plugin-shadow@npm:0.14.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.14.0"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+    "@jimp/plugin-blur": ">=0.3.5"
+    "@jimp/plugin-resize": ">=0.3.5"
+  checksum: 10c0/3f9713ded068a7bc3817012bc008fe0599edc3da2457e2527de156e9be9f54357af1d0ba02b2dec24d824f00f530c604e58f7893ac86e2b48fc80ee907388a24
+  languageName: node
+  linkType: hard
+
+"@jimp/plugin-shadow@npm:^0.16.13":
+  version: 0.16.13
+  resolution: "@jimp/plugin-shadow@npm:0.16.13"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.16.13"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+    "@jimp/plugin-blur": ">=0.3.5"
+    "@jimp/plugin-resize": ">=0.3.5"
+  checksum: 10c0/d40eb56482b881564847d96ff39bf3abff560c252bca583ed2b7424537c1ce2d0b9d8ad832176570dbfe48245ba61e3049afcc7b51b629dfe791af6546342d17
+  languageName: node
+  linkType: hard
+
+"@jimp/plugin-threshold@npm:^0.14.0":
+  version: 0.14.0
+  resolution: "@jimp/plugin-threshold@npm:0.14.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.14.0"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+    "@jimp/plugin-color": ">=0.8.0"
+    "@jimp/plugin-resize": ">=0.8.0"
+  checksum: 10c0/c1662bd0564ef1645a2d4f882d035562f0754be50169c3e5ab1a84ec206757c21055c6be79e0eca6e53adcf16e0b6f505d476af51cdd558e42b77a8ab57156d4
+  languageName: node
+  linkType: hard
+
+"@jimp/plugin-threshold@npm:^0.16.13":
+  version: 0.16.13
+  resolution: "@jimp/plugin-threshold@npm:0.16.13"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.16.13"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+    "@jimp/plugin-color": ">=0.8.0"
+    "@jimp/plugin-resize": ">=0.8.0"
+  checksum: 10c0/a06263e98284c5e22d729a0f75aaa4f0f0017dd98983006d77d55ac43641a9cc9840d327264e6cd8c60207c59d5023bf90324690d89cf4964be6812af0c0b8ac
+  languageName: node
+  linkType: hard
+
+"@jimp/plugins@npm:^0.14.0":
+  version: 0.14.0
+  resolution: "@jimp/plugins@npm:0.14.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/plugin-blit": "npm:^0.14.0"
+    "@jimp/plugin-blur": "npm:^0.14.0"
+    "@jimp/plugin-circle": "npm:^0.14.0"
+    "@jimp/plugin-color": "npm:^0.14.0"
+    "@jimp/plugin-contain": "npm:^0.14.0"
+    "@jimp/plugin-cover": "npm:^0.14.0"
+    "@jimp/plugin-crop": "npm:^0.14.0"
+    "@jimp/plugin-displace": "npm:^0.14.0"
+    "@jimp/plugin-dither": "npm:^0.14.0"
+    "@jimp/plugin-fisheye": "npm:^0.14.0"
+    "@jimp/plugin-flip": "npm:^0.14.0"
+    "@jimp/plugin-gaussian": "npm:^0.14.0"
+    "@jimp/plugin-invert": "npm:^0.14.0"
+    "@jimp/plugin-mask": "npm:^0.14.0"
+    "@jimp/plugin-normalize": "npm:^0.14.0"
+    "@jimp/plugin-print": "npm:^0.14.0"
+    "@jimp/plugin-resize": "npm:^0.14.0"
+    "@jimp/plugin-rotate": "npm:^0.14.0"
+    "@jimp/plugin-scale": "npm:^0.14.0"
+    "@jimp/plugin-shadow": "npm:^0.14.0"
+    "@jimp/plugin-threshold": "npm:^0.14.0"
+    timm: "npm:^1.6.1"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+  checksum: 10c0/6eea10bd8a85469887e55f49537b686023e66877a2e9c0c3ac448119f3f88417341499b95ffff084558cda5d3207f71f42fe2fe589d31d3c60f42f55b38573e9
+  languageName: node
+  linkType: hard
+
+"@jimp/plugins@npm:^0.16.1":
+  version: 0.16.13
+  resolution: "@jimp/plugins@npm:0.16.13"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/plugin-blit": "npm:^0.16.13"
+    "@jimp/plugin-blur": "npm:^0.16.13"
+    "@jimp/plugin-circle": "npm:^0.16.13"
+    "@jimp/plugin-color": "npm:^0.16.13"
+    "@jimp/plugin-contain": "npm:^0.16.13"
+    "@jimp/plugin-cover": "npm:^0.16.13"
+    "@jimp/plugin-crop": "npm:^0.16.13"
+    "@jimp/plugin-displace": "npm:^0.16.13"
+    "@jimp/plugin-dither": "npm:^0.16.13"
+    "@jimp/plugin-fisheye": "npm:^0.16.13"
+    "@jimp/plugin-flip": "npm:^0.16.13"
+    "@jimp/plugin-gaussian": "npm:^0.16.13"
+    "@jimp/plugin-invert": "npm:^0.16.13"
+    "@jimp/plugin-mask": "npm:^0.16.13"
+    "@jimp/plugin-normalize": "npm:^0.16.13"
+    "@jimp/plugin-print": "npm:^0.16.13"
+    "@jimp/plugin-resize": "npm:^0.16.13"
+    "@jimp/plugin-rotate": "npm:^0.16.13"
+    "@jimp/plugin-scale": "npm:^0.16.13"
+    "@jimp/plugin-shadow": "npm:^0.16.13"
+    "@jimp/plugin-threshold": "npm:^0.16.13"
+    timm: "npm:^1.6.1"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+  checksum: 10c0/ecf1a7e0d0d34b2930541fd491f75362cc3271d47976a051c1750c5edfd70f4e2cb912c1211384cee42af14c3975a4943d870f9076680c0b9a28dbb0bfd0b71c
+  languageName: node
+  linkType: hard
+
+"@jimp/png@npm:^0.14.0":
+  version: 0.14.0
+  resolution: "@jimp/png@npm:0.14.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.14.0"
+    pngjs: "npm:^3.3.3"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+  checksum: 10c0/4682427b163fbe1ede476f5ed34231c0c9d3ce67f8395a995acf7e9acf749e97a7cb2f7832292c39a77fe7305d0b83e0c40529691c2ebd40f14b37165ea99be6
+  languageName: node
+  linkType: hard
+
+"@jimp/png@npm:^0.16.13":
+  version: 0.16.13
+  resolution: "@jimp/png@npm:0.16.13"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/utils": "npm:^0.16.13"
+    pngjs: "npm:^3.3.3"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+  checksum: 10c0/24823791c9daa07a85c69a17a9c7ef7cf4927b084da8c28f2d58304aa44973254a9801721c69771ce410e439fd52d8ed3f4b0a2aec52111bad56032f0a81cbbe
+  languageName: node
+  linkType: hard
+
+"@jimp/tiff@npm:^0.14.0":
+  version: 0.14.0
+  resolution: "@jimp/tiff@npm:0.14.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    utif: "npm:^2.0.1"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+  checksum: 10c0/67ffe68c79a57f660bd8764c97753ca653de8e798e8aeb70da5cdcae64e2850d400c31412ee8d2a1add8015e0babd98273befbcc4b4bab9c1ac307f24a92368a
+  languageName: node
+  linkType: hard
+
+"@jimp/tiff@npm:^0.16.13":
+  version: 0.16.13
+  resolution: "@jimp/tiff@npm:0.16.13"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    utif: "npm:^2.0.1"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+  checksum: 10c0/7b900fa7dd899f6a51c3227ad2e2788ff26861128f1c8ecda961b9e6494dd69dba18cae7005a22aac99d27de4eb81fe9cbeddb2944c4db60f6dc1a815f19ae68
+  languageName: node
+  linkType: hard
+
+"@jimp/types@npm:^0.14.0":
+  version: 0.14.0
+  resolution: "@jimp/types@npm:0.14.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/bmp": "npm:^0.14.0"
+    "@jimp/gif": "npm:^0.14.0"
+    "@jimp/jpeg": "npm:^0.14.0"
+    "@jimp/png": "npm:^0.14.0"
+    "@jimp/tiff": "npm:^0.14.0"
+    timm: "npm:^1.6.1"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+  checksum: 10c0/b9ebfeeb4f5a76c43a05751eb3bf134ac9fbea3e0f35f78961d7d9d997d433b7d3308b32b1d849e5259971a7b192ffe208a7ec00d2c2aab552bf81475216e6f9
+  languageName: node
+  linkType: hard
+
+"@jimp/types@npm:^0.16.1":
+  version: 0.16.13
+  resolution: "@jimp/types@npm:0.16.13"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/bmp": "npm:^0.16.13"
+    "@jimp/gif": "npm:^0.16.13"
+    "@jimp/jpeg": "npm:^0.16.13"
+    "@jimp/png": "npm:^0.16.13"
+    "@jimp/tiff": "npm:^0.16.13"
+    timm: "npm:^1.6.1"
+  peerDependencies:
+    "@jimp/custom": ">=0.3.5"
+  checksum: 10c0/abe87276aebc6c3711d93fff57b7de385cd279d2727c82a683016d2196ed77076a3a87005aab336dec1c80b3ac1478a2c7ad025ac01fe1bb7cd5bd4aa069b586
+  languageName: node
+  linkType: hard
+
+"@jimp/utils@npm:^0.14.0":
+  version: 0.14.0
+  resolution: "@jimp/utils@npm:0.14.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    regenerator-runtime: "npm:^0.13.3"
+  checksum: 10c0/d579a304fce58d12417ce068dce8508f6c07d98b7d8d2e30a0cb2e4cd80bda9b3ff287b17cb9cd11ca3b9face7316ad6f74e19e6e8de5c5ffc1d13d661963355
+  languageName: node
+  linkType: hard
+
+"@jimp/utils@npm:^0.16.13":
+  version: 0.16.13
+  resolution: "@jimp/utils@npm:0.16.13"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    regenerator-runtime: "npm:^0.13.3"
+  checksum: 10c0/632fcd0d4336d2f381aea5d5f64e4b7b1cce4016c5ff511ce4767ebd216550a383eb5246098a997e215c6925ef04cfe0ae58e30e8889ea0774ca255017218be5
+  languageName: node
+  linkType: hard
+
 "@jridgewell/gen-mapping@npm:^0.3.12, @jridgewell/gen-mapping@npm:^0.3.5":
   version: 0.3.13
   resolution: "@jridgewell/gen-mapping@npm:0.3.13"
@@ -2621,10 +3469,508 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@road-signs/ad@workspace:packages/@road-signs/ad":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/ad@workspace:packages/@road-signs/ad"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/ae@workspace:packages/@road-signs/ae":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/ae@workspace:packages/@road-signs/ae"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/ag@workspace:packages/@road-signs/ag":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/ag@workspace:packages/@road-signs/ag"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/al@workspace:packages/@road-signs/al":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/al@workspace:packages/@road-signs/al"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/am@workspace:packages/@road-signs/am":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/am@workspace:packages/@road-signs/am"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/ao@workspace:packages/@road-signs/ao":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/ao@workspace:packages/@road-signs/ao"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/ar@workspace:packages/@road-signs/ar":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/ar@workspace:packages/@road-signs/ar"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/at@workspace:packages/@road-signs/at":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/at@workspace:packages/@road-signs/at"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/au@workspace:packages/@road-signs/au":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/au@workspace:packages/@road-signs/au"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/az@workspace:packages/@road-signs/az":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/az@workspace:packages/@road-signs/az"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/ba@workspace:packages/@road-signs/ba":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/ba@workspace:packages/@road-signs/ba"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/bb@workspace:packages/@road-signs/bb":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/bb@workspace:packages/@road-signs/bb"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/bd@workspace:packages/@road-signs/bd":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/bd@workspace:packages/@road-signs/bd"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/be@workspace:packages/@road-signs/be":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/be@workspace:packages/@road-signs/be"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/bg@workspace:packages/@road-signs/bg":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/bg@workspace:packages/@road-signs/bg"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/bn@workspace:packages/@road-signs/bn":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/bn@workspace:packages/@road-signs/bn"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/bo@workspace:packages/@road-signs/bo":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/bo@workspace:packages/@road-signs/bo"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/br@workspace:packages/@road-signs/br":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/br@workspace:packages/@road-signs/br"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/bs@workspace:packages/@road-signs/bs":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/bs@workspace:packages/@road-signs/bs"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/bw@workspace:packages/@road-signs/bw":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/bw@workspace:packages/@road-signs/bw"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/by@workspace:packages/@road-signs/by":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/by@workspace:packages/@road-signs/by"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/bz@workspace:packages/@road-signs/bz":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/bz@workspace:packages/@road-signs/bz"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/ca@workspace:packages/@road-signs/ca":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/ca@workspace:packages/@road-signs/ca"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/ch@workspace:packages/@road-signs/ch":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/ch@workspace:packages/@road-signs/ch"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/ci@workspace:packages/@road-signs/ci":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/ci@workspace:packages/@road-signs/ci"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/cl@workspace:packages/@road-signs/cl":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/cl@workspace:packages/@road-signs/cl"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/cm@workspace:packages/@road-signs/cm":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/cm@workspace:packages/@road-signs/cm"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/cn@workspace:packages/@road-signs/cn":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/cn@workspace:packages/@road-signs/cn"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/co@workspace:packages/@road-signs/co":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/co@workspace:packages/@road-signs/co"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
 "@road-signs/core@workspace:*, @road-signs/core@workspace:packages/@road-signs/core":
   version: 0.0.0-use.local
   resolution: "@road-signs/core@workspace:packages/@road-signs/core"
   dependencies:
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/cr@workspace:packages/@road-signs/cr":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/cr@workspace:packages/@road-signs/cr"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/cu@workspace:packages/@road-signs/cu":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/cu@workspace:packages/@road-signs/cu"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/cy@workspace:packages/@road-signs/cy":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/cy@workspace:packages/@road-signs/cy"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/cz@workspace:packages/@road-signs/cz":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/cz@workspace:packages/@road-signs/cz"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/de@workspace:packages/@road-signs/de":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/de@workspace:packages/@road-signs/de"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/dk@workspace:packages/@road-signs/dk":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/dk@workspace:packages/@road-signs/dk"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/dm@workspace:packages/@road-signs/dm":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/dm@workspace:packages/@road-signs/dm"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/do@workspace:packages/@road-signs/do":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/do@workspace:packages/@road-signs/do"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/docs@workspace:packages/@road-signs/docs":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/docs@workspace:packages/@road-signs/docs"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/dz@workspace:packages/@road-signs/dz":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/dz@workspace:packages/@road-signs/dz"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/ec@workspace:packages/@road-signs/ec":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/ec@workspace:packages/@road-signs/ec"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/ee@workspace:packages/@road-signs/ee":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/ee@workspace:packages/@road-signs/ee"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/eg@workspace:packages/@road-signs/eg":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/eg@workspace:packages/@road-signs/eg"
+  dependencies:
+    "@road-signs/core": "workspace:*"
     "@types/jest": "npm:^30.0.0"
     jest: "npm:^30.3.0"
     ts-jest: "npm:^29.4.0"
@@ -2640,6 +3986,906 @@ __metadata:
     "@types/jest": "npm:^30.0.0"
     jest: "npm:^30.3.0"
     jest-environment-jsdom: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/es@workspace:packages/@road-signs/es":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/es@workspace:packages/@road-signs/es"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/et@workspace:packages/@road-signs/et":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/et@workspace:packages/@road-signs/et"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/fi@workspace:packages/@road-signs/fi":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/fi@workspace:packages/@road-signs/fi"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/fj@workspace:packages/@road-signs/fj":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/fj@workspace:packages/@road-signs/fj"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/fr@workspace:packages/@road-signs/fr":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/fr@workspace:packages/@road-signs/fr"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/gd@workspace:packages/@road-signs/gd":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/gd@workspace:packages/@road-signs/gd"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/ge@workspace:packages/@road-signs/ge":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/ge@workspace:packages/@road-signs/ge"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/gh@workspace:packages/@road-signs/gh":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/gh@workspace:packages/@road-signs/gh"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/gr@workspace:packages/@road-signs/gr":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/gr@workspace:packages/@road-signs/gr"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/gt@workspace:packages/@road-signs/gt":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/gt@workspace:packages/@road-signs/gt"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/gy@workspace:packages/@road-signs/gy":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/gy@workspace:packages/@road-signs/gy"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/hn@workspace:packages/@road-signs/hn":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/hn@workspace:packages/@road-signs/hn"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/hr@workspace:packages/@road-signs/hr":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/hr@workspace:packages/@road-signs/hr"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/ht@workspace:packages/@road-signs/ht":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/ht@workspace:packages/@road-signs/ht"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/hu@workspace:packages/@road-signs/hu":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/hu@workspace:packages/@road-signs/hu"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/id@workspace:packages/@road-signs/id":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/id@workspace:packages/@road-signs/id"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/ie@workspace:packages/@road-signs/ie":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/ie@workspace:packages/@road-signs/ie"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/il@workspace:packages/@road-signs/il":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/il@workspace:packages/@road-signs/il"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/in@workspace:packages/@road-signs/in":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/in@workspace:packages/@road-signs/in"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/iq@workspace:packages/@road-signs/iq":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/iq@workspace:packages/@road-signs/iq"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/ir@workspace:packages/@road-signs/ir":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/ir@workspace:packages/@road-signs/ir"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/is@workspace:packages/@road-signs/is":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/is@workspace:packages/@road-signs/is"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/it@workspace:packages/@road-signs/it":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/it@workspace:packages/@road-signs/it"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/jm@workspace:packages/@road-signs/jm":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/jm@workspace:packages/@road-signs/jm"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/jo@workspace:packages/@road-signs/jo":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/jo@workspace:packages/@road-signs/jo"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/jp@workspace:packages/@road-signs/jp":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/jp@workspace:packages/@road-signs/jp"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/ke@workspace:packages/@road-signs/ke":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/ke@workspace:packages/@road-signs/ke"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/kg@workspace:packages/@road-signs/kg":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/kg@workspace:packages/@road-signs/kg"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/kh@workspace:packages/@road-signs/kh":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/kh@workspace:packages/@road-signs/kh"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/kn@workspace:packages/@road-signs/kn":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/kn@workspace:packages/@road-signs/kn"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/kp@workspace:packages/@road-signs/kp":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/kp@workspace:packages/@road-signs/kp"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/kr@workspace:packages/@road-signs/kr":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/kr@workspace:packages/@road-signs/kr"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/kw@workspace:packages/@road-signs/kw":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/kw@workspace:packages/@road-signs/kw"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/kz@workspace:packages/@road-signs/kz":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/kz@workspace:packages/@road-signs/kz"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/la@workspace:packages/@road-signs/la":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/la@workspace:packages/@road-signs/la"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/lb@workspace:packages/@road-signs/lb":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/lb@workspace:packages/@road-signs/lb"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/lc@workspace:packages/@road-signs/lc":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/lc@workspace:packages/@road-signs/lc"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/li@workspace:packages/@road-signs/li":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/li@workspace:packages/@road-signs/li"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/lk@workspace:packages/@road-signs/lk":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/lk@workspace:packages/@road-signs/lk"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/ls@workspace:packages/@road-signs/ls":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/ls@workspace:packages/@road-signs/ls"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/lt@workspace:packages/@road-signs/lt":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/lt@workspace:packages/@road-signs/lt"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/lu@workspace:packages/@road-signs/lu":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/lu@workspace:packages/@road-signs/lu"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/lv@workspace:packages/@road-signs/lv":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/lv@workspace:packages/@road-signs/lv"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/ly@workspace:packages/@road-signs/ly":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/ly@workspace:packages/@road-signs/ly"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/ma@workspace:packages/@road-signs/ma":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/ma@workspace:packages/@road-signs/ma"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/mc@workspace:packages/@road-signs/mc":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/mc@workspace:packages/@road-signs/mc"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/md@workspace:packages/@road-signs/md":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/md@workspace:packages/@road-signs/md"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/me@workspace:packages/@road-signs/me":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/me@workspace:packages/@road-signs/me"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/mg@workspace:packages/@road-signs/mg":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/mg@workspace:packages/@road-signs/mg"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/mk@workspace:packages/@road-signs/mk":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/mk@workspace:packages/@road-signs/mk"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/mm@workspace:packages/@road-signs/mm":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/mm@workspace:packages/@road-signs/mm"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/mn@workspace:packages/@road-signs/mn":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/mn@workspace:packages/@road-signs/mn"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/mt@workspace:packages/@road-signs/mt":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/mt@workspace:packages/@road-signs/mt"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/mu@workspace:packages/@road-signs/mu":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/mu@workspace:packages/@road-signs/mu"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/mw@workspace:packages/@road-signs/mw":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/mw@workspace:packages/@road-signs/mw"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/mx@workspace:packages/@road-signs/mx":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/mx@workspace:packages/@road-signs/mx"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/my@workspace:packages/@road-signs/my":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/my@workspace:packages/@road-signs/my"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/mz@workspace:packages/@road-signs/mz":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/mz@workspace:packages/@road-signs/mz"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/na@workspace:packages/@road-signs/na":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/na@workspace:packages/@road-signs/na"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/ng@workspace:packages/@road-signs/ng":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/ng@workspace:packages/@road-signs/ng"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/ni@workspace:packages/@road-signs/ni":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/ni@workspace:packages/@road-signs/ni"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/nl@workspace:packages/@road-signs/nl":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/nl@workspace:packages/@road-signs/nl"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/no@workspace:packages/@road-signs/no":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/no@workspace:packages/@road-signs/no"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/np@workspace:packages/@road-signs/np":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/np@workspace:packages/@road-signs/np"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/nz@workspace:packages/@road-signs/nz":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/nz@workspace:packages/@road-signs/nz"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/om@workspace:packages/@road-signs/om":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/om@workspace:packages/@road-signs/om"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/pa@workspace:packages/@road-signs/pa":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/pa@workspace:packages/@road-signs/pa"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/pe@workspace:packages/@road-signs/pe":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/pe@workspace:packages/@road-signs/pe"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/pg@workspace:packages/@road-signs/pg":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/pg@workspace:packages/@road-signs/pg"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/ph@workspace:packages/@road-signs/ph":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/ph@workspace:packages/@road-signs/ph"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/pk@workspace:packages/@road-signs/pk":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/pk@workspace:packages/@road-signs/pk"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/pl@workspace:packages/@road-signs/pl":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/pl@workspace:packages/@road-signs/pl"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/pt@workspace:packages/@road-signs/pt":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/pt@workspace:packages/@road-signs/pt"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/py@workspace:packages/@road-signs/py":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/py@workspace:packages/@road-signs/py"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/qa@workspace:packages/@road-signs/qa":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/qa@workspace:packages/@road-signs/qa"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
     ts-jest: "npm:^29.4.0"
     typescript: "npm:^6.0.0"
   languageName: unknown
@@ -2664,9 +4910,381 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@road-signs/ro@workspace:packages/@road-signs/ro":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/ro@workspace:packages/@road-signs/ro"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/rs@workspace:packages/@road-signs/rs":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/rs@workspace:packages/@road-signs/rs"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/ru@workspace:packages/@road-signs/ru":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/ru@workspace:packages/@road-signs/ru"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/rw@workspace:packages/@road-signs/rw":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/rw@workspace:packages/@road-signs/rw"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/sa@workspace:packages/@road-signs/sa":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/sa@workspace:packages/@road-signs/sa"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/se@workspace:packages/@road-signs/se":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/se@workspace:packages/@road-signs/se"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/sg@workspace:packages/@road-signs/sg":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/sg@workspace:packages/@road-signs/sg"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/si@workspace:packages/@road-signs/si":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/si@workspace:packages/@road-signs/si"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/sk@workspace:packages/@road-signs/sk":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/sk@workspace:packages/@road-signs/sk"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/sm@workspace:packages/@road-signs/sm":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/sm@workspace:packages/@road-signs/sm"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/sn@workspace:packages/@road-signs/sn":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/sn@workspace:packages/@road-signs/sn"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/sr@workspace:packages/@road-signs/sr":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/sr@workspace:packages/@road-signs/sr"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/sv@workspace:packages/@road-signs/sv":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/sv@workspace:packages/@road-signs/sv"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/sy@workspace:packages/@road-signs/sy":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/sy@workspace:packages/@road-signs/sy"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/sz@workspace:packages/@road-signs/sz":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/sz@workspace:packages/@road-signs/sz"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/th@workspace:packages/@road-signs/th":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/th@workspace:packages/@road-signs/th"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/tj@workspace:packages/@road-signs/tj":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/tj@workspace:packages/@road-signs/tj"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/tm@workspace:packages/@road-signs/tm":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/tm@workspace:packages/@road-signs/tm"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/tn@workspace:packages/@road-signs/tn":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/tn@workspace:packages/@road-signs/tn"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/tr@workspace:packages/@road-signs/tr":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/tr@workspace:packages/@road-signs/tr"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/tt@workspace:packages/@road-signs/tt":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/tt@workspace:packages/@road-signs/tt"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/tw@workspace:packages/@road-signs/tw":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/tw@workspace:packages/@road-signs/tw"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/tz@workspace:packages/@road-signs/tz":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/tz@workspace:packages/@road-signs/tz"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/ua@workspace:packages/@road-signs/ua":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/ua@workspace:packages/@road-signs/ua"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/ug@workspace:packages/@road-signs/ug":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/ug@workspace:packages/@road-signs/ug"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/uk@workspace:packages/@road-signs/uk":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/uk@workspace:packages/@road-signs/uk"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
 "@road-signs/us@workspace:*, @road-signs/us@workspace:packages/@road-signs/us":
   version: 0.0.0-use.local
   resolution: "@road-signs/us@workspace:packages/@road-signs/us"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/uy@workspace:packages/@road-signs/uy":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/uy@workspace:packages/@road-signs/uy"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/uz@workspace:packages/@road-signs/uz":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/uz@workspace:packages/@road-signs/uz"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/vc@workspace:packages/@road-signs/vc":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/vc@workspace:packages/@road-signs/vc"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/ve@workspace:packages/@road-signs/ve":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/ve@workspace:packages/@road-signs/ve"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/vn@workspace:packages/@road-signs/vn":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/vn@workspace:packages/@road-signs/vn"
   dependencies:
     "@road-signs/core": "workspace:*"
     "@types/jest": "npm:^30.0.0"
@@ -2691,6 +5309,66 @@ __metadata:
     vue: "npm:^3.5.13"
   peerDependencies:
     vue: ">=3"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/xk@workspace:packages/@road-signs/xk":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/xk@workspace:packages/@road-signs/xk"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/ye@workspace:packages/@road-signs/ye":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/ye@workspace:packages/@road-signs/ye"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/za@workspace:packages/@road-signs/za":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/za@workspace:packages/@road-signs/za"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/zm@workspace:packages/@road-signs/zm":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/zm@workspace:packages/@road-signs/zm"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
+  languageName: unknown
+  linkType: soft
+
+"@road-signs/zw@workspace:packages/@road-signs/zw":
+  version: 0.0.0-use.local
+  resolution: "@road-signs/zw@workspace:packages/@road-signs/zw"
+  dependencies:
+    "@road-signs/core": "workspace:*"
+    "@types/jest": "npm:^30.0.0"
+    jest: "npm:^30.3.0"
+    ts-jest: "npm:^29.4.0"
+    typescript: "npm:^6.0.0"
   languageName: unknown
   linkType: soft
 
@@ -2990,6 +5668,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tokenizer/token@npm:^0.3.0":
+  version: 0.3.0
+  resolution: "@tokenizer/token@npm:0.3.0"
+  checksum: 10c0/7ab9a822d4b5ff3f5bca7f7d14d46bdd8432528e028db4a52be7fbf90c7f495cc1af1324691dda2813c6af8dc4b8eb29de3107d4508165f9aa5b53e7d501f155
+  languageName: node
+  linkType: hard
+
 "@tybys/wasm-util@npm:^0.10.0":
   version: 0.10.2
   resolution: "@tybys/wasm-util@npm:0.10.2"
@@ -3175,6 +5860,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/node@npm:16.9.1":
+  version: 16.9.1
+  resolution: "@types/node@npm:16.9.1"
+  checksum: 10c0/17877153b2fe748e85dd85432c7d6776cfaced7fd69f1998d005812d4865ac02e192a3adde7869ba8f449550f0a80ea6e3369e449a07c587e71222c56478e7d4
+  languageName: node
+  linkType: hard
+
 "@types/node@npm:^12.7.1":
   version: 12.20.55
   resolution: "@types/node@npm:12.20.55"
@@ -3197,6 +5889,16 @@ __metadata:
   dependencies:
     undici-types: "npm:~7.16.0"
   checksum: 10c0/d2c36b78b6050d8677769fa05a32243061675e81ddc2bb43955d91a671af3465506ef2731a24c0c9ab42b6b679bd5c1513de45bbe9ea278c2c07ee63b564b61b
+  languageName: node
+  linkType: hard
+
+"@types/potrace@npm:^2.1.5":
+  version: 2.1.5
+  resolution: "@types/potrace@npm:2.1.5"
+  dependencies:
+    "@types/node": "npm:*"
+    jimp: "npm:0.16.1"
+  checksum: 10c0/9358fd0a5207b401aa6a4a6c25db7f49bf4044bbecf74ebc63afc7a92e953420cdf6458bce67655e4bf2abce6d0333175b0ffd1f36c2e6cc1f0ffefdbfa629aa
   languageName: node
   linkType: hard
 
@@ -3544,6 +6246,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"abort-controller@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "abort-controller@npm:3.0.0"
+  dependencies:
+    event-target-shim: "npm:^5.0.0"
+  checksum: 10c0/90ccc50f010250152509a344eb2e71977fbf8db0ab8f1061197e3275ddf6c61a41a6edfd7b9409c664513131dd96e962065415325ef23efa5db931b382d24ca5
+  languageName: node
+  linkType: hard
+
 "acorn-jsx@npm:^5.0.0":
   version: 5.3.2
   resolution: "acorn-jsx@npm:5.3.2"
@@ -3619,6 +6330,13 @@ __metadata:
   version: 6.2.3
   resolution: "ansi-styles@npm:6.2.3"
   checksum: 10c0/23b8a4ce14e18fb854693b95351e286b771d23d8844057ed2e7d083cd3e708376c3323707ec6a24365f7d7eda3ca00327fe04092e29e551499ec4c8b7bfac868
+  languageName: node
+  linkType: hard
+
+"any-base@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "any-base@npm:1.1.0"
+  checksum: 10c0/1255cccb2c2ead4aa182eca000fd8aa0c1991d91781ff54e26323c132117ed23eb10eef057c0dcf1d919ab30d78e5b11bd8d88940352fc84586ecb961cc76466
   languageName: node
   linkType: hard
 
@@ -3853,6 +6571,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"base64-js@npm:^1.3.1":
+  version: 1.5.1
+  resolution: "base64-js@npm:1.5.1"
+  checksum: 10c0/f23823513b63173a001030fae4f2dabe283b99a9d324ade3ad3d148e218134676f1ee8568c877cd79ec1c53158dcf2d2ba527a97c606618928ba99dd930102bf
+  languageName: node
+  linkType: hard
+
 "baseline-browser-mapping@npm:^2.10.12":
   version: 2.10.29
   resolution: "baseline-browser-mapping@npm:2.10.29"
@@ -3886,6 +6611,13 @@ __metadata:
   dependencies:
     is-windows: "npm:^1.0.0"
   checksum: 10c0/7335130729d59a14b8e4753fea180ca84e287cccc20cb5f2438a95667abc5810327c414eee7b3c79ed1b5a348a40284ea872958f50caba69432c40405eb0acce
+  languageName: node
+  linkType: hard
+
+"bmp-js@npm:^0.1.0":
+  version: 0.1.0
+  resolution: "bmp-js@npm:0.1.0"
+  checksum: 10c0/c651bd5936dcf8d67900050fac14dcbe30baf87c3d21c58f4934fcdf46172e152a87d8c0c3ca25caa2b4b2c7780ef3b5fcc6cd20afd8f0351856cadb1bef9694
   languageName: node
   linkType: hard
 
@@ -3947,10 +6679,37 @@ __metadata:
   languageName: node
   linkType: hard
 
+"buffer-equal@npm:0.0.1":
+  version: 0.0.1
+  resolution: "buffer-equal@npm:0.0.1"
+  checksum: 10c0/2fdcc84ac89032c1db8f393a550f6936f407796c15c9a2eac7b5d1cd1481621215e33d7c768a948e906ea6ae9cf054bbd5aa4492dd68d343f5a12fd48e1c1f67
+  languageName: node
+  linkType: hard
+
 "buffer-from@npm:^1.0.0":
   version: 1.1.2
   resolution: "buffer-from@npm:1.1.2"
   checksum: 10c0/124fff9d66d691a86d3b062eff4663fe437a9d9ee4b47b1b9e97f5a5d14f6d5399345db80f796827be7c95e70a8e765dd404b7c3ff3b3324f98e9b0c8826cc34
+  languageName: node
+  linkType: hard
+
+"buffer@npm:^5.2.0":
+  version: 5.7.1
+  resolution: "buffer@npm:5.7.1"
+  dependencies:
+    base64-js: "npm:^1.3.1"
+    ieee754: "npm:^1.1.13"
+  checksum: 10c0/27cac81cff434ed2876058d72e7c4789d11ff1120ef32c9de48f59eab58179b66710c488987d295ae89a228f835fc66d088652dffeb8e3ba8659f80eb091d55e
+  languageName: node
+  linkType: hard
+
+"buffer@npm:^6.0.3":
+  version: 6.0.3
+  resolution: "buffer@npm:6.0.3"
+  dependencies:
+    base64-js: "npm:^1.3.1"
+    ieee754: "npm:^1.2.1"
+  checksum: 10c0/2a905fbbcde73cc5d8bd18d1caa23715d5f83a5935867c2329f0ac06104204ba7947be098fe1317fbd8830e26090ff8e764f08cd14fefc977bb248c3487bcbd0
   languageName: node
   linkType: hard
 
@@ -3986,6 +6745,15 @@ __metadata:
   version: 2.0.1
   resolution: "ccount@npm:2.0.1"
   checksum: 10c0/3939b1664390174484322bc3f45b798462e6c07ee6384cb3d645e0aa2f318502d174845198c1561930e1d431087f74cf1fe291ae9a4722821a9f4ba67e574350
+  languageName: node
+  linkType: hard
+
+"centra@npm:^2.7.0":
+  version: 2.7.0
+  resolution: "centra@npm:2.7.0"
+  dependencies:
+    follow-redirects: "npm:^1.15.6"
+  checksum: 10c0/ff0184fb3a8c72532550065dfee15f64ce619517e9e1323f2f2cf31333bd3b5f0b3fa1f10be51c26f43a83ed49b1d6c660d4c793a1e8b896ba1e288f766b7c35
   languageName: node
   linkType: hard
 
@@ -4465,6 +7233,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dom-walk@npm:^0.1.0":
+  version: 0.1.2
+  resolution: "dom-walk@npm:0.1.2"
+  checksum: 10c0/4d2ad9062a9423d890f8577aa202b597a6b85f9489bdde656b9443901b8b322b289655c3affefc58ec2e41931e0828dfee0a1d2db6829a607d76def5901fc5a9
+  languageName: node
+  linkType: hard
+
 "domelementtype@npm:^2.3.0":
   version: 2.3.0
   resolution: "domelementtype@npm:2.3.0"
@@ -4900,10 +7675,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"event-target-shim@npm:^5.0.0":
+  version: 5.0.1
+  resolution: "event-target-shim@npm:5.0.1"
+  checksum: 10c0/0255d9f936215fd206156fd4caa9e8d35e62075d720dc7d847e89b417e5e62cf1ce6c9b4e0a1633a9256de0efefaf9f8d26924b1f3c8620cffb9db78e7d3076b
+  languageName: node
+  linkType: hard
+
 "eventemitter3@npm:^5.0.4":
   version: 5.0.4
   resolution: "eventemitter3@npm:5.0.4"
   checksum: 10c0/575b8cac8d709e1473da46f8f15ef311b57ff7609445a7c71af5cd42598583eee6f098fa7a593e30f27e94b8865642baa0689e8fa97c016f742abdb3b1bf6d9a
+  languageName: node
+  linkType: hard
+
+"events@npm:^3.3.0":
+  version: 3.3.0
+  resolution: "events@npm:3.3.0"
+  checksum: 10c0/d6b6f2adbccbcda74ddbab52ed07db727ef52e31a61ed26db9feb7dc62af7fc8e060defa65e5f8af9449b86b52cc1a1f6a79f2eafcf4e62add2b7a1fa4a432f6
   languageName: node
   linkType: hard
 
@@ -4921,6 +7710,13 @@ __metadata:
     signal-exit: "npm:^3.0.3"
     strip-final-newline: "npm:^2.0.0"
   checksum: 10c0/c8e615235e8de4c5addf2fa4c3da3e3aa59ce975a3e83533b4f6a71750fb816a2e79610dc5f1799b6e28976c9ae86747a36a606655bf8cb414a74d8d507b304f
+  languageName: node
+  linkType: hard
+
+"exif-parser@npm:^0.1.12":
+  version: 0.1.12
+  resolution: "exif-parser@npm:0.1.12"
+  checksum: 10c0/ef1df84edbba50621fcfe19510c8db3ddd9e7fb374459d3f77c9256c24584767c7fb4cf1b15aef46e87a06528d3c48e44de02cecc314656d22a5cf954a0e7192
   languageName: node
   linkType: hard
 
@@ -5053,6 +7849,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"file-type@npm:^16.5.4":
+  version: 16.5.4
+  resolution: "file-type@npm:16.5.4"
+  dependencies:
+    readable-web-to-node-stream: "npm:^3.0.0"
+    strtok3: "npm:^6.2.4"
+    token-types: "npm:^4.1.1"
+  checksum: 10c0/a6c9ab8bc05bc9c212bec239fb0d5bf59ddc9b3912f00c4ef44622e67ae4e553a1cc8372e9e595e14859035188eb305d05d488fa3c5c2a2ad90bb7745b3004ef
+  languageName: node
+  linkType: hard
+
+"file-type@npm:^9.0.0":
+  version: 9.0.0
+  resolution: "file-type@npm:9.0.0"
+  checksum: 10c0/68d77137b2abddd379b53893217cde6015719313c9db1c922ca9ea18d7fd13d60b40f43f26a2f69fe96469f1b51c992ec727aafac573bdefe207f6bd5152f3a4
+  languageName: node
+  linkType: hard
+
 "fill-range@npm:^7.1.1":
   version: 7.1.1
   resolution: "fill-range@npm:7.1.1"
@@ -5076,6 +7890,16 @@ __metadata:
   version: 1.1.1
   resolution: "flattie@npm:1.1.1"
   checksum: 10c0/a8f8242c7af126cb2f1aa4a067af338fce609fc4c4df183c626fcc70a46c1878ce4aa88cd0dc8ef8f583ad4e7088a3b11ebeb6a62c9c97d75c0b1b0f08182ee3
+  languageName: node
+  linkType: hard
+
+"follow-redirects@npm:^1.15.6":
+  version: 1.16.0
+  resolution: "follow-redirects@npm:1.16.0"
+  peerDependenciesMeta:
+    debug:
+      optional: true
+  checksum: 10c0/a1e2900163e6f1b4d1ed5c221b607f41decbab65534c63fe7e287e40a5d552a6496e7d9d7d976fa4ba77b4c51c11e5e9f683f10b43011ea11e442ff128d0e181
   languageName: node
   linkType: hard
 
@@ -5192,6 +8016,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"gifwrap@npm:^0.9.2":
+  version: 0.9.4
+  resolution: "gifwrap@npm:0.9.4"
+  dependencies:
+    image-q: "npm:^4.0.0"
+    omggif: "npm:^1.0.10"
+  checksum: 10c0/a3ec76fce94c1d7c6326356d553c29361d7d7555aa393994880b41fef4b1e7a62a04f1b96d74f183013382e7ca8a214107b816f1eda388d1b1a523c8d1ca2da1
+  languageName: node
+  linkType: hard
+
 "github-slugger@npm:^2.0.0":
   version: 2.0.0
   resolution: "github-slugger@npm:2.0.0"
@@ -5246,6 +8080,16 @@ __metadata:
     once: "npm:^1.3.0"
     path-is-absolute: "npm:^1.0.0"
   checksum: 10c0/65676153e2b0c9095100fe7f25a778bf45608eeb32c6048cf307f579649bcc30353277b3b898a3792602c65764e5baa4f643714dfbdfd64ea271d210c7a425fe
+  languageName: node
+  linkType: hard
+
+"global@npm:~4.4.0":
+  version: 4.4.0
+  resolution: "global@npm:4.4.0"
+  dependencies:
+    min-document: "npm:^2.19.0"
+    process: "npm:^0.11.10"
+  checksum: 10c0/4a467aec6602c00a7c5685f310574ab04e289ad7f894f0f01c9c5763562b82f4b92d1e381ce6c5bbb12173e2a9f759c1b63dda6370cfb199970267e14d90aa91
   languageName: node
   linkType: hard
 
@@ -5723,10 +8567,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ieee754@npm:^1.1.13, ieee754@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "ieee754@npm:1.2.1"
+  checksum: 10c0/b0782ef5e0935b9f12883a2e2aa37baa75da6e66ce6515c168697b42160807d9330de9a32ec1ed73149aea02e0d822e572bca6f1e22bdcbd2149e13b050b17bb
+  languageName: node
+  linkType: hard
+
 "ignore@npm:^5.2.0":
   version: 5.3.2
   resolution: "ignore@npm:5.3.2"
   checksum: 10c0/f9f652c957983634ded1e7f02da3b559a0d4cc210fca3792cb67f1b153623c9c42efdc1c4121af171e295444459fc4a9201101fb041b1104a3c000bccb188337
+  languageName: node
+  linkType: hard
+
+"image-q@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "image-q@npm:4.0.0"
+  dependencies:
+    "@types/node": "npm:16.9.1"
+  checksum: 10c0/4463f8f4c0b6897c2213dfccf08c7731edcaa0ff8e2dab81ce3cafd5bb97d4eaa7bdd64f715d616910cf7b87aba718e4326ed4270b5d13bccc49af24bf5ce1a1
   languageName: node
   linkType: hard
 
@@ -5854,6 +8714,13 @@ __metadata:
   version: 3.0.0
   resolution: "is-fullwidth-code-point@npm:3.0.0"
   checksum: 10c0/bb11d825e049f38e04c06373a8d72782eee0205bda9d908cc550ccb3c59b99d750ff9537982e01733c1c94a58e35400661f57042158ff5e8f3e90cf936daf0fc
+  languageName: node
+  linkType: hard
+
+"is-function@npm:^1.0.1":
+  version: 1.0.2
+  resolution: "is-function@npm:1.0.2"
+  checksum: 10c0/c55289042a0e828a773f1245e2652e0c029efacc78ebe03e61787746fda74e2c41006cd908f20b53c36e45f9e75464475a4b2d68b17f4c7b9f8018bcaec42f9e
   languageName: node
   linkType: hard
 
@@ -6477,10 +9344,43 @@ __metadata:
   languageName: node
   linkType: hard
 
+"jimp@npm:0.16.1":
+  version: 0.16.1
+  resolution: "jimp@npm:0.16.1"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/custom": "npm:^0.16.1"
+    "@jimp/plugins": "npm:^0.16.1"
+    "@jimp/types": "npm:^0.16.1"
+    regenerator-runtime: "npm:^0.13.3"
+  checksum: 10c0/80a0407e8bf3557229c3385074d75e5151c04e940228f9e9f8bfa90b51167aedf501c452ce26d85aac217893722dd2d9f4f2d8d27eebf6df348bf19b40f57979
+  languageName: node
+  linkType: hard
+
+"jimp@npm:^0.14.0":
+  version: 0.14.0
+  resolution: "jimp@npm:0.14.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.7.2"
+    "@jimp/custom": "npm:^0.14.0"
+    "@jimp/plugins": "npm:^0.14.0"
+    "@jimp/types": "npm:^0.14.0"
+    regenerator-runtime: "npm:^0.13.3"
+  checksum: 10c0/7efb05d313910b3b196732c7e1b8da397109679860f70be6feee42973d8edb4f1d54c5ac2adc1dad819511cc98831847cf5db3a2428f7018a89cddfd1e795541
+  languageName: node
+  linkType: hard
+
 "jju@npm:^1.4.0":
   version: 1.4.0
   resolution: "jju@npm:1.4.0"
   checksum: 10c0/f3f444557e4364cfc06b1abf8331bf3778b26c0c8552ca54429bc0092652172fdea26cbffe33e1017b303d5aa506f7ede8571857400efe459cb7439180e2acad
+  languageName: node
+  linkType: hard
+
+"jpeg-js@npm:^0.4.0, jpeg-js@npm:^0.4.2":
+  version: 0.4.4
+  resolution: "jpeg-js@npm:0.4.4"
+  checksum: 10c0/4d0d5097f8e55d8bbce6f1dc32ffaf3f43f321f6222e4e6490734fdc6d005322e3bd6fb992c2df7f5b587343b1441a1c333281dc3285bc9116e369fd2a2b43a7
   languageName: node
   linkType: hard
 
@@ -6739,6 +9639,22 @@ __metadata:
   version: 1.2.4
   resolution: "lines-and-columns@npm:1.2.4"
   checksum: 10c0/3da6ee62d4cd9f03f5dc90b4df2540fb85b352081bee77fe4bbcd12c9000ead7f35e0a38b8d09a9bb99b13223446dd8689ff3c4959807620726d788701a83d2d
+  languageName: node
+  linkType: hard
+
+"load-bmfont@npm:^1.3.1, load-bmfont@npm:^1.4.0":
+  version: 1.4.2
+  resolution: "load-bmfont@npm:1.4.2"
+  dependencies:
+    buffer-equal: "npm:0.0.1"
+    mime: "npm:^1.3.4"
+    parse-bmfont-ascii: "npm:^1.0.3"
+    parse-bmfont-binary: "npm:^1.0.5"
+    parse-bmfont-xml: "npm:^1.1.4"
+    phin: "npm:^3.7.1"
+    xhr: "npm:^2.0.1"
+    xtend: "npm:^4.0.0"
+  checksum: 10c0/bc85401964c5b5640ee98581895ddcda666a5e6420773e65a13ae948e2dd9a3e55206e3deb4c98e9bd4d111719d4eb71fc1ce326b1dd060f20afba942b056373
   languageName: node
   linkType: hard
 
@@ -7595,10 +10511,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"mime@npm:^1.3.4":
+  version: 1.6.0
+  resolution: "mime@npm:1.6.0"
+  bin:
+    mime: cli.js
+  checksum: 10c0/b92cd0adc44888c7135a185bfd0dddc42c32606401c72896a842ae15da71eb88858f17669af41e498b463cd7eb998f7b48939a25b08374c7924a9c8a6f8a81b0
+  languageName: node
+  linkType: hard
+
 "mimic-fn@npm:^2.1.0":
   version: 2.1.0
   resolution: "mimic-fn@npm:2.1.0"
   checksum: 10c0/b26f5479d7ec6cc2bce275a08f146cf78f5e7b661b18114e2506dd91ec7ec47e7a25bf4360e5438094db0560bcc868079fb3b1fb3892b833c1ecbf63f80c95a4
+  languageName: node
+  linkType: hard
+
+"min-document@npm:^2.19.0":
+  version: 2.19.2
+  resolution: "min-document@npm:2.19.2"
+  dependencies:
+    dom-walk: "npm:^0.1.0"
+  checksum: 10c0/f6cd59ae07758583bda19cf86ffa8e072cc6e1d72d4e2a62fbf72af3ca630f66ac6a0b3e0ca2b83d5939886da2d006c309fbd0e94f17931ad117860c3fb51bf7
   languageName: node
   linkType: hard
 
@@ -7611,7 +10545,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minimist@npm:^1.2.0, minimist@npm:^1.2.5":
+"minimist@npm:^1.2.0, minimist@npm:^1.2.5, minimist@npm:^1.2.6":
   version: 1.2.8
   resolution: "minimist@npm:1.2.8"
   checksum: 10c0/19d3fcdca050087b84c2029841a093691a91259a47def2f18222f41e7645a0b7c44ef4b40e88a1e58a40c84d2ef0ee6047c55594d298146d0eb3f6b737c20ce6
@@ -7631,6 +10565,17 @@ __metadata:
   dependencies:
     minipass: "npm:^7.1.2"
   checksum: 10c0/5aad75ab0090b8266069c9aabe582c021ae53eb33c6c691054a13a45db3b4f91a7fb1bd79151e6b4e9e9a86727b522527c0a06ec7d45206b745d54cd3097bcec
+  languageName: node
+  linkType: hard
+
+"mkdirp@npm:^0.5.1":
+  version: 0.5.6
+  resolution: "mkdirp@npm:0.5.6"
+  dependencies:
+    minimist: "npm:^1.2.6"
+  bin:
+    mkdirp: bin/cmd.js
+  checksum: 10c0/e2e2be789218807b58abced04e7b49851d9e46e88a2f9539242cc8a92c9b5c3a0b9bab360bd3014e02a140fc4fbc58e31176c408b493f8a2a6f4986bd7527b01
   languageName: node
   linkType: hard
 
@@ -7837,6 +10782,13 @@ __metadata:
   version: 2.0.11
   resolution: "ohash@npm:2.0.11"
   checksum: 10c0/d07c8d79cc26da082c1a7c8d5b56c399dd4ed3b2bd069fcae6bae78c99a9bcc3ad813b1e1f49ca2f335292846d689c6141a762cf078727d2302a33d414e69c79
+  languageName: node
+  linkType: hard
+
+"omggif@npm:^1.0.10, omggif@npm:^1.0.9":
+  version: 1.0.10
+  resolution: "omggif@npm:1.0.10"
+  checksum: 10c0/5ddb6959555bf16ac93ee8724a6f600b0e97e77855515af9df0f657c69ebe0eb7d769763fdc4765f888827e4e64ca71ebeaf7255c7f51058e4bba5cc7950fe8e
   languageName: node
   linkType: hard
 
@@ -8168,6 +11120,37 @@ __metadata:
   languageName: node
   linkType: hard
 
+"pako@npm:^1.0.5":
+  version: 1.0.11
+  resolution: "pako@npm:1.0.11"
+  checksum: 10c0/86dd99d8b34c3930345b8bbeb5e1cd8a05f608eeb40967b293f72fe469d0e9c88b783a8777e4cc7dc7c91ce54c5e93d88ff4b4f060e6ff18408fd21030d9ffbe
+  languageName: node
+  linkType: hard
+
+"parse-bmfont-ascii@npm:^1.0.3":
+  version: 1.0.6
+  resolution: "parse-bmfont-ascii@npm:1.0.6"
+  checksum: 10c0/f76c57be4678fbb05221e263b21671fa3dbe03d0bae7be133b7f102dbe666958811759b615bfcfc81d76a34efeae1fb76c3305a5a4f28e14eb3baa9ec72c8c4f
+  languageName: node
+  linkType: hard
+
+"parse-bmfont-binary@npm:^1.0.5":
+  version: 1.0.6
+  resolution: "parse-bmfont-binary@npm:1.0.6"
+  checksum: 10c0/2bcc4f041871ce9cec767105a9438704f114ef43c5827754c4dbcd821f792ec440f8120944d3a5396503e4387e68269ba68d933668a92a3322ad32a079911ea4
+  languageName: node
+  linkType: hard
+
+"parse-bmfont-xml@npm:^1.1.4":
+  version: 1.1.6
+  resolution: "parse-bmfont-xml@npm:1.1.6"
+  dependencies:
+    xml-parse-from-string: "npm:^1.0.0"
+    xml2js: "npm:^0.5.0"
+  checksum: 10c0/e18e816a2553d3d34795e5a60b584f64a327d4a92f83b48dcb01b9ec30fc75b5338488d9f9d25cd8b463665c13f59264464f39e73c0e8d8d3665ce7f4f128328
+  languageName: node
+  linkType: hard
+
 "parse-entities@npm:^4.0.0":
   version: 4.0.2
   resolution: "parse-entities@npm:4.0.2"
@@ -8189,6 +11172,13 @@ __metadata:
   bin:
     parse-github-url: cli.js
   checksum: 10c0/b16cfb1893d70c05d0b24a962664bc25f7bcfa6120dde677d17439d17c148ea72bdd4a5e9a5116139f9e82a65ebb9ae7d9eaacf8b80fca48bb712a02484a4b81
+  languageName: node
+  linkType: hard
+
+"parse-headers@npm:^2.0.0":
+  version: 2.0.6
+  resolution: "parse-headers@npm:2.0.6"
+  checksum: 10c0/3040ca567f7ceb9b80ffb353401c91c35761365052e30b6795328e78ab549a5fab22be24cbdbb60243500175918fe40812c43b32f689ad775e1c67ba7ba303e9
   languageName: node
   linkType: hard
 
@@ -8275,6 +11265,29 @@ __metadata:
   languageName: node
   linkType: hard
 
+"peek-readable@npm:^4.1.0":
+  version: 4.1.0
+  resolution: "peek-readable@npm:4.1.0"
+  checksum: 10c0/f9b81ce3eed185cc9ebbf7dff0b6e130dd6da7b05f1802bbf726a78e4d84990b0a65f8e701959c50eb1124cc2ad352205147954bf39793faba29bb00ce742a44
+  languageName: node
+  linkType: hard
+
+"phin@npm:^2.9.1":
+  version: 2.9.3
+  resolution: "phin@npm:2.9.3"
+  checksum: 10c0/5bb94493f1bf1f0b66ca08aee6aaa488c46f4a8af2722d94ef9c8e4aaa3a5952e19aeff37f832ed64a71c98124c73936a30caef42973be21350b36af5fc33ab8
+  languageName: node
+  linkType: hard
+
+"phin@npm:^3.7.1":
+  version: 3.7.1
+  resolution: "phin@npm:3.7.1"
+  dependencies:
+    centra: "npm:^2.7.0"
+  checksum: 10c0/114cb1eff5ec817ddaf6748de354b01f02375c755a8da5f2505e0014d2e4eecdb820158e94235cdf9a25fea22c485b113b15ddf053b7699b2e59945bbe3aeaf0
+  languageName: node
+  linkType: hard
+
 "piccolore@npm:^0.1.3":
   version: 0.1.3
   resolution: "piccolore@npm:0.1.3"
@@ -8310,12 +11323,30 @@ __metadata:
   languageName: node
   linkType: hard
 
+"pixelmatch@npm:^4.0.2":
+  version: 4.0.2
+  resolution: "pixelmatch@npm:4.0.2"
+  dependencies:
+    pngjs: "npm:^3.0.0"
+  bin:
+    pixelmatch: bin/pixelmatch
+  checksum: 10c0/81fee4a8f3f8d462ada5fc7809399384f99c137fa44974e9eddd52dcd0f0d5838387e2c4cd2397f6adbbc2a6728688ff6124faf0091a1c776d57277f9d42e9fa
+  languageName: node
+  linkType: hard
+
 "pkg-dir@npm:^4.2.0":
   version: 4.2.0
   resolution: "pkg-dir@npm:4.2.0"
   dependencies:
     find-up: "npm:^4.0.0"
   checksum: 10c0/c56bda7769e04907a88423feb320babaed0711af8c436ce3e56763ab1021ba107c7b0cafb11cde7529f669cfc22bffcaebffb573645cbd63842ea9fb17cd7728
+  languageName: node
+  linkType: hard
+
+"pngjs@npm:^3.0.0, pngjs@npm:^3.3.3":
+  version: 3.4.0
+  resolution: "pngjs@npm:3.4.0"
+  checksum: 10c0/88ee73e2ad3f736e0b2573722309eb80bd2aa28916f0862379b4fd0f904751b4f61bb6bd1ecd7d4242d331f2b5c28c13309dd4b7d89a9b78306e35122fdc5011
   languageName: node
   linkType: hard
 
@@ -8351,6 +11382,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"potrace@npm:^2.1.8":
+  version: 2.1.8
+  resolution: "potrace@npm:2.1.8"
+  dependencies:
+    jimp: "npm:^0.14.0"
+  checksum: 10c0/bec5f54804f24087cd19b91de2dd3056a2c84f3c317265601e175d0e1366f000288f33a65a0059d0415720e303167ff72537fab994b2da031530353cecb5a230
+  languageName: node
+  linkType: hard
+
 "prettier@npm:^2.7.1":
   version: 2.8.8
   resolution: "prettier@npm:2.8.8"
@@ -8383,6 +11423,13 @@ __metadata:
   version: 6.1.0
   resolution: "proc-log@npm:6.1.0"
   checksum: 10c0/4f178d4062733ead9d71a9b1ab24ebcecdfe2250916a5b1555f04fe2eda972a0ec76fbaa8df1ad9c02707add6749219d118a4fc46dc56bdfe4dde4b47d80bb82
+  languageName: node
+  linkType: hard
+
+"process@npm:^0.11.10":
+  version: 0.11.10
+  resolution: "process@npm:0.11.10"
+  checksum: 10c0/40c3ce4b7e6d4b8c3355479df77aeed46f81b279818ccdc500124e6a5ab882c0cc81ff7ea16384873a95a74c4570b01b120f287abbdd4c877931460eca6084b3
   languageName: node
   linkType: hard
 
@@ -8493,6 +11540,28 @@ __metadata:
   languageName: node
   linkType: hard
 
+"readable-stream@npm:^4.7.0":
+  version: 4.7.0
+  resolution: "readable-stream@npm:4.7.0"
+  dependencies:
+    abort-controller: "npm:^3.0.0"
+    buffer: "npm:^6.0.3"
+    events: "npm:^3.3.0"
+    process: "npm:^0.11.10"
+    string_decoder: "npm:^1.3.0"
+  checksum: 10c0/fd86d068da21cfdb10f7a4479f2e47d9c0a9b0c862fc0c840a7e5360201580a55ac399c764b12a4f6fa291f8cee74d9c4b7562e0d53b3c4b2769f2c98155d957
+  languageName: node
+  linkType: hard
+
+"readable-web-to-node-stream@npm:^3.0.0":
+  version: 3.0.4
+  resolution: "readable-web-to-node-stream@npm:3.0.4"
+  dependencies:
+    readable-stream: "npm:^4.7.0"
+  checksum: 10c0/2dc417d5d0b0c0191fcf57f87df3b2853db21d1da5554ec32b1e1c5a515e5a1243fc077a23f74046d711c2d736628f64b31054a8379b95bb016212430b5110c5
+  languageName: node
+  linkType: hard
+
 "readdirp@npm:^5.0.0":
   version: 5.0.0
   resolution: "readdirp@npm:5.0.0"
@@ -8547,6 +11616,13 @@ __metadata:
     unified: "npm:^11.0.0"
     vfile: "npm:^6.0.0"
   checksum: 10c0/c2ed4c0e8cf8a09aedcd47c5d016d47f6e1ff6c2d4b220e2abaf1b77713bf404756af2ea3ea7999aec5862e8825aff035edceb370c7fd8603a7e9da03bd6987e
+  languageName: node
+  linkType: hard
+
+"regenerator-runtime@npm:^0.13.3":
+  version: 0.13.11
+  resolution: "regenerator-runtime@npm:0.13.11"
+  checksum: 10c0/12b069dc774001fbb0014f6a28f11c09ebfe3c0d984d88c9bced77fdb6fedbacbca434d24da9ae9371bfbf23f754869307fb51a4c98a8b8b18e5ef748677ca24
   languageName: node
   linkType: hard
 
@@ -8841,11 +11917,13 @@ __metadata:
     "@changesets/cli": "npm:^2.27.10"
     "@manypkg/cli": "npm:^0.23.0"
     "@types/node": "npm:^22.10.7"
+    "@types/potrace": "npm:^2.1.5"
     glob: "npm:^13.0.6"
     lefthook: "npm:^2.1.6"
     node-html-parser: "npm:^7.0.1"
     oxfmt: "npm:^0.45.0"
     oxlint: "npm:^1.60.0"
+    potrace: "npm:^2.1.8"
     sharp: "npm:^0.33.5"
     svgo: "npm:^4.0.1"
     tsx: "npm:^4.19.4"
@@ -8959,6 +12037,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"safe-buffer@npm:~5.2.0":
+  version: 5.2.1
+  resolution: "safe-buffer@npm:5.2.1"
+  checksum: 10c0/6501914237c0a86e9675d4e51d89ca3c21ffd6a31642efeba25ad65720bce6921c9e7e974e5be91a786b25aa058b5303285d3c15dbabf983a919f5f630d349f3
+  languageName: node
+  linkType: hard
+
 "safer-buffer@npm:>= 2.1.2 < 3.0.0":
   version: 2.1.2
   resolution: "safer-buffer@npm:2.1.2"
@@ -8966,7 +12051,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sax@npm:^1.4.1, sax@npm:^1.5.0":
+"sax@npm:>=0.6.0, sax@npm:^1.4.1, sax@npm:^1.5.0":
   version: 1.6.0
   resolution: "sax@npm:1.6.0"
   checksum: 10c0/e5593f4a91eb25761a688c4d96902e4e95a0dd6017bc65146b6f21236e3d715cf893333b76bc758923c9574c2fb5a7a76c3a81e96ea15432f2624f906c027c1e
@@ -9355,6 +12440,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"string_decoder@npm:^1.3.0":
+  version: 1.3.0
+  resolution: "string_decoder@npm:1.3.0"
+  dependencies:
+    safe-buffer: "npm:~5.2.0"
+  checksum: 10c0/810614ddb030e271cd591935dcd5956b2410dd079d64ff92a1844d6b7588bf992b3e1b69b0f4d34a3e06e0bd73046ac646b5264c1987b20d0601f81ef35d731d
+  languageName: node
+  linkType: hard
+
 "stringify-entities@npm:^4.0.0":
   version: 4.0.4
   resolution: "stringify-entities@npm:4.0.4"
@@ -9415,6 +12509,16 @@ __metadata:
   version: 2.0.1
   resolution: "strip-json-comments@npm:2.0.1"
   checksum: 10c0/b509231cbdee45064ff4f9fd73609e2bcc4e84a4d508e9dd0f31f70356473fde18abfb5838c17d56fb236f5a06b102ef115438de0600b749e818a35fbbc48c43
+  languageName: node
+  linkType: hard
+
+"strtok3@npm:^6.2.4":
+  version: 6.3.0
+  resolution: "strtok3@npm:6.3.0"
+  dependencies:
+    "@tokenizer/token": "npm:^0.3.0"
+    peek-readable: "npm:^4.1.0"
+  checksum: 10c0/8f1483a2a6758404502f2fc431586fcf37d747b10b125596ab5ec92319c247dd1195f82ba0bc2eaa582db3d807b5cca4b67ff61411756fec6622d051f8e255c2
   languageName: node
   linkType: hard
 
@@ -9518,6 +12622,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"timm@npm:^1.6.1":
+  version: 1.7.1
+  resolution: "timm@npm:1.7.1"
+  checksum: 10c0/28759984dac61dce80a250eb6fed42803f834658b77ef0ebec869cc663110a05e8d453cc317f63fe8c8b3a3401a277dc3483324a652b05a4621a4563eaacabad
+  languageName: node
+  linkType: hard
+
 "tiny-inflate@npm:^1.0.3":
   version: 1.0.3
   resolution: "tiny-inflate@npm:1.0.3"
@@ -9529,6 +12640,13 @@ __metadata:
   version: 0.1.12
   resolution: "tinyclip@npm:0.1.12"
   checksum: 10c0/5319ca4d430cc7cafe9624b86ba331467e0f6c718b2a961e3fc2a48bff932a319b1aaf8bd7f8edb70f4bef24e233e442e4fc9ffa77c994bace415324e0bc86cf
+  languageName: node
+  linkType: hard
+
+"tinycolor2@npm:^1.4.1":
+  version: 1.6.0
+  resolution: "tinycolor2@npm:1.6.0"
+  checksum: 10c0/9aa79a36ba2c2a87cb221453465cabacd04b9e35f9694373e846fdc78b1c768110f81e581ea41440106c0f24d9a023891d0887e8075885e790ac40eb0e74a5c1
   languageName: node
   linkType: hard
 
@@ -9594,6 +12712,16 @@ __metadata:
   dependencies:
     is-number: "npm:^7.0.0"
   checksum: 10c0/487988b0a19c654ff3e1961b87f471702e708fa8a8dd02a298ef16da7206692e8552a0250e8b3e8759270f62e9d8314616f6da274734d3b558b1fc7b7724e892
+  languageName: node
+  linkType: hard
+
+"token-types@npm:^4.1.1":
+  version: 4.2.1
+  resolution: "token-types@npm:4.2.1"
+  dependencies:
+    "@tokenizer/token": "npm:^0.3.0"
+    ieee754: "npm:^1.2.1"
+  checksum: 10c0/e9a4a139deba9515770cd7ac36a8f53f953b9d035d309e88a66d706760dba0df420753f2b8bdee6b9f3cbff8d66b24e69571e8dea27baa7b378229ab1bcca399
   languageName: node
   linkType: hard
 
@@ -10075,6 +13203,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"utif@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "utif@npm:2.0.1"
+  dependencies:
+    pako: "npm:^1.0.5"
+  checksum: 10c0/a6c3616c2bba87173903eba49eefa62ce25d91dbfea336baf605f2a7266b679ae2e4e81d23089acd22dbb9f2e5da3d53165e2d842abb08edf0d5213ca168a57e
+  languageName: node
+  linkType: hard
+
 "util-deprecate@npm:^1.0.2":
   version: 1.0.2
   resolution: "util-deprecate@npm:1.0.2"
@@ -10370,6 +13507,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"xhr@npm:^2.0.1":
+  version: 2.6.0
+  resolution: "xhr@npm:2.6.0"
+  dependencies:
+    global: "npm:~4.4.0"
+    is-function: "npm:^1.0.1"
+    parse-headers: "npm:^2.0.0"
+    xtend: "npm:^4.0.0"
+  checksum: 10c0/b73b6413b678846c422559cbc0afb2acb34c3a75b4c3bbee1f258e984255a8b8d65c1749b51691278bbdc28781782950d77a759ef5a9adf7774bed2f5dabc954
+  languageName: node
+  linkType: hard
+
 "xml-name-validator@npm:^5.0.0":
   version: 5.0.0
   resolution: "xml-name-validator@npm:5.0.0"
@@ -10377,10 +13526,41 @@ __metadata:
   languageName: node
   linkType: hard
 
+"xml-parse-from-string@npm:^1.0.0":
+  version: 1.0.1
+  resolution: "xml-parse-from-string@npm:1.0.1"
+  checksum: 10c0/485fd096818c360dce4a115444f2157a4ab61b0ec99753b0381ce40a26978dc2eceb8079bcbbbd5cd570901cd7aa7310cad3d5c47084602a5dbf7e530a59edda
+  languageName: node
+  linkType: hard
+
+"xml2js@npm:^0.5.0":
+  version: 0.5.0
+  resolution: "xml2js@npm:0.5.0"
+  dependencies:
+    sax: "npm:>=0.6.0"
+    xmlbuilder: "npm:~11.0.0"
+  checksum: 10c0/c9cd07cd19c5e41c740913bbbf16999a37a204488e11f86eddc2999707d43967197e257014d7ed72c8fc4348c192fa47eb352d1d9d05637cefd0d2e24e9aa4c8
+  languageName: node
+  linkType: hard
+
+"xmlbuilder@npm:~11.0.0":
+  version: 11.0.1
+  resolution: "xmlbuilder@npm:11.0.1"
+  checksum: 10c0/74b979f89a0a129926bc786b913459bdbcefa809afaa551c5ab83f89b1915bdaea14c11c759284bb9b931e3b53004dbc2181e21d3ca9553eeb0b2a7b4e40c35b
+  languageName: node
+  linkType: hard
+
 "xmlchars@npm:^2.2.0":
   version: 2.2.0
   resolution: "xmlchars@npm:2.2.0"
   checksum: 10c0/b64b535861a6f310c5d9bfa10834cf49127c71922c297da9d4d1b45eeaae40bf9b4363275876088fbe2667e5db028d2cd4f8ee72eed9bede840a67d57dab7593
+  languageName: node
+  linkType: hard
+
+"xtend@npm:^4.0.0":
+  version: 4.0.2
+  resolution: "xtend@npm:4.0.2"
+  checksum: 10c0/366ae4783eec6100f8a02dff02ac907bf29f9a00b82ac0264b4d8b832ead18306797e283cf19de776538babfdcb2101375ec5646b59f08c52128ac4ab812ed0e
   languageName: node
   linkType: hard
 
