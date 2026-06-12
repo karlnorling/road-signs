@@ -24,12 +24,6 @@ export type ScrapedData = Record<
 const USER_AGENT = 'road-signs/0.0.0 (https://github.com/karlnorling/road-signs; build-script)';
 const WIKIPEDIA_URL = 'https://en.wikipedia.org/wiki/Road_signs_in_Brazil';
 
-const slugify = (s: string): string =>
-  s
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-|-$/g, '');
-
 /** Extract CTB code from filename: "Brasil_A-1a.svg" → "A-1a" */
 const extractCodeFromFilename = (href: string): string | null => {
   const base = decodeURIComponent(href)

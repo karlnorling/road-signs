@@ -310,10 +310,6 @@ const fetchFhwaSvgs = async (cc: string): Promise<void> => {
 
       // FHWA ZIPs contain multiple sizes (18x18, 24x24, 36x36, 48x48 etc.)
       // for the same sign. Pick the largest available.
-      const baseName = path.basename(match.filename, '.svg');
-      const sizeMatch = baseName.match(/(\d+)x(\d+)$/);
-      const matchSize = sizeMatch ? parseInt(sizeMatch[1], 10) * parseInt(sizeMatch[2], 10) : 0;
-
       const allVariants = svgEntries.filter((e) => {
         const base = path.basename(e.filename, '.svg');
         if (strip(base).includes(lower)) return true;

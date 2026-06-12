@@ -24,7 +24,7 @@
 import fs from 'fs';
 import path from 'path';
 import { globSync } from 'glob';
-import { processSign, sanitize } from './create-assets';
+import { processSign } from './create-assets';
 import { generateSource } from './generate-source';
 
 const USER_AGENT = 'road-signs/0.0.0 (https://github.com/karlnorling/road-signs; fill-gaps)';

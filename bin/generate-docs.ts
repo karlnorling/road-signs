@@ -2197,7 +2197,7 @@ const pct = (n: number, total: number): string =>
 // ---------------------------------------------------------------------------
 
 const coverageSectionBody = (cov: CountryCoverage): string => {
-  const { cc, meta, totalScraped, totalWithSvg, categories } = cov;
+  const { meta, totalScraped, totalWithSvg, categories } = cov;
   const missing = totalScraped - totalWithSvg;
 
   const lines: string[] = [
