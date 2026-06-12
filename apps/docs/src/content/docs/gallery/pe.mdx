@@ -1,0 +1,10 @@
+---
+title: Peru — Sign Gallery
+description: Browse Peruvian MTC road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/pe';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

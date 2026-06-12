@@ -1,0 +1,10 @@
+---
+title: Cambodia — Sign Gallery
+description: Browse Cambodia road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/kh';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

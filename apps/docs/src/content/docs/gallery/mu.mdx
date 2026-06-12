@@ -1,0 +1,9 @@
+---
+title: Mauritius — Sign Gallery
+description: Browse Mauritius road signs, filterable by category.
+tableOfContents: false
+---
+import { getAllSigns } from '@road-signs/mu';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

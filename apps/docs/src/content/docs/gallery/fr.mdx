@@ -1,0 +1,10 @@
+---
+title: France — Sign Gallery
+description: Browse French Code de la route signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/fr';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

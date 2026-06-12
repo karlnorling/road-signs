@@ -1,0 +1,10 @@
+---
+title: Malaysia — Sign Gallery
+description: Browse Malaysian road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/my';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

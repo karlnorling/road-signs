@@ -1,0 +1,10 @@
+---
+title: Bolivia — Sign Gallery
+description: Browse Bolivia road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/bo';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

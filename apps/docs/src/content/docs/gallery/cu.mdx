@@ -1,0 +1,10 @@
+---
+title: Cuba — Sign Gallery
+description: Browse Cuba road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/cu';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

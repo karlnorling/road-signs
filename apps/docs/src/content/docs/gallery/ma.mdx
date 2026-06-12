@@ -1,0 +1,10 @@
+---
+title: Morocco — Sign Gallery
+description: Browse Moroccan road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/ma';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

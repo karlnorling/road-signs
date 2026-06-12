@@ -1,0 +1,136 @@
+---
+title: Argentina (AR)
+description: Argentina road signs — categories, installation, and usage.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+The `@road-signs/ar` package contains Argentine road signs from the **Decreto 779/95 — Reglamento Nacional de Tránsito (Vienna variant)**.
+Signs are sourced from Wikimedia Commons and are in the public domain.
+
+## Installation
+
+```sh
+npm install @road-signs/ar
+```
+
+## Sign categories
+
+| Category | Series | Description |
+| -------- | ------ | ----------- |
+| `warning` | Preventivas | Señales preventivas — hazard warnings |
+| `prohibitory` | Reglamentarias | Señales reglamentarias — prohibitions and regulations |
+| `information` | Informativas | Señales informativas — information and direction |
+
+## Usage
+
+<Tabs>
+  <TabItem label="TypeScript">
+    ```ts
+    import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/ar';
+
+    // All signs
+    signs.length;
+
+    // By slug ID
+    const sign = getSign("p1-sharp-bend");
+
+    // By sign code
+    const s = getSignByCode("P1");
+
+    // All warning signs
+    const filtered = getSignsByCategory('warning');
+    ```
+  </TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { getSignsByCategory } from '@road-signs/ar';
+    import { RoadSign } from '@road-signs/react';
+
+    const warnings = getSignsByCategory('warning');
+
+    export default function WarningGrid() {
+      return (
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          {warnings.map((sign) => (
+            <RoadSign key={sign.id} sign={sign} size={64} />
+          ))}
+        </div>
+      );
+    }
+    ```
+  </TabItem>
+  <TabItem label="Vue 3">
+    ```vue
+    <script setup>
+    import { getSignsByCategory } from '@road-signs/ar';
+    import { RoadSign } from '@road-signs/vue';
+
+    const warnings = getSignsByCategory('warning');
+    </script>
+
+    <template>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <RoadSign v-for="sign in warnings" :key="sign.id" :sign="sign" :size="64" />
+      </div>
+    </template>
+    ```
+  </TabItem>
+</Tabs>
+
+
+{/* COVERAGE:START */}
+
+## Coverage
+
+| Metric | Value |
+| ------ | ----- |
+| Signs scraped | 140 |
+| Signs with SVG | 140 |
+| Missing SVG | 0 |
+| Overall | **100%** |
+
+| Category | Scraped | With SVG | Missing | % |
+| -------- | ------: | -------: | ------: | -: |
+| `warning` | 62 | 62 | 0 | 100% |
+| `priority` | 0 | 0 | 0 | — |
+| `prohibitory` | 78 | 78 | 0 | 100% |
+| `mandatory` | 0 | 0 | 0 | — |
+| `information` | 0 | 0 | 0 | — |
+
+**Standard:** Decreto 779/95 — Reglamento Nacional de Tránsito (Vienna Convention variant)
+
+**SVG sources:**
+
+- [Wikimedia Commons — Road signs in Argentina](https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Argentina)
+- [Wikimedia Commons — Road signs in Argentina (general)](https://commons.wikimedia.org/wiki/Category:Road_signs_in_Argentina)
+
+_Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.com/package/@road-signs/docs) package._
+
+{/* COVERAGE:END */}
+
+## TypeScript types
+
+```ts
+import type { ARSign, ARCategory } from '@road-signs/ar';
+
+type ARCategory =
+  | 'information'
+  | 'prohibitory'
+  | 'warning';
+
+interface ARSign {
+  id: string;          // e.g. "p1-sharp-bend"
+  code: string;        // sign code, e.g. "P1"
+  name: string;
+  description: string;
+  category: ARCategory;
+  svg: string;         // inline SVG string
+  assets: {
+    svg: string;
+    png: Record<number, string>;
+    jpg: Record<number, string>;
+    webp: Record<number, string>;
+  };
+}
+```

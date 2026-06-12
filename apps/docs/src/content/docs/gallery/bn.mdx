@@ -1,0 +1,9 @@
+---
+title: Brunei — Sign Gallery
+description: Browse Brunei road signs, filterable by category.
+tableOfContents: false
+---
+import { getAllSigns } from '@road-signs/bn';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

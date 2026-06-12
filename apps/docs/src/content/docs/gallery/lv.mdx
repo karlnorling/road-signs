@@ -1,0 +1,10 @@
+---
+title: Latvia — Sign Gallery
+description: Browse Latvian road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/lv';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

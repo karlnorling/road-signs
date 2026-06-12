@@ -1,0 +1,10 @@
+---
+title: Denmark — Sign Gallery
+description: Browse Danish road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/dk';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

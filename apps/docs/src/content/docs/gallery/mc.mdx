@@ -1,0 +1,10 @@
+---
+title: Monaco — Sign Gallery
+description: Browse Monaco road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/mc';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

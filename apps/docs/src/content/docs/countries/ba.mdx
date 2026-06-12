@@ -1,0 +1,139 @@
+---
+title: Bosnia and Herzegovina (BA)
+description: Bosnia and Herzegovina road signs — categories, installation, and usage.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+The `@road-signs/ba` package contains Bosnia and Herzegovina road signs from the **Zakon o osnovama bezbjednosti saobraćaja — Vienna Convention**.
+Signs are sourced from Wikimedia Commons and are in the public domain.
+
+## Installation
+
+```sh
+npm install @road-signs/ba
+```
+
+## Sign categories
+
+| Category | Series | Description |
+| -------- | ------ | ----------- |
+| `warning` | A series | Znaci upozorenja — hazard warnings |
+| `priority` | B series | Znaci prednosti — right-of-way |
+| `prohibitory` | C series | Znaci zabrane i ograničenja — prohibitions |
+| `mandatory` | D series | Znaci obaveze — mandatory actions |
+| `information` | E–F series | Znaci obavještenja — information and direction |
+
+## Usage
+
+<Tabs>
+  <TabItem label="TypeScript">
+    ```ts
+    import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/ba';
+
+    // All signs
+    signs.length;
+
+    // By slug ID
+    const sign = getSign("a1-sharp-bend");
+
+    // By sign code
+    const s = getSignByCode("A1");
+
+    // All warning signs
+    const filtered = getSignsByCategory('warning');
+    ```
+  </TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { getSignsByCategory } from '@road-signs/ba';
+    import { RoadSign } from '@road-signs/react';
+
+    const warnings = getSignsByCategory('warning');
+
+    export default function WarningGrid() {
+      return (
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          {warnings.map((sign) => (
+            <RoadSign key={sign.id} sign={sign} size={64} />
+          ))}
+        </div>
+      );
+    }
+    ```
+  </TabItem>
+  <TabItem label="Vue 3">
+    ```vue
+    <script setup>
+    import { getSignsByCategory } from '@road-signs/ba';
+    import { RoadSign } from '@road-signs/vue';
+
+    const warnings = getSignsByCategory('warning');
+    </script>
+
+    <template>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <RoadSign v-for="sign in warnings" :key="sign.id" :sign="sign" :size="64" />
+      </div>
+    </template>
+    ```
+  </TabItem>
+</Tabs>
+
+
+{/* COVERAGE:START */}
+
+## Coverage
+
+| Metric | Value |
+| ------ | ----- |
+| Signs scraped | 298 |
+| Signs with SVG | 298 |
+| Missing SVG | 0 |
+| Overall | **100%** |
+
+| Category | Scraped | With SVG | Missing | % |
+| -------- | ------: | -------: | ------: | -: |
+| `warning` | 55 | 55 | 0 | 100% |
+| `priority` | 0 | 0 | 0 | — |
+| `prohibitory` | 63 | 63 | 0 | 100% |
+| `mandatory` | 0 | 0 | 0 | — |
+| `information` | 180 | 180 | 0 | 100% |
+
+**Standard:** Zakon o osnovama bezbjednosti saobraćaja na cestama — Vienna Convention
+
+**SVG sources:**
+
+- [Wikimedia Commons — Road signs in Bosnia and Herzegovina](https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Bosnia_and_Herzegovina)
+
+_Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.com/package/@road-signs/docs) package._
+
+{/* COVERAGE:END */}
+
+## TypeScript types
+
+```ts
+import type { BASign, BACategory } from '@road-signs/ba';
+
+type BACategory =
+  | 'information'
+  | 'mandatory'
+  | 'priority'
+  | 'prohibitory'
+  | 'warning';
+
+interface BASign {
+  id: string;          // e.g. "a1-sharp-bend"
+  code: string;        // sign code, e.g. "A1"
+  name: string;
+  description: string;
+  category: BACategory;
+  svg: string;         // inline SVG string
+  assets: {
+    svg: string;
+    png: Record<number, string>;
+    jpg: Record<number, string>;
+    webp: Record<number, string>;
+  };
+}
+```

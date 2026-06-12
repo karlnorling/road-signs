@@ -1,0 +1,9 @@
+---
+title: Lesotho — Sign Gallery
+description: Browse Lesotho road signs, filterable by category.
+tableOfContents: false
+---
+import { getAllSigns } from '@road-signs/ls';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

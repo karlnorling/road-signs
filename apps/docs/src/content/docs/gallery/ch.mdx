@@ -1,0 +1,10 @@
+---
+title: Switzerland — Sign Gallery
+description: Browse Swiss SVV road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/ch';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

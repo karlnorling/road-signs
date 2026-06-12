@@ -1,0 +1,10 @@
+---
+title: Iraq — Sign Gallery
+description: Browse Iraq road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/iq';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

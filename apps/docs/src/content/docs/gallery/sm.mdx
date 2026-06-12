@@ -1,0 +1,10 @@
+---
+title: San Marino — Sign Gallery
+description: Browse San Marino road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/sm';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

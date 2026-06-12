@@ -1,0 +1,10 @@
+---
+title: Luxembourg — Sign Gallery
+description: Browse Luxembourg road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/lu';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

@@ -1,0 +1,10 @@
+---
+title: Nepal — Sign Gallery
+description: Browse Nepal road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/np';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

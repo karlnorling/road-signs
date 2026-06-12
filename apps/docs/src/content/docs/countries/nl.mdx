@@ -1,0 +1,143 @@
+---
+title: Netherlands (NL)
+description: Dutch road signs — categories, installation, and usage.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+The `@road-signs/nl` package contains Netherlands road signs from the **Reglement verkeersregels en verkeerstekens (RVV 1990)**, using A–L series.
+Signs are sourced from Wikipedia / Wikimedia Commons. Signs are in the public domain.
+
+## Installation
+
+```sh
+npm install @road-signs/nl
+```
+
+## Sign categories
+
+| Category | Series | Description |
+| -------- | ------ | ----------- |
+| `warning` | A / J series | Gevaar (danger) signs — triangular or diamond |
+| `priority` | B series | Voorrang (priority) signs — stop, yield |
+| `prohibitory` | C series | Verbod (prohibition) signs — circular, red border |
+| `mandatory` | D / E series | Gebod (obligation) signs — circular, blue |
+| `information` | F / G series | Aanwijzing (indication) and direction signs |
+
+## Usage
+
+<Tabs>
+  <TabItem label="TypeScript">
+    ```ts
+    import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/nl';
+
+    // All signs
+    signs.length;
+
+    // By slug ID
+    const sign = getSign("a1-maximum-speed");
+
+    // By sign code
+    const s = getSignByCode("A1");
+
+    // All warning signs
+    const filtered = getSignsByCategory('warning');
+    ```
+  </TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { getSignsByCategory } from '@road-signs/nl';
+    import { RoadSign } from '@road-signs/react';
+
+    const warnings = getSignsByCategory('warning');
+
+    export default function WarningGrid() {
+      return (
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          {warnings.map((sign) => (
+            <RoadSign key={sign.id} sign={sign} size={64} />
+          ))}
+        </div>
+      );
+    }
+    ```
+  </TabItem>
+  <TabItem label="Vue 3">
+    ```vue
+    <script setup>
+    import { getSignsByCategory } from '@road-signs/nl';
+    import { RoadSign } from '@road-signs/vue';
+
+    const warnings = getSignsByCategory('warning');
+    </script>
+
+    <template>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <RoadSign v-for="sign in warnings" :key="sign.id" :sign="sign" :size="64" />
+      </div>
+    </template>
+    ```
+  </TabItem>
+</Tabs>
+
+
+{/* COVERAGE:START */}
+
+## Coverage
+
+| Metric | Value |
+| ------ | ----- |
+| Signs scraped | 272 |
+| Signs with SVG | 272 |
+| Missing SVG | 0 |
+| Overall | **100%** |
+
+| Category | Scraped | With SVG | Missing | % |
+| -------- | ------: | -------: | ------: | -: |
+| `warning` | 43 | 43 | 0 | 100% |
+| `priority` | 22 | 22 | 0 | 100% |
+| `prohibitory` | 8 | 8 | 0 | 100% |
+| `mandatory` | 87 | 87 | 0 | 100% |
+| `information` | 112 | 112 | 0 | 100% |
+
+**Standard:** RVV 1990 (Reglement Verkeersregels en Verkeerstekens) — Vienna Convention
+
+**SVG sources:**
+
+- [Wikimedia Commons — Road signs in the Netherlands](https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_the_Netherlands)
+
+:::note
+Several series (J, B, E, G, H, L, K) are raster-only on Wikimedia; SVG coverage is ~67%.
+:::
+
+_Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.com/package/@road-signs/docs) package._
+
+{/* COVERAGE:END */}
+
+## TypeScript types
+
+```ts
+import type { NLSign, NLCategory } from '@road-signs/nl';
+
+type NLCategory =
+  | 'information'
+  | 'mandatory'
+  | 'priority'
+  | 'prohibitory'
+  | 'warning';
+
+interface NLSign {
+  id: string;          // e.g. "a1-maximum-speed"
+  code: string;        // RVV code, e.g. "A1"
+  name: string;
+  description: string;
+  category: NLCategory;
+  svg: string;         // inline SVG string
+  assets: {
+    svg: string;
+    png: Record<number, string>;
+    jpg: Record<number, string>;
+    webp: Record<number, string>;
+  };
+}
+```

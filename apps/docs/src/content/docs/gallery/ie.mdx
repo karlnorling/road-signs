@@ -1,0 +1,10 @@
+---
+title: Ireland — Sign Gallery
+description: Browse Irish road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/ie';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

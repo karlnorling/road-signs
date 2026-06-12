@@ -1,0 +1,10 @@
+---
+title: Thailand — Sign Gallery
+description: Browse Thai road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/th';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

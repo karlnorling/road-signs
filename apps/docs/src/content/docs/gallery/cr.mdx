@@ -1,0 +1,10 @@
+---
+title: Costa Rica — Sign Gallery
+description: Browse Costa Rican SIECA road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/cr';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

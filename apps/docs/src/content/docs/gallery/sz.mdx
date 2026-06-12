@@ -1,0 +1,9 @@
+---
+title: Eswatini — Sign Gallery
+description: Browse Eswatini road signs, filterable by category.
+tableOfContents: false
+---
+import { getAllSigns } from '@road-signs/sz';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

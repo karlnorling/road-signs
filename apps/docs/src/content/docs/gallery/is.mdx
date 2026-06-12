@@ -1,0 +1,10 @@
+---
+title: Iceland — Sign Gallery
+description: Browse Icelandic road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/is';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

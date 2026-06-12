@@ -1,0 +1,122 @@
+---
+title: San Marino (SM)
+description: San Marino road signs — categories, installation, and usage.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+The `@road-signs/sm` package contains San Marino road signs (Vienna Convention (Codice della strada) — shared with Italy).
+Signs are sourced from Wikimedia Commons and are in the public domain.
+
+## Installation
+
+```sh
+npm install @road-signs/sm
+```
+
+## Sign categories
+
+| Category | Series | Description |
+| -------- | ------ | ----------- |
+| `warning` | Warning | Hazard and warning signs |
+| `prohibitory` | Prohibitory | Prohibition and restriction signs |
+| `mandatory` | Mandatory | Mandatory instruction signs |
+| `information` | Information / Service / Additional | Information, service, and additional plate signs |
+
+## Usage
+
+<Tabs>
+  <TabItem label="TypeScript">
+    ```ts
+    import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/sm';
+
+    // All signs
+    signs.length;
+
+    // By slug ID
+    const sign = getSign("example-sign");
+
+    // By sign code
+    const s = getSignByCode("1.1");
+
+    // All warning signs
+    const filtered = getSignsByCategory('warning');
+    ```
+  </TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { getSignsByCategory } from '@road-signs/sm';
+    import { RoadSign } from '@road-signs/react';
+
+    const warnings = getSignsByCategory('warning');
+
+    export default function WarningGrid() {
+      return (
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          {warnings.map((sign) => (
+            <RoadSign key={sign.id} sign={sign} size={64} />
+          ))}
+        </div>
+      );
+    }
+    ```
+  </TabItem>
+  <TabItem label="Vue 3">
+    ```vue
+    <script setup>
+    import { getSignsByCategory } from '@road-signs/sm';
+    import { RoadSign } from '@road-signs/vue';
+
+    const warnings = getSignsByCategory('warning');
+    </script>
+
+    <template>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <RoadSign v-for="sign in warnings" :key="sign.id" :sign="sign" :size="64" />
+      </div>
+    </template>
+    ```
+  </TabItem>
+</Tabs>
+
+
+{/* COVERAGE:START */}
+
+## Coverage
+
+| Metric | Value |
+| ------ | ----- |
+| Signs scraped | 333 |
+| Signs with SVG | 324 |
+| Missing SVG | 9 |
+| Overall | **97%** |
+
+| Category | Scraped | With SVG | Missing | % |
+| -------- | ------: | -------: | ------: | -: |
+| `warning` | 51 | 51 | 0 | 100% |
+| `priority` | 0 | 0 | 0 | — |
+| `prohibitory` | 75 | 75 | 0 | 100% |
+| `mandatory` | 0 | 0 | 0 | — |
+| `information` | 207 | 198 | 9 | 96% |
+
+**Standard:** Vienna Convention (Codice della strada) — shared with Italy
+
+**SVG sources:**
+
+- [Wikimedia Commons — SVG road signs in San Marino](https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_San_Marino)
+- [Wikimedia Commons — Diagrams of road signs of San Marino](https://commons.wikimedia.org/wiki/Category:Diagrams_of_road_signs_of_San_Marino)
+- [Segreteria di Stato per il Territorio e l'Ambiente (road authority)](https://www.gov.sm/pub/Siti/SSTA/home.html)
+
+:::note
+San Marino uses the Italian sign system (Codice della strada) without country-specific variants. SVG assets on Wikimedia Commons are very limited. Italian sign packages (IT) provide comprehensive coverage of the shared sign set.
+:::
+
+_Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.com/package/@road-signs/docs) package._
+
+{/* COVERAGE:END */}
+
+## TypeScript types
+
+```ts
+import type { SMSign, SMCategory } from '@road-signs/sm';
+```

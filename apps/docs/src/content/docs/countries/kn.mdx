@@ -1,0 +1,120 @@
+---
+title: Saint Kitts and Nevis (KN)
+description: Saint Kitts and Nevis road signs — categories, installation, and usage.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+The `@road-signs/kn` package contains Saint Kitts and Nevis road signs (British-derived).
+Signs are sourced from Wikimedia Commons and are in the public domain.
+
+## Installation
+
+```sh
+npm install @road-signs/kn
+```
+
+## Sign categories
+
+| Category | Series | Description |
+| -------- | ------ | ----------- |
+| `warning` | Warning | Hazard and warning signs |
+| `prohibitory` | Prohibitory | Prohibition and restriction signs |
+| `mandatory` | Mandatory | Mandatory instruction signs |
+| `information` | Information / Service | Information and service signs |
+
+## Usage
+
+<Tabs>
+  <TabItem label="TypeScript">
+    ```ts
+    import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/kn';
+
+    // All signs
+    signs.length;
+
+    // By slug ID
+    const sign = getSign("example-sign");
+
+    // By sign code
+    const s = getSignByCode("1");
+
+    // All warning signs
+    const filtered = getSignsByCategory('warning');
+    ```
+  </TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { getSignsByCategory } from '@road-signs/kn';
+    import { RoadSign } from '@road-signs/react';
+
+    const warnings = getSignsByCategory('warning');
+
+    export default function WarningGrid() {
+      return (
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          {warnings.map((sign) => (
+            <RoadSign key={sign.id} sign={sign} size={64} />
+          ))}
+        </div>
+      );
+    }
+    ```
+  </TabItem>
+  <TabItem label="Vue 3">
+    ```vue
+    <script setup>
+    import { getSignsByCategory } from '@road-signs/kn';
+    import { RoadSign } from '@road-signs/vue';
+
+    const warnings = getSignsByCategory('warning');
+    </script>
+
+    <template>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <RoadSign v-for="sign in warnings" :key="sign.id" :sign="sign" :size="64" />
+      </div>
+    </template>
+    ```
+  </TabItem>
+</Tabs>
+
+
+{/* COVERAGE:START */}
+
+## Coverage
+
+| Metric | Value |
+| ------ | ----- |
+| Signs scraped | 0 |
+| Signs with SVG | 0 |
+| Missing SVG | 0 |
+| Overall | **—** |
+
+| Category | Scraped | With SVG | Missing | % |
+| -------- | ------: | -------: | ------: | -: |
+| `warning` | 0 | 0 | 0 | — |
+| `priority` | 0 | 0 | 0 | — |
+| `prohibitory` | 0 | 0 | 0 | — |
+| `mandatory` | 0 | 0 | 0 | — |
+| `information` | 0 | 0 | 0 | — |
+
+**Standard:** British-derived (Road Traffic Act)
+
+**SVG sources:**
+
+- [Wikimedia Commons — Road signs in Saint Kitts and Nevis](https://commons.wikimedia.org/wiki/Category:Road_signs_in_Saint_Kitts_and_Nevis)
+
+:::note
+No SVG assets currently on Wikimedia Commons. Saint Kitts and Nevis uses a British-derived sign system under the Road Traffic Act.
+:::
+
+_Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.com/package/@road-signs/docs) package._
+
+{/* COVERAGE:END */}
+
+## TypeScript types
+
+```ts
+import type { KNSign, KNCategory } from '@road-signs/kn';
+```

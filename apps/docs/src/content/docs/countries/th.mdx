@@ -1,0 +1,138 @@
+---
+title: Thailand (TH)
+description: Thailand road signs — categories, installation, and usage.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+The `@road-signs/th` package contains Thailand road signs from the **Land Traffic Act (พระราชบัญญัติจราจรทางบก)**.
+Signs are sourced from Wikimedia Commons and are in the public domain.
+
+## Installation
+
+```sh
+npm install @road-signs/th
+```
+
+## Sign categories
+
+| Category | Series | Description |
+| -------- | ------ | ----------- |
+| `warning` | Warning | ป้ายเตือน — hazard warnings |
+| `prohibitory` | Regulatory | ป้ายบังคับ — regulatory and prohibitory signs |
+| `mandatory` | Instruction | ป้ายบังคับ (คำสั่ง) — mandatory instruction signs |
+| `information` | Guide | ป้ายแนะนำ — guide and information signs |
+
+## Usage
+
+<Tabs>
+  <TabItem label="TypeScript">
+    ```ts
+    import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/th';
+
+    // All signs
+    signs.length;
+
+    // By slug ID
+    const sign = getSign("w1-sharp-bend");
+
+    // By sign code
+    const s = getSignByCode("W1");
+
+    // All warning signs
+    const filtered = getSignsByCategory('warning');
+    ```
+  </TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { getSignsByCategory } from '@road-signs/th';
+    import { RoadSign } from '@road-signs/react';
+
+    const warnings = getSignsByCategory('warning');
+
+    export default function WarningGrid() {
+      return (
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          {warnings.map((sign) => (
+            <RoadSign key={sign.id} sign={sign} size={64} />
+          ))}
+        </div>
+      );
+    }
+    ```
+  </TabItem>
+  <TabItem label="Vue 3">
+    ```vue
+    <script setup>
+    import { getSignsByCategory } from '@road-signs/th';
+    import { RoadSign } from '@road-signs/vue';
+
+    const warnings = getSignsByCategory('warning');
+    </script>
+
+    <template>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <RoadSign v-for="sign in warnings" :key="sign.id" :sign="sign" :size="64" />
+      </div>
+    </template>
+    ```
+  </TabItem>
+</Tabs>
+
+
+{/* COVERAGE:START */}
+
+## Coverage
+
+| Metric | Value |
+| ------ | ----- |
+| Signs scraped | 434 |
+| Signs with SVG | 434 |
+| Missing SVG | 0 |
+| Overall | **100%** |
+
+| Category | Scraped | With SVG | Missing | % |
+| -------- | ------: | -------: | ------: | -: |
+| `warning` | 130 | 130 | 0 | 100% |
+| `priority` | 9 | 9 | 0 | 100% |
+| `prohibitory` | 111 | 111 | 0 | 100% |
+| `mandatory` | 39 | 39 | 0 | 100% |
+| `information` | 145 | 145 | 0 | 100% |
+
+**Standard:** Land Traffic Act (พระราชบัญญัติจราจรทางบก)
+
+**SVG sources:**
+
+- [Wikimedia Commons — Road signs in Thailand](https://commons.wikimedia.org/wiki/Category:Road_signs_in_Thailand)
+- [Wikimedia Commons — SVG road signs in Thailand](https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Thailand)
+
+_Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.com/package/@road-signs/docs) package._
+
+{/* COVERAGE:END */}
+
+## TypeScript types
+
+```ts
+import type { THSign, THCategory } from '@road-signs/th';
+
+type THCategory =
+  | 'information'
+  | 'mandatory'
+  | 'prohibitory'
+  | 'warning';
+
+interface THSign {
+  id: string;          // e.g. "w1-sharp-bend"
+  code: string;        // sign code, e.g. "W1"
+  name: string;
+  description: string;
+  category: THCategory;
+  svg: string;         // inline SVG string
+  assets: {
+    svg: string;
+    png: Record<number, string>;
+    jpg: Record<number, string>;
+    webp: Record<number, string>;
+  };
+}
+```

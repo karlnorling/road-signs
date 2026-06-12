@@ -1,0 +1,140 @@
+---
+title: Germany (DE)
+description: German StVO road signs — categories, installation, and usage.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+The `@road-signs/de` package contains Germany road signs from the **Straßenverkehrs-Ordnung (StVO)**, identified by Zeichen (sign) numbers.
+Signs are sourced from Wikipedia / Wikimedia Commons. Signs are in the public domain.
+
+## Installation
+
+```sh
+npm install @road-signs/de
+```
+
+## Sign categories
+
+| Category | Series | Description |
+| -------- | ------ | ----------- |
+| `warning` | Gefahrenzeichen | Hazard warnings — triangular, yellow/black |
+| `priority` | Vorfahrtzeichen | Right-of-way, stop, and yield signs |
+| `prohibitory` | Verbotszeichen | Prohibitions and restrictions — circular, red border |
+| `mandatory` | Gebotszeichen | Compulsory actions — circular, blue background |
+| `information` | Hinweiszeichen | Information, directions, and services — rectangular |
+
+## Usage
+
+<Tabs>
+  <TabItem label="TypeScript">
+    ```ts
+    import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/de';
+
+    // All signs
+    signs.length;
+
+    // By slug ID
+    const sign = getSign("101-danger-bend-right");
+
+    // By sign code
+    const s = getSignByCode("101");
+
+    // All prohibitory signs
+    const filtered = getSignsByCategory('prohibitory');
+    ```
+  </TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { getSignsByCategory } from '@road-signs/de';
+    import { RoadSign } from '@road-signs/react';
+
+    const warnings = getSignsByCategory('warning');
+
+    export default function WarningGrid() {
+      return (
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          {warnings.map((sign) => (
+            <RoadSign key={sign.id} sign={sign} size={64} />
+          ))}
+        </div>
+      );
+    }
+    ```
+  </TabItem>
+  <TabItem label="Vue 3">
+    ```vue
+    <script setup>
+    import { getSignsByCategory } from '@road-signs/de';
+    import { RoadSign } from '@road-signs/vue';
+
+    const warnings = getSignsByCategory('warning');
+    </script>
+
+    <template>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <RoadSign v-for="sign in warnings" :key="sign.id" :sign="sign" :size="64" />
+      </div>
+    </template>
+    ```
+  </TabItem>
+</Tabs>
+
+
+{/* COVERAGE:START */}
+
+## Coverage
+
+| Metric | Value |
+| ------ | ----- |
+| Signs scraped | 584 |
+| Signs with SVG | 584 |
+| Missing SVG | 0 |
+| Overall | **100%** |
+
+| Category | Scraped | With SVG | Missing | % |
+| -------- | ------: | -------: | ------: | -: |
+| `warning` | 51 | 51 | 0 | 100% |
+| `priority` | 1 | 1 | 0 | 100% |
+| `prohibitory` | 109 | 109 | 0 | 100% |
+| `mandatory` | 0 | 0 | 0 | — |
+| `information` | 423 | 423 | 0 | 100% |
+
+**Standard:** StVO (Straßenverkehrs-Ordnung) — Vienna Convention
+
+**SVG sources:**
+
+- [Wikimedia Commons — Road signs in Germany](https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Germany)
+- [Wikimedia Commons — Warnschilder (Deutschland)](https://commons.wikimedia.org/wiki/Category:Warnschilder_(Deutschland))
+
+_Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.com/package/@road-signs/docs) package._
+
+{/* COVERAGE:END */}
+
+## TypeScript types
+
+```ts
+import type { DESign, DECategory } from '@road-signs/de';
+
+type DECategory =
+  | 'information'
+  | 'mandatory'
+  | 'priority'
+  | 'prohibitory'
+  | 'warning';
+
+interface DESign {
+  id: string;          // e.g. "101-danger-bend-right"
+  code: string;        // Zeichen number, e.g. "101"
+  name: string;
+  description: string;
+  category: DECategory;
+  svg: string;         // inline SVG string
+  assets: {
+    svg: string;
+    png: Record<number, string>;
+    jpg: Record<number, string>;
+    webp: Record<number, string>;
+  };
+}
+```

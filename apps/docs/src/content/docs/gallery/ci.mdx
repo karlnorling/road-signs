@@ -1,0 +1,10 @@
+---
+title: Côte d'Ivoire — Sign Gallery
+description: Browse Côte d'Ivoire road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/ci';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

@@ -1,0 +1,10 @@
+---
+title: Belize — Sign Gallery
+description: Browse Belize road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/bz';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

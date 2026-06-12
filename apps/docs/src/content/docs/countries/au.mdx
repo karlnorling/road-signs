@@ -1,0 +1,144 @@
+---
+title: Australia (AU)
+description: Australian AS1742 road signs — categories, installation, and usage.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+The `@road-signs/au` package contains Australia road signs from the **AS1742 Manual of Uniform Traffic Control Devices (MUTCD)**, the national standard governing road signs across Australian states and territories.
+Signs are sourced from Wikipedia / Wikimedia Commons. Signs are in the public domain.
+
+## Installation
+
+```sh
+npm install @road-signs/au
+```
+
+## Sign categories
+
+| Category | Series | Description |
+| -------- | ------ | ----------- |
+| `warning` | W series | Diamond-shaped hazard warnings — yellow/black |
+| `priority` | — | Give way and stop signs |
+| `prohibitory` | R series | Regulatory restrictions — white/red |
+| `mandatory` | — | Compulsory direction signs — blue |
+| `information` | — | Information, direction, and tourist signs |
+
+## Usage
+
+<Tabs>
+  <TabItem label="TypeScript">
+    ```ts
+    import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/au';
+
+    // All signs
+    signs.length;
+
+    // By slug ID
+    const sign = getSign("w1-1-curves-ahead");
+
+    // By sign code
+    const s = getSignByCode("W1-1");
+
+    // All prohibitory signs
+    const filtered = getSignsByCategory('prohibitory');
+    ```
+  </TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { getSignsByCategory } from '@road-signs/au';
+    import { RoadSign } from '@road-signs/react';
+
+    const warnings = getSignsByCategory('warning');
+
+    export default function WarningGrid() {
+      return (
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          {warnings.map((sign) => (
+            <RoadSign key={sign.id} sign={sign} size={64} />
+          ))}
+        </div>
+      );
+    }
+    ```
+  </TabItem>
+  <TabItem label="Vue 3">
+    ```vue
+    <script setup>
+    import { getSignsByCategory } from '@road-signs/au';
+    import { RoadSign } from '@road-signs/vue';
+
+    const warnings = getSignsByCategory('warning');
+    </script>
+
+    <template>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <RoadSign v-for="sign in warnings" :key="sign.id" :sign="sign" :size="64" />
+      </div>
+    </template>
+    ```
+  </TabItem>
+</Tabs>
+
+
+{/* COVERAGE:START */}
+
+## Coverage
+
+| Metric | Value |
+| ------ | ----- |
+| Signs scraped | 446 |
+| Signs with SVG | 446 |
+| Missing SVG | 0 |
+| Overall | **100%** |
+
+| Category | Scraped | With SVG | Missing | % |
+| -------- | ------: | -------: | ------: | -: |
+| `warning` | 174 | 174 | 0 | 100% |
+| `priority` | 0 | 0 | 0 | — |
+| `prohibitory` | 156 | 156 | 0 | 100% |
+| `mandatory` | 0 | 0 | 0 | — |
+| `information` | 116 | 116 | 0 | 100% |
+
+**Standard:** AS1742 (Manual of Uniform Traffic Control Devices)
+
+**SVG sources:**
+
+- [Wikimedia Commons — Road signs in Australia](https://commons.wikimedia.org/wiki/Category:Road_signs_in_Australia)
+- [Wikimedia Commons — SVG road signs in Australia](https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Australia)
+
+:::note
+Sign codes and designs vary by state/territory; national AS1742 standards are used where available.
+:::
+
+_Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.com/package/@road-signs/docs) package._
+
+{/* COVERAGE:END */}
+
+## TypeScript types
+
+```ts
+import type { AUSign, AUCategory } from '@road-signs/au';
+
+type AUCategory =
+  | 'information'
+  | 'mandatory'
+  | 'priority'
+  | 'prohibitory'
+  | 'warning';
+
+interface AUSign {
+  id: string;          // e.g. "w1-1-curves-ahead"
+  code: string;        // e.g. "W1-1"
+  name: string;
+  description: string;
+  category: AUCategory;
+  svg: string;         // inline SVG string
+  assets: {
+    svg: string;
+    png: Record<number, string>;
+    jpg: Record<number, string>;
+    webp: Record<number, string>;
+  };
+}
+```

@@ -1,0 +1,139 @@
+---
+title: Austria (AT)
+description: Austrian StVO road signs — categories, installation, and usage.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+The `@road-signs/at` package contains Austria road signs from the **Straßenverkehrs-Ordnung (StVO)**, Austria's road traffic regulation which follows the Vienna Convention.
+Signs are sourced from Wikipedia / Wikimedia Commons. Signs are in the public domain.
+
+## Installation
+
+```sh
+npm install @road-signs/at
+```
+
+## Sign categories
+
+| Category | Series | Description |
+| -------- | ------ | ----------- |
+| `warning` | Gefahrenzeichen | Hazard warnings |
+| `priority` | Vorrangzeichen | Right-of-way signs |
+| `prohibitory` | Verbotszeichen | Prohibitions and restrictions |
+| `mandatory` | Gebotszeichen | Compulsory actions |
+| `information` | Hinweiszeichen | Information and direction signs |
+
+## Usage
+
+<Tabs>
+  <TabItem label="TypeScript">
+    ```ts
+    import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/at';
+
+    // All signs
+    signs.length;
+
+    // By slug ID
+    const sign = getSign("a1-danger-bend-right");
+
+    // By sign code
+    const s = getSignByCode("A1");
+
+    // All prohibitory signs
+    const filtered = getSignsByCategory('prohibitory');
+    ```
+  </TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { getSignsByCategory } from '@road-signs/at';
+    import { RoadSign } from '@road-signs/react';
+
+    const warnings = getSignsByCategory('warning');
+
+    export default function WarningGrid() {
+      return (
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          {warnings.map((sign) => (
+            <RoadSign key={sign.id} sign={sign} size={64} />
+          ))}
+        </div>
+      );
+    }
+    ```
+  </TabItem>
+  <TabItem label="Vue 3">
+    ```vue
+    <script setup>
+    import { getSignsByCategory } from '@road-signs/at';
+    import { RoadSign } from '@road-signs/vue';
+
+    const warnings = getSignsByCategory('warning');
+    </script>
+
+    <template>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <RoadSign v-for="sign in warnings" :key="sign.id" :sign="sign" :size="64" />
+      </div>
+    </template>
+    ```
+  </TabItem>
+</Tabs>
+
+
+{/* COVERAGE:START */}
+
+## Coverage
+
+| Metric | Value |
+| ------ | ----- |
+| Signs scraped | 229 |
+| Signs with SVG | 229 |
+| Missing SVG | 0 |
+| Overall | **100%** |
+
+| Category | Scraped | With SVG | Missing | % |
+| -------- | ------: | -------: | ------: | -: |
+| `warning` | 50 | 50 | 0 | 100% |
+| `priority` | 4 | 4 | 0 | 100% |
+| `prohibitory` | 54 | 54 | 0 | 100% |
+| `mandatory` | 23 | 23 | 0 | 100% |
+| `information` | 98 | 98 | 0 | 100% |
+
+**Standard:** StVO (Straßenverkehrs-Ordnung) — Vienna Convention
+
+**SVG sources:**
+
+- [Wikimedia Commons — Road signs in Austria](https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Austria)
+
+_Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.com/package/@road-signs/docs) package._
+
+{/* COVERAGE:END */}
+
+## TypeScript types
+
+```ts
+import type { ATSign, ATCategory } from '@road-signs/at';
+
+type ATCategory =
+  | 'information'
+  | 'mandatory'
+  | 'priority'
+  | 'prohibitory'
+  | 'warning';
+
+interface ATSign {
+  id: string;          // e.g. "a1-danger-bend-right"
+  code: string;        // e.g. "A1"
+  name: string;
+  description: string;
+  category: ATCategory;
+  svg: string;         // inline SVG string
+  assets: {
+    svg: string;
+    png: Record<number, string>;
+    jpg: Record<number, string>;
+    webp: Record<number, string>;
+  };
+}
+```

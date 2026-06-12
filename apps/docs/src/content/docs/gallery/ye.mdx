@@ -1,0 +1,10 @@
+---
+title: Yemen — Sign Gallery
+description: Browse Yemen road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/ye';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

@@ -1,0 +1,10 @@
+---
+title: Indonesia — Sign Gallery
+description: Browse Indonesian road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/id';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

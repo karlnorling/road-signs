@@ -1,0 +1,138 @@
+---
+title: France (FR)
+description: French road signs (Code de la route) — categories, installation, and usage.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+The `@road-signs/fr` package contains France road signs from the **Code de la route**, organised by alphabetical series (A, AB, B, C, CE, D, E).
+Signs are sourced from Wikipedia / Wikimedia Commons. Signs are in the public domain.
+
+## Installation
+
+```sh
+npm install @road-signs/fr
+```
+
+## Sign categories
+
+| Category | Series | Description |
+| -------- | ------ | ----------- |
+| `warning` | A series | Danger signs — triangular, red border |
+| `priority` | AB series | Priority and right-of-way signs |
+| `prohibitory` | B series | Regulatory signs — circular, red or blue |
+| `information` | C/D/E series | Indication, direction, and service signs — rectangular |
+
+## Usage
+
+<Tabs>
+  <TabItem label="TypeScript">
+    ```ts
+    import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/fr';
+
+    // All signs
+    signs.length;
+
+    // By slug ID
+    const sign = getSign("a1-danger-bend");
+
+    // By sign code
+    const s = getSignByCode("A1");
+
+    // All prohibitory signs
+    const filtered = getSignsByCategory('prohibitory');
+    ```
+  </TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { getSignsByCategory } from '@road-signs/fr';
+    import { RoadSign } from '@road-signs/react';
+
+    const warnings = getSignsByCategory('warning');
+
+    export default function WarningGrid() {
+      return (
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          {warnings.map((sign) => (
+            <RoadSign key={sign.id} sign={sign} size={64} />
+          ))}
+        </div>
+      );
+    }
+    ```
+  </TabItem>
+  <TabItem label="Vue 3">
+    ```vue
+    <script setup>
+    import { getSignsByCategory } from '@road-signs/fr';
+    import { RoadSign } from '@road-signs/vue';
+
+    const warnings = getSignsByCategory('warning');
+    </script>
+
+    <template>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <RoadSign v-for="sign in warnings" :key="sign.id" :sign="sign" :size="64" />
+      </div>
+    </template>
+    ```
+  </TabItem>
+</Tabs>
+
+
+{/* COVERAGE:START */}
+
+## Coverage
+
+| Metric | Value |
+| ------ | ----- |
+| Signs scraped | 323 |
+| Signs with SVG | 323 |
+| Missing SVG | 0 |
+| Overall | **100%** |
+
+| Category | Scraped | With SVG | Missing | % |
+| -------- | ------: | -------: | ------: | -: |
+| `warning` | 30 | 30 | 0 | 100% |
+| `priority` | 9 | 9 | 0 | 100% |
+| `prohibitory` | 88 | 88 | 0 | 100% |
+| `mandatory` | 0 | 0 | 0 | — |
+| `information` | 196 | 196 | 0 | 100% |
+
+**Standard:** Code de la route — Vienna Convention
+
+**SVG sources:**
+
+- [Wikimedia Commons — Road signs in France](https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_France)
+
+_Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.com/package/@road-signs/docs) package._
+
+{/* COVERAGE:END */}
+
+## TypeScript types
+
+```ts
+import type { FRSign, FRCategory } from '@road-signs/fr';
+
+type FRCategory =
+  | 'information'
+  | 'mandatory'
+  | 'priority'
+  | 'prohibitory'
+  | 'warning';
+
+interface FRSign {
+  id: string;          // e.g. "a1-danger-bend"
+  code: string;        // Series code, e.g. "A1"
+  name: string;
+  description: string;
+  category: FRCategory;
+  svg: string;         // inline SVG string
+  assets: {
+    svg: string;
+    png: Record<number, string>;
+    jpg: Record<number, string>;
+    webp: Record<number, string>;
+  };
+}
+```

@@ -15,13 +15,19 @@
     "docs": "yarn workspace @road-signs-docs/app dev",
     "format": "oxfmt --write --ignore-path=.oxfmtignore .",
     "format:check": "oxfmt --check --ignore-path=.oxfmtignore .",
+    "create-assets": "tsx bin/create-assets.ts",
+    "fetch-fhwa": "tsx bin/fetch-fhwa-svgs.ts",
     "generate": "tsx bin/generate-source.ts",
     "lint": "oxlint .",
     "prepare": "lefthook install",
     "publish": "yarn changeset publish",
     "test": "yarn workspaces foreach -A run test",
     "type-check": "yarn workspaces foreach -A --include '@road-signs/*' run type-check",
-    "update": "tsx bin/update.ts"
+    "update": "tsx bin/update.ts",
+    "verify": "tsx bin/verify.ts",
+    "fill-gaps": "tsx bin/fill-gaps.ts",
+    "generate-docs": "tsx bin/generate-docs.ts",
+    "trace-missing": "tsx bin/trace-missing.ts"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.10",
@@ -48,5 +54,9 @@
   "engines": {
     "node": ">= 24.0.0"
   },
-  "packageManager": "yarn@4.6.0"
+  "packageManager": "yarn@4.6.0",
+  "dependencies": {
+    "@types/potrace": "^2.1.5",
+    "potrace": "^2.1.8"
+  }
 }

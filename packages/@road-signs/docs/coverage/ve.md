@@ -1,0 +1,28 @@
+# Venezuela (VE)
+
+**Standard:** Manual Venezolano de Dispositivos Uniformes (MVDU)
+
+**Package:** [`@road-signs/ve`](https://www.npmjs.com/package/@road-signs/ve)
+
+## SVG Coverage
+
+| Metric | Value |
+| ------ | ----- |
+| Total signs scraped | 192 |
+| Signs with SVG asset | 192 |
+| Missing SVG | 0 |
+| Overall coverage | **100%** |
+
+## Coverage by Category
+
+| Category | Scraped | With SVG | Missing | Coverage |
+| -------- | ------: | -------: | ------: | -------: |
+| `warning` | 0 | 0 | 0 | — |
+| `priority` | 0 | 0 | 0 | — |
+| `prohibitory` | 6 | 6 | 0 | 100% |
+| `mandatory` | 0 | 0 | 0 | — |
+| `information` | 186 | 186 | 0 | 100% |
+
+## Sources
+
+- [Wikimedia Commons — SVG road signs in Venezuela](https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Venezuela)

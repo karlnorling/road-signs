@@ -1,0 +1,10 @@
+---
+title: Ghana — Sign Gallery
+description: Browse Ghana road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/gh';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

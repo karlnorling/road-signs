@@ -1,0 +1,10 @@
+---
+title: Nicaragua — Sign Gallery
+description: Browse Nicaragua road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/ni';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

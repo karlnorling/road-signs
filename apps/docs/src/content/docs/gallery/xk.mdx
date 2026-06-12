@@ -1,0 +1,9 @@
+---
+title: Kosovo — Sign Gallery
+description: Browse Kosovo road signs, filterable by category.
+tableOfContents: false
+---
+import { getAllSigns } from '@road-signs/xk';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

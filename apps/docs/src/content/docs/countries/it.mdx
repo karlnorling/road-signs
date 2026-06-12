@@ -1,0 +1,143 @@
+---
+title: Italy (IT)
+description: Italian road signs (Codice della Strada) — categories, installation, and usage.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+The `@road-signs/it` package contains Italy road signs from the **Codice della Strada**, identified by figure numbers (fig. II.1, fig. III.5).
+Signs are sourced from Wikipedia / Wikimedia Commons. Signs are in the public domain.
+
+## Installation
+
+```sh
+npm install @road-signs/it
+```
+
+## Sign categories
+
+| Category | Series | Description |
+| -------- | ------ | ----------- |
+| `warning` | fig. II series | Danger signs — triangular, red border |
+| `priority` | fig. II (precedenza) | Precedence and right-of-way signs |
+| `prohibitory` | fig. III series | Prohibition signs — circular, red border |
+| `mandatory` | fig. IV series | Obligation signs — circular, blue background |
+| `information` | fig. V–VI series | Indication and direction signs — rectangular |
+
+## Usage
+
+<Tabs>
+  <TabItem label="TypeScript">
+    ```ts
+    import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/it';
+
+    // All signs
+    signs.length;
+
+    // By slug ID
+    const sign = getSign("ii-1-curve-ahead");
+
+    // By sign code
+    const s = getSignByCode("II.1");
+
+    // All prohibitory signs
+    const filtered = getSignsByCategory('prohibitory');
+    ```
+  </TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { getSignsByCategory } from '@road-signs/it';
+    import { RoadSign } from '@road-signs/react';
+
+    const warnings = getSignsByCategory('warning');
+
+    export default function WarningGrid() {
+      return (
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          {warnings.map((sign) => (
+            <RoadSign key={sign.id} sign={sign} size={64} />
+          ))}
+        </div>
+      );
+    }
+    ```
+  </TabItem>
+  <TabItem label="Vue 3">
+    ```vue
+    <script setup>
+    import { getSignsByCategory } from '@road-signs/it';
+    import { RoadSign } from '@road-signs/vue';
+
+    const warnings = getSignsByCategory('warning');
+    </script>
+
+    <template>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <RoadSign v-for="sign in warnings" :key="sign.id" :sign="sign" :size="64" />
+      </div>
+    </template>
+    ```
+  </TabItem>
+</Tabs>
+
+
+{/* COVERAGE:START */}
+
+## Coverage
+
+| Metric | Value |
+| ------ | ----- |
+| Signs scraped | 326 |
+| Signs with SVG | 326 |
+| Missing SVG | 0 |
+| Overall | **100%** |
+
+| Category | Scraped | With SVG | Missing | % |
+| -------- | ------: | -------: | ------: | -: |
+| `warning` | 51 | 51 | 0 | 100% |
+| `priority` | 0 | 0 | 0 | — |
+| `prohibitory` | 75 | 75 | 0 | 100% |
+| `mandatory` | 0 | 0 | 0 | — |
+| `information` | 200 | 200 | 0 | 100% |
+
+**Standard:** Codice della strada — Vienna Convention
+
+**SVG sources:**
+
+- [Wikimedia Commons — Road signs in Italy](https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Italy)
+
+:::note
+Panel (A/B/P/Q series) and traffic light signs exist only as raster images on Wikipedia.
+:::
+
+_Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.com/package/@road-signs/docs) package._
+
+{/* COVERAGE:END */}
+
+## TypeScript types
+
+```ts
+import type { ITSign, ITCategory } from '@road-signs/it';
+
+type ITCategory =
+  | 'information'
+  | 'mandatory'
+  | 'priority'
+  | 'prohibitory'
+  | 'warning';
+
+interface ITSign {
+  id: string;          // e.g. "ii-1-curve-ahead"
+  code: string;        // Figure number, e.g. "II.1"
+  name: string;
+  description: string;
+  category: ITCategory;
+  svg: string;         // inline SVG string
+  assets: {
+    svg: string;
+    png: Record<number, string>;
+    jpg: Record<number, string>;
+    webp: Record<number, string>;
+  };
+}
+```

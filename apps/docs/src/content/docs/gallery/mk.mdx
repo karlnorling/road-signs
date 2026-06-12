@@ -1,0 +1,10 @@
+---
+title: North Macedonia — Sign Gallery
+description: Browse North Macedonian road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/mk';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

@@ -1,0 +1,140 @@
+---
+title: New Zealand (NZ)
+description: New Zealand road signs — categories, installation, and usage.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+The `@road-signs/nz` package contains New Zealand road signs from the **Traffic Control Devices Rule (NZTA)**.
+Signs are sourced from Wikimedia Commons and are in the public domain.
+
+## Installation
+
+```sh
+npm install @road-signs/nz
+```
+
+## Sign categories
+
+| Category | Series | Description |
+| -------- | ------ | ----------- |
+| `warning` | Warning | Hazard warnings |
+| `regulatory` | Regulatory | Regulatory signs |
+| `mandatory` | Mandatory | Mandatory actions |
+| `information` | Information | Information and direction |
+| `temporary` | Temporary | Temporary traffic management |
+
+## Usage
+
+<Tabs>
+  <TabItem label="TypeScript">
+    ```ts
+    import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/nz';
+
+    // All signs
+    signs.length;
+
+    // By slug ID
+    const sign = getSign("w1-sharp-bend");
+
+    // By sign code
+    const s = getSignByCode("W1");
+
+    // All warning signs
+    const filtered = getSignsByCategory('warning');
+    ```
+  </TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { getSignsByCategory } from '@road-signs/nz';
+    import { RoadSign } from '@road-signs/react';
+
+    const warnings = getSignsByCategory('warning');
+
+    export default function WarningGrid() {
+      return (
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          {warnings.map((sign) => (
+            <RoadSign key={sign.id} sign={sign} size={64} />
+          ))}
+        </div>
+      );
+    }
+    ```
+  </TabItem>
+  <TabItem label="Vue 3">
+    ```vue
+    <script setup>
+    import { getSignsByCategory } from '@road-signs/nz';
+    import { RoadSign } from '@road-signs/vue';
+
+    const warnings = getSignsByCategory('warning');
+    </script>
+
+    <template>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <RoadSign v-for="sign in warnings" :key="sign.id" :sign="sign" :size="64" />
+      </div>
+    </template>
+    ```
+  </TabItem>
+</Tabs>
+
+
+{/* COVERAGE:START */}
+
+## Coverage
+
+| Metric | Value |
+| ------ | ----- |
+| Signs scraped | 421 |
+| Signs with SVG | 421 |
+| Missing SVG | 0 |
+| Overall | **100%** |
+
+| Category | Scraped | With SVG | Missing | % |
+| -------- | ------: | -------: | ------: | -: |
+| `warning` | 152 | 152 | 0 | 100% |
+| `priority` | 0 | 0 | 0 | — |
+| `prohibitory` | 120 | 120 | 0 | 100% |
+| `mandatory` | 0 | 0 | 0 | — |
+| `information` | 149 | 149 | 0 | 100% |
+
+**Standard:** Traffic Control Devices Rule (NZTA)
+
+**SVG sources:**
+
+- [Wikimedia Commons — Road signs in New Zealand](https://commons.wikimedia.org/wiki/Category:Road_signs_in_New_Zealand)
+- [Wikimedia Commons — SVG road signs in New Zealand](https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_New_Zealand)
+
+_Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.com/package/@road-signs/docs) package._
+
+{/* COVERAGE:END */}
+
+## TypeScript types
+
+```ts
+import type { NZSign, NZCategory } from '@road-signs/nz';
+
+type NZCategory =
+  | 'information'
+  | 'mandatory'
+  | 'regulatory'
+  | 'temporary'
+  | 'warning';
+
+interface NZSign {
+  id: string;          // e.g. "w1-sharp-bend"
+  code: string;        // sign code, e.g. "W1"
+  name: string;
+  description: string;
+  category: NZCategory;
+  svg: string;         // inline SVG string
+  assets: {
+    svg: string;
+    png: Record<number, string>;
+    jpg: Record<number, string>;
+    webp: Record<number, string>;
+  };
+}
+```

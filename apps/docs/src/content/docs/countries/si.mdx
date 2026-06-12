@@ -1,0 +1,139 @@
+---
+title: Slovenia (SI)
+description: Slovenian road signs — categories, installation, and usage.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+The `@road-signs/si` package contains Slovenian road signs from the **Pravilnik o prometni signalizaciji**.
+Signs are sourced from Wikimedia Commons and are in the public domain.
+
+## Installation
+
+```sh
+npm install @road-signs/si
+```
+
+## Sign categories
+
+| Category | Series | Description |
+| -------- | ------ | ----------- |
+| `warning` | A series | Hazard warnings |
+| `priority` | B series | Right-of-way |
+| `prohibitory` | C series | Prohibitions and restrictions |
+| `mandatory` | D series | Mandatory actions |
+| `information` | E–F series | Information and direction |
+
+## Usage
+
+<Tabs>
+  <TabItem label="TypeScript">
+    ```ts
+    import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/si';
+
+    // All signs
+    signs.length;
+
+    // By slug ID
+    const sign = getSign("a1-sharp-bend");
+
+    // By sign code
+    const s = getSignByCode("A1");
+
+    // All warning signs
+    const filtered = getSignsByCategory('warning');
+    ```
+  </TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { getSignsByCategory } from '@road-signs/si';
+    import { RoadSign } from '@road-signs/react';
+
+    const warnings = getSignsByCategory('warning');
+
+    export default function WarningGrid() {
+      return (
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          {warnings.map((sign) => (
+            <RoadSign key={sign.id} sign={sign} size={64} />
+          ))}
+        </div>
+      );
+    }
+    ```
+  </TabItem>
+  <TabItem label="Vue 3">
+    ```vue
+    <script setup>
+    import { getSignsByCategory } from '@road-signs/si';
+    import { RoadSign } from '@road-signs/vue';
+
+    const warnings = getSignsByCategory('warning');
+    </script>
+
+    <template>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <RoadSign v-for="sign in warnings" :key="sign.id" :sign="sign" :size="64" />
+      </div>
+    </template>
+    ```
+  </TabItem>
+</Tabs>
+
+
+{/* COVERAGE:START */}
+
+## Coverage
+
+| Metric | Value |
+| ------ | ----- |
+| Signs scraped | 178 |
+| Signs with SVG | 178 |
+| Missing SVG | 0 |
+| Overall | **100%** |
+
+| Category | Scraped | With SVG | Missing | % |
+| -------- | ------: | -------: | ------: | -: |
+| `warning` | 48 | 48 | 0 | 100% |
+| `priority` | 47 | 47 | 0 | 100% |
+| `prohibitory` | 0 | 0 | 0 | — |
+| `mandatory` | 26 | 26 | 0 | 100% |
+| `information` | 57 | 57 | 0 | 100% |
+
+**Standard:** Pravilnik o prometni signalizaciji — Vienna Convention
+
+**SVG sources:**
+
+- [Wikimedia Commons — Road signs in Slovenia](https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Slovenia)
+
+_Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.com/package/@road-signs/docs) package._
+
+{/* COVERAGE:END */}
+
+## TypeScript types
+
+```ts
+import type { SISign, SICategory } from '@road-signs/si';
+
+type SICategory =
+  | 'information'
+  | 'mandatory'
+  | 'priority'
+  | 'prohibitory'
+  | 'warning';
+
+interface SISign {
+  id: string;          // e.g. "a1-sharp-bend"
+  code: string;        // sign code, e.g. "A1"
+  name: string;
+  description: string;
+  category: SICategory;
+  svg: string;         // inline SVG string
+  assets: {
+    svg: string;
+    png: Record<number, string>;
+    jpg: Record<number, string>;
+    webp: Record<number, string>;
+  };
+}
+```

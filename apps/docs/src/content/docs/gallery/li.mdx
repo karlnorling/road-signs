@@ -1,0 +1,10 @@
+---
+title: Liechtenstein — Sign Gallery
+description: Browse Liechtenstein road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/li';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

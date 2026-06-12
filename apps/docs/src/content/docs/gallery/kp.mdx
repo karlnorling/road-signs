@@ -1,0 +1,9 @@
+---
+title: North Korea — Sign Gallery
+description: Browse North Korea road signs, filterable by category.
+tableOfContents: false
+---
+import { getAllSigns } from '@road-signs/kp';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

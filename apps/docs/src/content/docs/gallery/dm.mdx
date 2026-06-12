@@ -1,0 +1,9 @@
+---
+title: Dominica — Sign Gallery
+description: Browse Dominica road signs, filterable by category.
+tableOfContents: false
+---
+import { getAllSigns } from '@road-signs/dm';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

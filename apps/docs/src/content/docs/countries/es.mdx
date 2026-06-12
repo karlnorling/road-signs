@@ -1,0 +1,143 @@
+---
+title: Spain (ES)
+description: Spanish road signs — categories, installation, and usage.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+The `@road-signs/es` package contains Spain road signs from the **Reglamento General de Circulación**, using P/R/S/M series codes.
+Signs are sourced from Wikipedia / Wikimedia Commons. Signs are in the public domain.
+
+## Installation
+
+```sh
+npm install @road-signs/es
+```
+
+## Sign categories
+
+| Category | Series | Description |
+| -------- | ------ | ----------- |
+| `warning` | P series | Peligro (danger) signs — triangular, red border |
+| `priority` | P series (priority) | Right-of-way and stop signs |
+| `prohibitory` | R series | Reglamentación (regulatory) — circular, red/blue |
+| `mandatory` | M series | Maniobra (manoeuvre) signs — circular, blue |
+| `information` | S series | Information and direction signs — rectangular |
+
+## Usage
+
+<Tabs>
+  <TabItem label="TypeScript">
+    ```ts
+    import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/es';
+
+    // All signs
+    signs.length;
+
+    // By slug ID
+    const sign = getSign("p-1a-dangerous-bend");
+
+    // By sign code
+    const s = getSignByCode("P-1a");
+
+    // All prohibitory signs
+    const filtered = getSignsByCategory('prohibitory');
+    ```
+  </TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { getSignsByCategory } from '@road-signs/es';
+    import { RoadSign } from '@road-signs/react';
+
+    const warnings = getSignsByCategory('warning');
+
+    export default function WarningGrid() {
+      return (
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          {warnings.map((sign) => (
+            <RoadSign key={sign.id} sign={sign} size={64} />
+          ))}
+        </div>
+      );
+    }
+    ```
+  </TabItem>
+  <TabItem label="Vue 3">
+    ```vue
+    <script setup>
+    import { getSignsByCategory } from '@road-signs/es';
+    import { RoadSign } from '@road-signs/vue';
+
+    const warnings = getSignsByCategory('warning');
+    </script>
+
+    <template>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <RoadSign v-for="sign in warnings" :key="sign.id" :sign="sign" :size="64" />
+      </div>
+    </template>
+    ```
+  </TabItem>
+</Tabs>
+
+
+{/* COVERAGE:START */}
+
+## Coverage
+
+| Metric | Value |
+| ------ | ----- |
+| Signs scraped | 419 |
+| Signs with SVG | 419 |
+| Missing SVG | 0 |
+| Overall | **100%** |
+
+| Category | Scraped | With SVG | Missing | % |
+| -------- | ------: | -------: | ------: | -: |
+| `warning` | 83 | 83 | 0 | 100% |
+| `priority` | 22 | 22 | 0 | 100% |
+| `prohibitory` | 72 | 72 | 0 | 100% |
+| `mandatory` | 29 | 29 | 0 | 100% |
+| `information` | 213 | 213 | 0 | 100% |
+
+**Standard:** Reglamento General de Circulación — Vienna Convention
+
+**SVG sources:**
+
+- [Wikimedia Commons — Road signs in Spain](https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Spain)
+
+:::note
+S-series (additional panel / service) signs are raster-only on Wikimedia; SVG coverage is ~89%.
+:::
+
+_Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.com/package/@road-signs/docs) package._
+
+{/* COVERAGE:END */}
+
+## TypeScript types
+
+```ts
+import type { ESSign, ESCategory } from '@road-signs/es';
+
+type ESCategory =
+  | 'information'
+  | 'mandatory'
+  | 'priority'
+  | 'prohibitory'
+  | 'warning';
+
+interface ESSign {
+  id: string;          // e.g. "p-1a-dangerous-bend"
+  code: string;        // Series code, e.g. "P-1a"
+  name: string;
+  description: string;
+  category: ESCategory;
+  svg: string;         // inline SVG string
+  assets: {
+    svg: string;
+    png: Record<number, string>;
+    jpg: Record<number, string>;
+    webp: Record<number, string>;
+  };
+}
+```

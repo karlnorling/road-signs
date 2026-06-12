@@ -1,0 +1,10 @@
+---
+title: Sri Lanka — Sign Gallery
+description: Browse Sri Lanka road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/lk';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

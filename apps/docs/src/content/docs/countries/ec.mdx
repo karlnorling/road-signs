@@ -1,0 +1,121 @@
+---
+title: Ecuador (EC)
+description: Ecuador road signs — categories, installation, and usage.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+The `@road-signs/ec` package contains Ecuador road signs from the **INEN (Instituto Ecuatoriano de Normalización) — Vienna Convention variant**.
+Signs are sourced from Wikimedia Commons and are in the public domain.
+
+## Installation
+
+```sh
+npm install @road-signs/ec
+```
+
+## Sign categories
+
+| Category | Series | Description |
+| -------- | ------ | ----------- |
+| `warning` | Preventivas | Señales preventivas — hazard warnings |
+| `prohibitory` | Reglamentarias | Señales reglamentarias — prohibitions and regulations |
+| `information` | Informativas | Señales informativas — information and direction |
+
+## Usage
+
+<Tabs>
+  <TabItem label="TypeScript">
+    ```ts
+    import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/ec';
+
+    // All signs
+    signs.length;
+
+    // By slug ID
+    const sign = getSign("example-sign");
+
+    // By sign code
+    const s = getSignByCode("W1");
+
+    // All warning signs
+    const filtered = getSignsByCategory('warning');
+    ```
+  </TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { getSignsByCategory } from '@road-signs/ec';
+    import { RoadSign } from '@road-signs/react';
+
+    const warnings = getSignsByCategory('warning');
+
+    export default function WarningGrid() {
+      return (
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          {warnings.map((sign) => (
+            <RoadSign key={sign.id} sign={sign} size={64} />
+          ))}
+        </div>
+      );
+    }
+    ```
+  </TabItem>
+  <TabItem label="Vue 3">
+    ```vue
+    <script setup>
+    import { getSignsByCategory } from '@road-signs/ec';
+    import { RoadSign } from '@road-signs/vue';
+
+    const warnings = getSignsByCategory('warning');
+    </script>
+
+    <template>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <RoadSign v-for="sign in warnings" :key="sign.id" :sign="sign" :size="64" />
+      </div>
+    </template>
+    ```
+  </TabItem>
+</Tabs>
+
+
+{/* COVERAGE:START */}
+
+## Coverage
+
+| Metric | Value |
+| ------ | ----- |
+| Signs scraped | 221 |
+| Signs with SVG | 221 |
+| Missing SVG | 0 |
+| Overall | **100%** |
+
+| Category | Scraped | With SVG | Missing | % |
+| -------- | ------: | -------: | ------: | -: |
+| `warning` | 115 | 115 | 0 | 100% |
+| `priority` | 4 | 4 | 0 | 100% |
+| `prohibitory` | 50 | 50 | 0 | 100% |
+| `mandatory` | 0 | 0 | 0 | — |
+| `information` | 52 | 52 | 0 | 100% |
+
+**Standard:** INEN (Instituto Ecuatoriano de Normalización) — Vienna Convention variant
+
+**SVG sources:**
+
+- [Wikipedia — Road signs in Ecuador](https://en.wikipedia.org/wiki/Road_signs_in_Ecuador)
+- [Wikimedia Commons — Road signs in Ecuador](https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Ecuador)
+- [Wikimedia Commons — Road signs in Ecuador (general)](https://commons.wikimedia.org/wiki/Category:Road_signs_in_Ecuador)
+
+:::note
+Headings: Preventiva (warning), Reglamentaria (prohibitory), Informativa (information).
+:::
+
+_Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.com/package/@road-signs/docs) package._
+
+{/* COVERAGE:END */}
+
+## TypeScript types
+
+```ts
+import type { ECSign, ECCategory } from '@road-signs/ec';
+```

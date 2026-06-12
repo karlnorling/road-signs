@@ -1,0 +1,10 @@
+---
+title: El Salvador — Sign Gallery
+description: Browse El Salvador road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/sv';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

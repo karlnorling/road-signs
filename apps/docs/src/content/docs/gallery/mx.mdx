@@ -1,0 +1,10 @@
+---
+title: Mexico — Sign Gallery
+description: Browse Mexican SCT road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/mx';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

@@ -1,0 +1,143 @@
+---
+title: Switzerland (CH)
+description: Swiss SVV/SSV road signs — categories, installation, and usage.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+The `@road-signs/ch` package contains Switzerland road signs from the **Signalisationsverordnung (SVV/SSV)**, Switzerland's signage ordinance which follows the Vienna Convention.
+Signs are sourced from Wikipedia / Wikimedia Commons. Signs are in the public domain.
+
+## Installation
+
+```sh
+npm install @road-signs/ch
+```
+
+## Sign categories
+
+| Category | Series | Description |
+| -------- | ------ | ----------- |
+| `warning` | 1.xx | Gefahrensignale — hazard warnings |
+| `priority` | 2.xx | Vortrittssignale — right-of-way |
+| `prohibitory` | 3.xx | Verbotssignale — prohibitions |
+| `mandatory` | 4.xx | Gebotssignale — compulsory actions |
+| `information` | 5–6.xx | Hinweissignale — information and direction |
+
+## Usage
+
+<Tabs>
+  <TabItem label="TypeScript">
+    ```ts
+    import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/ch';
+
+    // All signs
+    signs.length;
+
+    // By slug ID
+    const sign = getSign("1-01-danger-bend-right");
+
+    // By sign code
+    const s = getSignByCode("1.01");
+
+    // All prohibitory signs
+    const filtered = getSignsByCategory('prohibitory');
+    ```
+  </TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { getSignsByCategory } from '@road-signs/ch';
+    import { RoadSign } from '@road-signs/react';
+
+    const warnings = getSignsByCategory('warning');
+
+    export default function WarningGrid() {
+      return (
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          {warnings.map((sign) => (
+            <RoadSign key={sign.id} sign={sign} size={64} />
+          ))}
+        </div>
+      );
+    }
+    ```
+  </TabItem>
+  <TabItem label="Vue 3">
+    ```vue
+    <script setup>
+    import { getSignsByCategory } from '@road-signs/ch';
+    import { RoadSign } from '@road-signs/vue';
+
+    const warnings = getSignsByCategory('warning');
+    </script>
+
+    <template>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <RoadSign v-for="sign in warnings" :key="sign.id" :sign="sign" :size="64" />
+      </div>
+    </template>
+    ```
+  </TabItem>
+</Tabs>
+
+
+{/* COVERAGE:START */}
+
+## Coverage
+
+| Metric | Value |
+| ------ | ----- |
+| Signs scraped | 213 |
+| Signs with SVG | 213 |
+| Missing SVG | 0 |
+| Overall | **100%** |
+
+| Category | Scraped | With SVG | Missing | % |
+| -------- | ------: | -------: | ------: | -: |
+| `warning` | 29 | 29 | 0 | 100% |
+| `priority` | 17 | 17 | 0 | 100% |
+| `prohibitory` | 20 | 20 | 0 | 100% |
+| `mandatory` | 36 | 36 | 0 | 100% |
+| `information` | 111 | 111 | 0 | 100% |
+
+**Standard:** SVV / SSV (Signalisationsverordnung) — Vienna Convention
+
+**SVG sources:**
+
+- [Wikimedia Commons — Road signs in Switzerland](https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Switzerland)
+
+:::note
+Codes use decimal format: 1.xx (warning), 2.xx (priority), 3.xx (prohibitory), 4.xx (mandatory), 5–6.xx (information).
+:::
+
+_Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.com/package/@road-signs/docs) package._
+
+{/* COVERAGE:END */}
+
+## TypeScript types
+
+```ts
+import type { CHSign, CHCategory } from '@road-signs/ch';
+
+type CHCategory =
+  | 'information'
+  | 'mandatory'
+  | 'priority'
+  | 'prohibitory'
+  | 'warning';
+
+interface CHSign {
+  id: string;          // e.g. "1-01-danger-bend-right"
+  code: string;        // e.g. "1.01"
+  name: string;
+  description: string;
+  category: CHCategory;
+  svg: string;         // inline SVG string
+  assets: {
+    svg: string;
+    png: Record<number, string>;
+    jpg: Record<number, string>;
+    webp: Record<number, string>;
+  };
+}
+```

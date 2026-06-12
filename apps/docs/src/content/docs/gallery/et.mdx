@@ -1,0 +1,10 @@
+---
+title: Ethiopia — Sign Gallery
+description: Browse Ethiopia road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/et';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

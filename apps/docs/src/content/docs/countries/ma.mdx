@@ -1,0 +1,140 @@
+---
+title: Morocco (MA)
+description: Moroccan road signs — categories, installation, and usage.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+The `@road-signs/ma` package contains Moroccan road signs from the **Code de la route (Dahir 1-10-07) — Vienna Convention**.
+Signs are sourced from Wikimedia Commons and are in the public domain.
+
+## Installation
+
+```sh
+npm install @road-signs/ma
+```
+
+## Sign categories
+
+| Category | Series | Description |
+| -------- | ------ | ----------- |
+| `warning` | A series | Danger — panneaux de danger (hazard warnings) |
+| `priority` | B series | Priorité — panneaux de priorité (right-of-way) |
+| `prohibitory` | C series | Interdiction — panneaux d'interdiction (prohibitions) |
+| `mandatory` | D series | Obligation — panneaux d'obligation (mandatory actions) |
+| `information` | E–F series | Indication — panneaux d'indication (information and direction) |
+
+## Usage
+
+<Tabs>
+  <TabItem label="TypeScript">
+    ```ts
+    import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/ma';
+
+    // All signs
+    signs.length;
+
+    // By slug ID
+    const sign = getSign("a1-sharp-bend");
+
+    // By sign code
+    const s = getSignByCode("A1");
+
+    // All warning signs
+    const filtered = getSignsByCategory('warning');
+    ```
+  </TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { getSignsByCategory } from '@road-signs/ma';
+    import { RoadSign } from '@road-signs/react';
+
+    const warnings = getSignsByCategory('warning');
+
+    export default function WarningGrid() {
+      return (
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          {warnings.map((sign) => (
+            <RoadSign key={sign.id} sign={sign} size={64} />
+          ))}
+        </div>
+      );
+    }
+    ```
+  </TabItem>
+  <TabItem label="Vue 3">
+    ```vue
+    <script setup>
+    import { getSignsByCategory } from '@road-signs/ma';
+    import { RoadSign } from '@road-signs/vue';
+
+    const warnings = getSignsByCategory('warning');
+    </script>
+
+    <template>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <RoadSign v-for="sign in warnings" :key="sign.id" :sign="sign" :size="64" />
+      </div>
+    </template>
+    ```
+  </TabItem>
+</Tabs>
+
+
+{/* COVERAGE:START */}
+
+## Coverage
+
+| Metric | Value |
+| ------ | ----- |
+| Signs scraped | 281 |
+| Signs with SVG | 281 |
+| Missing SVG | 0 |
+| Overall | **100%** |
+
+| Category | Scraped | With SVG | Missing | % |
+| -------- | ------: | -------: | ------: | -: |
+| `warning` | 36 | 36 | 0 | 100% |
+| `priority` | 10 | 10 | 0 | 100% |
+| `prohibitory` | 49 | 49 | 0 | 100% |
+| `mandatory` | 45 | 45 | 0 | 100% |
+| `information` | 141 | 141 | 0 | 100% |
+
+**Standard:** Code de la route (Dahir 1-10-07) — Vienna Convention
+
+**SVG sources:**
+
+- [Wikimedia Commons — Road signs in Morocco](https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Morocco)
+- [Wikimedia Commons — Road signs in Morocco (general)](https://commons.wikimedia.org/wiki/Category:Road_signs_in_Morocco)
+
+_Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.com/package/@road-signs/docs) package._
+
+{/* COVERAGE:END */}
+
+## TypeScript types
+
+```ts
+import type { MASign, MACategory } from '@road-signs/ma';
+
+type MACategory =
+  | 'information'
+  | 'mandatory'
+  | 'priority'
+  | 'prohibitory'
+  | 'warning';
+
+interface MASign {
+  id: string;          // e.g. "a1-sharp-bend"
+  code: string;        // sign code, e.g. "A1"
+  name: string;
+  description: string;
+  category: MACategory;
+  svg: string;         // inline SVG string
+  assets: {
+    svg: string;
+    png: Record<number, string>;
+    jpg: Record<number, string>;
+    webp: Record<number, string>;
+  };
+}
+```

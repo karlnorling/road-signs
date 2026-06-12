@@ -1,0 +1,10 @@
+---
+title: Egypt — Sign Gallery
+description: Browse Egyptian road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/eg';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

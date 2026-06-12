@@ -1,0 +1,9 @@
+---
+title: Suriname — Sign Gallery
+description: Browse Suriname road signs, filterable by category.
+tableOfContents: false
+---
+import { getAllSigns } from '@road-signs/sr';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

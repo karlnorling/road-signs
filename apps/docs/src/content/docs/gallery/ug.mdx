@@ -1,0 +1,10 @@
+---
+title: Uganda — Sign Gallery
+description: Browse Uganda road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/ug';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

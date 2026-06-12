@@ -1,0 +1,145 @@
+---
+title: Liechtenstein (LI)
+description: Liechtenstein road signs — categories, installation, and usage.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+The `@road-signs/li` package contains Liechtenstein road signs under the **SSV/SVV (Swiss Sign Ordinance) — Vienna Convention**.
+Liechtenstein uses Swiss-standard signs (SSV/SVV) — the sign set is effectively identical to `@road-signs/ch`.
+Signs are sourced from Wikimedia Commons and are in the public domain.
+
+## Installation
+
+```sh
+npm install @road-signs/li
+```
+
+## Sign categories
+
+| Category | Series | Description |
+| -------- | ------ | ----------- |
+| `warning` | 1.xx | Hazard warnings |
+| `priority` | 2.xx | Right-of-way signs |
+| `prohibitory` | 3.xx | Prohibitions and restrictions |
+| `mandatory` | 4.xx | Mandatory actions |
+| `information` | 5–6.xx | Information and direction |
+
+## Usage
+
+<Tabs>
+  <TabItem label="TypeScript">
+    ```ts
+    import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/li';
+
+    // All signs
+    signs.length;
+
+    // By slug ID
+    const sign = getSign("1-01-sharp-bend");
+
+    // By sign code
+    const s = getSignByCode("1.01");
+
+    // All warning signs
+    const filtered = getSignsByCategory('warning');
+    ```
+  </TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { getSignsByCategory } from '@road-signs/li';
+    import { RoadSign } from '@road-signs/react';
+
+    const warnings = getSignsByCategory('warning');
+
+    export default function WarningGrid() {
+      return (
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          {warnings.map((sign) => (
+            <RoadSign key={sign.id} sign={sign} size={64} />
+          ))}
+        </div>
+      );
+    }
+    ```
+  </TabItem>
+  <TabItem label="Vue 3">
+    ```vue
+    <script setup>
+    import { getSignsByCategory } from '@road-signs/li';
+    import { RoadSign } from '@road-signs/vue';
+
+    const warnings = getSignsByCategory('warning');
+    </script>
+
+    <template>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <RoadSign v-for="sign in warnings" :key="sign.id" :sign="sign" :size="64" />
+      </div>
+    </template>
+    ```
+  </TabItem>
+</Tabs>
+
+
+{/* COVERAGE:START */}
+
+## Coverage
+
+| Metric | Value |
+| ------ | ----- |
+| Signs scraped | 260 |
+| Signs with SVG | 260 |
+| Missing SVG | 0 |
+| Overall | **100%** |
+
+| Category | Scraped | With SVG | Missing | % |
+| -------- | ------: | -------: | ------: | -: |
+| `warning` | 30 | 30 | 0 | 100% |
+| `priority` | 17 | 17 | 0 | 100% |
+| `prohibitory` | 32 | 32 | 0 | 100% |
+| `mandatory` | 64 | 64 | 0 | 100% |
+| `information` | 117 | 117 | 0 | 100% |
+
+**Standard:** SSV/SVV (Signalisationsverordnung) — same signs as Switzerland
+
+**SVG sources:**
+
+- [Wikimedia Commons — Road signs in Liechtenstein](https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Liechtenstein)
+- [Wikimedia Commons — Road signs in Switzerland (shared)](https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Switzerland)
+
+:::note
+Liechtenstein uses identical signs to Switzerland. Codes use decimal format: 1.xx (warning), 2.xx (priority), 3.xx (prohibitory), 4.xx (mandatory), 5–6.xx (information).
+:::
+
+_Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.com/package/@road-signs/docs) package._
+
+{/* COVERAGE:END */}
+
+## TypeScript types
+
+```ts
+import type { LISign, LICategory } from '@road-signs/li';
+
+type LICategory =
+  | 'information'
+  | 'mandatory'
+  | 'priority'
+  | 'prohibitory'
+  | 'warning';
+
+interface LISign {
+  id: string;          // e.g. "1-01-sharp-bend"
+  code: string;        // sign code, e.g. "1.01"
+  name: string;
+  description: string;
+  category: LICategory;
+  svg: string;         // inline SVG string
+  assets: {
+    svg: string;
+    png: Record<number, string>;
+    jpg: Record<number, string>;
+    webp: Record<number, string>;
+  };
+}
+```

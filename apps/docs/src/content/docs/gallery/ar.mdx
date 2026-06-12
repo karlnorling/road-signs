@@ -1,0 +1,10 @@
+---
+title: Argentina — Sign Gallery
+description: Browse Argentine road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/ar';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

@@ -1,0 +1,10 @@
+---
+title: Kenya — Sign Gallery
+description: Browse Kenyan road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/ke';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

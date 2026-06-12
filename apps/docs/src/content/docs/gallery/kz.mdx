@@ -1,0 +1,10 @@
+---
+title: Kazakhstan — Sign Gallery
+description: Browse Kazakhstan road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/kz';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

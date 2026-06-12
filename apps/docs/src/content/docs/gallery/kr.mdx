@@ -1,0 +1,10 @@
+---
+title: South Korea — Sign Gallery
+description: Browse South Korean road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/kr';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

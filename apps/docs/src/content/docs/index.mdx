@@ -11,10 +11,6 @@ hero:
     - text: Get started
       link: /road-signs/getting-started/
       icon: right-arrow
-    - text: Browse signs
-      link: /road-signs/gallery/
-      icon: seti:image
-      variant: secondary
     - text: GitHub
       link: https://github.com/karlnorling/road-signs
       icon: github
@@ -22,6 +18,13 @@ hero:
 ---
 
 import { Card, CardGrid } from '@astrojs/starlight/components';
+import WorldMap from '../../components/WorldMap.astro';
+
+## Coverage
+
+Click a country to browse its sign package.
+
+<WorldMap />
 
 ## Why Road Signs?
 
@@ -31,7 +34,7 @@ project — one npm package per country, so you only ship what you need.
 
 <CardGrid>
   <Card title="Per-country packages" icon="puzzle">
-    Install only the countries you need. `@road-signs/us` for MUTCD, `@road-signs/uk` for TSRGD,
+    Install only the countries you need. `@road-signs/us` for MUTCD, `@road-signs/de` for StVO,
     and so on. Each package is self-contained with SVGs, raster assets, and a TypeScript registry.
   </Card>
   <Card title="React, Vue 3 & Web Components" icon="laptop">
@@ -47,17 +50,6 @@ project — one npm package per country, so you only ship what you need.
     the SVG.
   </Card>
 </CardGrid>
-
-## Country packages
-
-| Package | Standard | Status |
-| ------- | -------- | ------ |
-| [`@road-signs/us`](/road-signs/countries/us/) | FHWA MUTCD | Available |
-| `@road-signs/uk` | TSRGD 2016 | Coming soon |
-| `@road-signs/ca` | MUTCDC | Coming soon |
-| `@road-signs/de` | Vienna Convention / StVO | Coming soon |
-| `@road-signs/fr` | Vienna Convention / Code de la route | Coming soon |
-| `@road-signs/nl` | Vienna Convention / RVV 1990 | Coming soon |
 
 ## Framework packages
 

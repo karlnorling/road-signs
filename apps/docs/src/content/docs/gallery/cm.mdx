@@ -1,0 +1,10 @@
+---
+title: Cameroon — Sign Gallery
+description: Browse Cameroon road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/cm';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

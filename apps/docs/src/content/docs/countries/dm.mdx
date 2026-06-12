@@ -1,0 +1,120 @@
+---
+title: Dominica (DM)
+description: Dominica road signs — categories, installation, and usage.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+The `@road-signs/dm` package contains Dominica road signs (British-derived).
+Signs are sourced from Wikimedia Commons and are in the public domain.
+
+## Installation
+
+```sh
+npm install @road-signs/dm
+```
+
+## Sign categories
+
+| Category | Series | Description |
+| -------- | ------ | ----------- |
+| `warning` | Warning | Hazard and warning signs |
+| `prohibitory` | Prohibitory | Prohibition and restriction signs |
+| `mandatory` | Mandatory | Mandatory instruction signs |
+| `information` | Information / Service | Information and service signs |
+
+## Usage
+
+<Tabs>
+  <TabItem label="TypeScript">
+    ```ts
+    import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/dm';
+
+    // All signs
+    signs.length;
+
+    // By slug ID
+    const sign = getSign("example-sign");
+
+    // By sign code
+    const s = getSignByCode("1");
+
+    // All warning signs
+    const filtered = getSignsByCategory('warning');
+    ```
+  </TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { getSignsByCategory } from '@road-signs/dm';
+    import { RoadSign } from '@road-signs/react';
+
+    const warnings = getSignsByCategory('warning');
+
+    export default function WarningGrid() {
+      return (
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          {warnings.map((sign) => (
+            <RoadSign key={sign.id} sign={sign} size={64} />
+          ))}
+        </div>
+      );
+    }
+    ```
+  </TabItem>
+  <TabItem label="Vue 3">
+    ```vue
+    <script setup>
+    import { getSignsByCategory } from '@road-signs/dm';
+    import { RoadSign } from '@road-signs/vue';
+
+    const warnings = getSignsByCategory('warning');
+    </script>
+
+    <template>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <RoadSign v-for="sign in warnings" :key="sign.id" :sign="sign" :size="64" />
+      </div>
+    </template>
+    ```
+  </TabItem>
+</Tabs>
+
+
+{/* COVERAGE:START */}
+
+## Coverage
+
+| Metric | Value |
+| ------ | ----- |
+| Signs scraped | 1 |
+| Signs with SVG | 1 |
+| Missing SVG | 0 |
+| Overall | **100%** |
+
+| Category | Scraped | With SVG | Missing | % |
+| -------- | ------: | -------: | ------: | -: |
+| `warning` | 0 | 0 | 0 | — |
+| `priority` | 0 | 0 | 0 | — |
+| `prohibitory` | 0 | 0 | 0 | — |
+| `mandatory` | 1 | 1 | 0 | 100% |
+| `information` | 0 | 0 | 0 | — |
+
+**Standard:** British-derived (Road Traffic Act)
+
+**SVG sources:**
+
+- [Wikimedia Commons — Diagrams of road signs of Dominica](https://commons.wikimedia.org/wiki/Category:Diagrams_of_road_signs_of_Dominica)
+
+:::note
+Very limited SVG coverage on Wikimedia Commons (give way sign only). Dominica uses a British-derived sign system under the Road Traffic Act.
+:::
+
+_Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.com/package/@road-signs/docs) package._
+
+{/* COVERAGE:END */}
+
+## TypeScript types
+
+```ts
+import type { DMSign, DMCategory } from '@road-signs/dm';
+```

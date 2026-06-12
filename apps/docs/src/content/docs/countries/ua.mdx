@@ -1,0 +1,143 @@
+---
+title: Ukraine (UA)
+description: Ukrainian road signs — categories, installation, and usage.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+The `@road-signs/ua` package contains Ukrainian road signs from the **Правила дорожнього руху (PDR) — Vienna Convention**.
+Signs are sourced from Wikimedia Commons and are in the public domain.
+
+## Installation
+
+```sh
+npm install @road-signs/ua
+```
+
+## Sign categories
+
+| Category | Series | Description |
+| -------- | ------ | ----------- |
+| `warning` | 1.xx | Попереджувальні знаки — hazard warnings (decimal codes, e.g. 1.1, 1.2) |
+| `priority` | 2.xx | Знаки пріоритету — right-of-way signs |
+| `prohibitory` | 3.xx | Заборонні знаки — prohibitions and restrictions |
+| `mandatory` | 4.xx | Наказові знаки — mandatory actions |
+| `information` | 5.xx | Інформаційні знаки — information and direction |
+
+## Usage
+
+<Tabs>
+  <TabItem label="TypeScript">
+    ```ts
+    import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/ua';
+
+    // All signs
+    signs.length;
+
+    // By slug ID
+    const sign = getSign("1-1-sharp-bend");
+
+    // By sign code
+    const s = getSignByCode("1.1");
+
+    // All warning signs
+    const filtered = getSignsByCategory('warning');
+    ```
+  </TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { getSignsByCategory } from '@road-signs/ua';
+    import { RoadSign } from '@road-signs/react';
+
+    const warnings = getSignsByCategory('warning');
+
+    export default function WarningGrid() {
+      return (
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          {warnings.map((sign) => (
+            <RoadSign key={sign.id} sign={sign} size={64} />
+          ))}
+        </div>
+      );
+    }
+    ```
+  </TabItem>
+  <TabItem label="Vue 3">
+    ```vue
+    <script setup>
+    import { getSignsByCategory } from '@road-signs/ua';
+    import { RoadSign } from '@road-signs/vue';
+
+    const warnings = getSignsByCategory('warning');
+    </script>
+
+    <template>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <RoadSign v-for="sign in warnings" :key="sign.id" :sign="sign" :size="64" />
+      </div>
+    </template>
+    ```
+  </TabItem>
+</Tabs>
+
+
+{/* COVERAGE:START */}
+
+## Coverage
+
+| Metric | Value |
+| ------ | ----- |
+| Signs scraped | 310 |
+| Signs with SVG | 310 |
+| Missing SVG | 0 |
+| Overall | **100%** |
+
+| Category | Scraped | With SVG | Missing | % |
+| -------- | ------: | -------: | ------: | -: |
+| `warning` | 54 | 54 | 0 | 100% |
+| `priority` | 6 | 6 | 0 | 100% |
+| `prohibitory` | 44 | 44 | 0 | 100% |
+| `mandatory` | 26 | 26 | 0 | 100% |
+| `information` | 180 | 180 | 0 | 100% |
+
+**Standard:** Правила дорожнього руху (PDR) — Vienna Convention
+
+**SVG sources:**
+
+- [Wikimedia Commons — Road signs in Ukraine](https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Ukraine)
+
+:::note
+Codes use decimal format: 1.xx (warning), 2.xx (priority), 3.xx (prohibitory), 4.xx (mandatory), 5.xx (information).
+:::
+
+_Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.com/package/@road-signs/docs) package._
+
+{/* COVERAGE:END */}
+
+## TypeScript types
+
+```ts
+import type { UASign, UACategory } from '@road-signs/ua';
+
+type UACategory =
+  | 'information'
+  | 'mandatory'
+  | 'priority'
+  | 'prohibitory'
+  | 'warning';
+
+interface UASign {
+  id: string;          // e.g. "1-1-sharp-bend"
+  code: string;        // sign code, e.g. "1.1"
+  name: string;
+  description: string;
+  category: UACategory;
+  svg: string;         // inline SVG string
+  assets: {
+    svg: string;
+    png: Record<number, string>;
+    jpg: Record<number, string>;
+    webp: Record<number, string>;
+  };
+}
+```

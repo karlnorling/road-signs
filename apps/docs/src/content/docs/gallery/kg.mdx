@@ -1,0 +1,10 @@
+---
+title: Kyrgyzstan — Sign Gallery
+description: Browse Kyrgyzstan road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/kg';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

@@ -1,0 +1,10 @@
+---
+title: Nigeria — Sign Gallery
+description: Browse Nigerian road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/ng';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

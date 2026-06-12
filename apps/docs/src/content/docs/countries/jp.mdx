@@ -1,0 +1,142 @@
+---
+title: Japan (JP)
+description: Japanese Road Traffic Law road signs — categories, installation, and usage.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+The `@road-signs/jp` package contains Japan road signs from the **Road Traffic Law (道路交通法)**, Japan's national road traffic legislation.
+Signs are sourced from Wikipedia / Wikimedia Commons. Signs are in the public domain.
+
+## Installation
+
+```sh
+npm install @road-signs/jp
+```
+
+## Sign categories
+
+| Category | Series | Description |
+| -------- | ------ | ----------- |
+| `warning` | 2xx | 警戒標識 — hazard warnings |
+| `prohibitory` | 1xx | 規制標識 — regulatory signs |
+| `mandatory` | 3xx | 指示標識 — instruction signs |
+| `information` | 4xx | 案内標識 — guide signs |
+
+## Usage
+
+<Tabs>
+  <TabItem label="TypeScript">
+    ```ts
+    import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/jp';
+
+    // All signs
+    signs.length;
+
+    // By slug ID
+    const sign = getSign("201-dangerous-bend");
+
+    // By sign code
+    const s = getSignByCode("201");
+
+    // All prohibitory signs
+    const filtered = getSignsByCategory('prohibitory');
+    ```
+  </TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { getSignsByCategory } from '@road-signs/jp';
+    import { RoadSign } from '@road-signs/react';
+
+    const warnings = getSignsByCategory('warning');
+
+    export default function WarningGrid() {
+      return (
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          {warnings.map((sign) => (
+            <RoadSign key={sign.id} sign={sign} size={64} />
+          ))}
+        </div>
+      );
+    }
+    ```
+  </TabItem>
+  <TabItem label="Vue 3">
+    ```vue
+    <script setup>
+    import { getSignsByCategory } from '@road-signs/jp';
+    import { RoadSign } from '@road-signs/vue';
+
+    const warnings = getSignsByCategory('warning');
+    </script>
+
+    <template>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <RoadSign v-for="sign in warnings" :key="sign.id" :sign="sign" :size="64" />
+      </div>
+    </template>
+    ```
+  </TabItem>
+</Tabs>
+
+
+{/* COVERAGE:START */}
+
+## Coverage
+
+| Metric | Value |
+| ------ | ----- |
+| Signs scraped | 126 |
+| Signs with SVG | 126 |
+| Missing SVG | 0 |
+| Overall | **100%** |
+
+| Category | Scraped | With SVG | Missing | % |
+| -------- | ------: | -------: | ------: | -: |
+| `warning` | 36 | 36 | 0 | 100% |
+| `priority` | 0 | 0 | 0 | — |
+| `prohibitory` | 59 | 59 | 0 | 100% |
+| `mandatory` | 13 | 13 | 0 | 100% |
+| `information` | 18 | 18 | 0 | 100% |
+
+**Standard:** Road Traffic Law (道路交通法)
+
+**SVG sources:**
+
+- [Wikimedia Commons — Road signs in Japan](https://commons.wikimedia.org/wiki/Category:Road_signs_in_Japan)
+
+:::note
+Codes are 3-digit numeric: 1xx (regulatory), 2xx (warning), 3xx (instruction), 4xx (guide).
+:::
+
+_Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.com/package/@road-signs/docs) package._
+
+{/* COVERAGE:END */}
+
+## TypeScript types
+
+```ts
+import type { JPSign, JPCategory } from '@road-signs/jp';
+
+type JPCategory =
+  | 'information'
+  | 'mandatory'
+  | 'priority'
+  | 'prohibitory'
+  | 'warning';
+
+interface JPSign {
+  id: string;          // e.g. "201-dangerous-bend"
+  code: string;        // e.g. "201"
+  name: string;
+  description: string;
+  category: JPCategory;
+  svg: string;         // inline SVG string
+  assets: {
+    svg: string;
+    png: Record<number, string>;
+    jpg: Record<number, string>;
+    webp: Record<number, string>;
+  };
+}
+```

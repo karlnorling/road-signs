@@ -1,0 +1,10 @@
+---
+title: Uzbekistan — Sign Gallery
+description: Browse Uzbekistan road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/uz';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

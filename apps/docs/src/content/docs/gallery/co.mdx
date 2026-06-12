@@ -1,0 +1,10 @@
+---
+title: Colombia — Sign Gallery
+description: Browse Colombian MSV road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/co';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

@@ -1,0 +1,10 @@
+---
+title: Chile — Sign Gallery
+description: Browse Chilean road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/cl';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

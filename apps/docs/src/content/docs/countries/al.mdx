@@ -1,0 +1,139 @@
+---
+title: Albania (AL)
+description: Albania road signs — categories, installation, and usage.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+The `@road-signs/al` package contains Albanian road signs from the **Kodi Rrugor — Vienna Convention**.
+Signs are sourced from Wikimedia Commons and are in the public domain.
+
+## Installation
+
+```sh
+npm install @road-signs/al
+```
+
+## Sign categories
+
+| Category | Series | Description |
+| -------- | ------ | ----------- |
+| `warning` | A series | Paralajmëruese — hazard warnings |
+| `priority` | B series | Prioriteti — right-of-way |
+| `prohibitory` | C series | Ndaluese dhe kufizuese — prohibitions |
+| `mandatory` | D series | Detyruese — mandatory actions |
+| `information` | E–F series | Informuese — information and direction |
+
+## Usage
+
+<Tabs>
+  <TabItem label="TypeScript">
+    ```ts
+    import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/al';
+
+    // All signs
+    signs.length;
+
+    // By slug ID
+    const sign = getSign("a1-sharp-bend");
+
+    // By sign code
+    const s = getSignByCode("A1");
+
+    // All warning signs
+    const filtered = getSignsByCategory('warning');
+    ```
+  </TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { getSignsByCategory } from '@road-signs/al';
+    import { RoadSign } from '@road-signs/react';
+
+    const warnings = getSignsByCategory('warning');
+
+    export default function WarningGrid() {
+      return (
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          {warnings.map((sign) => (
+            <RoadSign key={sign.id} sign={sign} size={64} />
+          ))}
+        </div>
+      );
+    }
+    ```
+  </TabItem>
+  <TabItem label="Vue 3">
+    ```vue
+    <script setup>
+    import { getSignsByCategory } from '@road-signs/al';
+    import { RoadSign } from '@road-signs/vue';
+
+    const warnings = getSignsByCategory('warning');
+    </script>
+
+    <template>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <RoadSign v-for="sign in warnings" :key="sign.id" :sign="sign" :size="64" />
+      </div>
+    </template>
+    ```
+  </TabItem>
+</Tabs>
+
+
+{/* COVERAGE:START */}
+
+## Coverage
+
+| Metric | Value |
+| ------ | ----- |
+| Signs scraped | 158 |
+| Signs with SVG | 158 |
+| Missing SVG | 0 |
+| Overall | **100%** |
+
+| Category | Scraped | With SVG | Missing | % |
+| -------- | ------: | -------: | ------: | -: |
+| `warning` | 33 | 33 | 0 | 100% |
+| `priority` | 12 | 12 | 0 | 100% |
+| `prohibitory` | 35 | 35 | 0 | 100% |
+| `mandatory` | 27 | 27 | 0 | 100% |
+| `information` | 51 | 51 | 0 | 100% |
+
+**Standard:** Kodi Rrugor — Vienna Convention
+
+**SVG sources:**
+
+- [Wikimedia Commons — Road signs in Albania](https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Albania)
+
+_Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.com/package/@road-signs/docs) package._
+
+{/* COVERAGE:END */}
+
+## TypeScript types
+
+```ts
+import type { ALSign, ALCategory } from '@road-signs/al';
+
+type ALCategory =
+  | 'information'
+  | 'mandatory'
+  | 'priority'
+  | 'prohibitory'
+  | 'warning';
+
+interface ALSign {
+  id: string;          // e.g. "a1-sharp-bend"
+  code: string;        // sign code, e.g. "A1"
+  name: string;
+  description: string;
+  category: ALCategory;
+  svg: string;         // inline SVG string
+  assets: {
+    svg: string;
+    png: Record<number, string>;
+    jpg: Record<number, string>;
+    webp: Record<number, string>;
+  };
+}
+```

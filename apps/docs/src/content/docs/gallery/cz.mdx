@@ -1,0 +1,10 @@
+---
+title: Czech Republic — Sign Gallery
+description: Browse Czech road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/cz';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

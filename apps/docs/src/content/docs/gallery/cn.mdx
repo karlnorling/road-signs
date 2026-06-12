@@ -1,0 +1,10 @@
+---
+title: China — Sign Gallery
+description: Browse Chinese road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/cn';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

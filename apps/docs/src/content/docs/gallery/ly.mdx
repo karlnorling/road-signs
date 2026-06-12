@@ -1,0 +1,10 @@
+---
+title: Libya — Sign Gallery
+description: Browse Libya road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/ly';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

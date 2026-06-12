@@ -1,0 +1,9 @@
+---
+title: Angola — Sign Gallery
+description: Browse Angola road signs, filterable by category.
+tableOfContents: false
+---
+import { getAllSigns } from '@road-signs/ao';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

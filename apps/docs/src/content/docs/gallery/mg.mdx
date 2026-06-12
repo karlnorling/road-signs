@@ -1,0 +1,9 @@
+---
+title: Madagascar — Sign Gallery
+description: Browse Madagascar road signs, filterable by category.
+tableOfContents: false
+---
+import { getAllSigns } from '@road-signs/mg';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

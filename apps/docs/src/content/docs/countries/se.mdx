@@ -1,0 +1,142 @@
+---
+title: Sweden (SE)
+description: Swedish road signs (Vägmärkesförordningen) — categories, installation, and usage.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+The `@road-signs/se` package contains Swedish road signs as defined in the
+**Vägmärkesförordning (Road Signs Ordinance, SFS 2007:90)**, supplemented by
+TSFS 2019:74. Signs are sourced from Wikipedia / Wikimedia Commons and are in
+the public domain.
+
+## Installation
+
+```sh
+npm install @road-signs/se
+```
+
+## Sign categories
+
+| Category | Series | Description |
+| -------- | ------ | ----------- |
+| `warning` | A series | Warn of hazards ahead — triangular, yellow background |
+| `priority` | B series | Right-of-way and yield — stop sign, yield, priority road |
+| `prohibitory` | C series | Prohibitions and restrictions — circular, red border |
+| `mandatory` | D series | Compulsory actions — circular, blue background |
+| `information` | E–I series | Information, directions, and services — rectangular |
+
+## Usage
+
+<Tabs>
+  <TabItem label="TypeScript">
+    ```ts
+    import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/se';
+
+    // All signs
+    signs.length;
+
+    // By slug ID
+    const curve = getSign('a1-curve-right');
+
+    // By sign code
+    const stop = getSignByCode('B1');
+
+    // All prohibitory signs
+    const prohibitory = getSignsByCategory('prohibitory');
+    ```
+  </TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { getSignsByCategory } from '@road-signs/se';
+    import { RoadSign } from '@road-signs/react';
+
+    const warnings = getSignsByCategory('warning');
+
+    export default function WarningGrid() {
+      return (
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          {warnings.map((sign) => (
+            <RoadSign key={sign.id} sign={sign} size={64} />
+          ))}
+        </div>
+      );
+    }
+    ```
+  </TabItem>
+  <TabItem label="Vue 3">
+    ```vue
+    <script setup>
+    import { getSignsByCategory } from '@road-signs/se';
+    import { RoadSign } from '@road-signs/vue';
+
+    const warnings = getSignsByCategory('warning');
+    </script>
+
+    <template>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <RoadSign v-for="sign in warnings" :key="sign.id" :sign="sign" :size="64" />
+      </div>
+    </template>
+    ```
+  </TabItem>
+</Tabs>
+
+
+{/* COVERAGE:START */}
+
+## Coverage
+
+| Metric | Value |
+| ------ | ----- |
+| Signs scraped | 267 |
+| Signs with SVG | 267 |
+| Missing SVG | 0 |
+| Overall | **100%** |
+
+| Category | Scraped | With SVG | Missing | % |
+| -------- | ------: | -------: | ------: | -: |
+| `warning` | 69 | 69 | 0 | 100% |
+| `priority` | 9 | 9 | 0 | 100% |
+| `prohibitory` | 45 | 45 | 0 | 100% |
+| `mandatory` | 14 | 14 | 0 | 100% |
+| `information` | 130 | 130 | 0 | 100% |
+
+**Standard:** Vägmärkesförordning (VMF) — Vienna Convention
+
+**SVG sources:**
+
+- [Wikimedia Commons — Road signs in Sweden](https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Sweden)
+- [Wikimedia Commons — Road signs in Sweden (general)](https://commons.wikimedia.org/wiki/Category:Road_signs_in_Sweden)
+
+_Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.com/package/@road-signs/docs) package._
+
+{/* COVERAGE:END */}
+
+## TypeScript types
+
+```ts
+import type { SESign, SECategory } from '@road-signs/se';
+
+type SECategory =
+  | 'information'
+  | 'mandatory'
+  | 'priority'
+  | 'prohibitory'
+  | 'warning';
+
+interface SESign {
+  id: string;        // e.g. "a1-curve-right"
+  code: string;      // e.g. "A1"
+  name: string;      // e.g. "Curve Right"
+  description: string;
+  category: SECategory;
+  svg: string;       // inline SVG string
+  assets: {
+    svg: string;
+    png: Record<number, string>;
+    jpg: Record<number, string>;
+    webp: Record<number, string>;
+  };
+}
+```

@@ -1,0 +1,10 @@
+---
+title: Australia — Sign Gallery
+description: Browse Australian AS1742 road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/au';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

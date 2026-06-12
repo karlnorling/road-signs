@@ -1,0 +1,10 @@
+---
+title: Austria — Sign Gallery
+description: Browse Austrian StVO road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/at';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

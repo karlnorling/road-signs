@@ -1,0 +1,10 @@
+---
+title: United Arab Emirates — Sign Gallery
+description: Browse UAE road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/ae';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

@@ -1,0 +1,10 @@
+---
+title: Papua New Guinea — Sign Gallery
+description: Browse Papua New Guinea road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/pg';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

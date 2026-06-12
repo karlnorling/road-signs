@@ -1,0 +1,139 @@
+---
+title: Portugal (PT)
+description: Portuguese Código da Estrada road signs — categories, installation, and usage.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+The `@road-signs/pt` package contains Portugal road signs from the **Código da Estrada**, Portugal's road traffic code which follows the Vienna Convention.
+Signs are sourced from Wikipedia / Wikimedia Commons. Signs are in the public domain.
+
+## Installation
+
+```sh
+npm install @road-signs/pt
+```
+
+## Sign categories
+
+| Category | Series | Description |
+| -------- | ------ | ----------- |
+| `warning` | A series | Sinais de perigo — hazard warnings |
+| `priority` | B series | Sinais de cedência de passagem — right-of-way |
+| `prohibitory` | C series | Sinais de proibição — prohibitions |
+| `mandatory` | D series | Sinais de obrigação — compulsory actions |
+| `information` | E–L series | Sinais de informação — information signs |
+
+## Usage
+
+<Tabs>
+  <TabItem label="TypeScript">
+    ```ts
+    import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/pt';
+
+    // All signs
+    signs.length;
+
+    // By slug ID
+    const sign = getSign("a1-danger-bend-right");
+
+    // By sign code
+    const s = getSignByCode("A1");
+
+    // All prohibitory signs
+    const filtered = getSignsByCategory('prohibitory');
+    ```
+  </TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { getSignsByCategory } from '@road-signs/pt';
+    import { RoadSign } from '@road-signs/react';
+
+    const warnings = getSignsByCategory('warning');
+
+    export default function WarningGrid() {
+      return (
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          {warnings.map((sign) => (
+            <RoadSign key={sign.id} sign={sign} size={64} />
+          ))}
+        </div>
+      );
+    }
+    ```
+  </TabItem>
+  <TabItem label="Vue 3">
+    ```vue
+    <script setup>
+    import { getSignsByCategory } from '@road-signs/pt';
+    import { RoadSign } from '@road-signs/vue';
+
+    const warnings = getSignsByCategory('warning');
+    </script>
+
+    <template>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <RoadSign v-for="sign in warnings" :key="sign.id" :sign="sign" :size="64" />
+      </div>
+    </template>
+    ```
+  </TabItem>
+</Tabs>
+
+
+{/* COVERAGE:START */}
+
+## Coverage
+
+| Metric | Value |
+| ------ | ----- |
+| Signs scraped | 228 |
+| Signs with SVG | 228 |
+| Missing SVG | 0 |
+| Overall | **100%** |
+
+| Category | Scraped | With SVG | Missing | % |
+| -------- | ------: | -------: | ------: | -: |
+| `warning` | 47 | 47 | 0 | 100% |
+| `priority` | 12 | 12 | 0 | 100% |
+| `prohibitory` | 51 | 51 | 0 | 100% |
+| `mandatory` | 39 | 39 | 0 | 100% |
+| `information` | 79 | 79 | 0 | 100% |
+
+**Standard:** Código da Estrada — Vienna Convention
+
+**SVG sources:**
+
+- [Wikimedia Commons — Road signs in Portugal](https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Portugal)
+
+_Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.com/package/@road-signs/docs) package._
+
+{/* COVERAGE:END */}
+
+## TypeScript types
+
+```ts
+import type { PTSign, PTCategory } from '@road-signs/pt';
+
+type PTCategory =
+  | 'information'
+  | 'mandatory'
+  | 'priority'
+  | 'prohibitory'
+  | 'warning';
+
+interface PTSign {
+  id: string;          // e.g. "a1-danger-bend-right"
+  code: string;        // e.g. "A1"
+  name: string;
+  description: string;
+  category: PTCategory;
+  svg: string;         // inline SVG string
+  assets: {
+    svg: string;
+    png: Record<number, string>;
+    jpg: Record<number, string>;
+    webp: Record<number, string>;
+  };
+}
+```

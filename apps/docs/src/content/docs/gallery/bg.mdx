@@ -1,0 +1,10 @@
+---
+title: Bulgaria — Sign Gallery
+description: Browse Bulgarian road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/bg';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

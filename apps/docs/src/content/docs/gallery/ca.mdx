@@ -1,0 +1,10 @@
+---
+title: Canada — Sign Gallery
+description: Browse Canadian MUTCDC signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/ca';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

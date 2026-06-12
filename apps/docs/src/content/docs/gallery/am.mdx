@@ -1,0 +1,10 @@
+---
+title: Armenia — Sign Gallery
+description: Browse Armenia road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/am';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

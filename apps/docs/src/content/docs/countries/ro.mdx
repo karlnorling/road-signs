@@ -1,0 +1,139 @@
+---
+title: Romania (RO)
+description: Romanian road signs — categories, installation, and usage.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+The `@road-signs/ro` package contains Romanian road signs from the **Codul rutier**.
+Signs are sourced from Wikimedia Commons and are in the public domain.
+
+## Installation
+
+```sh
+npm install @road-signs/ro
+```
+
+## Sign categories
+
+| Category | Series | Description |
+| -------- | ------ | ----------- |
+| `warning` | A series | Indicatoare de avertizare — hazard warnings |
+| `priority` | B series | Indicatoare de prioritate — right-of-way |
+| `prohibitory` | C series | Indicatoare de interzicere sau restrictie — regulatory |
+| `mandatory` | D series | Indicatoare de obligare — mandatory |
+| `information` | E–F series | Indicatoare de informare — information |
+
+## Usage
+
+<Tabs>
+  <TabItem label="TypeScript">
+    ```ts
+    import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/ro';
+
+    // All signs
+    signs.length;
+
+    // By slug ID
+    const sign = getSign("a1-sharp-bend");
+
+    // By sign code
+    const s = getSignByCode("A1");
+
+    // All warning signs
+    const filtered = getSignsByCategory('warning');
+    ```
+  </TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { getSignsByCategory } from '@road-signs/ro';
+    import { RoadSign } from '@road-signs/react';
+
+    const warnings = getSignsByCategory('warning');
+
+    export default function WarningGrid() {
+      return (
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          {warnings.map((sign) => (
+            <RoadSign key={sign.id} sign={sign} size={64} />
+          ))}
+        </div>
+      );
+    }
+    ```
+  </TabItem>
+  <TabItem label="Vue 3">
+    ```vue
+    <script setup>
+    import { getSignsByCategory } from '@road-signs/ro';
+    import { RoadSign } from '@road-signs/vue';
+
+    const warnings = getSignsByCategory('warning');
+    </script>
+
+    <template>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <RoadSign v-for="sign in warnings" :key="sign.id" :sign="sign" :size="64" />
+      </div>
+    </template>
+    ```
+  </TabItem>
+</Tabs>
+
+
+{/* COVERAGE:START */}
+
+## Coverage
+
+| Metric | Value |
+| ------ | ----- |
+| Signs scraped | 305 |
+| Signs with SVG | 305 |
+| Missing SVG | 0 |
+| Overall | **100%** |
+
+| Category | Scraped | With SVG | Missing | % |
+| -------- | ------: | -------: | ------: | -: |
+| `warning` | 53 | 53 | 0 | 100% |
+| `priority` | 6 | 6 | 0 | 100% |
+| `prohibitory` | 48 | 48 | 0 | 100% |
+| `mandatory` | 18 | 18 | 0 | 100% |
+| `information` | 180 | 180 | 0 | 100% |
+
+**Standard:** Codul rutier (OUG 195/2002) — Vienna Convention
+
+**SVG sources:**
+
+- [Wikimedia Commons — Road signs in Romania](https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Romania)
+
+_Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.com/package/@road-signs/docs) package._
+
+{/* COVERAGE:END */}
+
+## TypeScript types
+
+```ts
+import type { ROSign, ROCategory } from '@road-signs/ro';
+
+type ROCategory =
+  | 'information'
+  | 'mandatory'
+  | 'priority'
+  | 'prohibitory'
+  | 'warning';
+
+interface ROSign {
+  id: string;          // e.g. "a1-sharp-bend"
+  code: string;        // sign code, e.g. "A1"
+  name: string;
+  description: string;
+  category: ROCategory;
+  svg: string;         // inline SVG string
+  assets: {
+    svg: string;
+    png: Record<number, string>;
+    jpg: Record<number, string>;
+    webp: Record<number, string>;
+  };
+}
+```

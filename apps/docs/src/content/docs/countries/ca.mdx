@@ -1,0 +1,153 @@
+---
+title: Canada (CA)
+description: MUTCDC road signs for Canada — categories, installation, and usage.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+The `@road-signs/ca` package contains Canadian road signs from the **Manual of Uniform Traffic
+Control Devices for Canada (MUTCDC)**, published by the Transportation Association of Canada
+(TAC). Signs are sourced from Wikipedia / Wikimedia Commons and are in the public domain.
+
+## Installation
+
+```sh
+npm install @road-signs/ca
+```
+
+## Sign categories
+
+| Category | MUTCDC series | Description |
+| -------- | ------------- | ----------- |
+| `warning` | WA/WB series | Warn drivers of conditions ahead — diamond-shaped, yellow/black |
+| `regulatory` | RA/RB series | Inform drivers of laws and regulations — white/red/black |
+| `information` | GA/GB/GC/IM series | Destination, guide, and motorist services — green/blue |
+| `school` | WC series | School zone and pedestrian crossing — fluorescent yellow-green |
+| `temporary` | TC series | Temporary traffic control / work zone — orange |
+
+## Usage
+
+<Tabs>
+  <TabItem label="TypeScript">
+    ```ts
+    import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/ca';
+
+    // All signs
+    signs.length;
+
+    // By slug ID
+    const stop = getSign('rb-1-stop');
+
+    // By MUTCDC code
+    const yield_ = getSignByCode('RB-2');
+
+    // All warning signs
+    const warnings = getSignsByCategory('warning');
+    ```
+  </TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { getSignsByCategory } from '@road-signs/ca';
+    import { RoadSign } from '@road-signs/react';
+
+    const warnings = getSignsByCategory('warning');
+
+    export default function WarningGrid() {
+      return (
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          {warnings.map((sign) => (
+            <RoadSign key={sign.id} sign={sign} size={64} />
+          ))}
+        </div>
+      );
+    }
+    ```
+  </TabItem>
+  <TabItem label="Vue 3">
+    ```vue
+    <script setup>
+    import { getSignsByCategory } from '@road-signs/ca';
+    import { RoadSign } from '@road-signs/vue';
+
+    const warnings = getSignsByCategory('warning');
+    </script>
+
+    <template>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <RoadSign v-for="sign in warnings" :key="sign.id" :sign="sign" :size="64" />
+      </div>
+    </template>
+    ```
+  </TabItem>
+</Tabs>
+
+
+{/* COVERAGE:START */}
+
+## Coverage
+
+| Metric | Value |
+| ------ | ----- |
+| Signs scraped | 241 |
+| Signs with SVG | 241 |
+| Missing SVG | 0 |
+| Overall | **100%** |
+
+| Category | Scraped | With SVG | Missing | % |
+| -------- | ------: | -------: | ------: | -: |
+| `warning` | 101 | 101 | 0 | 100% |
+| `regulatory` | 27 | 27 | 0 | 100% |
+| `school` | 41 | 41 | 0 | 100% |
+| `temporary` | 3 | 3 | 0 | 100% |
+| `information` | 69 | 69 | 0 | 100% |
+
+**Standard:** MUTCDC (Manual of Uniform Traffic Control Devices for Canada)
+
+**SVG sources:**
+
+- [Wikimedia Commons — Regulatory signs of Canada](https://commons.wikimedia.org/wiki/Category:SVG_regulatory_road_signs_of_Canada)
+- [Wikimedia Commons — Warning signs of Canada](https://commons.wikimedia.org/wiki/Category:SVG_warning_road_signs_of_Canada)
+- [Wikimedia Commons — School signs of Canada](https://commons.wikimedia.org/wiki/Category:SVG_school_road_signs_of_Canada)
+- [Wikimedia Commons — Temporary signs of Canada](https://commons.wikimedia.org/wiki/Category:SVG_temporary_road_signs_of_Canada)
+- [Wikimedia Commons — British Columbia](https://commons.wikimedia.org/wiki/Category:SVG_road_signs_of_British_Columbia)
+- [Wikimedia Commons — Quebec](https://commons.wikimedia.org/wiki/Category:SVG_road_signs_of_Quebec)
+- [Wikimedia Commons — Ontario](https://commons.wikimedia.org/wiki/Category:SVG_road_signs_of_Ontario)
+- [Wikimedia Commons — Alberta](https://commons.wikimedia.org/wiki/Category:SVG_road_signs_of_Alberta)
+- [Wikimedia Commons — Manitoba](https://commons.wikimedia.org/wiki/Category:SVG_road_signs_of_Manitoba)
+- [Wikimedia Commons — Nova Scotia](https://commons.wikimedia.org/wiki/Category:SVG_road_signs_of_Nova_Scotia)
+- [Wikimedia Commons — New Brunswick](https://commons.wikimedia.org/wiki/Category:SVG_road_signs_of_New_Brunswick)
+- [Wikimedia Commons — Saskatchewan](https://commons.wikimedia.org/wiki/Category:SVG_road_signs_of_Saskatchewan)
+- [Wikimedia Commons — Prince Edward Island](https://commons.wikimedia.org/wiki/Category:SVG_road_signs_of_Prince_Edward_Island)
+- [Wikimedia Commons — Newfoundland and Labrador](https://commons.wikimedia.org/wiki/Category:SVG_road_signs_of_Newfoundland_and_Labrador)
+
+_Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.com/package/@road-signs/docs) package._
+
+{/* COVERAGE:END */}
+
+## TypeScript types
+
+```ts
+import type { CASign, CACategory } from '@road-signs/ca';
+
+type CACategory =
+  | 'information'
+  | 'regulatory'
+  | 'school'
+  | 'temporary'
+  | 'warning';
+
+interface CASign {
+  id: string;        // e.g. "wa-1-curve-right"
+  code: string;      // e.g. "WA-1"
+  name: string;      // e.g. "Curve Right"
+  description: string;
+  category: CACategory;
+  svg: string;       // inline SVG string
+  assets: {
+    svg: string;
+    png: Record<number, string>;
+    jpg: Record<number, string>;
+    webp: Record<number, string>;
+  };
+}
+```

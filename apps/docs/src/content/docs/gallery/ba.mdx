@@ -1,0 +1,10 @@
+---
+title: Bosnia and Herzegovina — Sign Gallery
+description: Browse Bosnian road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/ba';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

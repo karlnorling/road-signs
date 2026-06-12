@@ -1,0 +1,10 @@
+---
+title: Portugal — Sign Gallery
+description: Browse Portuguese road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/pt';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

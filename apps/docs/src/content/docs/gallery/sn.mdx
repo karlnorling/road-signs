@@ -1,0 +1,10 @@
+---
+title: Senegal — Sign Gallery
+description: Browse Senegal road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/sn';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

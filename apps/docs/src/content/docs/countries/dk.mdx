@@ -1,0 +1,140 @@
+---
+title: Denmark (DK)
+description: Danish Færdselsloven road signs — categories, installation, and usage.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+The `@road-signs/dk` package contains Denmark road signs from the **Færdselsloven**, Denmark's road traffic act which follows the Vienna Convention.
+Signs are sourced from Wikipedia / Wikimedia Commons. Signs are in the public domain.
+
+## Installation
+
+```sh
+npm install @road-signs/dk
+```
+
+## Sign categories
+
+| Category | Series | Description |
+| -------- | ------ | ----------- |
+| `warning` | A series | Advarselstavler — hazard warnings |
+| `priority` | B series | Vigepligtstavler — right-of-way |
+| `prohibitory` | C series | Forbudstavler — prohibitions |
+| `mandatory` | D series | Påbudstavler — compulsory actions |
+| `information` | E–F series | Oplysningstavler / Vejledningstavler |
+
+## Usage
+
+<Tabs>
+  <TabItem label="TypeScript">
+    ```ts
+    import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/dk';
+
+    // All signs
+    signs.length;
+
+    // By slug ID
+    const sign = getSign("a21-dangerous-bend");
+
+    // By sign code
+    const s = getSignByCode("A21");
+
+    // All prohibitory signs
+    const filtered = getSignsByCategory('prohibitory');
+    ```
+  </TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { getSignsByCategory } from '@road-signs/dk';
+    import { RoadSign } from '@road-signs/react';
+
+    const warnings = getSignsByCategory('warning');
+
+    export default function WarningGrid() {
+      return (
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          {warnings.map((sign) => (
+            <RoadSign key={sign.id} sign={sign} size={64} />
+          ))}
+        </div>
+      );
+    }
+    ```
+  </TabItem>
+  <TabItem label="Vue 3">
+    ```vue
+    <script setup>
+    import { getSignsByCategory } from '@road-signs/dk';
+    import { RoadSign } from '@road-signs/vue';
+
+    const warnings = getSignsByCategory('warning');
+    </script>
+
+    <template>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <RoadSign v-for="sign in warnings" :key="sign.id" :sign="sign" :size="64" />
+      </div>
+    </template>
+    ```
+  </TabItem>
+</Tabs>
+
+
+{/* COVERAGE:START */}
+
+## Coverage
+
+| Metric | Value |
+| ------ | ----- |
+| Signs scraped | 290 |
+| Signs with SVG | 290 |
+| Missing SVG | 0 |
+| Overall | **100%** |
+
+| Category | Scraped | With SVG | Missing | % |
+| -------- | ------: | -------: | ------: | -: |
+| `warning` | 49 | 49 | 0 | 100% |
+| `priority` | 10 | 10 | 0 | 100% |
+| `prohibitory` | 46 | 46 | 0 | 100% |
+| `mandatory` | 28 | 28 | 0 | 100% |
+| `information` | 157 | 157 | 0 | 100% |
+
+**Standard:** Færdselsloven — Vienna Convention
+
+**SVG sources:**
+
+- [Wikimedia Commons — Road signs in Denmark](https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Denmark)
+- [Wikimedia Commons — Road signs in Denmark (general)](https://commons.wikimedia.org/wiki/Category:Road_signs_in_Denmark)
+
+_Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.com/package/@road-signs/docs) package._
+
+{/* COVERAGE:END */}
+
+## TypeScript types
+
+```ts
+import type { DKSign, DKCategory } from '@road-signs/dk';
+
+type DKCategory =
+  | 'information'
+  | 'mandatory'
+  | 'priority'
+  | 'prohibitory'
+  | 'warning';
+
+interface DKSign {
+  id: string;          // e.g. "a21-dangerous-bend"
+  code: string;        // e.g. "A21"
+  name: string;
+  description: string;
+  category: DKCategory;
+  svg: string;         // inline SVG string
+  assets: {
+    svg: string;
+    png: Record<number, string>;
+    jpg: Record<number, string>;
+    webp: Record<number, string>;
+  };
+}
+```

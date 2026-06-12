@@ -1,0 +1,10 @@
+---
+title: South Africa — Sign Gallery
+description: Browse South African SARTSM road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/za';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

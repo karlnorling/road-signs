@@ -1,0 +1,10 @@
+---
+title: Zambia — Sign Gallery
+description: Browse Zambia road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/zm';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

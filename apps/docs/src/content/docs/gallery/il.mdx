@@ -1,0 +1,10 @@
+---
+title: Israel — Sign Gallery
+description: Browse Israeli road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/il';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

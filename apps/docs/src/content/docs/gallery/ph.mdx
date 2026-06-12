@@ -1,0 +1,10 @@
+---
+title: Philippines — Sign Gallery
+description: Browse Philippine road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/ph';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

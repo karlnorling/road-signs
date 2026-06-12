@@ -1,0 +1,10 @@
+---
+title: Laos — Sign Gallery
+description: Browse Laos road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/la';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

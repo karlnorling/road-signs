@@ -1,0 +1,10 @@
+---
+title: Georgia — Sign Gallery
+description: Browse Georgian road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/ge';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

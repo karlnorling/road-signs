@@ -1,0 +1,10 @@
+---
+title: Malta — Sign Gallery
+description: Browse Maltese road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/mt';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

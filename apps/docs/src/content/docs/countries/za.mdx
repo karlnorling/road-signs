@@ -1,0 +1,138 @@
+---
+title: South Africa (ZA)
+description: South African road signs — categories, installation, and usage.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+The `@road-signs/za` package contains South African road signs from the **SARTSM (South African Road Traffic Signs Manual)**.
+Signs are sourced from Wikimedia Commons and are in the public domain.
+
+## Installation
+
+```sh
+npm install @road-signs/za
+```
+
+## Sign categories
+
+| Category | Series | Description |
+| -------- | ------ | ----------- |
+| `warning` | W series | Hazard warnings |
+| `regulatory` | R series | Regulatory and prohibitory signs |
+| `guidance` | G series | Guidance and information |
+| `temporary` | T series | Temporary traffic management |
+
+## Usage
+
+<Tabs>
+  <TabItem label="TypeScript">
+    ```ts
+    import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/za';
+
+    // All signs
+    signs.length;
+
+    // By slug ID
+    const sign = getSign("w1-sharp-bend");
+
+    // By sign code
+    const s = getSignByCode("W1");
+
+    // All warning signs
+    const filtered = getSignsByCategory('warning');
+    ```
+  </TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { getSignsByCategory } from '@road-signs/za';
+    import { RoadSign } from '@road-signs/react';
+
+    const warnings = getSignsByCategory('warning');
+
+    export default function WarningGrid() {
+      return (
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          {warnings.map((sign) => (
+            <RoadSign key={sign.id} sign={sign} size={64} />
+          ))}
+        </div>
+      );
+    }
+    ```
+  </TabItem>
+  <TabItem label="Vue 3">
+    ```vue
+    <script setup>
+    import { getSignsByCategory } from '@road-signs/za';
+    import { RoadSign } from '@road-signs/vue';
+
+    const warnings = getSignsByCategory('warning');
+    </script>
+
+    <template>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <RoadSign v-for="sign in warnings" :key="sign.id" :sign="sign" :size="64" />
+      </div>
+    </template>
+    ```
+  </TabItem>
+</Tabs>
+
+
+{/* COVERAGE:START */}
+
+## Coverage
+
+| Metric | Value |
+| ------ | ----- |
+| Signs scraped | 322 |
+| Signs with SVG | 322 |
+| Missing SVG | 0 |
+| Overall | **100%** |
+
+| Category | Scraped | With SVG | Missing | % |
+| -------- | ------: | -------: | ------: | -: |
+| `warning` | 79 | 79 | 0 | 100% |
+| `priority` | 0 | 0 | 0 | — |
+| `prohibitory` | 223 | 223 | 0 | 100% |
+| `mandatory` | 0 | 0 | 0 | — |
+| `information` | 20 | 20 | 0 | 100% |
+
+**Standard:** SARTSM (South African Road Traffic Signs Manual)
+
+**SVG sources:**
+
+- [Wikimedia Commons — SVG road signs in South Africa](https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_South_Africa)
+- [Wikimedia Commons — Road signs in South Africa](https://commons.wikimedia.org/wiki/Category:Road_signs_in_South_Africa)
+
+_Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.com/package/@road-signs/docs) package._
+
+{/* COVERAGE:END */}
+
+## TypeScript types
+
+```ts
+import type { ZASign, ZACategory } from '@road-signs/za';
+
+type ZACategory =
+  | 'guidance'
+  | 'regulatory'
+  | 'temporary'
+  | 'warning';
+
+interface ZASign {
+  id: string;          // e.g. "w1-sharp-bend"
+  code: string;        // sign code, e.g. "W1"
+  name: string;
+  description: string;
+  category: ZACategory;
+  svg: string;         // inline SVG string
+  assets: {
+    svg: string;
+    png: Record<number, string>;
+    jpg: Record<number, string>;
+    webp: Record<number, string>;
+  };
+}
+```

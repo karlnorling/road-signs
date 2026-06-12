@@ -1,0 +1,10 @@
+---
+title: New Zealand — Sign Gallery
+description: Browse New Zealand NZTA road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/nz';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

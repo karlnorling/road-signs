@@ -1,0 +1,10 @@
+---
+title: United Kingdom — Sign Gallery
+description: Browse UK TSRGD signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/uk';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

@@ -1,0 +1,10 @@
+---
+title: Slovakia — Sign Gallery
+description: Browse Slovak road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/sk';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

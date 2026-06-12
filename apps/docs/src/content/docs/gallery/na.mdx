@@ -1,0 +1,10 @@
+---
+title: Namibia — Sign Gallery
+description: Browse Namibia road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/na';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

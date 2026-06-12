@@ -1,0 +1,10 @@
+---
+title: Jordan — Sign Gallery
+description: Browse Jordan road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/jo';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

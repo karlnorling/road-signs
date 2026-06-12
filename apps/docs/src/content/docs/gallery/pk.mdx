@@ -1,0 +1,10 @@
+---
+title: Pakistan — Sign Gallery
+description: Browse Pakistan road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/pk';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

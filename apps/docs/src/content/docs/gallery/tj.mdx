@@ -1,0 +1,10 @@
+---
+title: Tajikistan — Sign Gallery
+description: Browse Tajikistan road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/tj';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

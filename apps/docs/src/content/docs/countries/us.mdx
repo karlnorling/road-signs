@@ -83,6 +83,45 @@ npm install @road-signs/us
   </TabItem>
 </Tabs>
 
+
+
+{/* COVERAGE:START */}
+
+## Coverage
+
+| Metric | Value |
+| ------ | ----- |
+| Signs scraped | 1521 |
+| Signs with SVG | 1449 |
+| Missing SVG | 72 |
+| Overall | **95%** |
+
+| Category | Scraped | With SVG | Missing | % |
+| -------- | ------: | -------: | ------: | -: |
+| `warning` | 367 | 362 | 5 | 99% |
+| `regulatory` | 559 | 557 | 2 | 100% |
+| `guide` | 312 | 312 | 0 | 100% |
+| `school` | 23 | 18 | 5 | 78% |
+| `construction` | 56 | 56 | 0 | 100% |
+| `recreational` | 56 | 56 | 0 | 100% |
+| `informational` | 148 | 88 | 60 | 59% |
+
+**Standard:** MUTCD (Manual on Uniform Traffic Control Devices) — FHWA
+
+**SVG sources:**
+
+- [FHWA MUTCD Standard Highway Signs (ZIP)](https://mutcd.fhwa.dot.gov/ser-shs_millennium.htm)
+- [Wikimedia Commons — MUTCD signs](https://commons.wikimedia.org/wiki/Category:MUTCD)
+- [Wikipedia — Manual on Uniform Traffic Control Devices](https://en.wikipedia.org/wiki/Manual_on_Uniform_Traffic_Control_Devices)
+
+:::note
+Informational (M/I series) signs have ~59% SVG coverage — remaining signs exist only in FHWA PDFs.
+:::
+
+_Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.com/package/@road-signs/docs) package._
+
+{/* COVERAGE:END */}
+
 ## TypeScript types
 
 ```ts

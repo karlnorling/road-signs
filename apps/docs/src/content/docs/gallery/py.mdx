@@ -1,0 +1,10 @@
+---
+title: Paraguay — Sign Gallery
+description: Browse Paraguay road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/py';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

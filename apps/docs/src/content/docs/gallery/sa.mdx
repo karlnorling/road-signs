@@ -1,0 +1,10 @@
+---
+title: Saudi Arabia — Sign Gallery
+description: Browse Saudi Arabian road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/sa';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

@@ -1,0 +1,10 @@
+---
+title: India — Sign Gallery
+description: Browse Indian IRC:67 road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/in';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

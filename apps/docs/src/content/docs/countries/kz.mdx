@@ -1,0 +1,116 @@
+---
+title: Kazakhstan (KZ)
+description: Kazakhstan road signs — categories, installation, and usage.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+The `@road-signs/kz` package contains Kazakhstan road signs from the **Vienna Convention (ST RK 1125-2021)**.
+Signs are sourced from Wikimedia Commons and are in the public domain.
+
+## Installation
+
+```sh
+npm install @road-signs/kz
+```
+
+## Sign categories
+
+| Category | Series | Description |
+| -------- | ------ | ----------- |
+| `warning` | Warning | Hazard and warning signs |
+| `prohibitory` | Regulatory | Prohibition and restriction signs |
+| `information` | Information / Service / Additional | Information, service, and additional plate signs |
+
+## Usage
+
+<Tabs>
+  <TabItem label="TypeScript">
+    ```ts
+    import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/kz';
+
+    // All signs
+    signs.length;
+
+    // By slug ID
+    const sign = getSign("example-sign");
+
+    // By sign code
+    const s = getSignByCode("1.1");
+
+    // All warning signs
+    const filtered = getSignsByCategory('warning');
+    ```
+  </TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { getSignsByCategory } from '@road-signs/kz';
+    import { RoadSign } from '@road-signs/react';
+
+    const warnings = getSignsByCategory('warning');
+
+    export default function WarningGrid() {
+      return (
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          {warnings.map((sign) => (
+            <RoadSign key={sign.id} sign={sign} size={64} />
+          ))}
+        </div>
+      );
+    }
+    ```
+  </TabItem>
+  <TabItem label="Vue 3">
+    ```vue
+    <script setup>
+    import { getSignsByCategory } from '@road-signs/kz';
+    import { RoadSign } from '@road-signs/vue';
+
+    const warnings = getSignsByCategory('warning');
+    </script>
+
+    <template>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <RoadSign v-for="sign in warnings" :key="sign.id" :sign="sign" :size="64" />
+      </div>
+    </template>
+    ```
+  </TabItem>
+</Tabs>
+
+
+{/* COVERAGE:START */}
+
+## Coverage
+
+| Metric | Value |
+| ------ | ----- |
+| Signs scraped | 258 |
+| Signs with SVG | 258 |
+| Missing SVG | 0 |
+| Overall | **100%** |
+
+| Category | Scraped | With SVG | Missing | % |
+| -------- | ------: | -------: | ------: | -: |
+| `warning` | 44 | 44 | 0 | 100% |
+| `priority` | 13 | 13 | 0 | 100% |
+| `prohibitory` | 39 | 39 | 0 | 100% |
+| `mandatory` | 21 | 21 | 0 | 100% |
+| `information` | 141 | 141 | 0 | 100% |
+
+**Standard:** Vienna Convention (ГОСТ РК 1.1)
+
+**SVG sources:**
+
+- [Wikipedia — Road signs in Kazakhstan](https://en.wikipedia.org/wiki/Road_signs_in_Kazakhstan)
+- [Wikimedia Commons — SVG road signs in Kazakhstan](https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Kazakhstan)
+
+_Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.com/package/@road-signs/docs) package._
+
+{/* COVERAGE:END */}
+
+## TypeScript types
+
+```ts
+import type { KZSign, KZCategory } from '@road-signs/kz';
+```

@@ -1,0 +1,9 @@
+---
+title: Barbados — Sign Gallery
+description: Browse Barbados road signs, filterable by category.
+tableOfContents: false
+---
+import { getAllSigns } from '@road-signs/bb';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

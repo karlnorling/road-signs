@@ -1,0 +1,140 @@
+---
+title: Ireland (IE)
+description: Irish Road Traffic (Signs) Regulations road signs — categories, installation, and usage.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+The `@road-signs/ie` package contains Ireland road signs from the **Road Traffic (Signs) Regulations**, Ireland's statutory instrument governing road signage.
+Signs are sourced from Wikipedia / Wikimedia Commons. Signs are in the public domain.
+
+## Installation
+
+```sh
+npm install @road-signs/ie
+```
+
+## Sign categories
+
+| Category | Series | Description |
+| -------- | ------ | ----------- |
+| `warning` | W series | Diamond/square hazard warnings |
+| `priority` | — | Yield and stop signs |
+| `prohibitory` | — | Regulatory restrictions |
+| `mandatory` | — | Compulsory actions |
+| `information` | — | Information, direction, and tourist signs |
+
+## Usage
+
+<Tabs>
+  <TabItem label="TypeScript">
+    ```ts
+    import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/ie';
+
+    // All signs
+    signs.length;
+
+    // By slug ID
+    const sign = getSign("w-01-bend-ahead");
+
+    // By sign code
+    const s = getSignByCode("W-01");
+
+    // All prohibitory signs
+    const filtered = getSignsByCategory('prohibitory');
+    ```
+  </TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { getSignsByCategory } from '@road-signs/ie';
+    import { RoadSign } from '@road-signs/react';
+
+    const warnings = getSignsByCategory('warning');
+
+    export default function WarningGrid() {
+      return (
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          {warnings.map((sign) => (
+            <RoadSign key={sign.id} sign={sign} size={64} />
+          ))}
+        </div>
+      );
+    }
+    ```
+  </TabItem>
+  <TabItem label="Vue 3">
+    ```vue
+    <script setup>
+    import { getSignsByCategory } from '@road-signs/ie';
+    import { RoadSign } from '@road-signs/vue';
+
+    const warnings = getSignsByCategory('warning');
+    </script>
+
+    <template>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <RoadSign v-for="sign in warnings" :key="sign.id" :sign="sign" :size="64" />
+      </div>
+    </template>
+    ```
+  </TabItem>
+</Tabs>
+
+
+{/* COVERAGE:START */}
+
+## Coverage
+
+| Metric | Value |
+| ------ | ----- |
+| Signs scraped | 297 |
+| Signs with SVG | 297 |
+| Missing SVG | 0 |
+| Overall | **100%** |
+
+| Category | Scraped | With SVG | Missing | % |
+| -------- | ------: | -------: | ------: | -: |
+| `warning` | 132 | 132 | 0 | 100% |
+| `priority` | 0 | 0 | 0 | — |
+| `prohibitory` | 75 | 75 | 0 | 100% |
+| `mandatory` | 0 | 0 | 0 | — |
+| `information` | 90 | 90 | 0 | 100% |
+
+**Standard:** Road Traffic (Signs) Regulations — TSRGD-influenced
+
+**SVG sources:**
+
+- [Wikimedia Commons — Road signs in Ireland](https://commons.wikimedia.org/wiki/Category:Road_signs_in_Ireland)
+- [Wikimedia Commons — SVG road signs in Ireland](https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Ireland)
+
+_Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.com/package/@road-signs/docs) package._
+
+{/* COVERAGE:END */}
+
+## TypeScript types
+
+```ts
+import type { IESign, IECategory } from '@road-signs/ie';
+
+type IECategory =
+  | 'information'
+  | 'mandatory'
+  | 'priority'
+  | 'prohibitory'
+  | 'warning';
+
+interface IESign {
+  id: string;          // e.g. "w-01-bend-ahead"
+  code: string;        // e.g. "W-01"
+  name: string;
+  description: string;
+  category: IECategory;
+  svg: string;         // inline SVG string
+  assets: {
+    svg: string;
+    png: Record<number, string>;
+    jpg: Record<number, string>;
+    webp: Record<number, string>;
+  };
+}
+```

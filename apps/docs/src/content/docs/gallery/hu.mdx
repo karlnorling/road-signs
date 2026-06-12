@@ -1,0 +1,10 @@
+---
+title: Hungary — Sign Gallery
+description: Browse Hungarian KRESZ road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/hu';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

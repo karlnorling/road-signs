@@ -1,0 +1,10 @@
+---
+title: Sweden — Sign Gallery
+description: Browse Swedish Vägmärkesförordning signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/se';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

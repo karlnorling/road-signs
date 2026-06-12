@@ -1,0 +1,10 @@
+---
+title: Zimbabwe — Sign Gallery
+description: Browse Zimbabwe road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/zw';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

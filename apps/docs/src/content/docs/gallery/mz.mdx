@@ -1,0 +1,10 @@
+---
+title: Mozambique — Sign Gallery
+description: Browse Mozambique road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/mz';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

@@ -1,0 +1,10 @@
+---
+title: Guatemala — Sign Gallery
+description: Browse Guatemala road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/gt';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

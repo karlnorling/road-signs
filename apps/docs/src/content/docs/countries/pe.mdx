@@ -1,0 +1,121 @@
+---
+title: Peru (PE)
+description: Peru road signs — categories, installation, and usage.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+The `@road-signs/pe` package contains Peru road signs from the **Manual de Dispositivos de Control del Tránsito Automotor (MTC) — Vienna Convention variant**.
+Signs are sourced from Wikimedia Commons and are in the public domain.
+
+## Installation
+
+```sh
+npm install @road-signs/pe
+```
+
+## Sign categories
+
+| Category | Series | Description |
+| -------- | ------ | ----------- |
+| `warning` | Preventivas | Señales preventivas — hazard warnings |
+| `prohibitory` | Reglamentarias | Señales reglamentarias — prohibitions and regulations |
+| `information` | Informativas / Indicativas | Señales informativas — information and direction |
+
+## Usage
+
+<Tabs>
+  <TabItem label="TypeScript">
+    ```ts
+    import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/pe';
+
+    // All signs
+    signs.length;
+
+    // By slug ID
+    const sign = getSign("example-sign");
+
+    // By sign code
+    const s = getSignByCode("W1");
+
+    // All warning signs
+    const filtered = getSignsByCategory('warning');
+    ```
+  </TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { getSignsByCategory } from '@road-signs/pe';
+    import { RoadSign } from '@road-signs/react';
+
+    const warnings = getSignsByCategory('warning');
+
+    export default function WarningGrid() {
+      return (
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          {warnings.map((sign) => (
+            <RoadSign key={sign.id} sign={sign} size={64} />
+          ))}
+        </div>
+      );
+    }
+    ```
+  </TabItem>
+  <TabItem label="Vue 3">
+    ```vue
+    <script setup>
+    import { getSignsByCategory } from '@road-signs/pe';
+    import { RoadSign } from '@road-signs/vue';
+
+    const warnings = getSignsByCategory('warning');
+    </script>
+
+    <template>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <RoadSign v-for="sign in warnings" :key="sign.id" :sign="sign" :size="64" />
+      </div>
+    </template>
+    ```
+  </TabItem>
+</Tabs>
+
+
+{/* COVERAGE:START */}
+
+## Coverage
+
+| Metric | Value |
+| ------ | ----- |
+| Signs scraped | 11 |
+| Signs with SVG | 11 |
+| Missing SVG | 0 |
+| Overall | **100%** |
+
+| Category | Scraped | With SVG | Missing | % |
+| -------- | ------: | -------: | ------: | -: |
+| `warning` | 0 | 0 | 0 | — |
+| `priority` | 0 | 0 | 0 | — |
+| `prohibitory` | 0 | 0 | 0 | — |
+| `mandatory` | 0 | 0 | 0 | — |
+| `information` | 11 | 11 | 0 | 100% |
+
+**Standard:** Manual de Dispositivos de Control del Tránsito Automotor (MTC) — Vienna Convention variant
+
+**SVG sources:**
+
+- [Wikipedia — Road signs in Peru](https://en.wikipedia.org/wiki/Road_signs_in_Peru)
+- [Wikimedia Commons — Road signs in Peru](https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Peru)
+- [Wikimedia Commons — Road signs in Peru (general)](https://commons.wikimedia.org/wiki/Category:Road_signs_in_Peru)
+
+:::note
+Headings: Preventiva (warning), Reglamentaria (prohibitory), Informativa/Indicativa (information).
+:::
+
+_Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.com/package/@road-signs/docs) package._
+
+{/* COVERAGE:END */}
+
+## TypeScript types
+
+```ts
+import type { PESign, PECategory } from '@road-signs/pe';
+```

@@ -1,0 +1,9 @@
+---
+title: Malawi — Sign Gallery
+description: Browse Malawi road signs, filterable by category.
+tableOfContents: false
+---
+import { getAllSigns } from '@road-signs/mw';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

@@ -1,0 +1,10 @@
+---
+title: Honduras — Sign Gallery
+description: Browse Honduras road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/hn';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

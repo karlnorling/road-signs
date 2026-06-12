@@ -1,0 +1,10 @@
+---
+title: Iran — Sign Gallery
+description: Browse Iran road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/ir';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

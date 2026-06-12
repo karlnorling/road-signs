@@ -1,0 +1,139 @@
+---
+title: Belgium (BE)
+description: Belgian Code de la route / Verkeersreglement road signs — categories, installation, and usage.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+The `@road-signs/be` package contains Belgium road signs from the **Code de la route / Verkeersreglement**, Belgium's road traffic code which follows the Vienna Convention.
+Signs are sourced from Wikipedia / Wikimedia Commons. Signs are in the public domain.
+
+## Installation
+
+```sh
+npm install @road-signs/be
+```
+
+## Sign categories
+
+| Category | Series | Description |
+| -------- | ------ | ----------- |
+| `warning` | A series | Hazard warnings |
+| `priority` | B series | Right-of-way signs |
+| `prohibitory` | C series | Prohibitions and restrictions |
+| `mandatory` | D series | Compulsory actions |
+| `information` | E–X series | Information and direction signs |
+
+## Usage
+
+<Tabs>
+  <TabItem label="TypeScript">
+    ```ts
+    import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/be';
+
+    // All signs
+    signs.length;
+
+    // By slug ID
+    const sign = getSign("a1-danger-bend-right");
+
+    // By sign code
+    const s = getSignByCode("A1");
+
+    // All prohibitory signs
+    const filtered = getSignsByCategory('prohibitory');
+    ```
+  </TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { getSignsByCategory } from '@road-signs/be';
+    import { RoadSign } from '@road-signs/react';
+
+    const warnings = getSignsByCategory('warning');
+
+    export default function WarningGrid() {
+      return (
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          {warnings.map((sign) => (
+            <RoadSign key={sign.id} sign={sign} size={64} />
+          ))}
+        </div>
+      );
+    }
+    ```
+  </TabItem>
+  <TabItem label="Vue 3">
+    ```vue
+    <script setup>
+    import { getSignsByCategory } from '@road-signs/be';
+    import { RoadSign } from '@road-signs/vue';
+
+    const warnings = getSignsByCategory('warning');
+    </script>
+
+    <template>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <RoadSign v-for="sign in warnings" :key="sign.id" :sign="sign" :size="64" />
+      </div>
+    </template>
+    ```
+  </TabItem>
+</Tabs>
+
+
+{/* COVERAGE:START */}
+
+## Coverage
+
+| Metric | Value |
+| ------ | ----- |
+| Signs scraped | 360 |
+| Signs with SVG | 360 |
+| Missing SVG | 0 |
+| Overall | **100%** |
+
+| Category | Scraped | With SVG | Missing | % |
+| -------- | ------: | -------: | ------: | -: |
+| `warning` | 37 | 37 | 0 | 100% |
+| `priority` | 60 | 60 | 0 | 100% |
+| `prohibitory` | 56 | 56 | 0 | 100% |
+| `mandatory` | 43 | 43 | 0 | 100% |
+| `information` | 164 | 164 | 0 | 100% |
+
+**Standard:** Code de la route / Verkeersreglement — Vienna Convention
+
+**SVG sources:**
+
+- [Wikimedia Commons — Road signs in Belgium](https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Belgium)
+
+_Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.com/package/@road-signs/docs) package._
+
+{/* COVERAGE:END */}
+
+## TypeScript types
+
+```ts
+import type { BESign, BECategory } from '@road-signs/be';
+
+type BECategory =
+  | 'information'
+  | 'mandatory'
+  | 'priority'
+  | 'prohibitory'
+  | 'warning';
+
+interface BESign {
+  id: string;          // e.g. "a1-danger-bend-right"
+  code: string;        // e.g. "A1"
+  name: string;
+  description: string;
+  category: BECategory;
+  svg: string;         // inline SVG string
+  assets: {
+    svg: string;
+    png: Record<number, string>;
+    jpg: Record<number, string>;
+    webp: Record<number, string>;
+  };
+}
+```

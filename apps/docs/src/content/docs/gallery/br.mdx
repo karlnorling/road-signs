@@ -1,0 +1,10 @@
+---
+title: Brazil — Sign Gallery
+description: Browse Brazilian CTB road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/br';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

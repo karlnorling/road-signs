@@ -1,0 +1,143 @@
+---
+title: Norway (NO)
+description: Norwegian Skiltforskriften road signs — categories, installation, and usage.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+The `@road-signs/no` package contains Norway road signs from the **Skiltforskriften**, Norway's road sign regulations which follow the Vienna Convention.
+Signs are sourced from Wikipedia / Wikimedia Commons. Signs are in the public domain.
+
+## Installation
+
+```sh
+npm install @road-signs/no
+```
+
+## Sign categories
+
+| Category | Series | Description |
+| -------- | ------ | ----------- |
+| `warning` | 1xx | Advarselsskilt — hazard warnings |
+| `priority` | 2xx | Vikepliktsskilt — right-of-way |
+| `prohibitory` | 3xx | Forbudsskilt — prohibitions |
+| `mandatory` | 4xx | Påbudsskilt — compulsory actions |
+| `information` | 5–7xx | Opplysningsskilt — information signs |
+
+## Usage
+
+<Tabs>
+  <TabItem label="TypeScript">
+    ```ts
+    import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/no';
+
+    // All signs
+    signs.length;
+
+    // By slug ID
+    const sign = getSign("104-dangerous-bend");
+
+    // By sign code
+    const s = getSignByCode("104");
+
+    // All prohibitory signs
+    const filtered = getSignsByCategory('prohibitory');
+    ```
+  </TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { getSignsByCategory } from '@road-signs/no';
+    import { RoadSign } from '@road-signs/react';
+
+    const warnings = getSignsByCategory('warning');
+
+    export default function WarningGrid() {
+      return (
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          {warnings.map((sign) => (
+            <RoadSign key={sign.id} sign={sign} size={64} />
+          ))}
+        </div>
+      );
+    }
+    ```
+  </TabItem>
+  <TabItem label="Vue 3">
+    ```vue
+    <script setup>
+    import { getSignsByCategory } from '@road-signs/no';
+    import { RoadSign } from '@road-signs/vue';
+
+    const warnings = getSignsByCategory('warning');
+    </script>
+
+    <template>
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        <RoadSign v-for="sign in warnings" :key="sign.id" :sign="sign" :size="64" />
+      </div>
+    </template>
+    ```
+  </TabItem>
+</Tabs>
+
+
+{/* COVERAGE:START */}
+
+## Coverage
+
+| Metric | Value |
+| ------ | ----- |
+| Signs scraped | 274 |
+| Signs with SVG | 274 |
+| Missing SVG | 0 |
+| Overall | **100%** |
+
+| Category | Scraped | With SVG | Missing | % |
+| -------- | ------: | -------: | ------: | -: |
+| `warning` | 47 | 47 | 0 | 100% |
+| `priority` | 7 | 7 | 0 | 100% |
+| `prohibitory` | 46 | 46 | 0 | 100% |
+| `mandatory` | 12 | 12 | 0 | 100% |
+| `information` | 162 | 162 | 0 | 100% |
+
+**Standard:** Skiltforskriften — Vienna Convention
+
+**SVG sources:**
+
+- [Wikimedia Commons — Road signs in Norway](https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Norway)
+
+:::note
+Codes are numeric: 1xx (warning), 2xx (priority), 3xx (prohibitory), 4xx (mandatory), 5–7xx (information).
+:::
+
+_Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.com/package/@road-signs/docs) package._
+
+{/* COVERAGE:END */}
+
+## TypeScript types
+
+```ts
+import type { NOSign, NOCategory } from '@road-signs/no';
+
+type NOCategory =
+  | 'information'
+  | 'mandatory'
+  | 'priority'
+  | 'prohibitory'
+  | 'warning';
+
+interface NOSign {
+  id: string;          // e.g. "104-dangerous-bend"
+  code: string;        // e.g. "104"
+  name: string;
+  description: string;
+  category: NOCategory;
+  svg: string;         // inline SVG string
+  assets: {
+    svg: string;
+    png: Record<number, string>;
+    jpg: Record<number, string>;
+    webp: Record<number, string>;
+  };
+}
+```

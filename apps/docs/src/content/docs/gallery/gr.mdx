@@ -1,0 +1,10 @@
+---
+title: Greece — Sign Gallery
+description: Browse Greek ΚΟΚ road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/gr';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

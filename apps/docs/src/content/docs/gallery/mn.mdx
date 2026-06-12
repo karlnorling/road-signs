@@ -1,0 +1,10 @@
+---
+title: Mongolia — Sign Gallery
+description: Browse Mongolia road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/mn';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />

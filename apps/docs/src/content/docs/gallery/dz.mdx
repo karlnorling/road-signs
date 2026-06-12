@@ -1,0 +1,10 @@
+---
+title: Algeria — Sign Gallery
+description: Browse Algeria road signs, filterable by category.
+tableOfContents: false
+---
+
+import { getAllSigns } from '@road-signs/dz';
+import CountryGallery from '../../../components/CountryGallery.astro';
+
+<CountryGallery signs={getAllSigns()} />
