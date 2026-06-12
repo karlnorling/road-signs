@@ -202,10 +202,7 @@ const convertToRaster = async (svgPath: string): Promise<void> => {
  */
 const buildMutcdAlternateUrls = (code: string): string[] => {
   const base = 'https://commons.wikimedia.org/wiki/File:MUTCD_';
-  const urls: string[] = [
-    `${base}${code}R.svg`,
-    `${base}${code}L.svg`,
-  ];
+  const urls: string[] = [`${base}${code}R.svg`, `${base}${code}L.svg`];
   // Strip trailing lowercase variant letter (e.g. W1-1a → W1-1)
   const noVariant = code.replace(/[a-z]$/, '');
   if (noVariant !== code) {
@@ -369,7 +366,9 @@ const createAssets = async (cc: string, data: GenericScrapedData): Promise<void>
     }
   }
 
-  console.log(`  Downloading ${work.length} signs (${CONCURRENCY} parallel, ${REQUEST_DELAY_MS}ms delay)...`);
+  console.log(
+    `  Downloading ${work.length} signs (${CONCURRENCY} parallel, ${REQUEST_DELAY_MS}ms delay)...`,
+  );
   await withConcurrency(work, CONCURRENCY, ({ category, code, imageUrl }) =>
     processSign(assetsRoot, category, code, imageUrl),
   );

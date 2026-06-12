@@ -202,8 +202,14 @@ const deduplicateScraped = (
   for (const [category, signs] of Object.entries(data)) {
     result[category] = [];
     for (const sign of signs) {
-      if (sign.imageUrl && seenUrls.has(sign.imageUrl)) { removed++; continue; }
-      if (seenCodes.has(sign.code))                     { removed++; continue; }
+      if (sign.imageUrl && seenUrls.has(sign.imageUrl)) {
+        removed++;
+        continue;
+      }
+      if (seenCodes.has(sign.code)) {
+        removed++;
+        continue;
+      }
       result[category].push(sign);
       seenCodes.add(sign.code);
       if (sign.imageUrl) seenUrls.add(sign.imageUrl);

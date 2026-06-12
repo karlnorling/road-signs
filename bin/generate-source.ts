@@ -129,7 +129,10 @@ const codeMatchesPath = (lower: string, rel: string): boolean => {
 };
 
 const normalisePath = (f: string): string =>
-  f.replace(/\\/g, '/').toLowerCase().replace(/[^a-z0-9/]/g, '');
+  f
+    .replace(/\\/g, '/')
+    .toLowerCase()
+    .replace(/[^a-z0-9/]/g, '');
 
 const findPrimaryAsset = (code: string, assetsRoot: string): PrimaryAsset | undefined => {
   // Strip ALL non-alphanumeric chars (including underscores, which \W keeps).

@@ -76,7 +76,17 @@ const SIGN_CODE_RE =
 
 // Blocklist obvious English words/abbreviations that pass the regex by coincidence.
 const NON_CODE_PREFIXES = new Set([
-  'PRE', 'POST', 'SUB', 'PRO', 'PER', 'NON', 'MID', 'CO', 'EX', 'RE', 'UN',
+  'PRE',
+  'POST',
+  'SUB',
+  'PRO',
+  'PER',
+  'NON',
+  'MID',
+  'CO',
+  'EX',
+  'RE',
+  'UN',
 ]);
 
 const extractCode = (text: string): string | null => {

@@ -39,8 +39,14 @@ const dedup = (
   for (const [category, signs] of Object.entries(data)) {
     result[category] = [];
     for (const sign of signs) {
-      if (sign.imageUrl && seenUrls.has(sign.imageUrl)) { removed++; continue; }
-      if (seenCodes.has(sign.code))                     { removed++; continue; }
+      if (sign.imageUrl && seenUrls.has(sign.imageUrl)) {
+        removed++;
+        continue;
+      }
+      if (seenCodes.has(sign.code)) {
+        removed++;
+        continue;
+      }
       result[category].push(sign);
       seenCodes.add(sign.code);
       if (sign.imageUrl) seenUrls.add(sign.imageUrl);
@@ -53,7 +59,10 @@ const dedup = (
 (async () => {
   for (const cc of COUNTRIES) {
     const p = path.join('data', cc, 'scraped.json');
-    if (!fs.existsSync(p)) { console.log(`${cc}: no scraped.json — skipping`); continue; }
+    if (!fs.existsSync(p)) {
+      console.log(`${cc}: no scraped.json — skipping`);
+      continue;
+    }
 
     const raw = JSON.parse(fs.readFileSync(p, 'utf-8'));
     const { result, removed } = dedup(raw);

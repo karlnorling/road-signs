@@ -129,15 +129,19 @@ const preprocessPng = async (pngBuffer: Buffer): Promise<Buffer> => {
  */
 const traceToSvg = (pngBuffer: Buffer): Promise<string> =>
   new Promise((resolve, reject) => {
-    Potrace.posterize(pngBuffer, {
-      steps: 4,        // colour quantisation levels
-      // potrace v2 dropped the THRESHOLD_AUTO static; `-1` is the documented sentinel.
-      threshold: -1,
-      background: '#ffffff',
-    }, (err: Error | null, svg: string) => {
-      if (err) reject(err);
-      else resolve(svg);
-    });
+    Potrace.posterize(
+      pngBuffer,
+      {
+        steps: 4, // colour quantisation levels
+        // potrace v2 dropped the THRESHOLD_AUTO static; `-1` is the documented sentinel.
+        threshold: -1,
+        background: '#ffffff',
+      },
+      (err: Error | null, svg: string) => {
+        if (err) reject(err);
+        else resolve(svg);
+      },
+    );
   });
 
 /**
@@ -205,7 +209,12 @@ const convertToRaster = async (svgPath: string): Promise<void> => {
       ['webp', 'webp'],
     ] as const) {
       const outFile = path.join(dir, `${base}_${size}x${size}.${ext}`);
-      try { await fs.promises.stat(outFile); continue; } catch { /* create */ }
+      try {
+        await fs.promises.stat(outFile);
+        continue;
+      } catch {
+        /* create */
+      }
       try {
         const buf = prepareSvgForRaster(svgText, size);
         await sharp(buf, { density: 96 })
@@ -242,7 +251,13 @@ const traceSign = async (
   const dest = path.join(signDir, `${sanitize(code)}.traced.svg`);
 
   // Skip if already traced.
-  try { await fs.promises.stat(dest); console.log(`  Skip (exists): ${sanitize(code)}`); return true; } catch { /* proceed */ }
+  try {
+    await fs.promises.stat(dest);
+    console.log(`  Skip (exists): ${sanitize(code)}`);
+    return true;
+  } catch {
+    /* proceed */
+  }
 
   // Resolve the PNG URL.
   const pngUrl = await resolveImageUrl(imageUrl);
@@ -313,9 +328,7 @@ const traceCountry = async (cc: string): Promise<void> => {
     return;
   }
 
-  const scraped: Record<string, ScrapedSign[]> = JSON.parse(
-    fs.readFileSync(scrapedPath, 'utf-8'),
-  );
+  const scraped: Record<string, ScrapedSign[]> = JSON.parse(fs.readFileSync(scrapedPath, 'utf-8'));
 
   const assetsRoot = path.join('packages', '@road-signs', cc, 'assets');
   let tokens = buildLocalTokens(assetsRoot);
@@ -362,9 +375,9 @@ const traceCountry = async (cc: string): Promise<void> => {
 const ALL_COUNTRIES = (() => {
   const dataDir = 'data';
   if (!fs.existsSync(dataDir)) return [];
-  return fs.readdirSync(dataDir).filter((f) =>
-    fs.existsSync(path.join(dataDir, f, 'scraped.json')),
-  );
+  return fs
+    .readdirSync(dataDir)
+    .filter((f) => fs.existsSync(path.join(dataDir, f, 'scraped.json')));
 })();
 
 const getCountries = (): string[] => {

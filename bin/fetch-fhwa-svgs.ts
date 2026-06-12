@@ -157,7 +157,13 @@ function parseCentralDirectory(buf: Buffer): ZipEntry[] {
     const commentLen = buf.readUInt16LE(pos + 32);
     const localHeaderOffset = buf.readUInt32LE(pos + 42);
     const filename = buf.subarray(pos + 46, pos + 46 + filenameLen).toString('utf-8');
-    entries.push({ filename, localHeaderOffset, compressedSize, uncompressedSize, compressionMethod });
+    entries.push({
+      filename,
+      localHeaderOffset,
+      compressedSize,
+      uncompressedSize,
+      compressionMethod,
+    });
     pos += 46 + filenameLen + extraLen + commentLen;
   }
   return entries;
