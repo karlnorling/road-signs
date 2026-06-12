@@ -1,0 +1,142 @@
+---
+/**
+ * CountryHero — renders a small strip of signs at the top of a country page
+ * so the visitor immediately sees what the country's signs look like.
+ *
+ * Usage:
+ *   <CountryHero cc="de" />
+ *
+ * Reads up to 6 signs from the named country package, preferring one sign
+ * per category. Falls back to the first N signs if categories aren't varied.
+ */
+
+interface Sign {
+  id: string;
+  code: string;
+  name: string;
+  category: string;
+  svg?: string;
+  assets?: {
+    png?: Record<number, string>;
+  };
+}
+
+interface Props {
+  cc: string;
+}
+
+const { cc } = Astro.props;
+
+let allSigns: Sign[] = [];
+try {
+  // Dynamic import keyed by `cc` works because every country's package alias
+  // is registered in astro.config.mjs.
+  const mod = (await import(/* @vite-ignore */ `@road-signs/${cc}`)) as {
+    getAllSigns: () => Sign[];
+  };
+  allSigns = mod.getAllSigns();
+} catch {
+  allSigns = [];
+}
+
+// Pick one representative sign per category, then top up to 6.
+const byCategory = new Map<string, Sign>();
+for (const sign of allSigns) {
+  if (!byCategory.has(sign.category)) byCategory.set(sign.category, sign);
+}
+const featured: Sign[] = [...byCategory.values()].slice(0, 6);
+while (featured.length < 6 && featured.length < allSigns.length) {
+  const next = allSigns[featured.length];
+  if (next && !featured.includes(next)) featured.push(next);
+}
+
+const pngFallback = (sign: Sign): string | undefined => {
+  const png = sign.assets?.png;
+  if (!png) return undefined;
+  return png[2048] ?? png[1024] ?? png[768] ?? png[512] ?? png[240];
+};
+---
+
+{
+  featured.length > 0 && (
+    <div class="country-hero">
+      {featured.map((sign) => {
+        const fallback = pngFallback(sign);
+        return (
+          <figure class="hero-sign" title={`${sign.code} — ${sign.name}`}>
+            {sign.svg ? (
+              <div class="hero-sign-svg" set:html={sign.svg} />
+            ) : fallback ? (
+              <img alt={sign.name} loading="lazy" src={fallback} />
+            ) : (
+              <div class="hero-sign-missing" aria-hidden="true">
+                —
+              </div>
+            )}
+            <figcaption>{sign.code}</figcaption>
+          </figure>
+        );
+      })}
+    </div>
+  )
+}
+
+<style>
+  .country-hero {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 0.5rem;
+    margin: 0 0 1.5rem;
+    padding: 0.85rem;
+    border-radius: 0.5rem;
+    background: var(--sl-color-bg-sidebar);
+    border: 1px solid var(--sl-color-gray-6);
+  }
+
+  @media (max-width: 640px) {
+    .country-hero {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  .hero-sign {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .hero-sign-svg {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .hero-sign-svg :global(svg),
+  .hero-sign :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+
+  .hero-sign-missing {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--sl-color-gray-4);
+    font-size: 1.2rem;
+  }
+
+  .hero-sign figcaption {
+    font-family: var(--sl-font-mono);
+    font-size: 0.65rem;
+    color: var(--sl-color-gray-3);
+    text-align: center;
+  }
+</style>

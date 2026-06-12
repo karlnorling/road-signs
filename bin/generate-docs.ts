@@ -2344,6 +2344,68 @@ const generateOverview = (coverages: CountryCoverage[]): string => {
 
 const MARKER_START = '{/* COVERAGE:START */}';
 const MARKER_END = '{/* COVERAGE:END */}';
+const HERO_START = '{/* HERO:START */}';
+const HERO_END = '{/* HERO:END */}';
+
+const heroBlock = (cc: string): string =>
+  `${HERO_START}\n\n` +
+  `import CountryHero from '../../../components/CountryHero.astro';\n\n` +
+  `<CountryHero cc="${cc}" />\n\n` +
+  `${HERO_END}`;
+
+/**
+ * Replace content between `start` and `end` markers if both are present.
+ * Returns the new content and a flag indicating whether the replace happened.
+ */
+const replaceBetween = (
+  content: string,
+  start: string,
+  end: string,
+  replacement: string,
+): { content: string; replaced: boolean } => {
+  if (!content.includes(start) || !content.includes(end)) {
+    return { content, replaced: false };
+  }
+  const startIdx = content.indexOf(start);
+  const endIdx = content.indexOf(end);
+  if (endIdx <= startIdx) return { content, replaced: false };
+  const after = content.slice(endIdx + end.length);
+  return {
+    content: content.slice(0, startIdx) + replacement + '\n' + after.replace(/^\n*/, '\n'),
+    replaced: true,
+  };
+};
+
+/**
+ * Inject (or replace) the hero strip just after the MDX frontmatter and any
+ * initial `import { Tabs, ... }` lines. Uses HERO_START / HERO_END markers
+ * so subsequent runs replace cleanly. Idempotent.
+ */
+const injectHeroMdx = (mdxPath: string, cc: string): void => {
+  if (!fs.existsSync(mdxPath)) return;
+  let content = fs.readFileSync(mdxPath, 'utf-8');
+  const block = heroBlock(cc);
+
+  const updated = replaceBetween(content, HERO_START, HERO_END, block);
+  if (updated.replaced) {
+    fs.writeFileSync(mdxPath, updated.content, 'utf-8');
+    return;
+  }
+
+  // First run: insert after the frontmatter closing `---` plus any leading
+  // import lines (so the hero ends up just below the page title but above
+  // the first prose paragraph).
+  const fmEnd = content.indexOf('\n---\n');
+  if (fmEnd === -1) return;
+  let cursor = fmEnd + 5;
+  // Skip blank lines and `import ...;` lines.
+  const after = content.slice(cursor);
+  const importMatch = after.match(/^(?:\s*\n|import\s+[^\n]*;\s*\n)+/);
+  if (importMatch) cursor += importMatch[0].length;
+
+  content = content.slice(0, cursor) + '\n' + block + '\n\n' + content.slice(cursor);
+  fs.writeFileSync(mdxPath, content, 'utf-8');
+};
 
 /**
  * Inject (or replace) the coverage section in a country MDX file.
@@ -2358,16 +2420,10 @@ const injectCoverageMdx = (mdxPath: string, cov: CountryCoverage): void => {
 
   const block = `${MARKER_START}\n\n${coverageSectionBody(cov)}\n\n${MARKER_END}`;
 
-  // Replace between existing markers if present.
-  if (content.includes(MARKER_START)) {
-    const start = content.indexOf(MARKER_START);
-    const end = content.indexOf(MARKER_END);
-    if (end > start) {
-      const after = content.slice(end + MARKER_END.length);
-      content = content.slice(0, start) + block + '\n' + after.replace(/^\n*/, '\n');
-      fs.writeFileSync(mdxPath, content, 'utf-8');
-      return;
-    }
+  const updated = replaceBetween(content, MARKER_START, MARKER_END, block);
+  if (updated.replaced) {
+    fs.writeFileSync(mdxPath, updated.content, 'utf-8');
+    return;
   }
 
   // Remove any legacy hand-written coverage sections (## Coverage gaps / ## Coverage).
@@ -2409,9 +2465,11 @@ const readmePath = path.join(docsDir, 'README.md');
 fs.writeFileSync(readmePath, generateOverview(coverages), 'utf-8');
 console.log(`  ${readmePath}`);
 
-console.log('\nInjecting coverage sections into Astro docs...');
+console.log('\nInjecting hero strip + coverage sections into Astro docs...');
 for (const cov of coverages) {
   const mdxPath = path.join(astroPagesDir, `${cov.cc}.mdx`);
+  // Skip the hero if the country has no signs at all (e.g. Lebanon).
+  if (cov.totalScraped > 0) injectHeroMdx(mdxPath, cov.cc);
   injectCoverageMdx(mdxPath, cov);
   console.log(`  ${mdxPath}`);
 }
