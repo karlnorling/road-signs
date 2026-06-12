@@ -10,6 +10,12 @@ const esc = (s: string): string =>
     .replace(/'/g, '&#39;')
     .replace(/"/g, '&quot;');
 
+const pickPng = (sign: Sign): string | undefined => {
+  const png = sign.assets?.png;
+  if (!png) return undefined;
+  return png[2048] ?? png[1024] ?? png[768] ?? png[512] ?? png[240];
+};
+
 export const RoadSign = defineComponent({
   name: 'RoadSign',
   inheritAttrs: false,
@@ -30,6 +36,20 @@ export const RoadSign = defineComponent({
 
       const titleId = `rs-title-${props.sign.id}`;
       const descId = `rs-desc-${props.sign.id}`;
+
+      // Fall back to a raster <img> for PDF-extracted signs that have no inline SVG.
+      if (!props.sign.svg) {
+        const pngSrc = pickPng(props.sign);
+        if (!pngSrc) return null;
+        return h('img', {
+          ...attrs,
+          alt: resolvedTitle,
+          height: resolvedHeight,
+          src: pngSrc,
+          title: resolvedDesc,
+          width: resolvedWidth,
+        });
+      }
 
       const svgWithA11y = props.sign.svg
         .replace(

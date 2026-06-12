@@ -1,6 +1,6 @@
 import type { Sign } from './types';
 
-export type { Sign, SignAssets } from './types';
+export type { Sign, SignAssets, ViennaCategory, ViennaSign } from './types';
 
 export const getAllSigns = <T extends Sign>(registry: readonly T[]): T[] => [...registry];
 

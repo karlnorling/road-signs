@@ -49,14 +49,21 @@ const parsePx = (val: string): number | null => {
 
 const normalizeSvg = (svg: string): string => {
   const cleaned = cleanSvg(svg);
-  const hasViewBox = /\bviewBox="/i.test(cleaned);
+  const hasViewBox = /\bviewBox=["']/i.test(cleaned);
 
-  // Always strip explicit w/h — CSS controls the rendered size.
-  // Read them first while they're still in the string.
-  const wm = cleaned.match(/\bwidth="([^"]*)"/);
-  const hm = cleaned.match(/\bheight="([^"]*)"/);
+  // Strip explicit w/h only from the root <svg> opening tag — CSS controls the rendered size.
+  // Read them first (from the svg tag only) for viewBox synthesis below.
+  // Accept both double- and single-quoted attribute values (Inkscape emits the latter).
+  const wm = cleaned.match(/<svg\b[^>]*?\bwidth=["']([^"']*)["']/);
+  const hm = cleaned.match(/<svg\b[^>]*?\bheight=["']([^"']*)["']/);
 
-  let out = cleaned.replace(/\s*\bwidth="[^"]*"/g, '').replace(/\s*\bheight="[^"]*"/g, '');
+  const out = cleaned.replace(
+    /(<svg\b)((?:[^>]|"[^"]*"|'[^']*')*)(>)/,
+    (_, open, attrs: string, close) =>
+      `${open}${attrs
+        .replace(/\s*\bwidth=["'][^"']*["']/g, '')
+        .replace(/\s*\bheight=["'][^"']*["']/g, '')}${close}`,
+  );
 
   if (hasViewBox) return out;
 
@@ -90,31 +97,60 @@ const scopeIds = (body: string, prefix: string): string => {
   return out;
 };
 
-const buildAssets = (svgRelPath: string) => {
-  const dir = path.dirname(svgRelPath);
-  const base = path.basename(svgRelPath, path.extname(svgRelPath));
-  const makeRecord = (ext: string): Record<number, string> =>
-    Object.fromEntries(IMAGE_SIZES.map((s) => [s, `${dir}/${base}_${s}x${s}.${ext}`])) as Record<
+const buildAssets = (relPath: string) => {
+  const dir = path.dirname(relPath);
+  const base = path.basename(relPath, path.extname(relPath));
+  const ext = path.extname(relPath).slice(1).toLowerCase(); // 'svg' or 'png'
+  const makeRecord = (imgExt: string): Record<number, string> =>
+    Object.fromEntries(IMAGE_SIZES.map((s) => [s, `${dir}/${base}_${s}x${s}.${imgExt}`])) as Record<
       number,
       string
     >;
   return {
     jpg: makeRecord('jpg'),
     png: makeRecord('png'),
-    svg: svgRelPath,
+    svg: ext === 'svg' ? relPath : undefined,
     webp: makeRecord('webp'),
   };
 };
 
-const findSvgForSign = (code: string, assetsRoot: string): string | undefined => {
-  const files = globSync(path.join(assetsRoot, '**', '*.svg')).filter(
+interface PrimaryAsset {
+  filePath: string;
+  isPng: boolean;
+}
+
+const codeMatchesPath = (lower: string, rel: string): boolean => {
+  // Require an exact path-segment match for ALL code lengths. Substring
+  // inclusion lets short codes claim longer codes' assets — e.g. `B30`
+  // would match a `/b300/` directory because "b300" contains "b30".
+  // `create-assets.ts` always lays out signs as `<assetsRoot>/<cat>/<code>/<file>`,
+  // so a segment boundary is reliably present.
+  return rel.includes(`/${lower}/`) || rel.endsWith(`/${lower}`);
+};
+
+const normalisePath = (f: string): string =>
+  f.replace(/\\/g, '/').toLowerCase().replace(/[^a-z0-9/]/g, '');
+
+const findPrimaryAsset = (code: string, assetsRoot: string): PrimaryAsset | undefined => {
+  // Strip ALL non-alphanumeric chars (including underscores, which \W keeps).
+  const lower = code.toLowerCase().replace(/[^a-z0-9]/g, '');
+  if (lower.length < 2) return undefined;
+
+  // Prefer SVG (vector source).
+  const svgFiles = globSync(path.join(assetsRoot, '**', '*.svg')).filter(
     (f) => !/_\d+x\d+\.svg$/.test(f),
   );
-  const lower = code.toLowerCase().replace(/\W/g, '');
-  return files.find((f) => {
-    const base = path.basename(f, '.svg').toLowerCase().replace(/\W/g, '');
-    return base.includes(lower);
-  });
+  const svgFile = svgFiles.find((f) => codeMatchesPath(lower, normalisePath(f)));
+  if (svgFile) return { filePath: svgFile, isPng: false };
+
+  // Fall back to PNG (PDF-extracted signs have no SVG source).
+  const pngFiles = globSync(path.join(assetsRoot, '**', '*.png')).filter(
+    (f) => !/_\d+x\d+\.png$/.test(f),
+  );
+  const pngFile = pngFiles.find((f) => codeMatchesPath(lower, normalisePath(f)));
+  if (pngFile) return { filePath: pngFile, isPng: true };
+
+  return undefined;
 };
 
 export const generateSource = async (cc: string): Promise<void> => {
@@ -132,9 +168,9 @@ export const generateSource = async (cc: string): Promise<void> => {
     `// Run 'yarn update --country=${cc}' to regenerate.`,
     `// @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.`,
     ``,
-    `import type { USSign } from './types';`,
+    `import type { ${cc.toUpperCase()}Sign } from './types';`,
     ``,
-    `export const signs: USSign[] = [`,
+    `export const signs: ${cc.toUpperCase()}Sign[] = [`,
   ];
 
   let count = 0;
@@ -143,34 +179,60 @@ export const generateSource = async (cc: string): Promise<void> => {
     Array<{ code: string; name: string; imageUrl: string | null }>,
   ][]) {
     for (const sign of signs) {
-      const svgFile = findSvgForSign(sign.code, assetsRoot);
-      if (!svgFile) {
-        console.warn(`  Skipping ${sign.code}: no matching SVG file`);
+      const asset = findPrimaryAsset(sign.code, assetsRoot);
+      if (!asset) {
+        console.warn(`  Skipping ${sign.code}: no matching asset file`);
         continue;
       }
 
       const id = slugify(`${sign.code}-${sign.name}`);
-      const raw = await fs.promises.readFile(svgFile, 'utf-8');
-      const optimized = optimize(raw, { multipass: true, plugins: ['preset-default'] }).data;
-      const inlineSvg = scopeIds(normalizeSvg(cleanSvg(optimized)), id);
-      const assets = buildAssets(path.relative(pkgDir, svgFile).replace(/\\/g, '/'));
+      const relPath = path.relative(pkgDir, asset.filePath).replace(/\\/g, '/');
+      const assets = buildAssets(relPath);
 
-      lines.push(
-        `  {`,
-        `    assets: {`,
-        `      jpg: ${JSON.stringify(assets.jpg)},`,
-        `      png: ${JSON.stringify(assets.png)},`,
-        `      svg: ${JSON.stringify(assets.svg)},`,
-        `      webp: ${JSON.stringify(assets.webp)},`,
-        `    },`,
-        `    category: ${JSON.stringify(category)},`,
-        `    code: ${JSON.stringify(sign.code)},`,
-        `    description: ${JSON.stringify(sign.name)},`,
-        `    id: ${JSON.stringify(id)},`,
-        `    name: ${JSON.stringify(sign.name)},`,
-        `    svg: ${JSON.stringify(inlineSvg)},`,
-        `  },`,
-      );
+      if (asset.isPng) {
+        // PDF-extracted sign: PNG primary asset, no inline SVG.
+        lines.push(
+          `  {`,
+          `    assets: {`,
+          `      jpg: ${JSON.stringify(assets.jpg)},`,
+          `      png: ${JSON.stringify(assets.png)},`,
+          `      webp: ${JSON.stringify(assets.webp)},`,
+          `    },`,
+          `    category: ${JSON.stringify(category)},`,
+          `    code: ${JSON.stringify(sign.code)},`,
+          `    description: ${JSON.stringify(sign.name)},`,
+          `    id: ${JSON.stringify(id)},`,
+          `    name: ${JSON.stringify(sign.name)},`,
+          `  },`,
+        );
+      } else {
+        // SVG-sourced sign: inline SVG + full asset set.
+        const raw = await fs.promises.readFile(asset.filePath, 'utf-8');
+        let optimized: string;
+        try {
+          optimized = optimize(raw, { multipass: true, plugins: ['preset-default'] }).data;
+        } catch {
+          // Some SVGs (Inkscape bspline-heavy files) exceed SVGO's entity limit — use raw.
+          optimized = raw;
+        }
+        const inlineSvg = scopeIds(normalizeSvg(cleanSvg(optimized)), id);
+        lines.push(
+          `  {`,
+          `    assets: {`,
+          `      jpg: ${JSON.stringify(assets.jpg)},`,
+          `      png: ${JSON.stringify(assets.png)},`,
+          `      svg: ${JSON.stringify(assets.svg)},`,
+          `      webp: ${JSON.stringify(assets.webp)},`,
+          `    },`,
+          `    category: ${JSON.stringify(category)},`,
+          `    code: ${JSON.stringify(sign.code)},`,
+          `    description: ${JSON.stringify(sign.name)},`,
+          `    id: ${JSON.stringify(id)},`,
+          `    name: ${JSON.stringify(sign.name)},`,
+          `    svg: ${JSON.stringify(inlineSvg)},`,
+          `  },`,
+        );
+      }
       count++;
     }
   }
@@ -182,10 +244,12 @@ export const generateSource = async (cc: string): Promise<void> => {
   console.log(`  Written ${outPath} (${count} signs)`);
 };
 
-const cc = process.argv.find((a) => a.startsWith('--country='))?.split('=')[1];
-if (cc) {
-  generateSource(cc).catch((err) => {
-    console.error(err);
-    process.exit(1);
-  });
+if (process.argv[1]?.includes('generate-source')) {
+  const cc = process.argv.find((a) => a.startsWith('--country='))?.split('=')[1];
+  if (cc) {
+    generateSource(cc).catch((err) => {
+      console.error(err);
+      process.exit(1);
+    });
+  }
 }

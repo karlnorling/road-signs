@@ -46,6 +46,23 @@ export class RoadSignElement extends HTMLElement {
     const titleId = `rs-title-${this.#sign.id}`;
     const descId = `rs-desc-${this.#sign.id}`;
 
+    // Fall back to a raster <img> for PDF-extracted signs that have no inline SVG.
+    if (!this.#sign.svg) {
+      const png = this.#sign.assets?.png;
+      const pngSrc = png
+        ? png[2048] ?? png[1024] ?? png[768] ?? png[512] ?? png[240]
+        : undefined;
+      if (!pngSrc) {
+        this.innerHTML = '';
+        return;
+      }
+      this.style.display = 'contents';
+      this.innerHTML =
+        `<img src="${esc(pngSrc)}" alt="${esc(resolvedTitle)}" title="${esc(resolvedDesc)}" ` +
+        `width="${esc(resolvedWidth)}" height="${esc(resolvedHeight)}" />`;
+      return;
+    }
+
     const svgWithA11y = this.#sign.svg
       .replace(
         /<svg\b/,

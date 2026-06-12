@@ -16,7 +16,15 @@ import { parse } from 'node-html-parser';
 import { globSync } from 'glob';
 import { optimize } from 'svgo';
 import sharp from 'sharp';
-import type { ScrapedData } from './scrape-us';
+
+/**
+ * Scraper-agnostic input: a category → sign-list map. Each country scraper
+ * narrows the category union further (USCategory, ViennaCategory, etc.) and
+ * passes its instance in via `update.ts`; this signature is the lowest common
+ * denominator. (Replaces the previous `ScrapedData from './scrape-us'` import
+ * which only typed the US categories.)
+ */
+type GenericScrapedData = Record<string, Array<{ code: string; imageUrl: string | null }>>;
 
 const USER_AGENT = 'road-signs/0.0.0 (https://github.com/karlnorling/road-signs; build-script)';
 
@@ -30,19 +38,61 @@ export const sanitize = (str: string): string =>
 
 const sleep = (ms: number): Promise<void> => new Promise((resolve) => setTimeout(resolve, ms));
 
-const fetchWithRetry = async (url: string, retries = 3, delayMs = 1000): Promise<Response> => {
+/** Polite delay between every outbound request (applied inside the worker). */
+const REQUEST_DELAY_MS = 600;
+
+/** How many sign downloads run in parallel. */
+const CONCURRENCY = 4;
+
+/**
+ * Parse a Retry-After header in either seconds (`"120"`) or HTTP-date
+ * (`"Wed, 21 Oct 2026 07:28:00 GMT"`) form. Returns milliseconds to wait,
+ * or null if the header is missing/unparseable.
+ */
+const parseRetryAfter = (header: string | null): number | null => {
+  if (!header) return null;
+  const trimmed = header.trim();
+  if (/^\d+$/.test(trimmed)) return parseInt(trimmed, 10) * 1000;
+  const t = Date.parse(trimmed);
+  if (!Number.isNaN(t)) return Math.max(0, t - Date.now());
+  return null;
+};
+
+const fetchWithRetry = async (url: string, retries = 6, baseDelayMs = 5000): Promise<Response> => {
   for (let attempt = 1; attempt <= retries; attempt++) {
     const res = await fetch(url, { headers: { 'User-Agent': USER_AGENT } });
     if (res.ok) return res;
     if ((res.status === 429 || res.status >= 500) && attempt < retries) {
-      const wait = delayMs * 2 ** (attempt - 1);
-      console.warn(`  ${res.status} on ${url} — retrying in ${wait}ms`);
+      // Respect Retry-After (seconds or HTTP-date) if present, otherwise exponential back-off.
+      const fromHeader = parseRetryAfter(res.headers.get('retry-after'));
+      const wait = fromHeader ?? baseDelayMs * 2 ** (attempt - 1);
+      console.warn(`  ${res.status} on ${url} — retrying in ${Math.round(wait / 1000)}s`);
       await sleep(wait);
       continue;
     }
     throw new Error(`HTTP ${res.status} fetching ${url}`);
   }
   throw new Error(`All retries exhausted for ${url}`);
+};
+
+/**
+ * Run `fn` over `items` with at most `concurrency` tasks in flight at once.
+ * Each worker also inserts a polite delay between its own requests.
+ */
+const withConcurrency = async <T>(
+  items: T[],
+  concurrency: number,
+  fn: (item: T) => Promise<void>,
+): Promise<void> => {
+  const queue = [...items];
+  const workers = Array.from({ length: concurrency }, async () => {
+    while (queue.length > 0) {
+      const item = queue.shift()!;
+      await fn(item);
+      if (queue.length > 0) await sleep(REQUEST_DELAY_MS);
+    }
+  });
+  await Promise.all(workers);
 };
 
 const resolveWikimediaDirectUrl = async (filePageUrl: string): Promise<string | undefined> => {
@@ -92,11 +142,9 @@ const prepareSvg = (raw: string, size: number): Buffer => {
   try {
     svg = optimize(raw, {
       multipass: true,
-      plugins: [
-        'preset-default',
-        // Keep the viewBox — we rely on it below.
-        { name: 'removeViewBox', active: false },
-      ],
+      // SVGO 4 dropped `removeViewBox` from preset-default, so no override needed.
+      // We rely on the viewBox below for raster sizing.
+      plugins: ['preset-default'],
     }).data;
   } catch {
     svg = raw;
@@ -146,7 +194,35 @@ const convertToRaster = async (svgPath: string): Promise<void> => {
   }
 };
 
-const processSign = async (
+/**
+ * MUTCD-specific alternate filename patterns. Only safe to apply when the
+ * primary URL was already known to point at a `File:MUTCD_<code>.svg` page.
+ * Using these on arbitrary Commons URLs risks downloading a US sign whose
+ * code collides with a foreign country's code (e.g. Vienna `D3` vs MUTCD `D3`).
+ */
+const buildMutcdAlternateUrls = (code: string): string[] => {
+  const base = 'https://commons.wikimedia.org/wiki/File:MUTCD_';
+  const urls: string[] = [
+    `${base}${code}R.svg`,
+    `${base}${code}L.svg`,
+  ];
+  // Strip trailing lowercase variant letter (e.g. W1-1a → W1-1)
+  const noVariant = code.replace(/[a-z]$/, '');
+  if (noVariant !== code) {
+    urls.push(`${base}${noVariant}.svg`, `${base}${noVariant}R.svg`, `${base}${noVariant}L.svg`);
+  }
+  // Strip trailing uppercase suffix (P = plaque, C = combo)
+  const noSuffix = code.replace(/[PC]$/, '');
+  if (noSuffix !== code && noSuffix !== noVariant) {
+    urls.push(`${base}${noSuffix}.svg`);
+  }
+  return urls;
+};
+
+const isMutcdUrl = (url: string): boolean =>
+  /\/File:MUTCD_/i.test(url) || /\/File%3AMUTCD_/i.test(url);
+
+export const processSign = async (
   assetsRoot: string,
   category: string,
   code: string,
@@ -169,10 +245,21 @@ const processSign = async (
     // does not exist
   }
 
-  const directUrl = await resolveWikimediaDirectUrl(imagePageUrl);
+  let directUrl = await resolveWikimediaDirectUrl(imagePageUrl);
+
+  // Only retry with MUTCD alternates when the primary URL was already a
+  // `File:MUTCD_…` Commons page — otherwise a foreign sign could be silently
+  // overwritten with a similarly-named US sign.
+  if (!directUrl && isMutcdUrl(imagePageUrl)) {
+    for (const altUrl of buildMutcdAlternateUrls(code)) {
+      directUrl = await resolveWikimediaDirectUrl(altUrl);
+      if (directUrl) break;
+      await sleep(200);
+    }
+  }
+
   if (directUrl) {
     await downloadSvg(dest, directUrl);
-    await sleep(300);
     // downloadSvg may skip non-SVG content — only convert if file was actually written.
     try {
       const stat = await fs.promises.stat(dest);
@@ -270,16 +357,22 @@ const createCssSprite = async (assetsRoot: string, pkgDir: string, cc: string): 
   console.log(`  CSS sprite written (${seen.size} classes)`);
 };
 
-const createAssets = async (cc: string, data: ScrapedData): Promise<void> => {
+const createAssets = async (cc: string, data: GenericScrapedData): Promise<void> => {
   const pkgDir = path.join('packages', '@road-signs', cc);
   const assetsRoot = path.join(pkgDir, 'assets');
 
+  // Flatten all signs into a single work list, skipping those without an image URL.
+  const work: Array<{ category: string; code: string; imageUrl: string }> = [];
   for (const [category, signs] of Object.entries(data)) {
     for (const sign of signs) {
-      if (!sign.imageUrl) continue;
-      await processSign(assetsRoot, category, sign.code, sign.imageUrl);
+      if (sign.imageUrl) work.push({ category, code: sign.code, imageUrl: sign.imageUrl });
     }
   }
+
+  console.log(`  Downloading ${work.length} signs (${CONCURRENCY} parallel, ${REQUEST_DELAY_MS}ms delay)...`);
+  await withConcurrency(work, CONCURRENCY, ({ category, code, imageUrl }) =>
+    processSign(assetsRoot, category, code, imageUrl),
+  );
 
   console.log('\n  Building sprites...');
   await createSvgSprite(assetsRoot, pkgDir);
@@ -287,3 +380,18 @@ const createAssets = async (cc: string, data: ScrapedData): Promise<void> => {
 };
 
 export default createAssets;
+
+const isMain = process.argv[1]?.includes('create-assets');
+const cc = isMain ? process.argv.find((a) => a.startsWith('--country='))?.split('=')[1] : undefined;
+if (isMain && cc) {
+  const scrapedPath = path.join('data', cc, 'scraped.json');
+  if (!fs.existsSync(scrapedPath)) {
+    console.error(`Missing ${scrapedPath}. Run 'yarn update --country=${cc}' first.`);
+    process.exit(1);
+  }
+  const data = JSON.parse(fs.readFileSync(scrapedPath, 'utf-8'));
+  createAssets(cc, data).catch((err) => {
+    console.error(err);
+    process.exit(1);
+  });
+}

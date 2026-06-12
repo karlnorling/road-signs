@@ -64,12 +64,29 @@ const HEADING_CATEGORY_MAP: Array<{ pattern: string; category: USCategory }> = [
   { pattern: 'service', category: 'informational' },
 ];
 
-/** Matches MUTCD sign codes like W1-1, R2-1, D1-1, M1-1 */
-const SIGN_CODE_RE = /\b([A-Z]{1,2}\d+(?:-\d+[a-z]?)?(?:\s*\([^)]+\))?)\b/;
+/**
+ * Matches MUTCD sign codes:
+ *   - Letter+digit:   W1-1, R2-1, CW1-2
+ *   - Letter+dash:    IA-23-1P, RS-001 (state series)
+ * A multi-letter prefix must be immediately followed by a digit-or-dash to
+ * avoid swallowing arbitrary uppercase words like "PRE-2009".
+ */
+const SIGN_CODE_RE =
+  /\b([A-Z]{1,4}(?:\d+(?:-\d+[a-zA-Z]{0,2})?|-\d+(?:-\d+[a-zA-Z]{0,2})?)(?:\s*\([^)]+\))?)\b/;
+
+// Blocklist obvious English words/abbreviations that pass the regex by coincidence.
+const NON_CODE_PREFIXES = new Set([
+  'PRE', 'POST', 'SUB', 'PRO', 'PER', 'NON', 'MID', 'CO', 'EX', 'RE', 'UN',
+]);
 
 const extractCode = (text: string): string | null => {
-  const m = text.match(SIGN_CODE_RE);
-  return m ? m[1].trim() : null;
+  // Try on uppercased text so codes written in mixed/lower case are still caught.
+  const m = text.toUpperCase().match(SIGN_CODE_RE);
+  if (!m) return null;
+  const code = m[1].trim();
+  const prefix = code.match(/^[A-Z]+/)?.[0];
+  if (prefix && NON_CODE_PREFIXES.has(prefix)) return null;
+  return code;
 };
 
 const slugify = (str: string): string =>
@@ -230,7 +247,11 @@ const scrapeHallsignsSlug = async (slug: string, maxPages: number): Promise<Scra
  * (from Wikipedia) is never duplicated.
  */
 const supplementFromHallsigns = async (result: ScrapedData): Promise<void> => {
-  const existingCodes = new Set(Object.values(result).flat().map((s) => s.code));
+  const existingCodes = new Set(
+    Object.values(result)
+      .flat()
+      .map((s) => s.code),
+  );
   let added = 0;
 
   for (const { slug, pages } of HALLSIGNS_SLUGS) {

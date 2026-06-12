@@ -1,0 +1,483 @@
+---
+import fs from 'node:fs';
+import path from 'node:path';
+import rawSvg from '../assets/world-map.svg?raw';
+
+// Astro build cwd = apps/docs; monorepo packages are 2 levels up
+const packagesDir = path.resolve(process.cwd(), '../../packages/@road-signs');
+
+const COUNTRY_NAMES: Record<string, string> = {
+  ad: 'Andorra',
+  ae: 'United Arab Emirates',
+  al: 'Albania',
+  am: 'Armenia',
+  ar: 'Argentina',
+  at: 'Austria',
+  au: 'Australia',
+  az: 'Azerbaijan',
+  ba: 'Bosnia and Herzegovina',
+  bd: 'Bangladesh',
+  be: 'Belgium',
+  bg: 'Bulgaria',
+  bo: 'Bolivia',
+  br: 'Brazil',
+  bw: 'Botswana',
+  by: 'Belarus',
+  bz: 'Belize',
+  ca: 'Canada',
+  ch: 'Switzerland',
+  ci: "Côte d'Ivoire",
+  cl: 'Chile',
+  cm: 'Cameroon',
+  cn: 'China',
+  co: 'Colombia',
+  cr: 'Costa Rica',
+  cu: 'Cuba',
+  cy: 'Cyprus',
+  cz: 'Czech Republic',
+  de: 'Germany',
+  dk: 'Denmark',
+  do: 'Dominican Republic',
+  dz: 'Algeria',
+  ec: 'Ecuador',
+  ee: 'Estonia',
+  eg: 'Egypt',
+  es: 'Spain',
+  et: 'Ethiopia',
+  fi: 'Finland',
+  fj: 'Fiji',
+  fr: 'France',
+  ge: 'Georgia',
+  gh: 'Ghana',
+  gr: 'Greece',
+  gt: 'Guatemala',
+  gy: 'Guyana',
+  hn: 'Honduras',
+  hr: 'Croatia',
+  ht: 'Haiti',
+  hu: 'Hungary',
+  id: 'Indonesia',
+  ie: 'Ireland',
+  il: 'Israel',
+  in: 'India',
+  iq: 'Iraq',
+  ir: 'Iran',
+  is: 'Iceland',
+  it: 'Italy',
+  jm: 'Jamaica',
+  jo: 'Jordan',
+  jp: 'Japan',
+  ke: 'Kenya',
+  kg: 'Kyrgyzstan',
+  kh: 'Cambodia',
+  kr: 'South Korea',
+  kw: 'Kuwait',
+  kz: 'Kazakhstan',
+  la: 'Laos',
+  lb: 'Lebanon',
+  li: 'Liechtenstein',
+  lk: 'Sri Lanka',
+  lt: 'Lithuania',
+  lu: 'Luxembourg',
+  lv: 'Latvia',
+  ly: 'Libya',
+  ma: 'Morocco',
+  mc: 'Monaco',
+  md: 'Moldova',
+  me: 'Montenegro',
+  mk: 'North Macedonia',
+  mm: 'Myanmar',
+  mn: 'Mongolia',
+  mt: 'Malta',
+  mx: 'Mexico',
+  my: 'Malaysia',
+  mz: 'Mozambique',
+  na: 'Namibia',
+  ng: 'Nigeria',
+  ni: 'Nicaragua',
+  nl: 'Netherlands',
+  no: 'Norway',
+  np: 'Nepal',
+  nz: 'New Zealand',
+  om: 'Oman',
+  pa: 'Panama',
+  pe: 'Peru',
+  pg: 'Papua New Guinea',
+  ph: 'Philippines',
+  pk: 'Pakistan',
+  pl: 'Poland',
+  pt: 'Portugal',
+  py: 'Paraguay',
+  qa: 'Qatar',
+  ro: 'Romania',
+  rs: 'Serbia',
+  ru: 'Russia',
+  rw: 'Rwanda',
+  sa: 'Saudi Arabia',
+  se: 'Sweden',
+  sg: 'Singapore',
+  si: 'Slovenia',
+  sk: 'Slovakia',
+  sm: 'San Marino',
+  sn: 'Senegal',
+  sv: 'El Salvador',
+  sy: 'Syria',
+  th: 'Thailand',
+  tj: 'Tajikistan',
+  tm: 'Turkmenistan',
+  tn: 'Tunisia',
+  tr: 'Turkey',
+  tt: 'Trinidad and Tobago',
+  tw: 'Taiwan',
+  tz: 'Tanzania',
+  ua: 'Ukraine',
+  ug: 'Uganda',
+  uk: 'United Kingdom',
+  us: 'United States',
+  uy: 'Uruguay',
+  uz: 'Uzbekistan',
+  ve: 'Venezuela',
+  vn: 'Vietnam',
+  ye: 'Yemen',
+  za: 'South Africa',
+  zm: 'Zambia',
+  zw: 'Zimbabwe',
+};
+
+interface CountryEntry {
+  name: string;
+  count: number;
+  hasData: boolean;
+}
+
+const countryData: Record<string, CountryEntry> = {};
+for (const [cc, name] of Object.entries(COUNTRY_NAMES)) {
+  const signsFile = path.join(packagesDir, cc, 'src/signs.generated.ts');
+  let count = 0;
+  if (fs.existsSync(signsFile)) {
+    const content = fs.readFileSync(signsFile, 'utf8');
+    count = (content.match(/\bid:/g) ?? []).length;
+  }
+  countryData[cc] = { name, count, hasData: count > 0 };
+}
+
+const coveredCount = Object.values(countryData).filter((c) => c.hasData).length;
+const totalSigns = Object.values(countryData).reduce((s, c) => s + c.count, 0);
+---
+
+<div class="map-section">
+  <p class="map-summary">
+    {coveredCount} countries &middot; {totalSigns.toLocaleString()} signs
+  </p>
+  <div class="world-map-wrapper" id="world-map-wrapper">
+    <div class="world-map" id="world-map" set:html={rawSvg} />
+    <div id="map-tooltip" class="map-tooltip" aria-hidden="true"></div>
+    <div class="map-controls" aria-label="Map zoom controls">
+      <button id="map-zoom-in" aria-label="Zoom in">+</button>
+      <button id="map-zoom-out" aria-label="Zoom out">−</button>
+      <button id="map-reset" aria-label="Reset view">⌂</button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .map-section {
+    margin: 1.5rem 0 2rem;
+  }
+
+  .map-summary {
+    font-size: 0.85rem;
+    color: var(--sl-color-gray-3);
+    margin: 0 0 0.5rem;
+  }
+
+  .world-map-wrapper {
+    position: relative;
+    width: 100%;
+    background: #1a6b9a;
+    border-radius: 0.75rem;
+    overflow: hidden;
+    touch-action: none;
+  }
+
+  .world-map {
+    width: 100%;
+    transform-origin: 0 0;
+    will-change: transform;
+  }
+
+  .world-map :global(svg) {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .world-map :global(path) {
+    fill: #4a9e6b;
+    stroke: #1a6b9a;
+    stroke-width: 0.5;
+    transition: fill 0.12s;
+    outline: none;
+  }
+
+  .world-map :global(path.covered) {
+    fill: #3db870;
+  }
+
+  .world-map :global(path.covered:hover),
+  .world-map :global(path.covered:focus-visible) {
+    fill: #ffffff;
+    cursor: pointer;
+  }
+
+  /* Suppress fill transition while dragging to avoid lag */
+  .world-map.dragging :global(path) {
+    transition: none;
+  }
+
+  .map-tooltip {
+    position: absolute;
+    pointer-events: none;
+    background: var(--sl-color-bg-nav);
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.375rem;
+    padding: 0.35rem 0.65rem;
+    font-size: 0.78rem;
+    color: var(--sl-color-text);
+    white-space: nowrap;
+    z-index: 10;
+    opacity: 0;
+    transition: opacity 0.08s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  }
+
+  .map-tooltip.visible {
+    opacity: 1;
+  }
+
+  .map-controls {
+    position: absolute;
+    bottom: 0.75rem;
+    right: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    z-index: 20;
+  }
+
+  .map-controls button {
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    border-radius: 0.3rem;
+    background: rgba(255, 255, 255, 0.85);
+    color: #1a3a2a;
+    font-size: 1rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25);
+    transition: background 0.1s;
+    padding: 0;
+  }
+
+  .map-controls button:hover {
+    background: #ffffff;
+  }
+
+  .map-controls button:disabled {
+    opacity: 0.35;
+    cursor: default;
+  }
+</style>
+
+<script define:vars={{ countryData }}>
+  const mapEl = document.getElementById('world-map');
+  const wrapper = document.getElementById('world-map-wrapper');
+  const tooltip = document.getElementById('map-tooltip');
+
+  // ── Transform state ────────────────────────────────────────────────────────
+  const MIN_SCALE = 1;
+  const MAX_SCALE = 10;
+  let scale = 1;
+  let tx = 0;
+  let ty = 0;
+
+  const applyTransform = () => {
+    // Transform the div (reliable HTML element), not the SVG element
+    mapEl.style.transform = `matrix(${scale},0,0,${scale},${tx},${ty})`;
+    document.getElementById('map-zoom-out').disabled = scale <= MIN_SCALE;
+    document.getElementById('map-zoom-in').disabled = scale >= MAX_SCALE;
+    wrapper.style.cursor = scale > 1 ? 'grab' : '';
+  };
+
+  const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
+
+  const clampPan = () => {
+    // mapEl layout dimensions are unaffected by CSS transform
+    const mapW = mapEl.offsetWidth;
+    const mapH = mapEl.offsetHeight;
+    const wW = wrapper.offsetWidth;
+    const wH = wrapper.offsetHeight;
+    tx = clamp(tx, wW - mapW * scale, 0);
+    ty = clamp(ty, wH - mapH * scale, 0);
+  };
+
+  const zoomTo = (newScale, originX, originY) => {
+    newScale = clamp(newScale, MIN_SCALE, MAX_SCALE);
+    // Keep the point under (originX, originY) fixed in wrapper space
+    tx = originX - (originX - tx) * (newScale / scale);
+    ty = originY - (originY - ty) * (newScale / scale);
+    scale = newScale;
+    if (scale <= MIN_SCALE) { scale = MIN_SCALE; tx = 0; ty = 0; }
+    clampPan();
+    applyTransform();
+  };
+
+  // ── Wheel zoom ─────────────────────────────────────────────────────────────
+  wrapper.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    const rect = wrapper.getBoundingClientRect();
+    zoomTo(scale * (e.deltaY < 0 ? 1.25 : 1 / 1.25), e.clientX - rect.left, e.clientY - rect.top);
+  }, { passive: false });
+
+  // ── Button zoom ────────────────────────────────────────────────────────────
+  const btnZoomIn  = document.getElementById('map-zoom-in');
+  const btnZoomOut = document.getElementById('map-zoom-out');
+  const btnReset   = document.getElementById('map-reset');
+
+  // Stop propagation so button clicks don't trigger the wrapper drag handler
+  [btnZoomIn, btnZoomOut, btnReset].forEach((btn) => {
+    btn.addEventListener('mousedown', (e) => e.stopPropagation());
+  });
+
+  btnZoomIn.addEventListener('click',  () => zoomTo(scale * 1.5,     wrapper.offsetWidth / 2, wrapper.offsetHeight / 2));
+  btnZoomOut.addEventListener('click', () => zoomTo(scale / 1.5,     wrapper.offsetWidth / 2, wrapper.offsetHeight / 2));
+  btnReset.addEventListener('click',   () => { scale = 1; tx = 0; ty = 0; applyTransform(); });
+
+  // ── Mouse drag ─────────────────────────────────────────────────────────────
+  let dragging = false;
+  let dragOrigin = { x: 0, y: 0, tx: 0, ty: 0 };
+  let didDrag = false;
+
+  wrapper.addEventListener('mousedown', (e) => {
+    if (e.button !== 0) return;
+    dragging = true;
+    didDrag = false;
+    dragOrigin = { x: e.clientX, y: e.clientY, tx, ty };
+    wrapper.style.cursor = 'grabbing';
+    mapEl.classList.add('dragging');
+  });
+
+  window.addEventListener('mousemove', (e) => {
+    if (!dragging) return;
+    const dx = e.clientX - dragOrigin.x;
+    const dy = e.clientY - dragOrigin.y;
+    if (Math.abs(dx) > 2 || Math.abs(dy) > 2) didDrag = true;
+    tx = dragOrigin.tx + dx;
+    ty = dragOrigin.ty + dy;
+    clampPan();
+    applyTransform();
+  });
+
+  window.addEventListener('mouseup', () => {
+    if (!dragging) return;
+    dragging = false;
+    mapEl.classList.remove('dragging');
+    wrapper.style.cursor = scale > 1 ? 'grab' : '';
+  });
+
+  // ── Touch pinch-zoom ───────────────────────────────────────────────────────
+  let lastTouchDist = 0;
+  let lastTouchMid = { x: 0, y: 0 };
+
+  const touchDist = (t) =>
+    Math.hypot(t[0].clientX - t[1].clientX, t[0].clientY - t[1].clientY);
+  const touchMid = (t, rect) => ({
+    x: (t[0].clientX + t[1].clientX) / 2 - rect.left,
+    y: (t[0].clientY + t[1].clientY) / 2 - rect.top,
+  });
+
+  wrapper.addEventListener('touchstart', (e) => {
+    if (e.touches.length === 2) {
+      e.preventDefault();
+      lastTouchDist = touchDist(e.touches);
+      lastTouchMid = touchMid(e.touches, wrapper.getBoundingClientRect());
+    }
+  }, { passive: false });
+
+  wrapper.addEventListener('touchmove', (e) => {
+    if (e.touches.length === 2) {
+      e.preventDefault();
+      const rect = wrapper.getBoundingClientRect();
+      const dist = touchDist(e.touches);
+      const mid = touchMid(e.touches, rect);
+      // Pan by mid-point delta
+      tx += mid.x - lastTouchMid.x;
+      ty += mid.y - lastTouchMid.y;
+      // Zoom by distance ratio
+      zoomTo(scale * (dist / lastTouchDist), mid.x, mid.y);
+      lastTouchDist = dist;
+      lastTouchMid = mid;
+    }
+  }, { passive: false });
+
+  // ── Country interactions ───────────────────────────────────────────────────
+  mapEl.querySelectorAll('path').forEach((pathEl) => {
+    const cc = pathEl.id;
+    // Skip paths that aren't valid ISO country codes (e.g. malformed `cundefined`
+    // entries left in the source SVG). The country registry is the ground truth.
+    if (!cc || !countryData[cc]) return;
+
+    const data = countryData[cc];
+
+    if (data.hasData) {
+      pathEl.classList.add('covered');
+      pathEl.setAttribute('role', 'link');
+      pathEl.setAttribute('tabindex', '0');
+      pathEl.setAttribute('aria-label', `${data.name} — ${data.count} signs`);
+    }
+
+    const showTip = (e) => {
+      const label = data.hasData
+        ? `${data.name} — ${data.count} sign${data.count !== 1 ? 's' : ''}`
+        : data.name;
+      tooltip.textContent = label;
+      tooltip.classList.add('visible');
+      moveTip(e);
+    };
+
+    const moveTip = (e) => {
+      const rect = wrapper.getBoundingClientRect();
+      let x = e.clientX - rect.left + 14;
+      let y = e.clientY - rect.top - 10;
+      const tipW = tooltip.offsetWidth || 160;
+      const tipH = tooltip.offsetHeight || 28;
+      if (x + tipW > rect.width - 8) x = e.clientX - rect.left - tipW - 6;
+      if (y + tipH > rect.height - 8) y = e.clientY - rect.top - tipH - 6;
+      tooltip.style.left = `${x}px`;
+      tooltip.style.top = `${y}px`;
+    };
+
+    pathEl.addEventListener('mouseenter', showTip);
+    pathEl.addEventListener('mousemove', moveTip);
+    pathEl.addEventListener('mouseleave', () => tooltip.classList.remove('visible'));
+
+    if (data.hasData) {
+      const navigate = () => {
+        if (!didDrag) window.location.href = `/road-signs/countries/${cc}/`;
+      };
+      pathEl.addEventListener('click', navigate);
+      pathEl.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          window.location.href = `/road-signs/countries/${cc}/`;
+        }
+      });
+    }
+  });
+
+  applyTransform();
+</script>
