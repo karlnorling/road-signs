@@ -1,0 +1,89 @@
+---
+title: Vatican City (VA)
+description: Vatican City road signs — categories, installation, and usage.
+---
+
+import { Tabs, TabItem } from '@astrojs/starlight/components';
+
+The `@road-signs/va` package re-exports the `@road-signs/it` registry. Vatican City follows the same road-sign system.
+
+## Installation
+
+```sh
+npm install @road-signs/va
+```
+
+## Usage
+
+<Tabs>
+  <TabItem label="TypeScript">
+    ```ts
+    import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/va';
+
+    // All signs
+    signs.length;
+
+    // By slug ID
+    const sign = getSign("example-sign");
+
+    // By sign code
+    const s = getSignByCode("1.1");
+
+    // All warning signs
+    const filtered = getSignsByCategory('warning');
+    ```
+  </TabItem>
+  <TabItem label="React">
+    ```tsx
+    import { getSignsByCategory } from '@road-signs/va';
+    import { RoadSign } from '@road-signs/react';
+
+    const warnings = getSignsByCategory('warning');
+
+    export default function WarningGrid() {
+      return (
+        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+          {warnings.map((sign) => (
+            <RoadSign key={sign.id} sign={sign} size={64} />
+          ))}
+        </div>
+      );
+    }
+    ```
+  </TabItem>
+</Tabs>
+
+
+{/* COVERAGE:START */}
+
+## Coverage
+
+| Metric | Value |
+| ------ | ----- |
+| Signs scraped | 0 |
+| Signs with SVG | 0 |
+| Missing SVG | 0 |
+| Overall | **—** |
+
+| Category | Scraped | With SVG | Missing | % |
+| -------- | ------: | -------: | ------: | -: |
+
+**Standard:** Italian Codice della Strada (re-exported from @road-signs/it)
+
+**SVG sources:**
+
+- [Wikipedia — Road signs in Italy (Vatican uses the Italian system)](https://en.wikipedia.org/wiki/Road_signs_in_Italy)
+
+:::note
+Vatican City is fully integrated into the Italian road-sign system. @road-signs/va re-exports @road-signs/it.
+:::
+
+_Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.com/package/@road-signs/docs) package._
+
+{/* COVERAGE:END */}
+
+## TypeScript types
+
+```ts
+import type { VASign, VACategory } from '@road-signs/va';
+```
