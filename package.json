@@ -48,6 +48,7 @@
   },
   "resolutions": {
     "brace-expansion": "^2.0.3",
+    "esbuild": "^0.28.1",
     "flatted": "^3.4.2",
     "js-cookie": "^3.0.7",
     "js-yaml": "^4.1.1",
