@@ -1100,6 +1100,21 @@ const inferCategory = (code: string, cc: string): string => {
 
 const sleep = (ms: number): Promise<void> => new Promise((r) => setTimeout(r, ms));
 
+const FETCH_TIMEOUT_MS = 60_000;
+const fetchWithTimeout = async (
+  url: string,
+  init: RequestInit = {},
+  timeoutMs = FETCH_TIMEOUT_MS,
+): Promise<Response> => {
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), timeoutMs);
+  try {
+    return await fetch(url, { ...init, signal: ctrl.signal });
+  } finally {
+    clearTimeout(timer);
+  }
+};
+
 const fetchCommonsCategory = async (categoryName: string): Promise<string[]> => {
   const files: string[] = [];
   let continueParam = '';
@@ -1110,7 +1125,13 @@ const fetchCommonsCategory = async (categoryName: string): Promise<string[]> => 
       `&cmtitle=Category:${encodeURIComponent(categoryName)}&cmtype=file&cmlimit=500` +
       `&cmcontinue=${encodeURIComponent(continueParam)}&format=json&origin=*`;
 
-    const res = await fetch(url, { headers: { 'User-Agent': USER_AGENT } });
+    let res: Response;
+    try {
+      res = await fetchWithTimeout(url, { headers: { 'User-Agent': USER_AGENT } });
+    } catch (err) {
+      console.warn(`  Commons API timeout/abort for ${categoryName}: ${(err as Error).message}`);
+      break;
+    }
     if (!res.ok) {
       console.warn(`  Commons API ${res.status} for ${categoryName}`);
       break;

@@ -26,6 +26,25 @@ export type ScrapedData = Record<ViennaCategory, ScrapedSign[]>;
 
 const USER_AGENT = 'road-signs/0.0.0 (https://github.com/karlnorling/road-signs; build-script)';
 
+/** Default per-request timeout in ms. Node's fetch has none — without this a
+ * stalled connection (e.g. Commons under load) hangs the script forever. */
+const FETCH_TIMEOUT_MS = 60_000;
+
+/** fetch wrapper that aborts after `timeoutMs`. */
+const fetchWithTimeout = async (
+  url: string,
+  init: RequestInit = {},
+  timeoutMs = FETCH_TIMEOUT_MS,
+): Promise<Response> => {
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), timeoutMs);
+  try {
+    return await fetch(url, { ...init, signal: ctrl.signal });
+  } finally {
+    clearTimeout(timer);
+  }
+};
+
 // ---------------------------------------------------------------------------
 // Default heading → category map (Vienna Convention standard ordering)
 // ---------------------------------------------------------------------------
@@ -260,7 +279,7 @@ const fetchCommonsCategory = async (
       `&cmcontinue=${encodeURIComponent(continueParam)}&format=json&origin=*`;
 
     try {
-      const res = await fetch(url, { headers: { 'User-Agent': USER_AGENT } });
+      const res = await fetchWithTimeout(url, { headers: { 'User-Agent': USER_AGENT } });
       if (!res.ok) break;
       const json = (await res.json()) as {
         query: { categorymembers: Array<{ title: string }> };
@@ -344,7 +363,7 @@ export const createViennaScraper =
     // --- Wikipedia ---
     if (wikipediaUrl) {
       console.log(`  Fetching Wikipedia: ${country}...`);
-      const res = await fetch(wikipediaUrl, { headers: { 'User-Agent': USER_AGENT } });
+      const res = await fetchWithTimeout(wikipediaUrl, { headers: { 'User-Agent': USER_AGENT } });
       if (!res.ok) throw new Error(`Failed to fetch Wikipedia (${res.status}): ${wikipediaUrl}`);
 
       const html = await res.text();

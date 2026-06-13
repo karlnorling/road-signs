@@ -114,8 +114,23 @@ interface ZipEntry {
   compressionMethod: number;
 }
 
+const FETCH_TIMEOUT_MS = 60_000;
+const fetchWithTimeout = async (
+  url: string,
+  init: RequestInit = {},
+  timeoutMs = FETCH_TIMEOUT_MS,
+): Promise<Response> => {
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), timeoutMs);
+  try {
+    return await fetch(url, { ...init, signal: ctrl.signal });
+  } finally {
+    clearTimeout(timer);
+  }
+};
+
 async function fetchRange(url: string, start: number, end: number): Promise<Buffer> {
-  const res = await fetch(url, {
+  const res = await fetchWithTimeout(url, {
     headers: { 'User-Agent': USER_AGENT, Range: `bytes=${start}-${end}` },
   });
   if (!res.ok && res.status !== 206) {
@@ -125,7 +140,10 @@ async function fetchRange(url: string, start: number, end: number): Promise<Buff
 }
 
 async function getFileSize(url: string): Promise<number> {
-  const res = await fetch(url, { method: 'HEAD', headers: { 'User-Agent': USER_AGENT } });
+  const res = await fetchWithTimeout(url, {
+    method: 'HEAD',
+    headers: { 'User-Agent': USER_AGENT },
+  });
   if (!res.ok) throw new Error(`HEAD ${res.status}: ${url}`);
   const cl = res.headers.get('content-length');
   if (!cl) throw new Error('No Content-Length header');

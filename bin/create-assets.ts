@@ -44,6 +44,24 @@ const REQUEST_DELAY_MS = 600;
 /** How many sign downloads run in parallel. */
 const CONCURRENCY = 4;
 
+/** Per-request timeout in ms. Node's fetch has none. */
+const FETCH_TIMEOUT_MS = 60_000;
+
+/** fetch wrapper that aborts after `timeoutMs`. */
+const fetchWithTimeout = async (
+  url: string,
+  init: RequestInit = {},
+  timeoutMs = FETCH_TIMEOUT_MS,
+): Promise<Response> => {
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), timeoutMs);
+  try {
+    return await fetch(url, { ...init, signal: ctrl.signal });
+  } finally {
+    clearTimeout(timer);
+  }
+};
+
 /**
  * Parse a Retry-After header in either seconds (`"120"`) or HTTP-date
  * (`"Wed, 21 Oct 2026 07:28:00 GMT"`) form. Returns milliseconds to wait,
@@ -60,7 +78,19 @@ const parseRetryAfter = (header: string | null): number | null => {
 
 const fetchWithRetry = async (url: string, retries = 6, baseDelayMs = 5000): Promise<Response> => {
   for (let attempt = 1; attempt <= retries; attempt++) {
-    const res = await fetch(url, { headers: { 'User-Agent': USER_AGENT } });
+    let res: Response;
+    try {
+      res = await fetchWithTimeout(url, { headers: { 'User-Agent': USER_AGENT } });
+    } catch (err) {
+      // Treat AbortError (timeout) or network errors as retryable.
+      if (attempt < retries) {
+        const wait = baseDelayMs * 2 ** (attempt - 1);
+        console.warn(`  ${(err as Error).message} on ${url} — retrying in ${Math.round(wait / 1000)}s`);
+        await sleep(wait);
+        continue;
+      }
+      throw err;
+    }
     if (res.ok) return res;
     if ((res.status === 429 || res.status >= 500) && attempt < retries) {
       // Respect Retry-After (seconds or HTTP-date) if present, otherwise exponential back-off.
@@ -163,6 +193,22 @@ const prepareSvg = (raw: string, size: number): Buffer => {
   return Buffer.from(svg, 'utf-8');
 };
 
+/**
+ * Returns true if local librsvg rasterisation produced at least one output
+ * file for `svgPath`. Used to decide whether to fall back to Commons'
+ * server-side thumbnailer for corrupt/malformed SVGs.
+ */
+const hasAnyRasterFor = (svgPath: string): boolean => {
+  const dir = path.dirname(svgPath);
+  const base = path.basename(svgPath, '.svg');
+  for (const size of IMAGE_SIZES) {
+    for (const ext of ['jpg', 'png', 'webp'] as const) {
+      if (fs.existsSync(path.join(dir, `${base}_${size}x${size}.${ext}`))) return true;
+    }
+  }
+  return false;
+};
+
 const convertToRaster = async (svgPath: string): Promise<void> => {
   const svgText = await fs.promises.readFile(svgPath, 'utf-8');
   const dir = path.dirname(svgPath);
@@ -192,6 +238,63 @@ const convertToRaster = async (svgPath: string): Promise<void> => {
       }
     }
   }
+};
+
+/**
+ * Fallback for SVGs that local librsvg can't parse: download a server-rendered
+ * PNG from Commons via `Special:FilePath/<filename>?width=N`. Then re-encode
+ * to jpg/png/webp at every IMAGE_SIZE using sharp (sharp handles PNG fine —
+ * the parse problem was specific to malformed SVG content).
+ *
+ * Returns true if at least one raster was written.
+ */
+const rasterFromCommonsThumbnail = async (svgPath: string): Promise<boolean> => {
+  const dir = path.dirname(svgPath);
+  const filename = path.basename(svgPath); // e.g. Spain_traffic_signal_s11.svg
+  const base = path.basename(svgPath, '.svg');
+
+  // Special:FilePath redirects to the rendered media at the requested width.
+  // For SVG sources, Commons rasterises server-side — bypasses any local librsvg
+  // issue with malformed XML.
+  const thumbUrl = (width: number) =>
+    `https://commons.wikimedia.org/wiki/Special:FilePath/${encodeURIComponent(filename)}?width=${width}`;
+
+  let wroteAny = false;
+  for (const size of IMAGE_SIZES) {
+    const pngOut = path.join(dir, `${base}_${size}x${size}.png`);
+    const jpgOut = path.join(dir, `${base}_${size}x${size}.jpg`);
+    const webpOut = path.join(dir, `${base}_${size}x${size}.webp`);
+    if (fs.existsSync(pngOut) && fs.existsSync(jpgOut) && fs.existsSync(webpOut)) continue;
+
+    let pngBuf: Buffer;
+    try {
+      const res = await fetchWithRetry(thumbUrl(size));
+      pngBuf = Buffer.from(await res.arrayBuffer());
+    } catch (err) {
+      console.warn(`  Thumbnailer ${size}px failed for ${filename}: ${(err as Error).message}`);
+      continue;
+    }
+
+    try {
+      // Commons doesn't always honour `width=N` exactly (it can up- or
+      // down-rate the requested size). Resize explicitly to the canonical
+      // pipeline sizes so consumers get the same dimensions as locally
+      // rasterised signs.
+      const resize = (b: sharp.Sharp) =>
+        b.resize(size, size, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } });
+      await resize(sharp(pngBuf)).png({ quality: 90 }).toFile(pngOut);
+      await resize(sharp(pngBuf)).jpeg({ quality: 90 }).toFile(jpgOut);
+      await resize(sharp(pngBuf)).webp({ quality: 90 }).toFile(webpOut);
+      wroteAny = true;
+    } catch (err) {
+      console.warn(`  sharp re-encode failed for ${filename} ${size}px: ${(err as Error).message}`);
+    }
+  }
+
+  if (wroteAny) {
+    console.log(`  Used Commons thumbnailer fallback for ${filename}`);
+  }
+  return wroteAny;
 };
 
 /**
@@ -260,7 +363,15 @@ export const processSign = async (
     // downloadSvg may skip non-SVG content — only convert if file was actually written.
     try {
       const stat = await fs.promises.stat(dest);
-      if (stat.size > 0) await convertToRaster(dest);
+      if (stat.size > 0) {
+        await convertToRaster(dest);
+        // If local librsvg refused to parse the SVG, fall back to a
+        // server-rendered PNG from Commons' thumbnailer. Many corrupted /
+        // truncated SVGs on Commons still render fine on the server side.
+        if (!hasAnyRasterFor(dest)) {
+          await rasterFromCommonsThumbnail(dest);
+        }
+      }
     } catch {
       // file not written — nothing to convert
     }

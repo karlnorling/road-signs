@@ -32,9 +32,35 @@ const sleep = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
 // Wikimedia helpers
 // ---------------------------------------------------------------------------
 
+const FETCH_TIMEOUT_MS = 60_000;
+const fetchWithTimeout = async (
+  url: string,
+  init: RequestInit = {},
+  timeoutMs = FETCH_TIMEOUT_MS,
+): Promise<Response> => {
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), timeoutMs);
+  try {
+    return await fetch(url, { ...init, signal: ctrl.signal });
+  } finally {
+    clearTimeout(timer);
+  }
+};
+
 const fetchWithRetry = async (url: string, retries = 5, baseMs = 5000): Promise<Response> => {
   for (let i = 1; i <= retries; i++) {
-    const res = await fetch(url, { headers: { 'User-Agent': USER_AGENT } });
+    let res: Response;
+    try {
+      res = await fetchWithTimeout(url, { headers: { 'User-Agent': USER_AGENT } });
+    } catch (err) {
+      if (i < retries) {
+        const wait = baseMs * 2 ** (i - 1);
+        console.warn(`    ${(err as Error).message} — retrying in ${Math.round(wait / 1000)}s`);
+        await sleep(wait);
+        continue;
+      }
+      throw err;
+    }
     if (res.ok) return res;
     if ((res.status === 429 || res.status >= 500) && i < retries) {
       const after = res.headers.get('retry-after');
