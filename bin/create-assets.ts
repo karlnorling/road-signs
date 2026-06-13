@@ -85,7 +85,9 @@ const fetchWithRetry = async (url: string, retries = 6, baseDelayMs = 5000): Pro
       // Treat AbortError (timeout) or network errors as retryable.
       if (attempt < retries) {
         const wait = baseDelayMs * 2 ** (attempt - 1);
-        console.warn(`  ${(err as Error).message} on ${url} — retrying in ${Math.round(wait / 1000)}s`);
+        console.warn(
+          `  ${(err as Error).message} on ${url} — retrying in ${Math.round(wait / 1000)}s`,
+        );
         await sleep(wait);
         continue;
       }
