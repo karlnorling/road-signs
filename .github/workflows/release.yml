@@ -1,0 +1,60 @@
+name: Release
+
+on:
+  push:
+    branches: [main]
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    name: Version or publish
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Changesets needs the full history to compute diff vs. baseBranch.
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Enable corepack
+        run: corepack enable
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      # Compile every workspace's dist/. Country packages need this because
+      # `files` in package.json includes `dist/` and that's what gets shipped.
+      # Note: this is `yarn compile`, NOT `yarn build` — the latter re-scrapes
+      # every country (hours-long, requires Wikimedia rate-limiting), which is
+      # not what we want on CI. The country signs.generated.ts files are
+      # checked into git and are the source of truth for releases.
+      - name: Compile workspaces
+        run: yarn compile
+
+      # Changesets action does two things depending on the repo state:
+      #   1. If there are unconsumed changesets in .changeset/: open or update
+      #      a "Version Packages" PR that runs `version` and bumps versions.
+      #   2. If the merge to main consumed the version PR: run `publish` to
+      #      push the bumped packages to npm.
+      - name: Create release PR or publish
+        uses: changesets/action@v1
+        with:
+          publish: yarn changeset publish
+          version: yarn changeset version
+          commit: 'chore: version packages'
+          title: 'chore: version packages'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
