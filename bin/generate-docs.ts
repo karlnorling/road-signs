@@ -2468,7 +2468,7 @@ const COUNTRIES: Record<string, CountryMeta> = {
       },
     ],
     notes:
-      'Empty package: candidate PDF sources identified at ird.gov.sb (driver’s licence guide, Road Transport Amendment Regulations 2014 gazette). Awaiting extraction.',
+      'Empty package. Investigated 2026-06-13: the IRD "Guide to Obtaining a Driver’s Licence" PDF is a one-page procedural document with no sign diagrams. No Wikimedia Commons category for Solomon Islands road signs exists. Awaiting an on-the-ground catalogue or a recovered Road Transport Regulations 2014 gazette.',
   },
   sc: {
     name: 'Seychelles',
