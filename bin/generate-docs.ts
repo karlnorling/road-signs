@@ -22,6 +22,14 @@ interface CountryMeta {
   standard: string;
   sources: Array<{ label: string; url: string }>;
   notes?: string;
+  /** Which side of the road traffic drives on. */
+  driveSide?: 'left' | 'right' | 'mixed';
+  /** Official sign language(s), in ISO-name form (e.g. ['English', 'Welsh']). */
+  languages?: string[];
+  /** Name of the agency or regulation that publishes the sign system. */
+  regulator?: string;
+  /** Code convention summary (e.g. 'W1-1 / R2-1', 'Zeichen NNN', 'A.1 / B.1'). */
+  codePrefix?: string;
 }
 
 const COUNTRIES: Record<string, CountryMeta> = {
@@ -34,6 +42,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Albania',
       },
     ],
+    driveSide: 'right',
+    languages: ['Albanian'],
+    regulator: 'Drejtoria e Përgjithshme e Rrugëve',
   },
   ar: {
     name: 'Argentina',
@@ -48,6 +59,10 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:Road_signs_in_Argentina',
       },
     ],
+    driveSide: 'right',
+    languages: ['Spanish'],
+    regulator: 'CNRT',
+    codePrefix: 'P-1 / R-1 / I-1',
   },
   at: {
     name: 'Austria',
@@ -58,6 +73,10 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Austria',
       },
     ],
+    driveSide: 'right',
+    languages: ['German'],
+    regulator: 'BMK (StVO)',
+    codePrefix: 'Zeichen NNN',
   },
   au: {
     name: 'Australia',
@@ -74,6 +93,10 @@ const COUNTRIES: Record<string, CountryMeta> = {
     ],
     notes:
       'Sign codes and designs vary by state/territory; national AS1742 standards are used where available.',
+    driveSide: 'left',
+    languages: ['English'],
+    regulator: 'Austroads (AS1742)',
+    codePrefix: 'W1-1 / R1-1',
   },
   ba: {
     name: 'Bosnia and Herzegovina',
@@ -84,6 +107,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Bosnia_and_Herzegovina',
       },
     ],
+    driveSide: 'right',
+    languages: ['Bosnian', 'Croatian', 'Serbian'],
+    regulator: 'BIHAMK',
   },
   be: {
     name: 'Belgium',
@@ -94,6 +120,10 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Belgium',
       },
     ],
+    driveSide: 'right',
+    languages: ['Dutch', 'French', 'German'],
+    regulator: 'SPF Mobilité',
+    codePrefix: 'A1 / B1 / C1',
   },
   bg: {
     name: 'Bulgaria',
@@ -104,6 +134,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Bulgaria',
       },
     ],
+    driveSide: 'right',
+    languages: ['Bulgarian'],
+    regulator: 'API',
   },
   bn: {
     name: 'Brunei',
@@ -116,6 +149,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
     ],
     notes:
       'No Wikipedia road signs article exists. Signs are sourced directly from Wikimedia Commons subcategories (warning, information, prohibitory, mandatory, priority, regulatory).',
+    driveSide: 'left',
+    languages: ['Malay', 'English'],
+    regulator: 'Land Transport Department',
   },
   cl: {
     name: 'Chile',
@@ -130,6 +166,10 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:Road_signs_in_Chile',
       },
     ],
+    driveSide: 'right',
+    languages: ['Spanish'],
+    regulator: 'MOP (DGOP)',
+    codePrefix: 'PA-1 / RP-1 / IT-1',
   },
   co: {
     name: 'Colombia',
@@ -144,6 +184,10 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:Road_signs_in_Colombia',
       },
     ],
+    driveSide: 'right',
+    languages: ['Spanish'],
+    regulator: 'INVIAS (MSV)',
+    codePrefix: 'SP-01 / SR-01',
   },
   cr: {
     name: 'Costa Rica',
@@ -175,6 +219,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Cyprus',
       },
     ],
+    driveSide: 'left',
+    languages: ['Greek', 'Turkish', 'English'],
+    regulator: 'Road Transport Department',
   },
   br: {
     name: 'Brazil',
@@ -189,6 +236,10 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Brazil',
       },
     ],
+    driveSide: 'right',
+    languages: ['Portuguese'],
+    regulator: 'CONTRAN (CTB)',
+    codePrefix: 'A-1a / R-1 / I-1',
   },
   ca: {
     name: 'Canada',
@@ -251,6 +302,10 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_of_Newfoundland_and_Labrador',
       },
     ],
+    driveSide: 'right',
+    languages: ['English', 'French'],
+    regulator: 'Transport Canada (MUTCDC)',
+    codePrefix: 'RA-2 / WA-8 / TC-1',
   },
   ch: {
     name: 'Switzerland',
@@ -263,6 +318,10 @@ const COUNTRIES: Record<string, CountryMeta> = {
     ],
     notes:
       'Codes use decimal format: 1.xx (warning), 2.xx (priority), 3.xx (prohibitory), 4.xx (mandatory), 5–6.xx (information).',
+    driveSide: 'right',
+    languages: ['German', 'French', 'Italian', 'Romansh'],
+    regulator: 'ASTRA (SSV)',
+    codePrefix: '1.01 / 2.02 / 3.03',
   },
   ec: {
     name: 'Ecuador',
@@ -297,6 +356,10 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:Warnschilder_(Deutschland)',
       },
     ],
+    driveSide: 'right',
+    languages: ['German'],
+    regulator: 'BMVI (StVO)',
+    codePrefix: 'Zeichen 101 / 274',
   },
   dk: {
     name: 'Denmark',
@@ -311,6 +374,10 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:Road_signs_in_Denmark',
       },
     ],
+    driveSide: 'right',
+    languages: ['Danish'],
+    regulator: 'Vejdirektoratet',
+    codePrefix: 'A11 / B11 / C11',
   },
   ee: {
     name: 'Estonia',
@@ -321,6 +388,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Estonia',
       },
     ],
+    driveSide: 'right',
+    languages: ['Estonian'],
+    regulator: 'Transpordiamet',
   },
   is: {
     name: 'Iceland',
@@ -335,6 +405,10 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:Road_signs_in_Iceland',
       },
     ],
+    driveSide: 'right',
+    languages: ['Icelandic'],
+    regulator: 'Vegagerðin',
+    codePrefix: 'A01 / B01 / C01',
   },
   es: {
     name: 'Spain',
@@ -347,6 +421,10 @@ const COUNTRIES: Record<string, CountryMeta> = {
     ],
     notes:
       'S-series (additional panel / service) signs are raster-only on Wikimedia; SVG coverage is ~89%.',
+    driveSide: 'right',
+    languages: ['Spanish'],
+    regulator: 'DGT',
+    codePrefix: 'P-1 / R-1 / S-1',
   },
   fi: {
     name: 'Finland',
@@ -359,6 +437,10 @@ const COUNTRIES: Record<string, CountryMeta> = {
     ],
     notes:
       'Codes are 3-digit numeric: 111–199 (warning), 211–299 (priority), 311–399 (prohibitory), 411–499 (mandatory), 511+ (information).',
+    driveSide: 'right',
+    languages: ['Finnish', 'Swedish'],
+    regulator: 'Traficom',
+    codePrefix: '111 / 211 / 311',
   },
   fr: {
     name: 'France',
@@ -369,6 +451,10 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_France',
       },
     ],
+    driveSide: 'right',
+    languages: ['French'],
+    regulator: 'Sécurité Routière',
+    codePrefix: 'A1a / B1 / C18',
   },
   cz: {
     name: 'Czech Republic',
@@ -379,6 +465,10 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_the_Czech_Republic',
       },
     ],
+    driveSide: 'right',
+    languages: ['Czech'],
+    regulator: 'MD ČR',
+    codePrefix: 'A-1 / B-1 / C-1',
   },
   gr: {
     name: 'Greece',
@@ -390,6 +480,10 @@ const COUNTRIES: Record<string, CountryMeta> = {
       },
     ],
     notes: 'Codes use romanized ΚΟΚ series: K (warning), R (prohibitory), P (information).',
+    driveSide: 'right',
+    languages: ['Greek'],
+    regulator: 'Greek Ministry of Infrastructure',
+    codePrefix: 'K-1 / R-1 / P-1',
   },
   hr: {
     name: 'Croatia',
@@ -400,6 +494,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Croatia',
       },
     ],
+    driveSide: 'right',
+    languages: ['Croatian'],
+    regulator: 'HAK',
   },
   hu: {
     name: 'Hungary',
@@ -410,6 +507,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Hungary',
       },
     ],
+    driveSide: 'right',
+    languages: ['Hungarian'],
+    regulator: 'NKH (KRESZ)',
   },
   in: {
     name: 'India',
@@ -426,6 +526,10 @@ const COUNTRIES: Record<string, CountryMeta> = {
     ],
     notes:
       'Categories: Cautionary (warning), Mandatory (prohibitory/regulatory), Informatory (information).',
+    driveSide: 'left',
+    languages: ['Hindi', 'English'],
+    regulator: 'IRC:67',
+    codePrefix: 'C / M / I',
   },
   ie: {
     name: 'Ireland',
@@ -440,6 +544,10 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Ireland',
       },
     ],
+    driveSide: 'left',
+    languages: ['English', 'Irish'],
+    regulator: 'RSA (TSM)',
+    codePrefix: 'RUS 001 / W 042',
   },
   il: {
     name: 'Israel',
@@ -458,6 +566,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:Road_signs_in_Israel',
       },
     ],
+    driveSide: 'right',
+    languages: ['Hebrew', 'Arabic'],
+    regulator: 'Israel Ministry of Transport',
   },
   it: {
     name: 'Italy',
@@ -470,6 +581,10 @@ const COUNTRIES: Record<string, CountryMeta> = {
     ],
     notes:
       'Panel (A/B/P/Q series) and traffic light signs exist only as raster images on Wikipedia.',
+    driveSide: 'right',
+    languages: ['Italian'],
+    regulator: 'MIT (Codice della Strada)',
+    codePrefix: 'Fig. II.1 / II.50',
   },
   jp: {
     name: 'Japan',
@@ -482,6 +597,10 @@ const COUNTRIES: Record<string, CountryMeta> = {
     ],
     notes:
       'Codes are 3-digit numeric: 1xx (regulatory), 2xx (warning), 3xx (instruction), 4xx (guide).',
+    driveSide: 'left',
+    languages: ['Japanese'],
+    regulator: 'National Police Agency',
+    codePrefix: '101 / 201 / 301',
   },
   kr: {
     name: 'South Korea',
@@ -498,6 +617,10 @@ const COUNTRIES: Record<string, CountryMeta> = {
     ],
     notes:
       'Codes are numeric: 1xx (regulatory/prohibitory), 2xx (warning), 3xx (instruction), 4xx (guide).',
+    driveSide: 'right',
+    languages: ['Korean'],
+    regulator: 'KNPA',
+    codePrefix: '101 / 201 / 301',
   },
   li: {
     name: 'Liechtenstein',
@@ -514,6 +637,10 @@ const COUNTRIES: Record<string, CountryMeta> = {
     ],
     notes:
       'Liechtenstein uses identical signs to Switzerland. Codes use decimal format: 1.xx (warning), 2.xx (priority), 3.xx (prohibitory), 4.xx (mandatory), 5–6.xx (information).',
+    driveSide: 'right',
+    languages: ['German'],
+    regulator: 'ASTRA (uses Swiss SSV)',
+    codePrefix: '1.01 / 2.02',
   },
   lt: {
     name: 'Lithuania',
@@ -524,6 +651,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Lithuania',
       },
     ],
+    driveSide: 'right',
+    languages: ['Lithuanian'],
+    regulator: 'LAKD',
   },
   lu: {
     name: 'Luxembourg',
@@ -534,6 +664,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Luxembourg',
       },
     ],
+    driveSide: 'right',
+    languages: ['French', 'German', 'Luxembourgish'],
+    regulator: 'MMTP',
   },
   lv: {
     name: 'Latvia',
@@ -544,6 +677,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Latvia',
       },
     ],
+    driveSide: 'right',
+    languages: ['Latvian'],
+    regulator: 'CSDD',
   },
   ma: {
     name: 'Morocco',
@@ -558,6 +694,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:Road_signs_in_Morocco',
       },
     ],
+    driveSide: 'right',
+    languages: ['Arabic', 'French'],
+    regulator: 'Ministry of Equipment',
   },
   me: {
     name: 'Montenegro',
@@ -568,6 +707,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Montenegro',
       },
     ],
+    driveSide: 'right',
+    languages: ['Montenegrin'],
+    regulator: 'Auto-moto savez Crne Gore',
   },
   mg: {
     name: 'Madagascar',
@@ -580,6 +722,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
     ],
     notes:
       'Madagascar uses the SADC regional sign standard. No Madagascar-specific SVG diagrams exist on Wikimedia Commons; signs are sourced from the shared SADC category.',
+    driveSide: 'right',
+    languages: ['Malagasy', 'French'],
+    regulator: 'ATT',
   },
   my: {
     name: 'Malaysia',
@@ -598,6 +743,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:Road_signs_in_Malaysia',
       },
     ],
+    driveSide: 'left',
+    languages: ['Malay'],
+    regulator: 'JKR',
   },
   mk: {
     name: 'North Macedonia',
@@ -608,6 +756,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_North_Macedonia',
       },
     ],
+    driveSide: 'right',
+    languages: ['Macedonian'],
+    regulator: 'AMSM',
   },
   mt: {
     name: 'Malta',
@@ -622,6 +773,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:Road_signs_in_Malta',
       },
     ],
+    driveSide: 'left',
+    languages: ['Maltese', 'English'],
+    regulator: 'Transport Malta',
   },
   mu: {
     name: 'Mauritius',
@@ -638,6 +792,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
     ],
     notes:
       'Mauritius uses a UK-derived system (Traffic Signs Regulations 1990) rather than the SADC regional standard used by most neighbouring countries.',
+    driveSide: 'left',
+    languages: ['English', 'French'],
+    regulator: 'Traffic Management Road Safety Unit',
   },
   mx: {
     name: 'Mexico',
@@ -652,6 +809,10 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:Road_signs_in_Mexico',
       },
     ],
+    driveSide: 'right',
+    languages: ['Spanish'],
+    regulator: 'SCT',
+    codePrefix: 'SR-1 / SP-1 / SI-1',
   },
   nl: {
     name: 'Netherlands',
@@ -664,6 +825,10 @@ const COUNTRIES: Record<string, CountryMeta> = {
     ],
     notes:
       'Several series (J, B, E, G, H, L, K) are raster-only on Wikimedia; SVG coverage is ~67%.',
+    driveSide: 'right',
+    languages: ['Dutch'],
+    regulator: 'CROW (RVV 1990)',
+    codePrefix: 'A1 / B1 / C1 / J1',
   },
   no: {
     name: 'Norway',
@@ -676,6 +841,10 @@ const COUNTRIES: Record<string, CountryMeta> = {
     ],
     notes:
       'Codes are numeric: 1xx (warning), 2xx (priority), 3xx (prohibitory), 4xx (mandatory), 5–7xx (information).',
+    driveSide: 'right',
+    languages: ['Norwegian'],
+    regulator: 'Statens vegvesen',
+    codePrefix: '100 / 202 / 306',
   },
   nz: {
     name: 'New Zealand',
@@ -690,6 +859,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_New_Zealand',
       },
     ],
+    driveSide: 'left',
+    languages: ['English', 'Māori'],
+    regulator: 'NZTA (TCD Rule)',
   },
   pe: {
     name: 'Peru',
@@ -711,6 +883,10 @@ const COUNTRIES: Record<string, CountryMeta> = {
     ],
     notes:
       'Headings: Preventiva (warning), Reglamentaria (prohibitory), Informativa/Indicativa (information).',
+    driveSide: 'right',
+    languages: ['Spanish'],
+    regulator: 'MTC',
+    codePrefix: 'P-1A / R-1 / I-1',
   },
   pl: {
     name: 'Poland',
@@ -722,6 +898,10 @@ const COUNTRIES: Record<string, CountryMeta> = {
       },
     ],
     notes: 'Several code series (A–W) scraped from Wikipedia lack matching SVG assets on Commons.',
+    driveSide: 'right',
+    languages: ['Polish'],
+    regulator: 'GDDKiA',
+    codePrefix: 'A-1 / B-1 / C-1 / D-1',
   },
   pt: {
     name: 'Portugal',
@@ -732,6 +912,10 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Portugal',
       },
     ],
+    driveSide: 'right',
+    languages: ['Portuguese'],
+    regulator: 'ANSR (Código da Estrada)',
+    codePrefix: 'A-1 / B-1 / C-1',
   },
   ro: {
     name: 'Romania',
@@ -742,6 +926,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Romania',
       },
     ],
+    driveSide: 'right',
+    languages: ['Romanian'],
+    regulator: 'IGPR',
   },
   rs: {
     name: 'Serbia',
@@ -752,6 +939,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Serbia',
       },
     ],
+    driveSide: 'right',
+    languages: ['Serbian'],
+    regulator: 'AMSS',
   },
   se: {
     name: 'Sweden',
@@ -766,6 +956,10 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:Road_signs_in_Sweden',
       },
     ],
+    driveSide: 'right',
+    languages: ['Swedish'],
+    regulator: 'Trafikverket (VMF)',
+    codePrefix: 'A1 / B1 / C1 / D1',
   },
   sg: {
     name: 'Singapore',
@@ -784,6 +978,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:Road_signs_in_Singapore',
       },
     ],
+    driveSide: 'left',
+    languages: ['English'],
+    regulator: 'LTA',
   },
   si: {
     name: 'Slovenia',
@@ -794,6 +991,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Slovenia',
       },
     ],
+    driveSide: 'right',
+    languages: ['Slovenian'],
+    regulator: 'DRSI',
   },
   sk: {
     name: 'Slovakia',
@@ -804,6 +1004,10 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Slovakia',
       },
     ],
+    driveSide: 'right',
+    languages: ['Slovak'],
+    regulator: 'MDV SR',
+    codePrefix: 'A-1 / B-1 / C-1',
   },
   uk: {
     name: 'United Kingdom',
@@ -836,6 +1040,10 @@ const COUNTRIES: Record<string, CountryMeta> = {
     ],
     notes:
       'Variable-message motorway signs (direction/temporary categories) are raster-only on Wikimedia.',
+    driveSide: 'left',
+    languages: ['English', 'Welsh'],
+    regulator: 'DfT (TSRGD 2016)',
+    codePrefix: 'Diagram 503 / 670 / 7001',
   },
   th: {
     name: 'Thailand',
@@ -850,6 +1058,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Thailand',
       },
     ],
+    driveSide: 'left',
+    languages: ['Thai'],
+    regulator: 'DOH',
   },
   tr: {
     name: 'Turkey',
@@ -864,6 +1075,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:Road_signs_in_Turkey',
       },
     ],
+    driveSide: 'right',
+    languages: ['Turkish'],
+    regulator: 'KGM',
   },
   tw: {
     name: 'Taiwan',
@@ -878,6 +1092,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Taiwan',
       },
     ],
+    driveSide: 'right',
+    languages: ['Mandarin'],
+    regulator: 'MOTC Taiwan',
   },
   ua: {
     name: 'Ukraine',
@@ -890,6 +1107,10 @@ const COUNTRIES: Record<string, CountryMeta> = {
     ],
     notes:
       'Codes use decimal format: 1.xx (warning), 2.xx (priority), 3.xx (prohibitory), 4.xx (mandatory), 5.xx (information).',
+    driveSide: 'right',
+    languages: ['Ukrainian'],
+    regulator: 'Ukravtodor',
+    codePrefix: '1.1 / 2.1 / 3.1',
   },
   us: {
     name: 'United States',
@@ -910,6 +1131,10 @@ const COUNTRIES: Record<string, CountryMeta> = {
     ],
     notes:
       'Informational (M/I series) signs have ~59% SVG coverage — remaining signs exist only in FHWA PDFs.',
+    driveSide: 'right',
+    languages: ['English'],
+    regulator: 'FHWA',
+    codePrefix: 'W1-1 / R2-1 / D5-1 / M1-1',
   },
   uy: {
     name: 'Uruguay',
@@ -924,6 +1149,10 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:Road_signs_in_Uruguay',
       },
     ],
+    driveSide: 'right',
+    languages: ['Spanish'],
+    regulator: 'Dirección Nacional de Tránsito',
+    codePrefix: 'P-1 / R-1',
   },
   za: {
     name: 'South Africa',
@@ -938,6 +1167,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:Road_signs_in_South_Africa',
       },
     ],
+    driveSide: 'left',
+    languages: ['English', 'Afrikaans'],
+    regulator: 'SARTSM',
   },
   // New countries
   ae: {
@@ -953,6 +1185,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_the_United_Arab_Emirates',
       },
     ],
+    driveSide: 'right',
+    languages: ['Arabic', 'English'],
+    regulator: 'RTA',
   },
   by: {
     name: 'Belarus',
@@ -967,6 +1202,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Belarus',
       },
     ],
+    driveSide: 'right',
+    languages: ['Belarusian', 'Russian'],
+    regulator: 'Belarusian State Auto Inspection',
   },
   cn: {
     name: 'China',
@@ -981,6 +1219,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_China',
       },
     ],
+    driveSide: 'right',
+    languages: ['Chinese'],
+    regulator: 'MPS (GB 5768)',
   },
   eg: {
     name: 'Egypt',
@@ -991,6 +1232,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Egypt',
       },
     ],
+    driveSide: 'right',
+    languages: ['Arabic'],
+    regulator: 'Ministry of Transport',
   },
   ge: {
     name: 'Georgia',
@@ -1019,6 +1263,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Indonesia',
       },
     ],
+    driveSide: 'left',
+    languages: ['Indonesian'],
+    regulator: 'Ministry of Transportation',
   },
   ke: {
     name: 'Kenya',
@@ -1029,6 +1276,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Kenya',
       },
     ],
+    driveSide: 'left',
+    languages: ['English', 'Swahili'],
+    regulator: 'NTSA',
   },
   ng: {
     name: 'Nigeria',
@@ -1039,6 +1289,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Nigeria',
       },
     ],
+    driveSide: 'right',
+    languages: ['English'],
+    regulator: 'FRSC',
   },
   ph: {
     name: 'Philippines',
@@ -1053,6 +1306,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_the_Philippines',
       },
     ],
+    driveSide: 'right',
+    languages: ['Filipino', 'English'],
+    regulator: 'DPWH',
   },
   ru: {
     name: 'Russia',
@@ -1067,6 +1323,10 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Russia',
       },
     ],
+    driveSide: 'right',
+    languages: ['Russian'],
+    regulator: 'ГИБДД (GIBDD)',
+    codePrefix: '1.1 / 2.1 / 3.1',
   },
   sa: {
     name: 'Saudi Arabia',
@@ -1081,6 +1341,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Saudi_Arabia',
       },
     ],
+    driveSide: 'right',
+    languages: ['Arabic', 'English'],
+    regulator: 'GDT (GCC Manual)',
   },
   vn: {
     name: 'Vietnam',
@@ -1095,6 +1358,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Vietnam',
       },
     ],
+    driveSide: 'right',
+    languages: ['Vietnamese'],
+    regulator: 'Ministry of Transport',
   },
   // Batch 3
   bz: {
@@ -1144,6 +1410,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Ethiopia',
       },
     ],
+    driveSide: 'right',
+    languages: ['Amharic'],
+    regulator: 'Ministry of Transport',
   },
   gh: {
     name: 'Ghana',
@@ -1158,6 +1427,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Ghana',
       },
     ],
+    driveSide: 'right',
+    languages: ['English'],
+    regulator: 'DVLA Ghana',
   },
   kg: {
     name: 'Kyrgyzstan',
@@ -1186,6 +1458,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Laos',
       },
     ],
+    driveSide: 'right',
+    languages: ['Lao'],
+    regulator: 'MPWT',
   },
   mn: {
     name: 'Mongolia',
@@ -1228,6 +1503,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Nepal',
       },
     ],
+    driveSide: 'left',
+    languages: ['Nepali'],
+    regulator: 'DoTM',
   },
   sv: {
     name: 'El Salvador',
@@ -1280,6 +1558,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Tanzania',
       },
     ],
+    driveSide: 'left',
+    languages: ['Swahili', 'English'],
+    regulator: 'SUMATRA',
   },
   uz: {
     name: 'Uzbekistan',
@@ -1308,6 +1589,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Zimbabwe',
       },
     ],
+    driveSide: 'left',
+    languages: ['English'],
+    regulator: 'Traffic Safety Council',
   },
   // Batch 2
   am: {
@@ -1351,6 +1635,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Bangladesh',
       },
     ],
+    driveSide: 'left',
+    languages: ['Bengali', 'English'],
+    regulator: 'BRTA',
   },
   bo: {
     name: 'Bolivia',
@@ -1371,6 +1658,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Algeria',
       },
     ],
+    driveSide: 'right',
+    languages: ['Arabic'],
+    regulator: 'Ministry of Transport',
   },
   gt: {
     name: 'Guatemala',
@@ -1409,6 +1699,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Jordan',
       },
     ],
+    driveSide: 'right',
+    languages: ['Arabic', 'English'],
+    regulator: 'Ministry of Public Works',
   },
   kh: {
     name: 'Cambodia',
@@ -1423,6 +1716,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Cambodia',
       },
     ],
+    driveSide: 'right',
+    languages: ['Khmer'],
+    regulator: 'MPWT',
   },
   kw: {
     name: 'Kuwait',
@@ -1433,6 +1729,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Kuwait',
       },
     ],
+    driveSide: 'right',
+    languages: ['Arabic', 'English'],
+    regulator: 'GCC Manual',
   },
   kz: {
     name: 'Kazakhstan',
@@ -1458,6 +1757,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
       },
     ],
     notes: 'Very limited SVG coverage on Wikimedia Commons for Lebanon.',
+    driveSide: 'right',
+    languages: ['Arabic', 'French'],
+    regulator: 'Ministry of Public Works',
   },
   lk: {
     name: 'Sri Lanka',
@@ -1472,6 +1774,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Sri_Lanka',
       },
     ],
+    driveSide: 'left',
+    languages: ['Sinhala', 'Tamil', 'English'],
+    regulator: 'RDA',
   },
   ly: {
     name: 'Libya',
@@ -1483,6 +1788,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
       },
     ],
     notes: 'Limited SVG coverage on Wikimedia Commons for Libya.',
+    driveSide: 'right',
+    languages: ['Arabic'],
+    regulator: 'Ministry of Transport',
   },
   md: {
     name: 'Moldova',
@@ -1512,6 +1820,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
       },
     ],
     notes: 'Limited SVG coverage on Wikimedia Commons for Myanmar.',
+    driveSide: 'right',
+    languages: ['Burmese'],
+    regulator: 'Ministry of Construction',
   },
   om: {
     name: 'Oman',
@@ -1522,6 +1833,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Oman',
       },
     ],
+    driveSide: 'right',
+    languages: ['Arabic', 'English'],
+    regulator: 'ROP (GCC Manual)',
   },
   pa: {
     name: 'Panama',
@@ -1546,6 +1860,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Pakistan',
       },
     ],
+    driveSide: 'left',
+    languages: ['Urdu', 'English'],
+    regulator: 'NHA',
   },
   py: {
     name: 'Paraguay',
@@ -1574,6 +1891,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Qatar',
       },
     ],
+    driveSide: 'right',
+    languages: ['Arabic', 'English'],
+    regulator: 'Ashghal (GCC Manual)',
   },
   tn: {
     name: 'Tunisia',
@@ -1585,6 +1905,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
       },
     ],
     notes: 'Limited SVG coverage on Wikimedia Commons for Tunisia.',
+    driveSide: 'right',
+    languages: ['Arabic'],
+    regulator: 'Ministry of Transport',
   },
   ve: {
     name: 'Venezuela',
@@ -1595,6 +1918,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Venezuela',
       },
     ],
+    driveSide: 'right',
+    languages: ['Spanish'],
+    regulator: 'INTT',
   },
   // Batch 4
   ad: {
@@ -1616,6 +1942,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Botswana',
       },
     ],
+    driveSide: 'left',
+    languages: ['English', 'Setswana'],
+    regulator: 'Department of Road Transport',
   },
   ci: {
     name: "Côte d'Ivoire",
@@ -1632,6 +1961,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
     ],
     notes:
       "No SVG assets currently on Wikimedia Commons. Côte d'Ivoire uses a French-influenced sign system. The national road authority is AGEROUTE (Agence de Gestion des Routes). Official sign specifications are not publicly available online.",
+    driveSide: 'right',
+    languages: ['French'],
+    regulator: 'Ministère des Transports',
   },
   cm: {
     name: 'Cameroon',
@@ -1652,6 +1984,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
     ],
     notes:
       "No SVG assets currently on Wikimedia Commons. Cameroon uses the CEMAC (Communauté Économique et Monétaire de l'Afrique Centrale) highway code, a French-influenced regional standard. Official sign PDFs are not publicly available online.",
+    driveSide: 'right',
+    languages: ['French', 'English'],
+    regulator: 'Ministry of Transport',
   },
   xk: {
     name: 'Kosovo',
@@ -1844,6 +2179,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
     ],
     notes:
       'No SVG assets currently on Wikimedia Commons. Iraq uses bilingual Arabic/English signs based on the Vienna Convention. No publicly available official sign manual PDF has been located.',
+    driveSide: 'right',
+    languages: ['Arabic'],
+    regulator: 'Ministry of Transport',
   },
   ir: {
     name: 'Iran',
@@ -1858,6 +2196,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Iran',
       },
     ],
+    driveSide: 'right',
+    languages: ['Persian'],
+    regulator: 'Ministry of Roads & Urban Development',
   },
   jm: {
     name: 'Jamaica',
@@ -1898,6 +2239,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Mozambique',
       },
     ],
+    driveSide: 'left',
+    languages: ['Portuguese'],
+    regulator: 'INATTER',
   },
   na: {
     name: 'Namibia',
@@ -1908,6 +2252,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Namibia',
       },
     ],
+    driveSide: 'left',
+    languages: ['English'],
+    regulator: 'Roads Authority',
   },
   pg: {
     name: 'Papua New Guinea',
@@ -1935,6 +2282,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Rwanda',
       },
     ],
+    driveSide: 'right',
+    languages: ['Kinyarwanda', 'English', 'French'],
+    regulator: 'RNRA',
   },
   sm: {
     name: 'San Marino',
@@ -1955,6 +2305,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
     ],
     notes:
       'San Marino uses the Italian sign system (Codice della strada) without country-specific variants. SVG assets on Wikimedia Commons are very limited. Italian sign packages (IT) provide comprehensive coverage of the shared sign set.',
+    driveSide: 'right',
+    languages: ['Italian'],
+    regulator: 'Italian Codice della Strada',
   },
   sn: {
     name: 'Senegal',
@@ -1972,6 +2325,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
     ],
     notes:
       'No SVG assets currently on Wikimedia Commons. Senegal uses a French-influenced Code de la Route based on the Vienna Convention. The governing authority is the Ministère des Infrastructures et des Transports Terrestres.',
+    driveSide: 'right',
+    languages: ['French'],
+    regulator: 'Ministère des Infrastructures',
   },
   sy: {
     name: 'Syria',
@@ -1985,6 +2341,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
     ],
     notes:
       'No SVG assets currently on Wikimedia Commons. Syria uses bilingual Arabic/English signs based on the Vienna Convention. No publicly available official sign manual PDF has been located.',
+    driveSide: 'right',
+    languages: ['Arabic'],
+    regulator: 'Ministry of Transport',
   },
   tt: {
     name: 'Trinidad and Tobago',
@@ -2015,6 +2374,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Uganda',
       },
     ],
+    driveSide: 'left',
+    languages: ['English'],
+    regulator: 'Ministry of Works and Transport',
   },
   ye: {
     name: 'Yemen',
@@ -2028,6 +2390,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
     ],
     notes:
       'No SVG assets currently on Wikimedia Commons. Yemen uses bilingual Arabic/English signs based on the Vienna Convention. No publicly available official sign manual PDF has been located.',
+    driveSide: 'right',
+    languages: ['Arabic'],
+    regulator: 'Ministry of Public Works',
   },
   zm: {
     name: 'Zambia',
@@ -2038,6 +2403,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Zambia',
       },
     ],
+    driveSide: 'left',
+    languages: ['English'],
+    regulator: 'RTSA',
   },
   ao: {
     name: 'Angola',
@@ -2054,6 +2422,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
     ],
     notes:
       'No SVG assets currently on Wikimedia Commons. Angola uses a Portuguese-influenced sign system based on the Vienna Convention with codes A (warning), B (priority), C (prohibition), D (mandatory), H/M (information).',
+    driveSide: 'right',
+    languages: ['Portuguese'],
+    regulator: 'INSTT',
   },
   ls: {
     name: 'Lesotho',
@@ -2070,6 +2441,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
     ],
     notes:
       'Lesotho uses the SADC regional sign standard. No Lesotho-specific SVG diagrams exist on Wikimedia Commons; signs are sourced from the shared SADC category.',
+    driveSide: 'left',
+    languages: ['English', 'Sesotho'],
+    regulator: 'Department of Traffic',
   },
   sz: {
     name: 'Eswatini',
@@ -2086,6 +2460,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
     ],
     notes:
       'Eswatini uses the SADC regional sign standard. No Eswatini-specific SVG diagrams exist on Wikimedia Commons; signs are sourced from the shared SADC category.',
+    driveSide: 'left',
+    languages: ['English', 'Swazi'],
+    regulator: 'Eswatini Road Safety Council',
   },
   kp: {
     name: 'North Korea',
@@ -2098,6 +2475,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
     ],
     notes:
       'North Korean road signs use Korean-language names with no alphanumeric codes. The 29 SVG diagrams on Wikimedia Commons are mapped to descriptive English slugs.',
+    driveSide: 'right',
+    languages: ['Korean'],
+    regulator: 'DPRK Ministry of Public Security',
   },
   mw: {
     name: 'Malawi',
@@ -2114,6 +2494,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
     ],
     notes:
       'Malawi uses the SADC regional sign standard. No Malawi-specific SVG diagrams exist on Wikimedia Commons; signs are sourced from the shared SADC category.',
+    driveSide: 'left',
+    languages: ['English'],
+    regulator: 'Directorate of Road Traffic',
   },
   va: {
     name: 'Vatican City',
@@ -2126,6 +2509,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
     ],
     notes:
       'Vatican City is fully integrated into the Italian road-sign system. @road-signs/va re-exports @road-signs/it.',
+    driveSide: 'right',
+    languages: ['Italian', 'Latin'],
+    regulator: 'Italian Codice della Strada (de facto)',
   },
   af: {
     name: 'Afghanistan',
@@ -2162,6 +2548,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
     ],
     notes:
       'Empty package: no publicly available SVG sign catalogue located. Bahrain follows the shared GCC Traffic Signs Manual.',
+    driveSide: 'right',
+    languages: ['Arabic', 'English'],
+    regulator: 'GCC Manual',
   },
   bi: {
     name: 'Burundi',
@@ -2195,6 +2584,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
       },
     ],
     notes: 'Empty package: no publicly available SVG sign catalogue located.',
+    driveSide: 'left',
+    languages: ['Dzongkha'],
+    regulator: 'RSTA',
   },
   cd: {
     name: 'DR Congo',
@@ -2441,6 +2833,9 @@ const COUNTRIES: Record<string, CountryMeta> = {
       },
     ],
     notes: 'Empty package: no publicly available SVG sign catalogue located.',
+    driveSide: 'right',
+    languages: ['Arabic', 'Hebrew', 'English'],
+    regulator: 'PA Ministry of Transport',
   },
   pw: {
     name: 'Palau',
@@ -2851,12 +3246,46 @@ const MARKER_START = '{/* COVERAGE:START */}';
 const MARKER_END = '{/* COVERAGE:END */}';
 const HERO_START = '{/* HERO:START */}';
 const HERO_END = '{/* HERO:END */}';
+const QUICK_FACTS_START = '{/* QUICK_FACTS:START */}';
+const QUICK_FACTS_END = '{/* QUICK_FACTS:END */}';
 
 const heroBlock = (cc: string): string =>
   `${HERO_START}\n\n` +
   `import CountryHero from '../../../components/CountryHero.astro';\n\n` +
   `<CountryHero cc="${cc}" />\n\n` +
   `${HERO_END}`;
+
+/**
+ * Renders a country's Quick facts table — only shows rows that have data,
+ * skips the block entirely if no field is populated.
+ */
+const quickFactsSectionBody = (cov: CountryCoverage): string | null => {
+  const { meta } = cov;
+  const driveLabel = meta.driveSide
+    ? { left: 'Left-hand', right: 'Right-hand', mixed: 'Mixed' }[meta.driveSide]
+    : null;
+
+  const rows: Array<[string, string]> = [];
+  if (driveLabel) rows.push(['Drive side', driveLabel]);
+  if (meta.languages && meta.languages.length > 0) {
+    rows.push(['Language(s)', meta.languages.join(', ')]);
+  }
+  if (meta.regulator) rows.push(['Regulator', meta.regulator]);
+  if (meta.codePrefix) rows.push(['Code format', `\`${meta.codePrefix}\``]);
+  rows.push(['Standard', meta.standard]);
+
+  if (rows.length === 1) return null; // only the standard row → already shown in Coverage
+
+  const lines: string[] = ['## Quick facts', '', '| Field | Value |', '| ----- | ----- |'];
+  for (const [k, v] of rows) lines.push(`| ${k} | ${v} |`);
+  return lines.join('\n');
+};
+
+const quickFactsBlock = (cov: CountryCoverage): string | null => {
+  const body = quickFactsSectionBody(cov);
+  if (!body) return null;
+  return `${QUICK_FACTS_START}\n\n${body}\n\n${QUICK_FACTS_END}`;
+};
 
 /**
  * Replace content between `start` and `end` markers if both are present.
@@ -2909,6 +3338,48 @@ const injectHeroMdx = (mdxPath: string, cc: string): void => {
   if (importMatch) cursor += importMatch[0].length;
 
   content = content.slice(0, cursor) + '\n' + block + '\n\n' + content.slice(cursor);
+  fs.writeFileSync(mdxPath, content, 'utf-8');
+};
+
+/**
+ * Inject (or replace) the Quick facts block right after the HERO. Skips
+ * silently if no quick-facts data is available. Idempotent.
+ */
+const injectQuickFactsMdx = (mdxPath: string, cov: CountryCoverage): void => {
+  if (!fs.existsSync(mdxPath)) return;
+  const block = quickFactsBlock(cov);
+
+  let content = fs.readFileSync(mdxPath, 'utf-8');
+
+  // If there's no data to show, remove any previous quick-facts block.
+  if (!block) {
+    const updated = replaceBetween(content, QUICK_FACTS_START, QUICK_FACTS_END, '');
+    if (updated.replaced) fs.writeFileSync(mdxPath, updated.content, 'utf-8');
+    return;
+  }
+
+  const updated = replaceBetween(content, QUICK_FACTS_START, QUICK_FACTS_END, block);
+  if (updated.replaced) {
+    fs.writeFileSync(mdxPath, updated.content, 'utf-8');
+    return;
+  }
+
+  // First run: insert after the HERO block (or after frontmatter if hero
+  // hasn't been injected yet).
+  let insertAt: number;
+  const heroEndIdx = content.indexOf(HERO_END);
+  if (heroEndIdx !== -1) {
+    insertAt = heroEndIdx + HERO_END.length;
+  } else {
+    const fmEnd = content.indexOf('\n---\n');
+    if (fmEnd === -1) return;
+    insertAt = fmEnd + 5;
+    const after = content.slice(insertAt);
+    const importMatch = after.match(/^(?:\s*\n|import\s+[^\n]*;\s*\n)+/);
+    if (importMatch) insertAt += importMatch[0].length;
+  }
+
+  content = content.slice(0, insertAt) + '\n\n' + block + '\n' + content.slice(insertAt);
   fs.writeFileSync(mdxPath, content, 'utf-8');
 };
 
@@ -2975,6 +3446,7 @@ for (const cov of coverages) {
   const mdxPath = path.join(astroPagesDir, `${cov.cc}.mdx`);
   // Skip the hero if the country has no signs at all (e.g. Lebanon).
   if (cov.totalScraped > 0) injectHeroMdx(mdxPath, cov.cc);
+  injectQuickFactsMdx(mdxPath, cov);
   injectCoverageMdx(mdxPath, cov);
   console.log(`  ${mdxPath}`);
 }
