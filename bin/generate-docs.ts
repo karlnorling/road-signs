@@ -2115,6 +2115,538 @@ const COUNTRIES: Record<string, CountryMeta> = {
     notes:
       'Malawi uses the SADC regional sign standard. No Malawi-specific SVG diagrams exist on Wikimedia Commons; signs are sourced from the shared SADC category.',
   },
+  va: {
+    name: 'Vatican City',
+    standard: 'Italian Codice della Strada (re-exported from @road-signs/it)',
+    sources: [
+    {
+      label: 'Wikipedia — Road signs in Italy (Vatican uses the Italian system)',
+      url: 'https://en.wikipedia.org/wiki/Road_signs_in_Italy',
+    },
+    ],
+    notes:
+      'Vatican City is fully integrated into the Italian road-sign system. @road-signs/va re-exports @road-signs/it.',
+  },
+  af: {
+    name: 'Afghanistan',
+    standard: 'Vienna Convention adjacent (Ministry of Public Works)',
+    sources: [
+    {
+      label: 'Wikipedia — Transport in Afghanistan',
+      url: 'https://en.wikipedia.org/wiki/Transport_in_Afghanistan',
+    },
+    ],
+    notes:
+      'Empty package: no publicly available SVG sign catalogue located. Awaiting future PDF/web scrape.',
+  },
+  bf: {
+    name: 'Burkina Faso',
+    standard: 'Code de la route (French-influenced)',
+    sources: [
+    {
+      label: 'Wikipedia — Transport in Burkina Faso',
+      url: 'https://en.wikipedia.org/wiki/Transport_in_Burkina_Faso',
+    },
+    ],
+    notes:
+      'Empty package: no publicly available SVG sign catalogue located. Likely uses the French Vienna-Convention sign system with local variants.',
+  },
+  bh: {
+    name: 'Bahrain',
+    standard: 'GCC Traffic Signs Manual (bilingual Arabic/English)',
+    sources: [
+    {
+      label: 'Wikipedia — Transport in Bahrain',
+      url: 'https://en.wikipedia.org/wiki/Transport_in_Bahrain',
+    },
+    ],
+    notes:
+      'Empty package: no publicly available SVG sign catalogue located. Bahrain follows the shared GCC Traffic Signs Manual.',
+  },
+  bi: {
+    name: 'Burundi',
+    standard: 'Code de la route (French / Belgian influence)',
+    sources: [
+    {
+      label: 'Wikipedia — Transport in Burundi',
+      url: 'https://en.wikipedia.org/wiki/Transport_in_Burundi',
+    },
+    ],
+    notes:
+      'Empty package: no publicly available SVG sign catalogue located.',
+  },
+  bj: {
+    name: 'Benin',
+    standard: 'Code de la route (French-influenced)',
+    sources: [
+    {
+      label: 'Wikipedia — Transport in Benin',
+      url: 'https://en.wikipedia.org/wiki/Transport_in_Benin',
+    },
+    ],
+    notes:
+      'Empty package: no publicly available SVG sign catalogue located.',
+  },
+  bt: {
+    name: 'Bhutan',
+    standard: 'Bhutan Road Safety and Transport Authority (RSTA)',
+    sources: [
+    {
+      label: 'Wikipedia — Transport in Bhutan',
+      url: 'https://en.wikipedia.org/wiki/Transport_in_Bhutan',
+    },
+    ],
+    notes:
+      'Empty package: no publicly available SVG sign catalogue located.',
+  },
+  cd: {
+    name: 'DR Congo',
+    standard: 'Code de la route (French/Belgian-influenced)',
+    sources: [
+    {
+      label: 'Wikipedia — Transport in the Democratic Republic of the Congo',
+      url: 'https://en.wikipedia.org/wiki/Transport_in_the_Democratic_Republic_of_the_Congo',
+    },
+    ],
+    notes:
+      'Empty package: no publicly available SVG sign catalogue located.',
+  },
+  cf: {
+    name: 'Central African Republic',
+    standard: 'Code de la route (French-influenced)',
+    sources: [
+    {
+      label: 'Wikipedia — Transport in the Central African Republic',
+      url: 'https://en.wikipedia.org/wiki/Transport_in_the_Central_African_Republic',
+    },
+    ],
+    notes:
+      'Empty package: no publicly available SVG sign catalogue located.',
+  },
+  cg: {
+    name: 'Republic of the Congo',
+    standard: 'Code de la route (French-influenced)',
+    sources: [
+    {
+      label: 'Wikipedia — Transport in the Republic of the Congo',
+      url: 'https://en.wikipedia.org/wiki/Transport_in_the_Republic_of_the_Congo',
+    },
+    ],
+    notes:
+      'Empty package: no publicly available SVG sign catalogue located.',
+  },
+  cv: {
+    name: 'Cape Verde',
+    standard: 'Código da Estrada (Portuguese-influenced)',
+    sources: [
+    {
+      label: 'Wikipedia — Transport in Cape Verde',
+      url: 'https://en.wikipedia.org/wiki/Transport_in_Cape_Verde',
+    },
+    ],
+    notes:
+      'Empty package: no publicly available SVG sign catalogue located.',
+  },
+  dj: {
+    name: 'Djibouti',
+    standard: 'Code de la route (French-influenced)',
+    sources: [
+    {
+      label: 'Wikipedia — Transport in Djibouti',
+      url: 'https://en.wikipedia.org/wiki/Transport_in_Djibouti',
+    },
+    ],
+    notes:
+      'Empty package: no publicly available SVG sign catalogue located.',
+  },
+  er: {
+    name: 'Eritrea',
+    standard: 'Italian-influenced (Codice della Strada heritage)',
+    sources: [
+    {
+      label: 'Wikipedia — Transport in Eritrea',
+      url: 'https://en.wikipedia.org/wiki/Transport_in_Eritrea',
+    },
+    ],
+    notes:
+      'Empty package: no publicly available SVG sign catalogue located. Eritrea has historically used Italian-derived road signage.',
+  },
+  fm: {
+    name: 'Federated States of Micronesia',
+    standard: 'US MUTCD-influenced (Compact of Free Association)',
+    sources: [
+    {
+      label: 'Wikipedia — Transport in the Federated States of Micronesia',
+      url: 'https://en.wikipedia.org/wiki/Transport_in_the_Federated_States_of_Micronesia',
+    },
+    ],
+    notes:
+      'Empty package: no publicly available SVG sign catalogue located. Likely follows US MUTCD under the Compact of Free Association.',
+  },
+  ga: {
+    name: 'Gabon',
+    standard: 'Code de la route (French-influenced)',
+    sources: [
+    {
+      label: 'Wikipedia — Transport in Gabon',
+      url: 'https://en.wikipedia.org/wiki/Transport_in_Gabon',
+    },
+    ],
+    notes:
+      'Empty package: no publicly available SVG sign catalogue located.',
+  },
+  gm: {
+    name: 'Gambia',
+    standard: 'British-derived (Road Traffic Act)',
+    sources: [
+    {
+      label: 'Wikipedia — Transport in the Gambia',
+      url: 'https://en.wikipedia.org/wiki/Transport_in_the_Gambia',
+    },
+    ],
+    notes:
+      'Empty package: no publicly available SVG sign catalogue located.',
+  },
+  gn: {
+    name: 'Guinea',
+    standard: 'Code de la route (French-influenced)',
+    sources: [
+    {
+      label: 'Wikipedia — Transport in Guinea',
+      url: 'https://en.wikipedia.org/wiki/Transport_in_Guinea',
+    },
+    ],
+    notes:
+      'Empty package: no publicly available SVG sign catalogue located.',
+  },
+  gq: {
+    name: 'Equatorial Guinea',
+    standard: 'Spanish-influenced (Reglamento General de Circulación heritage)',
+    sources: [
+    {
+      label: 'Wikipedia — Transport in Equatorial Guinea',
+      url: 'https://en.wikipedia.org/wiki/Transport_in_Equatorial_Guinea',
+    },
+    ],
+    notes:
+      'Empty package: no publicly available SVG sign catalogue located.',
+  },
+  gw: {
+    name: 'Guinea-Bissau',
+    standard: 'Código da Estrada (Portuguese-influenced)',
+    sources: [
+    {
+      label: 'Wikipedia — Transport in Guinea-Bissau',
+      url: 'https://en.wikipedia.org/wiki/Transport_in_Guinea-Bissau',
+    },
+    ],
+    notes:
+      'Empty package: no publicly available SVG sign catalogue located.',
+  },
+  ki: {
+    name: 'Kiribati',
+    standard: 'British-derived (Road Traffic Act)',
+    sources: [
+    {
+      label: 'Wikipedia — Transport in Kiribati',
+      url: 'https://en.wikipedia.org/wiki/Transport_in_Kiribati',
+    },
+    ],
+    notes:
+      'Empty package: no publicly available SVG sign catalogue located.',
+  },
+  km: {
+    name: 'Comoros',
+    standard: 'Code de la route (French-influenced)',
+    sources: [
+    {
+      label: 'Wikipedia — Transport in the Comoros',
+      url: 'https://en.wikipedia.org/wiki/Transport_in_the_Comoros',
+    },
+    ],
+    notes:
+      'Empty package: no publicly available SVG sign catalogue located.',
+  },
+  lr: {
+    name: 'Liberia',
+    standard: 'US MUTCD-influenced',
+    sources: [
+    {
+      label: 'Wikipedia — Transport in Liberia',
+      url: 'https://en.wikipedia.org/wiki/Transport_in_Liberia',
+    },
+    ],
+    notes:
+      'Empty package: no publicly available SVG sign catalogue located. Liberia has historically used a US-influenced sign system.',
+  },
+  mh: {
+    name: 'Marshall Islands',
+    standard: 'US MUTCD-influenced (Compact of Free Association)',
+    sources: [
+    {
+      label: 'Wikipedia — Transport in the Marshall Islands',
+      url: 'https://en.wikipedia.org/wiki/Transport_in_the_Marshall_Islands',
+    },
+    ],
+    notes:
+      'Empty package: no publicly available SVG sign catalogue located. Likely follows US MUTCD under the Compact of Free Association.',
+  },
+  ml: {
+    name: 'Mali',
+    standard: 'Code de la route (French-influenced)',
+    sources: [
+    {
+      label: 'Wikipedia — Transport in Mali',
+      url: 'https://en.wikipedia.org/wiki/Transport_in_Mali',
+    },
+    ],
+    notes:
+      'Empty package: no publicly available SVG sign catalogue located.',
+  },
+  mr: {
+    name: 'Mauritania',
+    standard: 'Code de la route (French / Arabic bilingual)',
+    sources: [
+    {
+      label: 'Wikipedia — Transport in Mauritania',
+      url: 'https://en.wikipedia.org/wiki/Transport_in_Mauritania',
+    },
+    ],
+    notes:
+      'Empty package: no publicly available SVG sign catalogue located.',
+  },
+  mv: {
+    name: 'Maldives',
+    standard: 'British-derived (Maldives Transport Authority)',
+    sources: [
+    {
+      label: 'Wikipedia — Transport in the Maldives',
+      url: 'https://en.wikipedia.org/wiki/Transport_in_the_Maldives',
+    },
+    ],
+    notes:
+      'Empty package: no publicly available SVG sign catalogue located.',
+  },
+  ne: {
+    name: 'Niger',
+    standard: 'Code de la route (French-influenced)',
+    sources: [
+    {
+      label: 'Wikipedia — Transport in Niger',
+      url: 'https://en.wikipedia.org/wiki/Transport_in_Niger',
+    },
+    ],
+    notes:
+      'Empty package: no publicly available SVG sign catalogue located.',
+  },
+  nr: {
+    name: 'Nauru',
+    standard: 'British-derived (Road Traffic Act)',
+    sources: [
+    {
+      label: 'Wikipedia — Transport in Nauru',
+      url: 'https://en.wikipedia.org/wiki/Transport_in_Nauru',
+    },
+    ],
+    notes:
+      'Empty package: no publicly available SVG sign catalogue located.',
+  },
+  ps: {
+    name: 'Palestine',
+    standard: 'Bilingual Arabic/English/Hebrew (Israeli-derived in West Bank)',
+    sources: [
+    {
+      label: 'Wikipedia — Transport in the Palestinian territories',
+      url: 'https://en.wikipedia.org/wiki/Transport_in_the_Palestinian_territories',
+    },
+    ],
+    notes:
+      'Empty package: no publicly available SVG sign catalogue located.',
+  },
+  pw: {
+    name: 'Palau',
+    standard: 'US MUTCD-influenced (Compact of Free Association)',
+    sources: [
+    {
+      label: 'Wikipedia — Transport in Palau',
+      url: 'https://en.wikipedia.org/wiki/Transport_in_Palau',
+    },
+    ],
+    notes:
+      'Empty package: no publicly available SVG sign catalogue located. Likely follows US MUTCD under the Compact of Free Association.',
+  },
+  sb: {
+    name: 'Solomon Islands',
+    standard: 'British-derived (Road Transport Act)',
+    sources: [
+    {
+      label: 'Inland Revenue Division — Solomon Islands',
+      url: 'https://www.ird.gov.sb/',
+    },
+    {
+      label: 'Wikipedia — Transport in the Solomon Islands',
+      url: 'https://en.wikipedia.org/wiki/Transport_in_the_Solomon_Islands',
+    },
+    ],
+    notes:
+      'Empty package: candidate PDF sources identified at ird.gov.sb (driver’s licence guide, Road Transport Amendment Regulations 2014 gazette). Awaiting extraction.',
+  },
+  sc: {
+    name: 'Seychelles',
+    standard: 'British-derived (Road Transport Act)',
+    sources: [
+    {
+      label: 'Wikipedia — Transport in Seychelles',
+      url: 'https://en.wikipedia.org/wiki/Transport_in_Seychelles',
+    },
+    ],
+    notes:
+      'Empty package: no publicly available SVG sign catalogue located.',
+  },
+  sd: {
+    name: 'Sudan',
+    standard: 'British-derived (Highway Code)',
+    sources: [
+    {
+      label: 'Wikipedia — Transport in Sudan',
+      url: 'https://en.wikipedia.org/wiki/Transport_in_Sudan',
+    },
+    ],
+    notes:
+      'Empty package: no publicly available SVG sign catalogue located.',
+  },
+  sl: {
+    name: 'Sierra Leone',
+    standard: 'British-derived (Sierra Leone Road Safety Authority)',
+    sources: [
+    {
+      label: 'Wikipedia — Transport in Sierra Leone',
+      url: 'https://en.wikipedia.org/wiki/Transport_in_Sierra_Leone',
+    },
+    ],
+    notes:
+      'Empty package: no publicly available SVG sign catalogue located.',
+  },
+  so: {
+    name: 'Somalia',
+    standard: 'Italian heritage / British-influenced (Highway Code)',
+    sources: [
+    {
+      label: 'Wikipedia — Transport in Somalia',
+      url: 'https://en.wikipedia.org/wiki/Transport_in_Somalia',
+    },
+    ],
+    notes:
+      'Empty package: no publicly available SVG sign catalogue located.',
+  },
+  ss: {
+    name: 'South Sudan',
+    standard: 'British-derived (Highway Code)',
+    sources: [
+    {
+      label: 'Wikipedia — Transport in South Sudan',
+      url: 'https://en.wikipedia.org/wiki/Transport_in_South_Sudan',
+    },
+    ],
+    notes:
+      'Empty package: no publicly available SVG sign catalogue located.',
+  },
+  st: {
+    name: 'São Tomé and Príncipe',
+    standard: 'Código da Estrada (Portuguese-influenced)',
+    sources: [
+    {
+      label: 'Wikipedia — Transport in São Tomé and Príncipe',
+      url: 'https://en.wikipedia.org/wiki/Transport_in_S%C3%A3o_Tom%C3%A9_and_Pr%C3%ADncipe',
+    },
+    ],
+    notes:
+      'Empty package: no publicly available SVG sign catalogue located.',
+  },
+  td: {
+    name: 'Chad',
+    standard: 'Code de la route (French-influenced)',
+    sources: [
+    {
+      label: 'Wikipedia — Transport in Chad',
+      url: 'https://en.wikipedia.org/wiki/Transport_in_Chad',
+    },
+    ],
+    notes:
+      'Empty package: no publicly available SVG sign catalogue located.',
+  },
+  tg: {
+    name: 'Togo',
+    standard: 'Code de la route (French-influenced)',
+    sources: [
+    {
+      label: 'Wikipedia — Transport in Togo',
+      url: 'https://en.wikipedia.org/wiki/Transport_in_Togo',
+    },
+    ],
+    notes:
+      'Empty package: no publicly available SVG sign catalogue located.',
+  },
+  tl: {
+    name: 'Timor-Leste',
+    standard: 'Portuguese / Indonesian-influenced',
+    sources: [
+    {
+      label: 'Wikipedia — Transport in East Timor',
+      url: 'https://en.wikipedia.org/wiki/Transport_in_East_Timor',
+    },
+    ],
+    notes:
+      'Empty package: no publicly available SVG sign catalogue located.',
+  },
+  to: {
+    name: 'Tonga',
+    standard: 'British-derived (Traffic Act)',
+    sources: [
+    {
+      label: 'Wikipedia — Transport in Tonga',
+      url: 'https://en.wikipedia.org/wiki/Transport_in_Tonga',
+    },
+    ],
+    notes:
+      'Empty package: no publicly available SVG sign catalogue located.',
+  },
+  tv: {
+    name: 'Tuvalu',
+    standard: 'British-derived (Road Traffic Act)',
+    sources: [
+    {
+      label: 'Wikipedia — Transport in Tuvalu',
+      url: 'https://en.wikipedia.org/wiki/Transport_in_Tuvalu',
+    },
+    ],
+    notes:
+      'Empty package: no publicly available SVG sign catalogue located.',
+  },
+  vu: {
+    name: 'Vanuatu',
+    standard: 'British / French-influenced bilingual',
+    sources: [
+    {
+      label: 'Wikipedia — Transport in Vanuatu',
+      url: 'https://en.wikipedia.org/wiki/Transport_in_Vanuatu',
+    },
+    ],
+    notes:
+      'Empty package: no publicly available SVG sign catalogue located.',
+  },
+  ws: {
+    name: 'Samoa',
+    standard: 'New Zealand-derived (Land Transport Authority)',
+    sources: [
+    {
+      label: 'Wikipedia — Transport in Samoa',
+      url: 'https://en.wikipedia.org/wiki/Transport_in_Samoa',
+    },
+    ],
+    notes:
+      'Empty package: no publicly available SVG sign catalogue located.',
+  },
 };
 
 // ---------------------------------------------------------------------------
@@ -2161,8 +2693,15 @@ const svgExistsForCode = (code: string, pathTokens: string[], assetsRoot: string
 };
 
 const computeCoverage = (cc: string): CountryCoverage | null => {
+  if (!COUNTRIES[cc]) return null;
   const scrapedPath = path.join('data', cc, 'scraped.json');
-  if (!fs.existsSync(scrapedPath)) return null;
+
+  // Country has metadata but no scrape yet — emit a zero-coverage record so
+  // the docs page still gets a `## Coverage` section that honestly says
+  // "no signs scraped yet".
+  if (!fs.existsSync(scrapedPath)) {
+    return { cc, meta: COUNTRIES[cc], totalScraped: 0, totalWithSvg: 0, categories: {} };
+  }
 
   const scraped: Record<string, Array<{ code: string; name: string }>> = JSON.parse(
     fs.readFileSync(scrapedPath, 'utf-8'),

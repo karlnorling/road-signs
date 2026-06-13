@@ -8,20 +8,20 @@
 
 | Metric | Value |
 | ------ | ----- |
-| Total signs scraped | 400 |
-| Signs with SVG asset | 400 |
+| Total signs scraped | 0 |
+| Signs with SVG asset | 0 |
 | Missing SVG | 0 |
-| Overall coverage | **100%** |
+| Overall coverage | **—** |
 
 ## Coverage by Category
 
 | Category | Scraped | With SVG | Missing | Coverage |
 | -------- | ------: | -------: | ------: | -------: |
-| `warning` | 45 | 45 | 0 | 100% |
-| `priority` | 12 | 12 | 0 | 100% |
-| `prohibitory` | 48 | 48 | 0 | 100% |
-| `mandatory` | 44 | 44 | 0 | 100% |
-| `information` | 251 | 251 | 0 | 100% |
+| `warning` | 0 | 0 | 0 | — |
+| `priority` | 0 | 0 | 0 | — |
+| `prohibitory` | 0 | 0 | 0 | — |
+| `mandatory` | 0 | 0 | 0 | — |
+| `information` | 0 | 0 | 0 | — |
 
 ## Sources
 

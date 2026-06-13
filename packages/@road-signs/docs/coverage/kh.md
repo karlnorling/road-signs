@@ -17,9 +17,9 @@
 
 | Category | Scraped | With SVG | Missing | Coverage |
 | -------- | ------: | -------: | ------: | -------: |
-| `warning` | 60 | 60 | 0 | 100% |
+| `warning` | 61 | 61 | 0 | 100% |
 | `priority` | 11 | 11 | 0 | 100% |
-| `prohibitory` | 47 | 47 | 0 | 100% |
+| `prohibitory` | 46 | 46 | 0 | 100% |
 | `mandatory` | 23 | 23 | 0 | 100% |
 | `information` | 324 | 324 | 0 | 100% |
 
