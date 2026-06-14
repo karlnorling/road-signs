@@ -5,6 +5,15 @@ description: Tonga road signs — categories, installation, and usage.
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
+
+{/* HERO:START */}
+
+import CountryHero from '../../../components/CountryHero.astro';
+
+<CountryHero cc="to" />
+
+{/* HERO:END */}
+
 The `@road-signs/to` package contains Tonga road signs.
 
 ## Installation
@@ -22,19 +31,19 @@ npm install @road-signs/to
     ```ts
     import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/to';
 
-    // Placeholders — replace with real codes once @road-signs/to ships a registry.
+    // Example below uses the real TO sign "STOP" — adjust to taste.
 
     // All signs
     signs.length;
 
     // By slug ID
-    const sign = getSign("example-sign");
+    const sign = getSign("stop-stop");
 
     // By sign code
-    const s = getSignByCode("EXAMPLE-CODE");
+    const s = getSignByCode("STOP");
 
-    // All warning signs
-    const filtered = getSignsByCategory("warning");
+    // All priority signs
+    const filtered = getSignsByCategory("priority");
     ```
   </TabItem>
   <TabItem label="React">
@@ -42,12 +51,12 @@ npm install @road-signs/to
     import { getSignsByCategory } from '@road-signs/to';
     import { RoadSign } from '@road-signs/react';
 
-    const warningSigns = getSignsByCategory("warning");
+    const prioritySigns = getSignsByCategory("priority");
 
     export default function TOGrid() {
       return (
         <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-          {warningSigns.map((sign) => (
+          {prioritySigns.map((sign) => (
             <RoadSign key={sign.id} sign={sign} size={64} />
           ))}
         </div>
@@ -61,12 +70,12 @@ npm install @road-signs/to
     import { getSignsByCategory } from '@road-signs/to';
     import { RoadSign } from '@road-signs/vue';
 
-    const warningSigns = getSignsByCategory("warning");
+    const prioritySigns = getSignsByCategory("priority");
     </script>
 
     <template>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <RoadSign v-for="sign in warningSigns" :key="sign.id" :sign="sign" :size="64" />
+        <RoadSign v-for="sign in prioritySigns" :key="sign.id" :sign="sign" :size="64" />
       </div>
     </template>
     ```
@@ -81,13 +90,14 @@ npm install @road-signs/to
 
 | Metric | Value |
 | ------ | ----- |
-| Signs scraped | 0 |
-| Signs with SVG | 0 |
+| Signs scraped | 2 |
+| Signs with SVG | 2 |
 | Missing SVG | 0 |
-| Overall | **—** |
+| Overall | **100%** |
 
 | Category | Scraped | With SVG | Missing | % |
 | -------- | ------: | -------: | ------: | -: |
+| `priority` | 2 | 2 | 0 | 100% |
 
 **Standard:** British-derived (Traffic Act)
 
@@ -96,7 +106,7 @@ npm install @road-signs/to
 - [Wikipedia — Transport in Tonga](https://en.wikipedia.org/wiki/Transport_in_Tonga)
 
 :::note
-Empty package: no publicly available SVG sign catalogue located.
+Minimal package: 2 SVGs from Commons (Stop, Give Way). Tonga's full catalogue is not online.
 :::
 
 _Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.com/package/@road-signs/docs) package._

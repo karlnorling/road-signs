@@ -8,15 +8,17 @@
 
 | Metric | Value |
 | ------ | ----- |
-| Total signs scraped | 0 |
-| Signs with SVG asset | 0 |
+| Total signs scraped | 3 |
+| Signs with SVG asset | 3 |
 | Missing SVG | 0 |
-| Overall coverage | **—** |
+| Overall coverage | **100%** |
 
 ## Coverage by Category
 
 | Category | Scraped | With SVG | Missing | Coverage |
 | -------- | ------: | -------: | ------: | -------: |
+| `priority` | 2 | 2 | 0 | 100% |
+| `prohibitory` | 1 | 1 | 0 | 100% |
 
 ## Sources
 
@@ -24,4 +26,4 @@
 
 ## Notes
 
-Empty package: no publicly available SVG sign catalogue located. Liberia has historically used a US-influenced sign system.
+Minimal package: 3 SVGs from the "Liberian Road Signs" Commons series (Stop, Yield, No Entry). Likely follows a US-influenced system; full catalogue not online.

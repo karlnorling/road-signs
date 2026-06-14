@@ -8,15 +8,16 @@
 
 | Metric | Value |
 | ------ | ----- |
-| Total signs scraped | 0 |
-| Signs with SVG asset | 0 |
+| Total signs scraped | 1 |
+| Signs with SVG asset | 1 |
 | Missing SVG | 0 |
-| Overall coverage | **—** |
+| Overall coverage | **100%** |
 
 ## Coverage by Category
 
 | Category | Scraped | With SVG | Missing | Coverage |
 | -------- | ------: | -------: | ------: | -------: |
+| `priority` | 1 | 1 | 0 | 100% |
 
 ## Sources
 
@@ -24,4 +25,4 @@
 
 ## Notes
 
-Empty package: no publicly available SVG sign catalogue located.
+Minimal package: 1 SVG from Commons (Stop sign). Vanuatu's full catalogue is not online.

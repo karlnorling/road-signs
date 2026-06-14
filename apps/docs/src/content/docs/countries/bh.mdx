@@ -7,6 +7,15 @@ import { Tabs, TabItem } from '@astrojs/starlight/components';
 
 
 
+
+{/* HERO:START */}
+
+import CountryHero from '../../../components/CountryHero.astro';
+
+<CountryHero cc="bh" />
+
+{/* HERO:END */}
+
 {/* QUICK_FACTS:START */}
 
 ## Quick facts
@@ -37,19 +46,19 @@ npm install @road-signs/bh
     ```ts
     import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/bh';
 
-    // Placeholders — replace with real codes once @road-signs/bh ships a registry.
+    // Example below uses the real BH sign "GIVE_WAY" — adjust to taste.
 
     // All signs
     signs.length;
 
     // By slug ID
-    const sign = getSign("example-sign");
+    const sign = getSign("give-way-give-way");
 
     // By sign code
-    const s = getSignByCode("EXAMPLE-CODE");
+    const s = getSignByCode("GIVE_WAY");
 
-    // All warning signs
-    const filtered = getSignsByCategory("warning");
+    // All priority signs
+    const filtered = getSignsByCategory("priority");
     ```
   </TabItem>
   <TabItem label="React">
@@ -57,12 +66,12 @@ npm install @road-signs/bh
     import { getSignsByCategory } from '@road-signs/bh';
     import { RoadSign } from '@road-signs/react';
 
-    const warningSigns = getSignsByCategory("warning");
+    const prioritySigns = getSignsByCategory("priority");
 
     export default function BHGrid() {
       return (
         <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-          {warningSigns.map((sign) => (
+          {prioritySigns.map((sign) => (
             <RoadSign key={sign.id} sign={sign} size={64} />
           ))}
         </div>
@@ -76,12 +85,12 @@ npm install @road-signs/bh
     import { getSignsByCategory } from '@road-signs/bh';
     import { RoadSign } from '@road-signs/vue';
 
-    const warningSigns = getSignsByCategory("warning");
+    const prioritySigns = getSignsByCategory("priority");
     </script>
 
     <template>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <RoadSign v-for="sign in warningSigns" :key="sign.id" :sign="sign" :size="64" />
+        <RoadSign v-for="sign in prioritySigns" :key="sign.id" :sign="sign" :size="64" />
       </div>
     </template>
     ```
@@ -96,13 +105,14 @@ npm install @road-signs/bh
 
 | Metric | Value |
 | ------ | ----- |
-| Signs scraped | 0 |
-| Signs with SVG | 0 |
+| Signs scraped | 1 |
+| Signs with SVG | 1 |
 | Missing SVG | 0 |
-| Overall | **—** |
+| Overall | **100%** |
 
 | Category | Scraped | With SVG | Missing | % |
 | -------- | ------: | -------: | ------: | -: |
+| `priority` | 1 | 1 | 0 | 100% |
 
 **Standard:** GCC Traffic Signs Manual (bilingual Arabic/English)
 

@@ -24,4 +24,4 @@
 
 ## Notes
 
-Empty package: no publicly available SVG sign catalogue located. Eritrea has historically used Italian-derived road signage.
+Minimal package: 6 SVGs sourced from Wikimedia Commons (1 stop sign + 5 PNH national-highway shields). Bhutan's full RSTA sign catalogue is not published online; this is a starter set.

@@ -2653,7 +2653,7 @@ const COUNTRIES: Record<string, CountryMeta> = {
       },
     ],
     notes:
-      'Empty package: no publicly available SVG sign catalogue located. Eritrea has historically used Italian-derived road signage.',
+      'Minimal package: 6 SVGs sourced from Wikimedia Commons (1 stop sign + 5 PNH national-highway shields). Bhutan\'s full RSTA sign catalogue is not published online; this is a starter set.',
   },
   fm: {
     name: 'Federated States of Micronesia',
@@ -2665,7 +2665,7 @@ const COUNTRIES: Record<string, CountryMeta> = {
       },
     ],
     notes:
-      'Empty package: no publicly available SVG sign catalogue located. Likely follows US MUTCD under the Compact of Free Association.',
+      'Minimal package: 1 SVG from Commons (Give Way). Full GCC Traffic Signs Manual catalogue is not on Commons; this is a placeholder.',
   },
   ga: {
     name: 'Gabon',
@@ -2754,7 +2754,7 @@ const COUNTRIES: Record<string, CountryMeta> = {
       },
     ],
     notes:
-      'Empty package: no publicly available SVG sign catalogue located. Liberia has historically used a US-influenced sign system.',
+      'Minimal package: 3 SVGs from the "Liberian Road Signs" Commons series (Stop, Yield, No Entry). Likely follows a US-influenced system; full catalogue not online.',
   },
   mh: {
     name: 'Marshall Islands',
@@ -2973,7 +2973,7 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://en.wikipedia.org/wiki/Transport_in_Tonga',
       },
     ],
-    notes: 'Empty package: no publicly available SVG sign catalogue located.',
+    notes: 'Minimal package: 2 SVGs from Commons (Stop, Give Way). Tonga\'s full catalogue is not online.',
   },
   tv: {
     name: 'Tuvalu',
@@ -2995,7 +2995,7 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://en.wikipedia.org/wiki/Transport_in_Vanuatu',
       },
     ],
-    notes: 'Empty package: no publicly available SVG sign catalogue located.',
+    notes: 'Minimal package: 1 SVG from Commons (Stop sign). Vanuatu\'s full catalogue is not online.',
   },
   ws: {
     name: 'Samoa',
@@ -3006,7 +3006,7 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://en.wikipedia.org/wiki/Transport_in_Samoa',
       },
     ],
-    notes: 'Empty package: no publicly available SVG sign catalogue located.',
+    notes: 'Minimal package: 2 SVGs from Commons (Ford warning, Speed Limit). Samoa\'s full catalogue is not online.',
   },
 };
 

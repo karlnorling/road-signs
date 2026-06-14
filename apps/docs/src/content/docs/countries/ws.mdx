@@ -5,6 +5,15 @@ description: Samoa road signs — categories, installation, and usage.
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
+
+{/* HERO:START */}
+
+import CountryHero from '../../../components/CountryHero.astro';
+
+<CountryHero cc="ws" />
+
+{/* HERO:END */}
+
 The `@road-signs/ws` package contains Samoa road signs.
 
 ## Installation
@@ -22,16 +31,16 @@ npm install @road-signs/ws
     ```ts
     import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/ws';
 
-    // Placeholders — replace with real codes once @road-signs/ws ships a registry.
+    // Example below uses the real WS sign "FORD" — adjust to taste.
 
     // All signs
     signs.length;
 
     // By slug ID
-    const sign = getSign("example-sign");
+    const sign = getSign("ford-ford");
 
     // By sign code
-    const s = getSignByCode("EXAMPLE-CODE");
+    const s = getSignByCode("FORD");
 
     // All warning signs
     const filtered = getSignsByCategory("warning");
@@ -81,13 +90,15 @@ npm install @road-signs/ws
 
 | Metric | Value |
 | ------ | ----- |
-| Signs scraped | 0 |
-| Signs with SVG | 0 |
+| Signs scraped | 2 |
+| Signs with SVG | 2 |
 | Missing SVG | 0 |
-| Overall | **—** |
+| Overall | **100%** |
 
 | Category | Scraped | With SVG | Missing | % |
 | -------- | ------: | -------: | ------: | -: |
+| `warning` | 1 | 1 | 0 | 100% |
+| `prohibitory` | 1 | 1 | 0 | 100% |
 
 **Standard:** New Zealand-derived (Land Transport Authority)
 
@@ -96,7 +107,7 @@ npm install @road-signs/ws
 - [Wikipedia — Transport in Samoa](https://en.wikipedia.org/wiki/Transport_in_Samoa)
 
 :::note
-Empty package: no publicly available SVG sign catalogue located.
+Minimal package: 2 SVGs from Commons (Ford warning, Speed Limit). Samoa's full catalogue is not online.
 :::
 
 _Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.com/package/@road-signs/docs) package._

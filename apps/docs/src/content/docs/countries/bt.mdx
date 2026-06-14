@@ -7,6 +7,15 @@ import { Tabs, TabItem } from '@astrojs/starlight/components';
 
 
 
+
+{/* HERO:START */}
+
+import CountryHero from '../../../components/CountryHero.astro';
+
+<CountryHero cc="bt" />
+
+{/* HERO:END */}
+
 {/* QUICK_FACTS:START */}
 
 ## Quick facts
@@ -37,19 +46,19 @@ npm install @road-signs/bt
     ```ts
     import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/bt';
 
-    // Placeholders — replace with real codes once @road-signs/bt ships a registry.
+    // Example below uses the real BT sign "PNH1" — adjust to taste.
 
     // All signs
     signs.length;
 
     // By slug ID
-    const sign = getSign("example-sign");
+    const sign = getSign("pnh1-primary-national-highway-1-shield");
 
     // By sign code
-    const s = getSignByCode("EXAMPLE-CODE");
+    const s = getSignByCode("PNH1");
 
-    // All warning signs
-    const filtered = getSignsByCategory("warning");
+    // All information signs
+    const filtered = getSignsByCategory("information");
     ```
   </TabItem>
   <TabItem label="React">
@@ -57,12 +66,12 @@ npm install @road-signs/bt
     import { getSignsByCategory } from '@road-signs/bt';
     import { RoadSign } from '@road-signs/react';
 
-    const warningSigns = getSignsByCategory("warning");
+    const informationSigns = getSignsByCategory("information");
 
     export default function BTGrid() {
       return (
         <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-          {warningSigns.map((sign) => (
+          {informationSigns.map((sign) => (
             <RoadSign key={sign.id} sign={sign} size={64} />
           ))}
         </div>
@@ -76,12 +85,12 @@ npm install @road-signs/bt
     import { getSignsByCategory } from '@road-signs/bt';
     import { RoadSign } from '@road-signs/vue';
 
-    const warningSigns = getSignsByCategory("warning");
+    const informationSigns = getSignsByCategory("information");
     </script>
 
     <template>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <RoadSign v-for="sign in warningSigns" :key="sign.id" :sign="sign" :size="64" />
+        <RoadSign v-for="sign in informationSigns" :key="sign.id" :sign="sign" :size="64" />
       </div>
     </template>
     ```
@@ -96,13 +105,15 @@ npm install @road-signs/bt
 
 | Metric | Value |
 | ------ | ----- |
-| Signs scraped | 0 |
-| Signs with SVG | 0 |
+| Signs scraped | 6 |
+| Signs with SVG | 6 |
 | Missing SVG | 0 |
-| Overall | **—** |
+| Overall | **100%** |
 
 | Category | Scraped | With SVG | Missing | % |
 | -------- | ------: | -------: | ------: | -: |
+| `priority` | 1 | 1 | 0 | 100% |
+| `information` | 5 | 5 | 0 | 100% |
 
 **Standard:** Bhutan Road Safety and Transport Authority (RSTA)
 

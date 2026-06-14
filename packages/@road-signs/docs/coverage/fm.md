@@ -24,4 +24,4 @@
 
 ## Notes
 
-Empty package: no publicly available SVG sign catalogue located. Likely follows US MUTCD under the Compact of Free Association.
+Minimal package: 1 SVG from Commons (Give Way). Full GCC Traffic Signs Manual catalogue is not on Commons; this is a placeholder.

@@ -44,9 +44,7 @@ const collectSignSources = (srcDir: string): string[] => {
   const src = fs.readFileSync(primary, 'utf-8');
   const shardImports = [...src.matchAll(/from\s+['"]\.\/(signs\.[a-z0-9_]+\.generated)['"]/gi)];
   if (shardImports.length === 0) return [primary];
-  return shardImports
-    .map((m) => path.join(srcDir, `${m[1]}.ts`))
-    .filter(fs.existsSync);
+  return shardImports.map((m) => path.join(srcDir, `${m[1]}.ts`)).filter(fs.existsSync);
 };
 
 /**
@@ -100,7 +98,9 @@ const main = (): void => {
   fs.writeFileSync(OUT_PATH, JSON.stringify(all), 'utf-8');
 
   const sizeMb = (Buffer.byteLength(JSON.stringify(all)) / 1024 / 1024).toFixed(2);
-  console.log(`Wrote ${OUT_PATH}: ${all.length} signs across ${countries.length} countries (${sizeMb} MB)`);
+  console.log(
+    `Wrote ${OUT_PATH}: ${all.length} signs across ${countries.length} countries (${sizeMb} MB)`,
+  );
 };
 
 main();
