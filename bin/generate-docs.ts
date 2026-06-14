@@ -3329,7 +3329,9 @@ const extractSampleSign = (cc: string): SampleSign | null => {
   // Build the list of source files: either the primary OR every shard.
   const sources: string[] = [];
   const primarySrc = fs.readFileSync(primary, 'utf-8');
-  const shardMatches = [...primarySrc.matchAll(/from\s+['"]\.\/(signs\.[a-z0-9_]+\.generated)['"]/gi)];
+  const shardMatches = [
+    ...primarySrc.matchAll(/from\s+['"]\.\/(signs\.[a-z0-9_]+\.generated)['"]/gi),
+  ];
   if (shardMatches.length > 0) {
     for (const m of shardMatches) {
       const f = path.join(srcDir, `${m[1]}.ts`);
