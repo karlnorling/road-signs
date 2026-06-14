@@ -56,7 +56,7 @@ const countCategoryFiles = async (categoryName: string): Promise<number> => {
     };
     const files = json.query?.categorymembers ?? [];
     return files.filter((f) => f.title.toLowerCase().endsWith('.svg')).length;
-  } catch (err) {
+  } catch {
     return -1; // error sentinel
   }
 };
