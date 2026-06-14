@@ -47,6 +47,8 @@ npm install @road-signs/br
 | `mandatory` | — | Compulsory actions |
 | `information` | D-xx / S-xx | Indicação / Serviço signs |
 
+{/* USAGE:START */}
+
 ## Usage
 
 <Tabs>
@@ -54,17 +56,19 @@ npm install @road-signs/br
     ```ts
     import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/br';
 
+    // Example below uses the real BR sign "A-1A" — adjust to taste.
+
     // All signs
     signs.length;
 
     // By slug ID
-    const sign = getSign("a-1-curves-ahead");
+    const sign = getSign("a-1a-sharp-curve-to-left");
 
     // By sign code
-    const s = getSignByCode("A-1");
+    const s = getSignByCode("A-1A");
 
-    // All prohibitory signs
-    const filtered = getSignsByCategory('prohibitory');
+    // All warning signs
+    const filtered = getSignsByCategory("warning");
     ```
   </TabItem>
   <TabItem label="React">
@@ -72,12 +76,12 @@ npm install @road-signs/br
     import { getSignsByCategory } from '@road-signs/br';
     import { RoadSign } from '@road-signs/react';
 
-    const warnings = getSignsByCategory('warning');
+    const warningSigns = getSignsByCategory("warning");
 
-    export default function WarningGrid() {
+    export default function BRGrid() {
       return (
         <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-          {warnings.map((sign) => (
+          {warningSigns.map((sign) => (
             <RoadSign key={sign.id} sign={sign} size={64} />
           ))}
         </div>
@@ -91,18 +95,19 @@ npm install @road-signs/br
     import { getSignsByCategory } from '@road-signs/br';
     import { RoadSign } from '@road-signs/vue';
 
-    const warnings = getSignsByCategory('warning');
+    const warningSigns = getSignsByCategory("warning");
     </script>
 
     <template>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <RoadSign v-for="sign in warnings" :key="sign.id" :sign="sign" :size="64" />
+        <RoadSign v-for="sign in warningSigns" :key="sign.id" :sign="sign" :size="64" />
       </div>
     </template>
     ```
   </TabItem>
 </Tabs>
 
+{/* USAGE:END */}
 
 {/* COVERAGE:START */}
 

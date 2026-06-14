@@ -49,6 +49,8 @@ npm install @road-signs/se
 | `mandatory` | D series | Compulsory actions — circular, blue background |
 | `information` | E–I series | Information, directions, and services — rectangular |
 
+{/* USAGE:START */}
+
 ## Usage
 
 <Tabs>
@@ -56,17 +58,19 @@ npm install @road-signs/se
     ```ts
     import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/se';
 
+    // Example below uses the real SE sign "F1-1" — adjust to taste.
+
     // All signs
     signs.length;
 
     // By slug ID
-    const curve = getSign('a1-curve-right');
+    const sign = getSign("f1-1-f1-1");
 
     // By sign code
-    const stop = getSignByCode('B1');
+    const s = getSignByCode("F1-1");
 
-    // All prohibitory signs
-    const prohibitory = getSignsByCategory('prohibitory');
+    // All information signs
+    const filtered = getSignsByCategory("information");
     ```
   </TabItem>
   <TabItem label="React">
@@ -74,12 +78,12 @@ npm install @road-signs/se
     import { getSignsByCategory } from '@road-signs/se';
     import { RoadSign } from '@road-signs/react';
 
-    const warnings = getSignsByCategory('warning');
+    const informationSigns = getSignsByCategory("information");
 
-    export default function WarningGrid() {
+    export default function SEGrid() {
       return (
         <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-          {warnings.map((sign) => (
+          {informationSigns.map((sign) => (
             <RoadSign key={sign.id} sign={sign} size={64} />
           ))}
         </div>
@@ -93,18 +97,19 @@ npm install @road-signs/se
     import { getSignsByCategory } from '@road-signs/se';
     import { RoadSign } from '@road-signs/vue';
 
-    const warnings = getSignsByCategory('warning');
+    const informationSigns = getSignsByCategory("information");
     </script>
 
     <template>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <RoadSign v-for="sign in warnings" :key="sign.id" :sign="sign" :size="64" />
+        <RoadSign v-for="sign in informationSigns" :key="sign.id" :sign="sign" :size="64" />
       </div>
     </template>
     ```
   </TabItem>
 </Tabs>
 
+{/* USAGE:END */}
 
 {/* COVERAGE:START */}
 

@@ -3248,6 +3248,8 @@ const HERO_START = '{/* HERO:START */}';
 const HERO_END = '{/* HERO:END */}';
 const QUICK_FACTS_START = '{/* QUICK_FACTS:START */}';
 const QUICK_FACTS_END = '{/* QUICK_FACTS:END */}';
+const USAGE_START = '{/* USAGE:START */}';
+const USAGE_END = '{/* USAGE:END */}';
 
 const heroBlock = (cc: string): string =>
   `${HERO_START}\n\n` +
@@ -3286,6 +3288,152 @@ const quickFactsBlock = (cov: CountryCoverage): string | null => {
   if (!body) return null;
   return `${QUICK_FACTS_START}\n\n${body}\n\n${QUICK_FACTS_END}`;
 };
+
+interface SampleSign {
+  id: string;
+  code: string;
+  category: string;
+}
+
+/**
+ * Heuristic: does this string look like a real sign code (e.g. "W1-1",
+ * "101", "A.1", "Zeichen 274") rather than a stale slug-as-code from the
+ * pre-review buggy extractor (e.g. "sign-101-danger-...-the-danger")?
+ *
+ * The fallback path in older scrapes would slugify the description and use
+ * THAT as the code, producing very long strings with English words. Real
+ * codes are short, mostly digits + a short letter prefix.
+ */
+const looksLikeRealCode = (code: string): boolean => {
+  if (code.length > 16) return false;
+  if (/^\d+$/.test(code)) return true; // numeric: UK / FI / NO / JP / KR
+  // Allow 1–4 letter prefix + numbers + optional letter suffix, possibly
+  // with dots or dashes (W1-1, A.1, Zeichen 274's "274", etc.).
+  return /^[A-Za-z]{0,4}[-. ]?\d+[\w.-]*$/.test(code);
+};
+
+/**
+ * Pulls a representative sign from a country's signs.generated.ts (or its
+ * shard files) so docs code-samples reference codes that actually exist.
+ * Returns null for empty packages.
+ *
+ * Preference order:
+ *   1. First entry whose `code` looks like a real sign code.
+ *   2. Failing that, the very first entry (better than nothing).
+ */
+const extractSampleSign = (cc: string): SampleSign | null => {
+  const srcDir = path.join('packages', '@road-signs', cc, 'src');
+  const primary = path.join(srcDir, 'signs.generated.ts');
+  if (!fs.existsSync(primary)) return null;
+
+  // Build the list of source files: either the primary OR every shard.
+  const sources: string[] = [];
+  const primarySrc = fs.readFileSync(primary, 'utf-8');
+  const shardMatches = [...primarySrc.matchAll(/from\s+['"]\.\/(signs\.[a-z0-9_]+\.generated)['"]/gi)];
+  if (shardMatches.length > 0) {
+    for (const m of shardMatches) {
+      const f = path.join(srcDir, `${m[1]}.ts`);
+      if (fs.existsSync(f)) sources.push(f);
+    }
+  } else {
+    sources.push(primary);
+  }
+
+  let first: SampleSign | null = null;
+  for (const f of sources) {
+    const src = fs.readFileSync(f, 'utf-8');
+    // Split by sign-literal closers (the closing `  },` lines we use during
+    // sharding). Within each block, capture each field independently so the
+    // field order doesn't matter.
+    for (const blockSrc of src.split(/\n  \},\n/)) {
+      const codeM = blockSrc.match(/\bcode:\s*"([^"]+)"/);
+      const idM = blockSrc.match(/\bid:\s*"([^"]+)"/);
+      const catM = blockSrc.match(/\bcategory:\s*"([^"]+)"/);
+      if (!codeM || !idM || !catM) continue;
+      const candidate: SampleSign = { id: idM[1], code: codeM[1], category: catM[1] };
+      if (!first) first = candidate;
+      if (looksLikeRealCode(candidate.code)) return candidate;
+    }
+  }
+  return first;
+};
+
+/**
+ * Render the Usage section's <Tabs> block, substituting real sign codes
+ * when available. Falls back to neutral placeholders for empty packages.
+ */
+const usageSectionBody = (cc: string, sample: SampleSign | null): string => {
+  const upper = cc.toUpperCase();
+  const idSample = sample ? sample.id : 'example-sign';
+  const codeSample = sample ? sample.code : 'EXAMPLE-CODE';
+  const categorySample = sample ? sample.category : 'warning';
+  const sampleComment = sample
+    ? `// Example below uses the real ${upper} sign "${sample.code}" — adjust to taste.`
+    : `// Placeholders — replace with real codes once @road-signs/${cc} ships a registry.`;
+
+  return [
+    '## Usage',
+    '',
+    '<Tabs>',
+    '  <TabItem label="TypeScript">',
+    '    ```ts',
+    `    import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/${cc}';`,
+    '',
+    `    ${sampleComment}`,
+    '',
+    '    // All signs',
+    '    signs.length;',
+    '',
+    '    // By slug ID',
+    `    const sign = getSign("${idSample}");`,
+    '',
+    '    // By sign code',
+    `    const s = getSignByCode("${codeSample}");`,
+    '',
+    `    // All ${categorySample} signs`,
+    `    const filtered = getSignsByCategory("${categorySample}");`,
+    '    ```',
+    '  </TabItem>',
+    '  <TabItem label="React">',
+    '    ```tsx',
+    `    import { getSignsByCategory } from '@road-signs/${cc}';`,
+    "    import { RoadSign } from '@road-signs/react';",
+    '',
+    `    const ${categorySample}Signs = getSignsByCategory("${categorySample}");`,
+    '',
+    `    export default function ${cc.toUpperCase()}Grid() {`,
+    '      return (',
+    "        <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>",
+    `          {${categorySample}Signs.map((sign) => (`,
+    '            <RoadSign key={sign.id} sign={sign} size={64} />',
+    '          ))}',
+    '        </div>',
+    '      );',
+    '    }',
+    '    ```',
+    '  </TabItem>',
+    '  <TabItem label="Vue 3">',
+    '    ```vue',
+    '    <script setup>',
+    `    import { getSignsByCategory } from '@road-signs/${cc}';`,
+    "    import { RoadSign } from '@road-signs/vue';",
+    '',
+    `    const ${categorySample}Signs = getSignsByCategory("${categorySample}");`,
+    '    </script>',
+    '',
+    '    <template>',
+    '      <div style="display:flex;gap:8px;flex-wrap:wrap">',
+    `        <RoadSign v-for="sign in ${categorySample}Signs" :key="sign.id" :sign="sign" :size="64" />`,
+    '      </div>',
+    '    </template>',
+    '    ```',
+    '  </TabItem>',
+    '</Tabs>',
+  ].join('\n');
+};
+
+const usageBlock = (cc: string, sample: SampleSign | null): string =>
+  `${USAGE_START}\n\n${usageSectionBody(cc, sample)}\n\n${USAGE_END}`;
 
 /**
  * Replace content between `start` and `end` markers if both are present.
@@ -3338,6 +3486,51 @@ const injectHeroMdx = (mdxPath: string, cc: string): void => {
   if (importMatch) cursor += importMatch[0].length;
 
   content = content.slice(0, cursor) + '\n' + block + '\n\n' + content.slice(cursor);
+  fs.writeFileSync(mdxPath, content, 'utf-8');
+};
+
+/**
+ * Inject (or replace) the Usage section's <Tabs> block with one that uses a
+ * real sign code from the country's registry. Idempotent. On first run,
+ * wraps the existing hand-written ## Usage + <Tabs> region (located by
+ * scanning for `## Usage` and the matching `</Tabs>`) so subsequent runs
+ * can replace it via markers.
+ */
+const injectUsageMdx = (mdxPath: string, cc: string): void => {
+  if (!fs.existsSync(mdxPath)) return;
+  const sample = extractSampleSign(cc);
+  const block = usageBlock(cc, sample);
+
+  let content = fs.readFileSync(mdxPath, 'utf-8');
+
+  const updated = replaceBetween(content, USAGE_START, USAGE_END, block);
+  if (updated.replaced) {
+    fs.writeFileSync(mdxPath, updated.content, 'utf-8');
+    return;
+  }
+
+  // First run: locate the existing `## Usage\n\n<Tabs>` … `</Tabs>` span and
+  // replace it in-place. If we can't find one, append the block at the end
+  // (before TypeScript types) — the page just gets a fresh Usage section.
+  const usageHeadingIdx = content.indexOf('## Usage');
+  const tabsCloseIdx = usageHeadingIdx === -1 ? -1 : content.indexOf('</Tabs>', usageHeadingIdx);
+  if (usageHeadingIdx !== -1 && tabsCloseIdx !== -1) {
+    const before = content.slice(0, usageHeadingIdx);
+    const after = content.slice(tabsCloseIdx + '</Tabs>'.length);
+    content = before + block + after;
+    fs.writeFileSync(mdxPath, content, 'utf-8');
+    return;
+  }
+
+  // No usage section to replace — insert before TypeScript types if present,
+  // else append to end.
+  const tsAnchor = '\n## TypeScript types';
+  const insertAt = content.indexOf(tsAnchor);
+  if (insertAt !== -1) {
+    content = content.slice(0, insertAt) + '\n\n' + block + '\n' + content.slice(insertAt);
+  } else {
+    content = content.trimEnd() + '\n\n' + block + '\n';
+  }
   fs.writeFileSync(mdxPath, content, 'utf-8');
 };
 
@@ -3447,6 +3640,7 @@ for (const cov of coverages) {
   // Skip the hero if the country has no signs at all (e.g. Lebanon).
   if (cov.totalScraped > 0) injectHeroMdx(mdxPath, cov.cc);
   injectQuickFactsMdx(mdxPath, cov);
+  injectUsageMdx(mdxPath, cov.cc);
   injectCoverageMdx(mdxPath, cov);
   console.log(`  ${mdxPath}`);
 }

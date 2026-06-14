@@ -43,6 +43,8 @@ npm install @road-signs/ly
 | `warning` | Warning | Hazard and warning signs |
 | `prohibitory` | Regulatory | Regulatory and prohibition signs |
 
+{/* USAGE:START */}
+
 ## Usage
 
 <Tabs>
@@ -50,17 +52,19 @@ npm install @road-signs/ly
     ```ts
     import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/ly';
 
+    // Example below uses the real LY sign "libyan-stop-sign" — adjust to taste.
+
     // All signs
     signs.length;
 
     // By slug ID
-    const sign = getSign("example-sign");
+    const sign = getSign("libyan-stop-sign-libyan-stop-sign");
 
     // By sign code
-    const s = getSignByCode("W1");
+    const s = getSignByCode("libyan-stop-sign");
 
-    // All warning signs
-    const filtered = getSignsByCategory('warning');
+    // All information signs
+    const filtered = getSignsByCategory("information");
     ```
   </TabItem>
   <TabItem label="React">
@@ -68,12 +72,12 @@ npm install @road-signs/ly
     import { getSignsByCategory } from '@road-signs/ly';
     import { RoadSign } from '@road-signs/react';
 
-    const warnings = getSignsByCategory('warning');
+    const informationSigns = getSignsByCategory("information");
 
-    export default function WarningGrid() {
+    export default function LYGrid() {
       return (
         <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-          {warnings.map((sign) => (
+          {informationSigns.map((sign) => (
             <RoadSign key={sign.id} sign={sign} size={64} />
           ))}
         </div>
@@ -87,18 +91,19 @@ npm install @road-signs/ly
     import { getSignsByCategory } from '@road-signs/ly';
     import { RoadSign } from '@road-signs/vue';
 
-    const warnings = getSignsByCategory('warning');
+    const informationSigns = getSignsByCategory("information");
     </script>
 
     <template>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <RoadSign v-for="sign in warnings" :key="sign.id" :sign="sign" :size="64" />
+        <RoadSign v-for="sign in informationSigns" :key="sign.id" :sign="sign" :size="64" />
       </div>
     </template>
     ```
   </TabItem>
 </Tabs>
 
+{/* USAGE:END */}
 
 {/* COVERAGE:START */}
 

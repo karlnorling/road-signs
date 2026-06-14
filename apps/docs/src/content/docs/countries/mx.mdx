@@ -45,6 +45,8 @@ npm install @road-signs/mx
 | `prohibitory` | Restrictivas | Prohibitions and restrictions |
 | `information` | Informativas | Information and direction |
 
+{/* USAGE:START */}
+
 ## Usage
 
 <Tabs>
@@ -52,17 +54,19 @@ npm install @road-signs/mx
     ```ts
     import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/mx';
 
+    // Example below uses the real MX sign "SP-6" — adjust to taste.
+
     // All signs
     signs.length;
 
     // By slug ID
-    const sign = getSign("p1-sharp-bend");
+    const sign = getSign("sp-6-sp-6");
 
     // By sign code
-    const s = getSignByCode("P-1");
+    const s = getSignByCode("SP-6");
 
     // All warning signs
-    const filtered = getSignsByCategory('warning');
+    const filtered = getSignsByCategory("warning");
     ```
   </TabItem>
   <TabItem label="React">
@@ -70,12 +74,12 @@ npm install @road-signs/mx
     import { getSignsByCategory } from '@road-signs/mx';
     import { RoadSign } from '@road-signs/react';
 
-    const warnings = getSignsByCategory('warning');
+    const warningSigns = getSignsByCategory("warning");
 
-    export default function WarningGrid() {
+    export default function MXGrid() {
       return (
         <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-          {warnings.map((sign) => (
+          {warningSigns.map((sign) => (
             <RoadSign key={sign.id} sign={sign} size={64} />
           ))}
         </div>
@@ -89,18 +93,19 @@ npm install @road-signs/mx
     import { getSignsByCategory } from '@road-signs/mx';
     import { RoadSign } from '@road-signs/vue';
 
-    const warnings = getSignsByCategory('warning');
+    const warningSigns = getSignsByCategory("warning");
     </script>
 
     <template>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <RoadSign v-for="sign in warnings" :key="sign.id" :sign="sign" :size="64" />
+        <RoadSign v-for="sign in warningSigns" :key="sign.id" :sign="sign" :size="64" />
       </div>
     </template>
     ```
   </TabItem>
 </Tabs>
 
+{/* USAGE:END */}
 
 {/* COVERAGE:START */}
 

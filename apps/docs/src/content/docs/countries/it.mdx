@@ -47,6 +47,8 @@ npm install @road-signs/it
 | `mandatory` | fig. IV series | Obligation signs — circular, blue background |
 | `information` | fig. V–VI series | Indication and direction signs — rectangular |
 
+{/* USAGE:START */}
+
 ## Usage
 
 <Tabs>
@@ -54,17 +56,19 @@ npm install @road-signs/it
     ```ts
     import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/it';
 
+    // Example below uses the real IT sign "A1" — adjust to taste.
+
     // All signs
     signs.length;
 
     // By slug ID
-    const sign = getSign("ii-1-curve-ahead");
+    const sign = getSign("a1-beginning-of-a-danger-or-a-prescription-vertical");
 
     // By sign code
-    const s = getSignByCode("II.1");
+    const s = getSignByCode("A1");
 
-    // All prohibitory signs
-    const filtered = getSignsByCategory('prohibitory');
+    // All information signs
+    const filtered = getSignsByCategory("information");
     ```
   </TabItem>
   <TabItem label="React">
@@ -72,12 +76,12 @@ npm install @road-signs/it
     import { getSignsByCategory } from '@road-signs/it';
     import { RoadSign } from '@road-signs/react';
 
-    const warnings = getSignsByCategory('warning');
+    const informationSigns = getSignsByCategory("information");
 
-    export default function WarningGrid() {
+    export default function ITGrid() {
       return (
         <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-          {warnings.map((sign) => (
+          {informationSigns.map((sign) => (
             <RoadSign key={sign.id} sign={sign} size={64} />
           ))}
         </div>
@@ -91,18 +95,19 @@ npm install @road-signs/it
     import { getSignsByCategory } from '@road-signs/it';
     import { RoadSign } from '@road-signs/vue';
 
-    const warnings = getSignsByCategory('warning');
+    const informationSigns = getSignsByCategory("information");
     </script>
 
     <template>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <RoadSign v-for="sign in warnings" :key="sign.id" :sign="sign" :size="64" />
+        <RoadSign v-for="sign in informationSigns" :key="sign.id" :sign="sign" :size="64" />
       </div>
     </template>
     ```
   </TabItem>
 </Tabs>
 
+{/* USAGE:END */}
 
 {/* COVERAGE:START */}
 

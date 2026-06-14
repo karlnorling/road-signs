@@ -47,6 +47,8 @@ npm install @road-signs/cz
 | `mandatory` | C series | Příkazové značky — compulsory actions |
 | `information` | IP/IJ/IS series | Informativní značky — information and service |
 
+{/* USAGE:START */}
+
 ## Usage
 
 <Tabs>
@@ -54,17 +56,19 @@ npm install @road-signs/cz
     ```ts
     import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/cz';
 
+    // Example below uses the real CZ sign "I-1A" — adjust to taste.
+
     // All signs
     signs.length;
 
     // By slug ID
-    const sign = getSign("a1-sharp-bend");
+    const sign = getSign("i-1a-i-1a-dangerous-curve-to-the-right");
 
     // By sign code
-    const s = getSignByCode("A1");
+    const s = getSignByCode("I-1A");
 
     // All warning signs
-    const filtered = getSignsByCategory('warning');
+    const filtered = getSignsByCategory("warning");
     ```
   </TabItem>
   <TabItem label="React">
@@ -72,12 +76,12 @@ npm install @road-signs/cz
     import { getSignsByCategory } from '@road-signs/cz';
     import { RoadSign } from '@road-signs/react';
 
-    const warnings = getSignsByCategory('warning');
+    const warningSigns = getSignsByCategory("warning");
 
-    export default function WarningGrid() {
+    export default function CZGrid() {
       return (
         <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-          {warnings.map((sign) => (
+          {warningSigns.map((sign) => (
             <RoadSign key={sign.id} sign={sign} size={64} />
           ))}
         </div>
@@ -91,18 +95,19 @@ npm install @road-signs/cz
     import { getSignsByCategory } from '@road-signs/cz';
     import { RoadSign } from '@road-signs/vue';
 
-    const warnings = getSignsByCategory('warning');
+    const warningSigns = getSignsByCategory("warning");
     </script>
 
     <template>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <RoadSign v-for="sign in warnings" :key="sign.id" :sign="sign" :size="64" />
+        <RoadSign v-for="sign in warningSigns" :key="sign.id" :sign="sign" :size="64" />
       </div>
     </template>
     ```
   </TabItem>
 </Tabs>
 
+{/* USAGE:END */}
 
 {/* COVERAGE:START */}
 

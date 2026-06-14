@@ -44,6 +44,8 @@ npm install @road-signs/sg
 | `prohibitory` | Regulatory | Regulatory and prohibition signs |
 | `information` | Directional / Temporary | Information and directional signs |
 
+{/* USAGE:START */}
+
 ## Usage
 
 <Tabs>
@@ -51,17 +53,19 @@ npm install @road-signs/sg
     ```ts
     import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/sg';
 
+    // Example below uses the real SG sign "W15" — adjust to taste.
+
     // All signs
     signs.length;
 
     // By slug ID
-    const sign = getSign("example-sign");
+    const sign = getSign("w15-singapore-road-sign");
 
     // By sign code
-    const s = getSignByCode("W1");
+    const s = getSignByCode("W15");
 
-    // All warning signs
-    const filtered = getSignsByCategory('warning');
+    // All information signs
+    const filtered = getSignsByCategory("information");
     ```
   </TabItem>
   <TabItem label="React">
@@ -69,12 +73,12 @@ npm install @road-signs/sg
     import { getSignsByCategory } from '@road-signs/sg';
     import { RoadSign } from '@road-signs/react';
 
-    const warnings = getSignsByCategory('warning');
+    const informationSigns = getSignsByCategory("information");
 
-    export default function WarningGrid() {
+    export default function SGGrid() {
       return (
         <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-          {warnings.map((sign) => (
+          {informationSigns.map((sign) => (
             <RoadSign key={sign.id} sign={sign} size={64} />
           ))}
         </div>
@@ -88,18 +92,19 @@ npm install @road-signs/sg
     import { getSignsByCategory } from '@road-signs/sg';
     import { RoadSign } from '@road-signs/vue';
 
-    const warnings = getSignsByCategory('warning');
+    const informationSigns = getSignsByCategory("information");
     </script>
 
     <template>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <RoadSign v-for="sign in warnings" :key="sign.id" :sign="sign" :size="64" />
+        <RoadSign v-for="sign in informationSigns" :key="sign.id" :sign="sign" :size="64" />
       </div>
     </template>
     ```
   </TabItem>
 </Tabs>
 
+{/* USAGE:END */}
 
 {/* COVERAGE:START */}
 

@@ -44,6 +44,8 @@ npm install @road-signs/tz
 | `prohibitory` | Prohibitory | Prohibition and restriction signs |
 | `information` | Information / Service / Additional | Information, service, and additional plate signs |
 
+{/* USAGE:START */}
+
 ## Usage
 
 <Tabs>
@@ -51,17 +53,19 @@ npm install @road-signs/tz
     ```ts
     import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/tz';
 
+    // Example below uses the real TZ sign "stop-3-way" — adjust to taste.
+
     // All signs
     signs.length;
 
     // By slug ID
-    const sign = getSign("example-sign");
+    const sign = getSign("stop-3-way-stop-3-way");
 
     // By sign code
-    const s = getSignByCode("1.1");
+    const s = getSignByCode("stop-3-way");
 
-    // All warning signs
-    const filtered = getSignsByCategory('warning');
+    // All prohibitory signs
+    const filtered = getSignsByCategory("prohibitory");
     ```
   </TabItem>
   <TabItem label="React">
@@ -69,12 +73,12 @@ npm install @road-signs/tz
     import { getSignsByCategory } from '@road-signs/tz';
     import { RoadSign } from '@road-signs/react';
 
-    const warnings = getSignsByCategory('warning');
+    const prohibitorySigns = getSignsByCategory("prohibitory");
 
-    export default function WarningGrid() {
+    export default function TZGrid() {
       return (
         <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-          {warnings.map((sign) => (
+          {prohibitorySigns.map((sign) => (
             <RoadSign key={sign.id} sign={sign} size={64} />
           ))}
         </div>
@@ -88,18 +92,19 @@ npm install @road-signs/tz
     import { getSignsByCategory } from '@road-signs/tz';
     import { RoadSign } from '@road-signs/vue';
 
-    const warnings = getSignsByCategory('warning');
+    const prohibitorySigns = getSignsByCategory("prohibitory");
     </script>
 
     <template>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <RoadSign v-for="sign in warnings" :key="sign.id" :sign="sign" :size="64" />
+        <RoadSign v-for="sign in prohibitorySigns" :key="sign.id" :sign="sign" :size="64" />
       </div>
     </template>
     ```
   </TabItem>
 </Tabs>
 
+{/* USAGE:END */}
 
 {/* COVERAGE:START */}
 

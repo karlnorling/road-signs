@@ -32,6 +32,8 @@ npm install @road-signs/jm
 | `mandatory` | Mandatory | Mandatory instruction signs |
 | `information` | Information / Service / Additional | Information, service, and additional plate signs |
 
+{/* USAGE:START */}
+
 ## Usage
 
 <Tabs>
@@ -39,17 +41,19 @@ npm install @road-signs/jm
     ```ts
     import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/jm';
 
+    // Example below uses the real JM sign "W1-1" — adjust to taste.
+
     // All signs
     signs.length;
 
     // By slug ID
-    const sign = getSign("example-sign");
+    const sign = getSign("w1-1-bend-to-the-right");
 
     // By sign code
-    const s = getSignByCode("1.1");
+    const s = getSignByCode("W1-1");
 
     // All warning signs
-    const filtered = getSignsByCategory('warning');
+    const filtered = getSignsByCategory("warning");
     ```
   </TabItem>
   <TabItem label="React">
@@ -57,12 +61,12 @@ npm install @road-signs/jm
     import { getSignsByCategory } from '@road-signs/jm';
     import { RoadSign } from '@road-signs/react';
 
-    const warnings = getSignsByCategory('warning');
+    const warningSigns = getSignsByCategory("warning");
 
-    export default function WarningGrid() {
+    export default function JMGrid() {
       return (
         <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-          {warnings.map((sign) => (
+          {warningSigns.map((sign) => (
             <RoadSign key={sign.id} sign={sign} size={64} />
           ))}
         </div>
@@ -76,18 +80,19 @@ npm install @road-signs/jm
     import { getSignsByCategory } from '@road-signs/jm';
     import { RoadSign } from '@road-signs/vue';
 
-    const warnings = getSignsByCategory('warning');
+    const warningSigns = getSignsByCategory("warning");
     </script>
 
     <template>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <RoadSign v-for="sign in warnings" :key="sign.id" :sign="sign" :size="64" />
+        <RoadSign v-for="sign in warningSigns" :key="sign.id" :sign="sign" :size="64" />
       </div>
     </template>
     ```
   </TabItem>
 </Tabs>
 
+{/* USAGE:END */}
 
 {/* COVERAGE:START */}
 

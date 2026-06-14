@@ -47,6 +47,8 @@ npm install @road-signs/be
 | `mandatory` | D series | Compulsory actions |
 | `information` | E–X series | Information and direction signs |
 
+{/* USAGE:START */}
+
 ## Usage
 
 <Tabs>
@@ -54,17 +56,19 @@ npm install @road-signs/be
     ```ts
     import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/be';
 
+    // Example below uses the real BE sign "A1A" — adjust to taste.
+
     // All signs
     signs.length;
 
     // By slug ID
-    const sign = getSign("a1-danger-bend-right");
+    const sign = getSign("a1a-a1a-bend-to-the-left");
 
     // By sign code
-    const s = getSignByCode("A1");
+    const s = getSignByCode("A1A");
 
-    // All prohibitory signs
-    const filtered = getSignsByCategory('prohibitory');
+    // All warning signs
+    const filtered = getSignsByCategory("warning");
     ```
   </TabItem>
   <TabItem label="React">
@@ -72,12 +76,12 @@ npm install @road-signs/be
     import { getSignsByCategory } from '@road-signs/be';
     import { RoadSign } from '@road-signs/react';
 
-    const warnings = getSignsByCategory('warning');
+    const warningSigns = getSignsByCategory("warning");
 
-    export default function WarningGrid() {
+    export default function BEGrid() {
       return (
         <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-          {warnings.map((sign) => (
+          {warningSigns.map((sign) => (
             <RoadSign key={sign.id} sign={sign} size={64} />
           ))}
         </div>
@@ -91,18 +95,19 @@ npm install @road-signs/be
     import { getSignsByCategory } from '@road-signs/be';
     import { RoadSign } from '@road-signs/vue';
 
-    const warnings = getSignsByCategory('warning');
+    const warningSigns = getSignsByCategory("warning");
     </script>
 
     <template>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <RoadSign v-for="sign in warnings" :key="sign.id" :sign="sign" :size="64" />
+        <RoadSign v-for="sign in warningSigns" :key="sign.id" :sign="sign" :size="64" />
       </div>
     </template>
     ```
   </TabItem>
 </Tabs>
 
+{/* USAGE:END */}
 
 {/* COVERAGE:START */}
 
