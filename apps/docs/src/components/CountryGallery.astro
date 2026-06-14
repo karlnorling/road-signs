@@ -18,9 +18,18 @@ interface Sign {
 
 interface Props {
   signs: Sign[];
+  /**
+   * Optional prefix for the gallery's DOM IDs so multiple instances can
+   * coexist on the same page (the /compare page mounts two galleries).
+   * Falls back to "gallery" for backwards compatibility.
+   */
+  id?: string;
 }
 
-const { signs } = Astro.props;
+const { signs, id = 'gallery' } = Astro.props;
+const inputId = `${id}-search`;
+const countId = `${id}-count`;
+const gridId = `${id}-grid`;
 
 // Derive categories present in this dataset — works for all country taxonomies.
 const categories = [...new Set(signs.map((s) => s.category))].sort();
@@ -56,7 +65,7 @@ const categoryLabel = (cat: string) =>
   <div class="gallery-controls">
     <input
       type="search"
-      id="gallery-search"
+      id={inputId}
       placeholder="Search by name or code…"
       aria-label="Search signs"
     />
@@ -79,7 +88,7 @@ const categoryLabel = (cat: string) =>
     }
   </div>
 
-  <p class="gallery-count" id="gallery-count">
+  <p class="gallery-count" id={countId}>
     {
       signs.length === 0
         ? 'No signs yet — run yarn update --country=XX to populate.'
@@ -87,7 +96,7 @@ const categoryLabel = (cat: string) =>
     }
   </p>
 
-  <div class="sign-grid" id="sign-grid">
+  <div class="sign-grid" id={gridId}>
     {
       signs.map((sign) => {
         // Prefer inline SVG; fall back to the largest PNG raster for PDF-extracted signs.
@@ -250,40 +259,44 @@ const categoryLabel = (cat: string) =>
   }
 </style>
 
-<script>
-  const searchInput = document.getElementById('gallery-search') as HTMLInputElement;
-  const grid = document.getElementById('sign-grid')!;
-  const countEl = document.getElementById('gallery-count')!;
-  const categoryBtns = document.querySelectorAll<HTMLButtonElement>('.filter-btn[data-category]');
+<script define:vars={{ inputId, gridId, countId }}>
+  const searchInput = document.getElementById(inputId);
+  const grid = document.getElementById(gridId);
+  const countEl = document.getElementById(countId);
+  if (searchInput && grid && countEl) {
+    // Scope filter buttons to the wrapper that contains this grid so two
+    // CountryGallery instances on /compare don't share category state.
+    const wrapper = grid.closest('.gallery');
+    const categoryBtns = wrapper
+      ? wrapper.querySelectorAll('.filter-btn[data-category]')
+      : document.querySelectorAll('.filter-btn[data-category]');
 
-  let activeCategory: string | null = null;
+    let activeCategory = null;
 
-  function update() {
-    const q = searchInput.value.toLowerCase().trim();
-    let visible = 0;
+    const update = () => {
+      const q = searchInput.value.toLowerCase().trim();
+      let visible = 0;
+      grid.querySelectorAll('.sign-card').forEach((card) => {
+        const matchesSearch =
+          !q || card.dataset.name.includes(q) || card.dataset.code.includes(q);
+        const matchesCategory = !activeCategory || card.dataset.category === activeCategory;
+        const show = matchesSearch && matchesCategory;
+        card.classList.toggle('hidden', !show);
+        if (show) visible++;
+      });
+      countEl.textContent = `${visible} sign${visible !== 1 ? 's' : ''}`;
+    };
 
-    grid.querySelectorAll<HTMLElement>('.sign-card').forEach((card) => {
-      const matchesSearch =
-        !q || card.dataset.name!.includes(q) || card.dataset.code!.includes(q);
-      const matchesCategory = !activeCategory || card.dataset.category === activeCategory;
-      const show = matchesSearch && matchesCategory;
-      card.classList.toggle('hidden', !show);
-      if (show) visible++;
+    searchInput.addEventListener('input', update);
+    categoryBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const cat = btn.dataset.category;
+        activeCategory = activeCategory === cat ? null : cat;
+        categoryBtns.forEach((b) =>
+          b.setAttribute('aria-pressed', String(b.dataset.category === activeCategory)),
+        );
+        update();
+      });
     });
-
-    countEl.textContent = `${visible} sign${visible !== 1 ? 's' : ''}`;
   }
-
-  searchInput.addEventListener('input', update);
-
-  categoryBtns.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      const cat = btn.dataset.category!;
-      activeCategory = activeCategory === cat ? null : cat;
-      categoryBtns.forEach((b) =>
-        b.setAttribute('aria-pressed', String(b.dataset.category === activeCategory)),
-      );
-      update();
-    });
-  });
 </script>

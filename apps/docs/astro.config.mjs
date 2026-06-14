@@ -252,6 +252,10 @@ export default defineConfig({
           ],
         },
         {
+          label: 'Compare',
+          items: [{ label: 'Side-by-side', link: '/compare' }],
+        },
+        {
           label: 'Countries',
           items: [
             {

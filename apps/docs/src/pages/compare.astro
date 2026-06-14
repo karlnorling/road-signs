@@ -1,0 +1,181 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import CountryGallery from '../components/CountryGallery.astro';
+
+import { getAllSigns as deSigns } from '@road-signs/de';
+import { getAllSigns as frSigns } from '@road-signs/fr';
+import { getAllSigns as jpSigns } from '@road-signs/jp';
+import { getAllSigns as ukSigns } from '@road-signs/uk';
+import { getAllSigns as usSigns } from '@road-signs/us';
+
+// Pre-bundling every country's full registry on a single page costs ~7 MB of
+// HTML per country. To keep this page manageable, the compare view is
+// curated to a small high-traffic set (~5 countries) and capped to the first
+// 60 signs per country. Visitors who need the full catalogue click through
+// to the country's own gallery page.
+const SIGN_CAP = 60;
+const countries = [
+  { cc: 'us', label: 'United States',  load: usSigns },
+  { cc: 'de', label: 'Germany',        load: deSigns },
+  { cc: 'uk', label: 'United Kingdom', load: ukSigns },
+  { cc: 'fr', label: 'France',         load: frSigns },
+  { cc: 'jp', label: 'Japan',          load: jpSigns },
+];
+---
+
+<StarlightPage
+  frontmatter={{
+    title: 'Compare road sign systems',
+    description: "View two countries' sign catalogues side-by-side. Useful when designing multi-country signage or comparing standards.",
+    tableOfContents: false,
+  }}
+>
+  <p>
+    Pick two countries to view a sample of their road sign catalogues
+    side-by-side. Each panel keeps its own search and category filter, and
+    your selection is preserved in the URL hash so you can share a link.
+  </p>
+  <p style="font-size: 0.85rem; color: var(--sl-color-gray-3);">
+    Showing up to {SIGN_CAP} signs per country to keep the page light. For the
+    full catalogue, follow the package link in the panel header.
+  </p>
+
+  <div class="compare-controls">
+    <label>
+      <span>Left</span>
+      <select id="compare-a">
+        {countries.map((c) => (
+          <option value={c.cc} selected={c.cc === 'us'}>{c.label} ({c.cc.toUpperCase()})</option>
+        ))}
+      </select>
+    </label>
+    <label>
+      <span>Right</span>
+      <select id="compare-b">
+        {countries.map((c) => (
+          <option value={c.cc} selected={c.cc === 'de'}>{c.label} ({c.cc.toUpperCase()})</option>
+        ))}
+      </select>
+    </label>
+  </div>
+
+  <div class="compare-grid">
+    {countries.map((c) => (
+      <div class="compare-panel" data-cc={c.cc} hidden>
+        <h2>
+          {c.label} <small>(<a href={`/road-signs/countries/${c.cc}/`}><code>@road-signs/{c.cc}</code></a>)</small>
+        </h2>
+        <CountryGallery signs={c.load().slice(0, SIGN_CAP)} id={`compare-${c.cc}`} />
+      </div>
+    ))}
+  </div>
+</StarlightPage>
+
+<style>
+  .compare-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin: 0.75rem 0 1.5rem;
+    padding: 0.85rem;
+    background: var(--sl-color-bg-sidebar);
+    border: 1px solid var(--sl-color-gray-6);
+    border-radius: 0.5rem;
+  }
+
+  .compare-controls label {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-size: 0.78rem;
+    color: var(--sl-color-gray-3);
+  }
+
+  .compare-controls span {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .compare-controls select {
+    padding: 0.4rem 0.6rem;
+    border-radius: 0.375rem;
+    border: 1px solid var(--sl-color-gray-5);
+    background: var(--sl-color-bg);
+    color: var(--sl-color-text);
+    font-size: 0.9rem;
+    min-width: 220px;
+  }
+
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    align-items: start;
+  }
+
+  @media (max-width: 900px) {
+    .compare-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .compare-panel > h2 {
+    margin: 0 0 0.85rem;
+    font-size: 1.1rem;
+  }
+
+  .compare-panel small {
+    font-weight: normal;
+    color: var(--sl-color-gray-3);
+    font-size: 0.85rem;
+  }
+
+  .compare-panel small code {
+    font-size: 0.85rem;
+  }
+</style>
+
+<script>
+  const selA = document.getElementById('compare-a') as HTMLSelectElement;
+  const selB = document.getElementById('compare-b') as HTMLSelectElement;
+  const panels = document.querySelectorAll<HTMLElement>('.compare-panel');
+
+  /** Read hash like `#a=us&b=de` with defaults for missing keys. */
+  const readHash = (): { a: string; b: string } => {
+    const params = new URLSearchParams(window.location.hash.replace(/^#/, ''));
+    return { a: params.get('a') ?? 'us', b: params.get('b') ?? 'de' };
+  };
+
+  const writeHash = (a: string, b: string) => {
+    history.replaceState(null, '', `#a=${a}&b=${b}`);
+  };
+
+  const showPair = (a: string, b: string) => {
+    panels.forEach((p) => {
+      p.hidden = !(p.dataset.cc === a || p.dataset.cc === b);
+      const cc = p.dataset.cc;
+      if (cc === a) p.style.order = '0';
+      else if (cc === b) p.style.order = '1';
+    });
+  };
+
+  const sync = () => {
+    showPair(selA.value, selB.value);
+    writeHash(selA.value, selB.value);
+  };
+
+  // Initial state from URL hash.
+  const initial = readHash();
+  if ([...selA.options].some((o) => o.value === initial.a)) selA.value = initial.a;
+  if ([...selB.options].some((o) => o.value === initial.b)) selB.value = initial.b;
+  showPair(selA.value, selB.value);
+
+  selA.addEventListener('change', sync);
+  selB.addEventListener('change', sync);
+  window.addEventListener('hashchange', () => {
+    const { a, b } = readHash();
+    selA.value = a;
+    selB.value = b;
+    showPair(a, b);
+  });
+</script>
