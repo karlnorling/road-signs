@@ -33,4 +33,4 @@
 
 ## Notes
 
-Informational (M/I series) signs have ~59% SVG coverage — remaining signs exist only in FHWA PDFs.
+Overall coverage is ~95%. The 72 remaining signs are all Hawaii-specific supplements (codes prefixed HW, HR, HS, HD). Not in the FHWA 2024 SHS ZIPs, not on Wikimedia Commons, and Hawaii DOT does not publish a state sign manual PDF — a structural gap until vector sources surface. Investigated 2026-06-14.

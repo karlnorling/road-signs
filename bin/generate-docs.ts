@@ -1130,7 +1130,7 @@ const COUNTRIES: Record<string, CountryMeta> = {
       },
     ],
     notes:
-      'Informational (M/I series) signs have ~59% SVG coverage — remaining signs exist only in FHWA PDFs.',
+      'Overall coverage is ~95%. The 72 remaining signs are all Hawaii-specific supplements (codes prefixed HW, HR, HS, HD). Not in the FHWA 2024 SHS ZIPs, not on Wikimedia Commons, and Hawaii DOT does not publish a state sign manual PDF — a structural gap until vector sources surface. Investigated 2026-06-14.',
     driveSide: 'right',
     languages: ['English'],
     regulator: 'FHWA',
@@ -2653,7 +2653,7 @@ const COUNTRIES: Record<string, CountryMeta> = {
       },
     ],
     notes:
-      'Minimal package: 6 SVGs sourced from Wikimedia Commons (1 stop sign + 5 PNH national-highway shields). Bhutan\'s full RSTA sign catalogue is not published online; this is a starter set.',
+      "Minimal package: 6 SVGs sourced from Wikimedia Commons (1 stop sign + 5 PNH national-highway shields). Bhutan's full RSTA sign catalogue is not published online; this is a starter set.",
   },
   fm: {
     name: 'Federated States of Micronesia',
@@ -2973,7 +2973,8 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://en.wikipedia.org/wiki/Transport_in_Tonga',
       },
     ],
-    notes: 'Minimal package: 2 SVGs from Commons (Stop, Give Way). Tonga\'s full catalogue is not online.',
+    notes:
+      "Minimal package: 2 SVGs from Commons (Stop, Give Way). Tonga's full catalogue is not online.",
   },
   tv: {
     name: 'Tuvalu',
@@ -2995,7 +2996,8 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://en.wikipedia.org/wiki/Transport_in_Vanuatu',
       },
     ],
-    notes: 'Minimal package: 1 SVG from Commons (Stop sign). Vanuatu\'s full catalogue is not online.',
+    notes:
+      "Minimal package: 1 SVG from Commons (Stop sign). Vanuatu's full catalogue is not online.",
   },
   ws: {
     name: 'Samoa',
@@ -3006,7 +3008,8 @@ const COUNTRIES: Record<string, CountryMeta> = {
         url: 'https://en.wikipedia.org/wiki/Transport_in_Samoa',
       },
     ],
-    notes: 'Minimal package: 2 SVGs from Commons (Ford warning, Speed Limit). Samoa\'s full catalogue is not online.',
+    notes:
+      "Minimal package: 2 SVGs from Commons (Ford warning, Speed Limit). Samoa's full catalogue is not online.",
   },
 };
 
