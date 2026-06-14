@@ -28,7 +28,8 @@
     "fill-gaps": "tsx bin/fill-gaps.ts",
     "generate-docs": "tsx bin/generate-docs.ts",
     "trace-missing": "tsx bin/trace-missing.ts",
-    "validate-categories": "tsx bin/validate-categories.ts"
+    "validate-categories": "tsx bin/validate-categories.ts",
+    "generate-search-index": "tsx bin/generate-search-index.ts"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.10",

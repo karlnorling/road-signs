@@ -1,0 +1,242 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+---
+
+<StarlightPage
+  frontmatter={{
+    title: 'Search all signs',
+    description: 'Search for road signs across every country in @road-signs/* by code, name, or category.',
+    tableOfContents: false,
+  }}
+>
+  <p>
+    Search ~38,000 signs across 197 countries. Type a code (<code>W1-1</code>,
+    <code>101</code>), a sign name (<code>stop</code>, <code>yield</code>), or a
+    country code (<code>de</code>, <code>jp</code>). Results link straight into
+    the country's gallery.
+  </p>
+
+  <input
+    type="search"
+    id="search-input"
+    placeholder="Search code, name, or country…"
+    aria-label="Search signs"
+    autocomplete="off"
+  />
+
+  <p id="search-status" class="search-status">Loading index…</p>
+
+  <ul id="search-results" class="search-results" aria-live="polite"></ul>
+</StarlightPage>
+
+<style>
+  #search-input {
+    width: 100%;
+    max-width: 540px;
+    padding: 0.6rem 0.85rem;
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 0.4rem;
+    background: var(--sl-color-bg);
+    color: var(--sl-color-text);
+    font-size: 1rem;
+    margin: 0.5rem 0 1rem;
+  }
+
+  #search-input:focus {
+    outline: 2px solid var(--sl-color-accent);
+    outline-offset: 1px;
+  }
+
+  .search-status {
+    font-size: 0.85rem;
+    color: var(--sl-color-gray-3);
+    margin: 0 0 1rem;
+  }
+
+  .search-results {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .search-results li {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 0.85rem;
+    padding: 0.55rem 0.85rem;
+    border: 1px solid var(--sl-color-gray-6);
+    border-radius: 0.4rem;
+    background: var(--sl-color-bg-sidebar);
+  }
+
+  .search-results a {
+    color: var(--sl-color-text);
+    text-decoration: none;
+  }
+
+  .search-results a:hover .result-name,
+  .search-results a:focus-visible .result-name {
+    color: var(--sl-color-accent-high);
+  }
+
+  .result-cc {
+    font-family: var(--sl-font-mono);
+    font-size: 0.72rem;
+    font-weight: 600;
+    padding: 0.18rem 0.45rem;
+    background: var(--sl-color-bg);
+    border: 1px solid var(--sl-color-gray-5);
+    border-radius: 999px;
+    color: var(--sl-color-gray-2);
+    min-width: 2.5rem;
+    text-align: center;
+  }
+
+  .result-meta {
+    font-family: var(--sl-font-mono);
+    font-size: 0.7rem;
+    color: var(--sl-color-gray-3);
+    margin: 0 0 0.1rem;
+  }
+
+  .result-name {
+    font-size: 0.9rem;
+    line-height: 1.2;
+  }
+
+  .result-link {
+    font-size: 0.78rem;
+    color: var(--sl-color-gray-3);
+    white-space: nowrap;
+  }
+</style>
+
+<script>
+  interface SignEntry {
+    cc: string;
+    code: string;
+    name: string;
+    category: string;
+    id: string;
+    hasSvg: boolean;
+  }
+
+  const input = document.getElementById('search-input') as HTMLInputElement;
+  const status = document.getElementById('search-status') as HTMLElement;
+  const list = document.getElementById('search-results') as HTMLUListElement;
+
+  let index: SignEntry[] = [];
+  let loadError = false;
+
+  const escapeHtml = (s: string): string =>
+    s
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/'/g, '&#39;')
+      .replace(/"/g, '&quot;');
+
+  // Best-effort URL — we always pass `/road-signs` as the base prefix because
+  // that's what astro.config.mjs sets and there's no easy way to read it
+  // client-side. The country gallery URL also includes #<sign-id> to anchor
+  // the result; the gallery page reads location.hash to scroll into view if
+  // implemented (no-op today, but the URL is at least correct).
+  const galleryUrl = (cc: string, id: string): string =>
+    `/road-signs/gallery/${cc}/#${id}`;
+
+  const MAX_RESULTS = 100;
+
+  /**
+   * Tiny rank-aware substring search. Ranks code-prefix matches highest,
+   * then name-prefix, then code substring, then name substring. Country-code
+   * exact matches also boost the rank.
+   */
+  const rankMatch = (sign: SignEntry, q: string): number => {
+    const code = sign.code.toLowerCase();
+    const name = sign.name.toLowerCase();
+    if (code === q || sign.cc === q) return 100;
+    if (code.startsWith(q)) return 80;
+    if (name.startsWith(q)) return 70;
+    if (code.includes(q)) return 50;
+    if (name.includes(q)) return 40;
+    return 0;
+  };
+
+  const renderResults = (q: string) => {
+    if (!q) {
+      list.innerHTML = '';
+      status.textContent = `Type to search ${index.length.toLocaleString()} signs across 197 countries.`;
+      return;
+    }
+    const ranked: Array<{ entry: SignEntry; rank: number }> = [];
+    for (const entry of index) {
+      const r = rankMatch(entry, q);
+      if (r > 0) ranked.push({ entry, rank: r });
+      if (ranked.length > MAX_RESULTS * 4) break; // cap scan effort
+    }
+    ranked.sort((a, b) => b.rank - a.rank || a.entry.cc.localeCompare(b.entry.cc));
+    const shown = ranked.slice(0, MAX_RESULTS);
+    list.innerHTML = shown
+      .map(({ entry }) => {
+        const cc = escapeHtml(entry.cc.toUpperCase());
+        const code = escapeHtml(entry.code);
+        const name = escapeHtml(entry.name);
+        const category = escapeHtml(entry.category);
+        const url = escapeHtml(galleryUrl(entry.cc, entry.id));
+        return `
+          <li>
+            <a href="${url}" class="result-cc">${cc}</a>
+            <a href="${url}">
+              <div class="result-meta"><code>${code}</code> · ${category}</div>
+              <div class="result-name">${name}</div>
+            </a>
+            <span class="result-link">→ gallery</span>
+          </li>
+        `;
+      })
+      .join('');
+    status.textContent =
+      ranked.length > MAX_RESULTS
+        ? `Showing top ${MAX_RESULTS} of ${ranked.length.toLocaleString()} matches.`
+        : `${ranked.length.toLocaleString()} match${ranked.length === 1 ? '' : 'es'}.`;
+  };
+
+  // Debounce: keep the input snappy while we have ~38k entries to filter.
+  let typingTimer: ReturnType<typeof setTimeout> | undefined;
+  const onInput = () => {
+    if (typingTimer) clearTimeout(typingTimer);
+    typingTimer = setTimeout(() => {
+      const q = input.value.trim().toLowerCase();
+      renderResults(q);
+    }, 80);
+  };
+
+  const init = async () => {
+    try {
+      const res = await fetch('/road-signs/signs-index.json');
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      index = (await res.json()) as SignEntry[];
+    } catch (err) {
+      loadError = true;
+      status.textContent =
+        'Could not load the search index. Try refreshing the page; if it persists, the index may not have been generated for this build.';
+      console.error('Search index load failed:', err);
+      return;
+    }
+    input.disabled = false;
+    status.textContent = `Type to search ${index.length.toLocaleString()} signs across 197 countries.`;
+    input.addEventListener('input', onInput);
+    // If the URL already has ?q=... pre-fill it.
+    const initial = new URLSearchParams(location.search).get('q');
+    if (initial) {
+      input.value = initial;
+      renderResults(initial.toLowerCase());
+    }
+  };
+
+  input.disabled = true;
+  init();
+</script>

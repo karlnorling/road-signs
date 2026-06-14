@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "astro dev --port 4322",
+    "prebuild": "yarn --cwd ../.. tsx bin/generate-search-index.ts",
     "build": "NODE_OPTIONS=--max-old-space-size=8192 astro build",
     "preview": "astro preview",
     "type-check": "astro check"
