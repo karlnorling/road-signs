@@ -56,16 +56,16 @@ npm install @road-signs/nl
     ```ts
     import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/nl';
 
-    // Example below uses the real NL sign "J10" — adjust to taste.
+    // Example below uses the real NL sign "J1" — adjust to taste.
 
     // All signs
     signs.length;
 
     // By slug ID
-    const sign = getSign("j10-level-crossing-with-barrier-or-gates-ahead");
+    const sign = getSign("j1-uneven-road");
 
     // By sign code
-    const s = getSignByCode("J10");
+    const s = getSignByCode("J1");
 
     // All warning signs
     const filtered = getSignsByCategory("warning");
@@ -115,8 +115,8 @@ npm install @road-signs/nl
 
 | Metric | Value |
 | ------ | ----- |
-| Signs scraped | 242 |
-| Signs with SVG | 242 |
+| Signs scraped | 240 |
+| Signs with SVG | 240 |
 | Missing SVG | 0 |
 | Overall | **100%** |
 
@@ -125,7 +125,7 @@ npm install @road-signs/nl
 | `warning` | 42 | 42 | 0 | 100% |
 | `priority` | 9 | 9 | 0 | 100% |
 | `prohibitory` | 5 | 5 | 0 | 100% |
-| `mandatory` | 94 | 94 | 0 | 100% |
+| `mandatory` | 92 | 92 | 0 | 100% |
 | `information` | 92 | 92 | 0 | 100% |
 
 **Standard:** RVV 1990 (Reglement Verkeersregels en Verkeerstekens) — Vienna Convention

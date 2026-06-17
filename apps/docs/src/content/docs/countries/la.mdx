@@ -54,16 +54,16 @@ npm install @road-signs/la
     ```ts
     import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/la';
 
-    // Example below uses the real LA sign "V1-1" — adjust to taste.
+    // Example below uses the real LA sign "V1" — adjust to taste.
 
     // All signs
     signs.length;
 
     // By slug ID
-    const sign = getSign("v1-1-steep-descent");
+    const sign = getSign("v1-curve-to-left");
 
     // By sign code
-    const s = getSignByCode("V1-1");
+    const s = getSignByCode("V1");
 
     // All warning signs
     const filtered = getSignsByCategory("warning");

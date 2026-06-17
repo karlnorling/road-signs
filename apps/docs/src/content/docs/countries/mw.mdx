@@ -55,16 +55,16 @@ npm install @road-signs/mw
     ```ts
     import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/mw';
 
-    // Example below uses the real MW sign "A1-1" — adjust to taste.
+    // Example below uses the real MW sign "W309" — adjust to taste.
 
     // All signs
     signs.length;
 
     // By slug ID
-    const sign = getSign("a1-1-sadc-road-sign-gdls");
+    const sign = getSign("w309-sadc-road-sign");
 
     // By sign code
-    const s = getSignByCode("A1-1");
+    const s = getSignByCode("W309");
 
     // All warning signs
     const filtered = getSignsByCategory("warning");
@@ -114,17 +114,17 @@ npm install @road-signs/mw
 
 | Metric | Value |
 | ------ | ----- |
-| Signs scraped | 0 |
-| Signs with SVG | 0 |
+| Signs scraped | 46 |
+| Signs with SVG | 46 |
 | Missing SVG | 0 |
-| Overall | **—** |
+| Overall | **100%** |
 
 | Category | Scraped | With SVG | Missing | % |
 | -------- | ------: | -------: | ------: | -: |
-| `warning` | 0 | 0 | 0 | — |
+| `warning` | 1 | 1 | 0 | 100% |
 | `priority` | 0 | 0 | 0 | — |
 | `prohibitory` | 0 | 0 | 0 | — |
-| `mandatory` | 0 | 0 | 0 | — |
+| `mandatory` | 45 | 45 | 0 | 100% |
 | `information` | 0 | 0 | 0 | — |
 
 **Standard:** SADC regional standard (Road Traffic Act)

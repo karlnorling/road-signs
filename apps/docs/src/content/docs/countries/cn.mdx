@@ -54,16 +54,16 @@ npm install @road-signs/cn
     ```ts
     import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/cn';
 
-    // Example below uses the real CN sign "0-meters-marker" — adjust to taste.
+    // Example below uses the real CN sign "S9" — adjust to taste.
 
     // All signs
     signs.length;
 
     // By slug ID
-    const sign = getSign("0-meters-marker-0-meters-marker");
+    const sign = getSign("s9-provincial-highway-sign-with-name-below-should-not-be-changjia-g1521");
 
     // By sign code
-    const s = getSignByCode("0-meters-marker");
+    const s = getSignByCode("S9");
 
     // All information signs
     const filtered = getSignsByCategory("information");
@@ -113,18 +113,18 @@ npm install @road-signs/cn
 
 | Metric | Value |
 | ------ | ----- |
-| Signs scraped | 398 |
-| Signs with SVG | 398 |
+| Signs scraped | 429 |
+| Signs with SVG | 429 |
 | Missing SVG | 0 |
 | Overall | **100%** |
 
 | Category | Scraped | With SVG | Missing | % |
 | -------- | ------: | -------: | ------: | -: |
-| `warning` | 85 | 85 | 0 | 100% |
+| `warning` | 87 | 87 | 0 | 100% |
 | `priority` | 0 | 0 | 0 | — |
-| `prohibitory` | 51 | 51 | 0 | 100% |
+| `prohibitory` | 52 | 52 | 0 | 100% |
 | `mandatory` | 0 | 0 | 0 | — |
-| `information` | 262 | 262 | 0 | 100% |
+| `information` | 290 | 290 | 0 | 100% |
 
 **Standard:** GB 5768 national standard (non-Vienna)
 

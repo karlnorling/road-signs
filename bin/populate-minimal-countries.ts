@@ -36,45 +36,98 @@ const COUNTRIES: Record<string, { name: string; entries: Entry[] }> = {
     name: 'Bhutan',
     entries: [
       { code: 'STOP', name: 'Stop', category: 'priority', file: 'Bhutan_stop_sign.svg' },
-      { code: 'PNH1', name: 'Primary National Highway 1 shield', category: 'information', file: 'PNH1-Bhutan.svg' },
-      { code: 'PNH3', name: 'Primary National Highway 3 shield', category: 'information', file: 'PNH3-Bhutan.svg' },
-      { code: 'PNH4', name: 'Primary National Highway 4 shield', category: 'information', file: 'PNH4-Bhutan.svg' },
-      { code: 'PNH5', name: 'Primary National Highway 5 shield', category: 'information', file: 'PNH5-Bhutan.svg' },
-      { code: 'PNH12', name: 'Primary National Highway 12 shield', category: 'information', file: 'PNH12-Bhutan.svg' },
+      {
+        code: 'PNH1',
+        name: 'Primary National Highway 1 shield',
+        category: 'information',
+        file: 'PNH1-Bhutan.svg',
+      },
+      {
+        code: 'PNH3',
+        name: 'Primary National Highway 3 shield',
+        category: 'information',
+        file: 'PNH3-Bhutan.svg',
+      },
+      {
+        code: 'PNH4',
+        name: 'Primary National Highway 4 shield',
+        category: 'information',
+        file: 'PNH4-Bhutan.svg',
+      },
+      {
+        code: 'PNH5',
+        name: 'Primary National Highway 5 shield',
+        category: 'information',
+        file: 'PNH5-Bhutan.svg',
+      },
+      {
+        code: 'PNH12',
+        name: 'Primary National Highway 12 shield',
+        category: 'information',
+        file: 'PNH12-Bhutan.svg',
+      },
     ],
   },
   lr: {
     name: 'Liberia',
     entries: [
-      { code: 'R1-STOP', name: 'Stop', category: 'priority', file: 'Liberian_Road_Signs_-_Regulatory_Sign_-_Stop.svg' },
-      { code: 'R1-YIELD', name: 'Yield', category: 'priority', file: 'Liberian_Road_Signs_-_Regulatory_Sign_-_Yield.svg' },
-      { code: 'R5-1', name: 'No Entry', category: 'prohibitory', file: 'Liberian_Road_Signs_-_Regulatory_Sign_-_No_Entry.svg' },
+      {
+        code: 'R1-STOP',
+        name: 'Stop',
+        category: 'priority',
+        file: 'Liberian_Road_Signs_-_Regulatory_Sign_-_Stop.svg',
+      },
+      {
+        code: 'R1-YIELD',
+        name: 'Yield',
+        category: 'priority',
+        file: 'Liberian_Road_Signs_-_Regulatory_Sign_-_Yield.svg',
+      },
+      {
+        code: 'R5-1',
+        name: 'No Entry',
+        category: 'prohibitory',
+        file: 'Liberian_Road_Signs_-_Regulatory_Sign_-_No_Entry.svg',
+      },
     ],
   },
   to: {
     name: 'Tonga',
     entries: [
       { code: 'STOP', name: 'Stop', category: 'priority', file: 'Tonga_-_STOP_sign.svg' },
-      { code: 'GIVE_WAY', name: 'Give Way', category: 'priority', file: 'Tonga_-_Give_Way_sign.svg' },
+      {
+        code: 'GIVE_WAY',
+        name: 'Give Way',
+        category: 'priority',
+        file: 'Tonga_-_Give_Way_sign.svg',
+      },
     ],
   },
   ws: {
     name: 'Samoa',
     entries: [
       { code: 'FORD', name: 'Ford', category: 'warning', file: 'Samoa_road_sign_–_Ford.svg' },
-      { code: 'SPEED-50', name: 'Speed Limit 50', category: 'prohibitory', file: 'Samoa_-_Speed_Limit.svg' },
+      {
+        code: 'SPEED-50',
+        name: 'Speed Limit 50',
+        category: 'prohibitory',
+        file: 'Samoa_-_Speed_Limit.svg',
+      },
     ],
   },
   vu: {
     name: 'Vanuatu',
-    entries: [
-      { code: 'STOP', name: 'Stop', category: 'priority', file: 'Vanuatu_stop_sign.svg' },
-    ],
+    entries: [{ code: 'STOP', name: 'Stop', category: 'priority', file: 'Vanuatu_stop_sign.svg' }],
   },
   bh: {
     name: 'Bahrain',
     entries: [
-      { code: 'GIVE_WAY', name: 'Give Way', category: 'priority', file: 'BH_road_sign_-_give_way.svg' },
+      {
+        code: 'GIVE_WAY',
+        name: 'Give Way',
+        category: 'priority',
+        file: 'BH_road_sign_-_give_way.svg',
+      },
     ],
   },
 };
@@ -84,7 +137,10 @@ const buildScrapedJson = (cc: string): void => {
   if (!data) throw new Error(`Unknown country: ${cc}`);
 
   // Group by category to match the scraped.json shape consumed by create-assets.
-  const grouped: Record<string, Array<{ code: string; name: string; imageUrl: string; category: string }>> = {};
+  const grouped: Record<
+    string,
+    Array<{ code: string; name: string; imageUrl: string; category: string }>
+  > = {};
   for (const e of data.entries) {
     if (!grouped[e.category]) grouped[e.category] = [];
     grouped[e.category].push({

@@ -54,16 +54,16 @@ npm install @road-signs/np
     ```ts
     import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/np';
 
-    // Example below uses the real NP sign "B10" — adjust to taste.
+    // Example below uses the real NP sign "B1" — adjust to taste.
 
     // All signs
     signs.length;
 
     // By slug ID
-    const sign = getSign("b10-sharp-curve-to-the-left-ahead");
+    const sign = getSign("b1-crossroads-with-a-minor-ahead");
 
     // By sign code
-    const s = getSignByCode("B10");
+    const s = getSignByCode("B1");
 
     // All warning signs
     const filtered = getSignsByCategory("warning");

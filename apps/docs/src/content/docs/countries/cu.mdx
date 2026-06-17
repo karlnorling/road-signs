@@ -40,16 +40,16 @@ npm install @road-signs/cu
     ```ts
     import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/cu';
 
-    // Example below uses the real CU sign "V2-3" — adjust to taste.
+    // Example below uses the real CU sign "V3" — adjust to taste.
 
     // All signs
     signs.length;
 
     // By slug ID
-    const sign = getSign("v2-3-intersection-with-priority");
+    const sign = getSign("v3-intersection-with-priority");
 
     // By sign code
-    const s = getSignByCode("V2-3");
+    const s = getSignByCode("V3");
 
     // All warning signs
     const filtered = getSignsByCategory("warning");

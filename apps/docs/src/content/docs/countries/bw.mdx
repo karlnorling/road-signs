@@ -54,16 +54,16 @@ npm install @road-signs/bw
     ```ts
     import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/bw';
 
-    // Example below uses the real BW sign "A1-1" — adjust to taste.
+    // Example below uses the real BW sign "W102" — adjust to taste.
 
     // All signs
     signs.length;
 
     // By slug ID
-    const sign = getSign("a1-1-sadc-road-sign-gdls");
+    const sign = getSign("w102-sadc-road-sign-tan");
 
     // By sign code
-    const s = getSignByCode("A1-1");
+    const s = getSignByCode("W102");
 
     // All warning signs
     const filtered = getSignsByCategory("warning");
@@ -113,17 +113,17 @@ npm install @road-signs/bw
 
 | Metric | Value |
 | ------ | ----- |
-| Signs scraped | 322 |
-| Signs with SVG | 321 |
+| Signs scraped | 355 |
+| Signs with SVG | 354 |
 | Missing SVG | 1 |
 | Overall | **100%** |
 
 | Category | Scraped | With SVG | Missing | % |
 | -------- | ------: | -------: | ------: | -: |
-| `warning` | 79 | 78 | 1 | 99% |
+| `warning` | 103 | 102 | 1 | 99% |
 | `priority` | 0 | 0 | 0 | — |
 | `prohibitory` | 223 | 223 | 0 | 100% |
-| `mandatory` | 0 | 0 | 0 | — |
+| `mandatory` | 9 | 9 | 0 | 100% |
 | `information` | 20 | 20 | 0 | 100% |
 
 **Standard:** British-derived (Road Traffic Act)

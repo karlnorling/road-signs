@@ -19,9 +19,9 @@ export const signs: FJSign[] = [
   },
   {
     assets: {
-      jpg: {"240":"assets/warning/pw-19/fiji_road_sign_pw-19_240x240.jpg","512":"assets/warning/pw-19/fiji_road_sign_pw-19_512x512.jpg","768":"assets/warning/pw-19/fiji_road_sign_pw-19_768x768.jpg","1024":"assets/warning/pw-19/fiji_road_sign_pw-19_1024x1024.jpg","2048":"assets/warning/pw-19/fiji_road_sign_pw-19_2048x2048.jpg"},
-      png: {"240":"assets/warning/pw-19/fiji_road_sign_pw-19_240x240.png","512":"assets/warning/pw-19/fiji_road_sign_pw-19_512x512.png","768":"assets/warning/pw-19/fiji_road_sign_pw-19_768x768.png","1024":"assets/warning/pw-19/fiji_road_sign_pw-19_1024x1024.png","2048":"assets/warning/pw-19/fiji_road_sign_pw-19_2048x2048.png"},
-      webp: {"240":"assets/warning/pw-19/fiji_road_sign_pw-19_240x240.webp","512":"assets/warning/pw-19/fiji_road_sign_pw-19_512x512.webp","768":"assets/warning/pw-19/fiji_road_sign_pw-19_768x768.webp","1024":"assets/warning/pw-19/fiji_road_sign_pw-19_1024x1024.webp","2048":"assets/warning/pw-19/fiji_road_sign_pw-19_2048x2048.webp"},
+      jpg: {"240":"assets/warning/pw-1/fiji_road_sign_pw-1_240x240.jpg","512":"assets/warning/pw-1/fiji_road_sign_pw-1_512x512.jpg","768":"assets/warning/pw-1/fiji_road_sign_pw-1_768x768.jpg","1024":"assets/warning/pw-1/fiji_road_sign_pw-1_1024x1024.jpg","2048":"assets/warning/pw-1/fiji_road_sign_pw-1_2048x2048.jpg"},
+      png: {"240":"assets/warning/pw-1/fiji_road_sign_pw-1_240x240.png","512":"assets/warning/pw-1/fiji_road_sign_pw-1_512x512.png","768":"assets/warning/pw-1/fiji_road_sign_pw-1_768x768.png","1024":"assets/warning/pw-1/fiji_road_sign_pw-1_1024x1024.png","2048":"assets/warning/pw-1/fiji_road_sign_pw-1_2048x2048.png"},
+      webp: {"240":"assets/warning/pw-1/fiji_road_sign_pw-1_240x240.webp","512":"assets/warning/pw-1/fiji_road_sign_pw-1_512x512.webp","768":"assets/warning/pw-1/fiji_road_sign_pw-1_768x768.webp","1024":"assets/warning/pw-1/fiji_road_sign_pw-1_1024x1024.webp","2048":"assets/warning/pw-1/fiji_road_sign_pw-1_2048x2048.webp"},
     },
     category: "warning",
     code: "PW-1",
@@ -31,9 +31,9 @@ export const signs: FJSign[] = [
   },
   {
     assets: {
-      jpg: {"240":"assets/warning/pw-29/fiji_road_sign_pw-29_240x240.jpg","512":"assets/warning/pw-29/fiji_road_sign_pw-29_512x512.jpg","768":"assets/warning/pw-29/fiji_road_sign_pw-29_768x768.jpg","1024":"assets/warning/pw-29/fiji_road_sign_pw-29_1024x1024.jpg","2048":"assets/warning/pw-29/fiji_road_sign_pw-29_2048x2048.jpg"},
-      png: {"240":"assets/warning/pw-29/fiji_road_sign_pw-29_240x240.png","512":"assets/warning/pw-29/fiji_road_sign_pw-29_512x512.png","768":"assets/warning/pw-29/fiji_road_sign_pw-29_768x768.png","1024":"assets/warning/pw-29/fiji_road_sign_pw-29_1024x1024.png","2048":"assets/warning/pw-29/fiji_road_sign_pw-29_2048x2048.png"},
-      webp: {"240":"assets/warning/pw-29/fiji_road_sign_pw-29_240x240.webp","512":"assets/warning/pw-29/fiji_road_sign_pw-29_512x512.webp","768":"assets/warning/pw-29/fiji_road_sign_pw-29_768x768.webp","1024":"assets/warning/pw-29/fiji_road_sign_pw-29_1024x1024.webp","2048":"assets/warning/pw-29/fiji_road_sign_pw-29_2048x2048.webp"},
+      jpg: {"240":"assets/warning/pw-2/fiji_road_sign_pw-2_240x240.jpg","512":"assets/warning/pw-2/fiji_road_sign_pw-2_512x512.jpg","768":"assets/warning/pw-2/fiji_road_sign_pw-2_768x768.jpg","1024":"assets/warning/pw-2/fiji_road_sign_pw-2_1024x1024.jpg","2048":"assets/warning/pw-2/fiji_road_sign_pw-2_2048x2048.jpg"},
+      png: {"240":"assets/warning/pw-2/fiji_road_sign_pw-2_240x240.png","512":"assets/warning/pw-2/fiji_road_sign_pw-2_512x512.png","768":"assets/warning/pw-2/fiji_road_sign_pw-2_768x768.png","1024":"assets/warning/pw-2/fiji_road_sign_pw-2_1024x1024.png","2048":"assets/warning/pw-2/fiji_road_sign_pw-2_2048x2048.png"},
+      webp: {"240":"assets/warning/pw-2/fiji_road_sign_pw-2_240x240.webp","512":"assets/warning/pw-2/fiji_road_sign_pw-2_512x512.webp","768":"assets/warning/pw-2/fiji_road_sign_pw-2_768x768.webp","1024":"assets/warning/pw-2/fiji_road_sign_pw-2_1024x1024.webp","2048":"assets/warning/pw-2/fiji_road_sign_pw-2_2048x2048.webp"},
     },
     category: "warning",
     code: "PW-2",
@@ -43,9 +43,9 @@ export const signs: FJSign[] = [
   },
   {
     assets: {
-      jpg: {"240":"assets/warning/pw-39/fiji_road_sign_pw-39_240x240.jpg","512":"assets/warning/pw-39/fiji_road_sign_pw-39_512x512.jpg","768":"assets/warning/pw-39/fiji_road_sign_pw-39_768x768.jpg","1024":"assets/warning/pw-39/fiji_road_sign_pw-39_1024x1024.jpg","2048":"assets/warning/pw-39/fiji_road_sign_pw-39_2048x2048.jpg"},
-      png: {"240":"assets/warning/pw-39/fiji_road_sign_pw-39_240x240.png","512":"assets/warning/pw-39/fiji_road_sign_pw-39_512x512.png","768":"assets/warning/pw-39/fiji_road_sign_pw-39_768x768.png","1024":"assets/warning/pw-39/fiji_road_sign_pw-39_1024x1024.png","2048":"assets/warning/pw-39/fiji_road_sign_pw-39_2048x2048.png"},
-      webp: {"240":"assets/warning/pw-39/fiji_road_sign_pw-39_240x240.webp","512":"assets/warning/pw-39/fiji_road_sign_pw-39_512x512.webp","768":"assets/warning/pw-39/fiji_road_sign_pw-39_768x768.webp","1024":"assets/warning/pw-39/fiji_road_sign_pw-39_1024x1024.webp","2048":"assets/warning/pw-39/fiji_road_sign_pw-39_2048x2048.webp"},
+      jpg: {"240":"assets/warning/pw-3/fiji_road_sign_pw-3_240x240.jpg","512":"assets/warning/pw-3/fiji_road_sign_pw-3_512x512.jpg","768":"assets/warning/pw-3/fiji_road_sign_pw-3_768x768.jpg","1024":"assets/warning/pw-3/fiji_road_sign_pw-3_1024x1024.jpg","2048":"assets/warning/pw-3/fiji_road_sign_pw-3_2048x2048.jpg"},
+      png: {"240":"assets/warning/pw-3/fiji_road_sign_pw-3_240x240.png","512":"assets/warning/pw-3/fiji_road_sign_pw-3_512x512.png","768":"assets/warning/pw-3/fiji_road_sign_pw-3_768x768.png","1024":"assets/warning/pw-3/fiji_road_sign_pw-3_1024x1024.png","2048":"assets/warning/pw-3/fiji_road_sign_pw-3_2048x2048.png"},
+      webp: {"240":"assets/warning/pw-3/fiji_road_sign_pw-3_240x240.webp","512":"assets/warning/pw-3/fiji_road_sign_pw-3_512x512.webp","768":"assets/warning/pw-3/fiji_road_sign_pw-3_768x768.webp","1024":"assets/warning/pw-3/fiji_road_sign_pw-3_1024x1024.webp","2048":"assets/warning/pw-3/fiji_road_sign_pw-3_2048x2048.webp"},
     },
     category: "warning",
     code: "PW-3",
@@ -55,9 +55,9 @@ export const signs: FJSign[] = [
   },
   {
     assets: {
-      jpg: {"240":"assets/warning/pw-47/fiji_road_sign_pw-47_240x240.jpg","512":"assets/warning/pw-47/fiji_road_sign_pw-47_512x512.jpg","768":"assets/warning/pw-47/fiji_road_sign_pw-47_768x768.jpg","1024":"assets/warning/pw-47/fiji_road_sign_pw-47_1024x1024.jpg","2048":"assets/warning/pw-47/fiji_road_sign_pw-47_2048x2048.jpg"},
-      png: {"240":"assets/warning/pw-47/fiji_road_sign_pw-47_240x240.png","512":"assets/warning/pw-47/fiji_road_sign_pw-47_512x512.png","768":"assets/warning/pw-47/fiji_road_sign_pw-47_768x768.png","1024":"assets/warning/pw-47/fiji_road_sign_pw-47_1024x1024.png","2048":"assets/warning/pw-47/fiji_road_sign_pw-47_2048x2048.png"},
-      webp: {"240":"assets/warning/pw-47/fiji_road_sign_pw-47_240x240.webp","512":"assets/warning/pw-47/fiji_road_sign_pw-47_512x512.webp","768":"assets/warning/pw-47/fiji_road_sign_pw-47_768x768.webp","1024":"assets/warning/pw-47/fiji_road_sign_pw-47_1024x1024.webp","2048":"assets/warning/pw-47/fiji_road_sign_pw-47_2048x2048.webp"},
+      jpg: {"240":"assets/warning/pw-4/fiji_road_sign_pw-4_240x240.jpg","512":"assets/warning/pw-4/fiji_road_sign_pw-4_512x512.jpg","768":"assets/warning/pw-4/fiji_road_sign_pw-4_768x768.jpg","1024":"assets/warning/pw-4/fiji_road_sign_pw-4_1024x1024.jpg","2048":"assets/warning/pw-4/fiji_road_sign_pw-4_2048x2048.jpg"},
+      png: {"240":"assets/warning/pw-4/fiji_road_sign_pw-4_240x240.png","512":"assets/warning/pw-4/fiji_road_sign_pw-4_512x512.png","768":"assets/warning/pw-4/fiji_road_sign_pw-4_768x768.png","1024":"assets/warning/pw-4/fiji_road_sign_pw-4_1024x1024.png","2048":"assets/warning/pw-4/fiji_road_sign_pw-4_2048x2048.png"},
+      webp: {"240":"assets/warning/pw-4/fiji_road_sign_pw-4_240x240.webp","512":"assets/warning/pw-4/fiji_road_sign_pw-4_512x512.webp","768":"assets/warning/pw-4/fiji_road_sign_pw-4_768x768.webp","1024":"assets/warning/pw-4/fiji_road_sign_pw-4_1024x1024.webp","2048":"assets/warning/pw-4/fiji_road_sign_pw-4_2048x2048.webp"},
     },
     category: "warning",
     code: "PW-4",
@@ -67,9 +67,9 @@ export const signs: FJSign[] = [
   },
   {
     assets: {
-      jpg: {"240":"assets/warning/pw-41-3/fiji_road_sign_pw-41.3_240x240.jpg","512":"assets/warning/pw-41-3/fiji_road_sign_pw-41.3_512x512.jpg","768":"assets/warning/pw-41-3/fiji_road_sign_pw-41.3_768x768.jpg","1024":"assets/warning/pw-41-3/fiji_road_sign_pw-41.3_1024x1024.jpg","2048":"assets/warning/pw-41-3/fiji_road_sign_pw-41.3_2048x2048.jpg"},
-      png: {"240":"assets/warning/pw-41-3/fiji_road_sign_pw-41.3_240x240.png","512":"assets/warning/pw-41-3/fiji_road_sign_pw-41.3_512x512.png","768":"assets/warning/pw-41-3/fiji_road_sign_pw-41.3_768x768.png","1024":"assets/warning/pw-41-3/fiji_road_sign_pw-41.3_1024x1024.png","2048":"assets/warning/pw-41-3/fiji_road_sign_pw-41.3_2048x2048.png"},
-      webp: {"240":"assets/warning/pw-41-3/fiji_road_sign_pw-41.3_240x240.webp","512":"assets/warning/pw-41-3/fiji_road_sign_pw-41.3_512x512.webp","768":"assets/warning/pw-41-3/fiji_road_sign_pw-41.3_768x768.webp","1024":"assets/warning/pw-41-3/fiji_road_sign_pw-41.3_1024x1024.webp","2048":"assets/warning/pw-41-3/fiji_road_sign_pw-41.3_2048x2048.webp"},
+      jpg: {"240":"assets/warning/pw-41/fiji_road_sign_pw-41_240x240.jpg","512":"assets/warning/pw-41/fiji_road_sign_pw-41_512x512.jpg","768":"assets/warning/pw-41/fiji_road_sign_pw-41_768x768.jpg","1024":"assets/warning/pw-41/fiji_road_sign_pw-41_1024x1024.jpg","2048":"assets/warning/pw-41/fiji_road_sign_pw-41_2048x2048.jpg"},
+      png: {"240":"assets/warning/pw-41/fiji_road_sign_pw-41_240x240.png","512":"assets/warning/pw-41/fiji_road_sign_pw-41_512x512.png","768":"assets/warning/pw-41/fiji_road_sign_pw-41_768x768.png","1024":"assets/warning/pw-41/fiji_road_sign_pw-41_1024x1024.png","2048":"assets/warning/pw-41/fiji_road_sign_pw-41_2048x2048.png"},
+      webp: {"240":"assets/warning/pw-41/fiji_road_sign_pw-41_240x240.webp","512":"assets/warning/pw-41/fiji_road_sign_pw-41_512x512.webp","768":"assets/warning/pw-41/fiji_road_sign_pw-41_768x768.webp","1024":"assets/warning/pw-41/fiji_road_sign_pw-41_1024x1024.webp","2048":"assets/warning/pw-41/fiji_road_sign_pw-41_2048x2048.webp"},
     },
     category: "warning",
     code: "PW-4.1",
@@ -79,9 +79,9 @@ export const signs: FJSign[] = [
   },
   {
     assets: {
-      jpg: {"240":"assets/warning/pw-59/fiji_road_sign_pw-59_240x240.jpg","512":"assets/warning/pw-59/fiji_road_sign_pw-59_512x512.jpg","768":"assets/warning/pw-59/fiji_road_sign_pw-59_768x768.jpg","1024":"assets/warning/pw-59/fiji_road_sign_pw-59_1024x1024.jpg","2048":"assets/warning/pw-59/fiji_road_sign_pw-59_2048x2048.jpg"},
-      png: {"240":"assets/warning/pw-59/fiji_road_sign_pw-59_240x240.png","512":"assets/warning/pw-59/fiji_road_sign_pw-59_512x512.png","768":"assets/warning/pw-59/fiji_road_sign_pw-59_768x768.png","1024":"assets/warning/pw-59/fiji_road_sign_pw-59_1024x1024.png","2048":"assets/warning/pw-59/fiji_road_sign_pw-59_2048x2048.png"},
-      webp: {"240":"assets/warning/pw-59/fiji_road_sign_pw-59_240x240.webp","512":"assets/warning/pw-59/fiji_road_sign_pw-59_512x512.webp","768":"assets/warning/pw-59/fiji_road_sign_pw-59_768x768.webp","1024":"assets/warning/pw-59/fiji_road_sign_pw-59_1024x1024.webp","2048":"assets/warning/pw-59/fiji_road_sign_pw-59_2048x2048.webp"},
+      jpg: {"240":"assets/warning/pw-5/fiji_road_sign_pw-5_240x240.jpg","512":"assets/warning/pw-5/fiji_road_sign_pw-5_512x512.jpg","768":"assets/warning/pw-5/fiji_road_sign_pw-5_768x768.jpg","1024":"assets/warning/pw-5/fiji_road_sign_pw-5_1024x1024.jpg","2048":"assets/warning/pw-5/fiji_road_sign_pw-5_2048x2048.jpg"},
+      png: {"240":"assets/warning/pw-5/fiji_road_sign_pw-5_240x240.png","512":"assets/warning/pw-5/fiji_road_sign_pw-5_512x512.png","768":"assets/warning/pw-5/fiji_road_sign_pw-5_768x768.png","1024":"assets/warning/pw-5/fiji_road_sign_pw-5_1024x1024.png","2048":"assets/warning/pw-5/fiji_road_sign_pw-5_2048x2048.png"},
+      webp: {"240":"assets/warning/pw-5/fiji_road_sign_pw-5_240x240.webp","512":"assets/warning/pw-5/fiji_road_sign_pw-5_512x512.webp","768":"assets/warning/pw-5/fiji_road_sign_pw-5_768x768.webp","1024":"assets/warning/pw-5/fiji_road_sign_pw-5_1024x1024.webp","2048":"assets/warning/pw-5/fiji_road_sign_pw-5_2048x2048.webp"},
     },
     category: "warning",
     code: "PW-5",
@@ -91,9 +91,9 @@ export const signs: FJSign[] = [
   },
   {
     assets: {
-      jpg: {"240":"assets/warning/pw-68/fiji_road_sign_pw-68_240x240.jpg","512":"assets/warning/pw-68/fiji_road_sign_pw-68_512x512.jpg","768":"assets/warning/pw-68/fiji_road_sign_pw-68_768x768.jpg","1024":"assets/warning/pw-68/fiji_road_sign_pw-68_1024x1024.jpg","2048":"assets/warning/pw-68/fiji_road_sign_pw-68_2048x2048.jpg"},
-      png: {"240":"assets/warning/pw-68/fiji_road_sign_pw-68_240x240.png","512":"assets/warning/pw-68/fiji_road_sign_pw-68_512x512.png","768":"assets/warning/pw-68/fiji_road_sign_pw-68_768x768.png","1024":"assets/warning/pw-68/fiji_road_sign_pw-68_1024x1024.png","2048":"assets/warning/pw-68/fiji_road_sign_pw-68_2048x2048.png"},
-      webp: {"240":"assets/warning/pw-68/fiji_road_sign_pw-68_240x240.webp","512":"assets/warning/pw-68/fiji_road_sign_pw-68_512x512.webp","768":"assets/warning/pw-68/fiji_road_sign_pw-68_768x768.webp","1024":"assets/warning/pw-68/fiji_road_sign_pw-68_1024x1024.webp","2048":"assets/warning/pw-68/fiji_road_sign_pw-68_2048x2048.webp"},
+      jpg: {"240":"assets/warning/pw-6/fiji_road_sign_pw-6_240x240.jpg","512":"assets/warning/pw-6/fiji_road_sign_pw-6_512x512.jpg","768":"assets/warning/pw-6/fiji_road_sign_pw-6_768x768.jpg","1024":"assets/warning/pw-6/fiji_road_sign_pw-6_1024x1024.jpg","2048":"assets/warning/pw-6/fiji_road_sign_pw-6_2048x2048.jpg"},
+      png: {"240":"assets/warning/pw-6/fiji_road_sign_pw-6_240x240.png","512":"assets/warning/pw-6/fiji_road_sign_pw-6_512x512.png","768":"assets/warning/pw-6/fiji_road_sign_pw-6_768x768.png","1024":"assets/warning/pw-6/fiji_road_sign_pw-6_1024x1024.png","2048":"assets/warning/pw-6/fiji_road_sign_pw-6_2048x2048.png"},
+      webp: {"240":"assets/warning/pw-6/fiji_road_sign_pw-6_240x240.webp","512":"assets/warning/pw-6/fiji_road_sign_pw-6_512x512.webp","768":"assets/warning/pw-6/fiji_road_sign_pw-6_768x768.webp","1024":"assets/warning/pw-6/fiji_road_sign_pw-6_1024x1024.webp","2048":"assets/warning/pw-6/fiji_road_sign_pw-6_2048x2048.webp"},
     },
     category: "warning",
     code: "PW-6",
@@ -103,9 +103,9 @@ export const signs: FJSign[] = [
   },
   {
     assets: {
-      jpg: {"240":"assets/warning/pw-71/fiji_road_sign_pw-71_240x240.jpg","512":"assets/warning/pw-71/fiji_road_sign_pw-71_512x512.jpg","768":"assets/warning/pw-71/fiji_road_sign_pw-71_768x768.jpg","1024":"assets/warning/pw-71/fiji_road_sign_pw-71_1024x1024.jpg","2048":"assets/warning/pw-71/fiji_road_sign_pw-71_2048x2048.jpg"},
-      png: {"240":"assets/warning/pw-71/fiji_road_sign_pw-71_240x240.png","512":"assets/warning/pw-71/fiji_road_sign_pw-71_512x512.png","768":"assets/warning/pw-71/fiji_road_sign_pw-71_768x768.png","1024":"assets/warning/pw-71/fiji_road_sign_pw-71_1024x1024.png","2048":"assets/warning/pw-71/fiji_road_sign_pw-71_2048x2048.png"},
-      webp: {"240":"assets/warning/pw-71/fiji_road_sign_pw-71_240x240.webp","512":"assets/warning/pw-71/fiji_road_sign_pw-71_512x512.webp","768":"assets/warning/pw-71/fiji_road_sign_pw-71_768x768.webp","1024":"assets/warning/pw-71/fiji_road_sign_pw-71_1024x1024.webp","2048":"assets/warning/pw-71/fiji_road_sign_pw-71_2048x2048.webp"},
+      jpg: {"240":"assets/warning/pw-7/fiji_road_sign_pw-7_240x240.jpg","512":"assets/warning/pw-7/fiji_road_sign_pw-7_512x512.jpg","768":"assets/warning/pw-7/fiji_road_sign_pw-7_768x768.jpg","1024":"assets/warning/pw-7/fiji_road_sign_pw-7_1024x1024.jpg","2048":"assets/warning/pw-7/fiji_road_sign_pw-7_2048x2048.jpg"},
+      png: {"240":"assets/warning/pw-7/fiji_road_sign_pw-7_240x240.png","512":"assets/warning/pw-7/fiji_road_sign_pw-7_512x512.png","768":"assets/warning/pw-7/fiji_road_sign_pw-7_768x768.png","1024":"assets/warning/pw-7/fiji_road_sign_pw-7_1024x1024.png","2048":"assets/warning/pw-7/fiji_road_sign_pw-7_2048x2048.png"},
+      webp: {"240":"assets/warning/pw-7/fiji_road_sign_pw-7_240x240.webp","512":"assets/warning/pw-7/fiji_road_sign_pw-7_512x512.webp","768":"assets/warning/pw-7/fiji_road_sign_pw-7_768x768.webp","1024":"assets/warning/pw-7/fiji_road_sign_pw-7_1024x1024.webp","2048":"assets/warning/pw-7/fiji_road_sign_pw-7_2048x2048.webp"},
     },
     category: "warning",
     code: "PW-7",
@@ -127,9 +127,9 @@ export const signs: FJSign[] = [
   },
   {
     assets: {
-      jpg: {"240":"assets/warning/pw-9-1/fiji_road_sign_pw-9.1_240x240.jpg","512":"assets/warning/pw-9-1/fiji_road_sign_pw-9.1_512x512.jpg","768":"assets/warning/pw-9-1/fiji_road_sign_pw-9.1_768x768.jpg","1024":"assets/warning/pw-9-1/fiji_road_sign_pw-9.1_1024x1024.jpg","2048":"assets/warning/pw-9-1/fiji_road_sign_pw-9.1_2048x2048.jpg"},
-      png: {"240":"assets/warning/pw-9-1/fiji_road_sign_pw-9.1_240x240.png","512":"assets/warning/pw-9-1/fiji_road_sign_pw-9.1_512x512.png","768":"assets/warning/pw-9-1/fiji_road_sign_pw-9.1_768x768.png","1024":"assets/warning/pw-9-1/fiji_road_sign_pw-9.1_1024x1024.png","2048":"assets/warning/pw-9-1/fiji_road_sign_pw-9.1_2048x2048.png"},
-      webp: {"240":"assets/warning/pw-9-1/fiji_road_sign_pw-9.1_240x240.webp","512":"assets/warning/pw-9-1/fiji_road_sign_pw-9.1_512x512.webp","768":"assets/warning/pw-9-1/fiji_road_sign_pw-9.1_768x768.webp","1024":"assets/warning/pw-9-1/fiji_road_sign_pw-9.1_1024x1024.webp","2048":"assets/warning/pw-9-1/fiji_road_sign_pw-9.1_2048x2048.webp"},
+      jpg: {"240":"assets/warning/pw-9/fiji_road_sign_pw-9_240x240.jpg","512":"assets/warning/pw-9/fiji_road_sign_pw-9_512x512.jpg","768":"assets/warning/pw-9/fiji_road_sign_pw-9_768x768.jpg","1024":"assets/warning/pw-9/fiji_road_sign_pw-9_1024x1024.jpg","2048":"assets/warning/pw-9/fiji_road_sign_pw-9_2048x2048.jpg"},
+      png: {"240":"assets/warning/pw-9/fiji_road_sign_pw-9_240x240.png","512":"assets/warning/pw-9/fiji_road_sign_pw-9_512x512.png","768":"assets/warning/pw-9/fiji_road_sign_pw-9_768x768.png","1024":"assets/warning/pw-9/fiji_road_sign_pw-9_1024x1024.png","2048":"assets/warning/pw-9/fiji_road_sign_pw-9_2048x2048.png"},
+      webp: {"240":"assets/warning/pw-9/fiji_road_sign_pw-9_240x240.webp","512":"assets/warning/pw-9/fiji_road_sign_pw-9_512x512.webp","768":"assets/warning/pw-9/fiji_road_sign_pw-9_768x768.webp","1024":"assets/warning/pw-9/fiji_road_sign_pw-9_1024x1024.webp","2048":"assets/warning/pw-9/fiji_road_sign_pw-9_2048x2048.webp"},
     },
     category: "warning",
     code: "PW-9",
@@ -151,9 +151,9 @@ export const signs: FJSign[] = [
   },
   {
     assets: {
-      jpg: {"240":"assets/warning/pw-10-1/fiji_road_sign_pw-10.1_240x240.jpg","512":"assets/warning/pw-10-1/fiji_road_sign_pw-10.1_512x512.jpg","768":"assets/warning/pw-10-1/fiji_road_sign_pw-10.1_768x768.jpg","1024":"assets/warning/pw-10-1/fiji_road_sign_pw-10.1_1024x1024.jpg","2048":"assets/warning/pw-10-1/fiji_road_sign_pw-10.1_2048x2048.jpg"},
-      png: {"240":"assets/warning/pw-10-1/fiji_road_sign_pw-10.1_240x240.png","512":"assets/warning/pw-10-1/fiji_road_sign_pw-10.1_512x512.png","768":"assets/warning/pw-10-1/fiji_road_sign_pw-10.1_768x768.png","1024":"assets/warning/pw-10-1/fiji_road_sign_pw-10.1_1024x1024.png","2048":"assets/warning/pw-10-1/fiji_road_sign_pw-10.1_2048x2048.png"},
-      webp: {"240":"assets/warning/pw-10-1/fiji_road_sign_pw-10.1_240x240.webp","512":"assets/warning/pw-10-1/fiji_road_sign_pw-10.1_512x512.webp","768":"assets/warning/pw-10-1/fiji_road_sign_pw-10.1_768x768.webp","1024":"assets/warning/pw-10-1/fiji_road_sign_pw-10.1_1024x1024.webp","2048":"assets/warning/pw-10-1/fiji_road_sign_pw-10.1_2048x2048.webp"},
+      jpg: {"240":"assets/warning/pw-10/fiji_road_sign_pw-10_240x240.jpg","512":"assets/warning/pw-10/fiji_road_sign_pw-10_512x512.jpg","768":"assets/warning/pw-10/fiji_road_sign_pw-10_768x768.jpg","1024":"assets/warning/pw-10/fiji_road_sign_pw-10_1024x1024.jpg","2048":"assets/warning/pw-10/fiji_road_sign_pw-10_2048x2048.jpg"},
+      png: {"240":"assets/warning/pw-10/fiji_road_sign_pw-10_240x240.png","512":"assets/warning/pw-10/fiji_road_sign_pw-10_512x512.png","768":"assets/warning/pw-10/fiji_road_sign_pw-10_768x768.png","1024":"assets/warning/pw-10/fiji_road_sign_pw-10_1024x1024.png","2048":"assets/warning/pw-10/fiji_road_sign_pw-10_2048x2048.png"},
+      webp: {"240":"assets/warning/pw-10/fiji_road_sign_pw-10_240x240.webp","512":"assets/warning/pw-10/fiji_road_sign_pw-10_512x512.webp","768":"assets/warning/pw-10/fiji_road_sign_pw-10_768x768.webp","1024":"assets/warning/pw-10/fiji_road_sign_pw-10_1024x1024.webp","2048":"assets/warning/pw-10/fiji_road_sign_pw-10_2048x2048.webp"},
     },
     category: "warning",
     code: "PW-10",
@@ -175,9 +175,9 @@ export const signs: FJSign[] = [
   },
   {
     assets: {
-      jpg: {"240":"assets/warning/pw-11-1/fiji_road_sign_pw-11.1_240x240.jpg","512":"assets/warning/pw-11-1/fiji_road_sign_pw-11.1_512x512.jpg","768":"assets/warning/pw-11-1/fiji_road_sign_pw-11.1_768x768.jpg","1024":"assets/warning/pw-11-1/fiji_road_sign_pw-11.1_1024x1024.jpg","2048":"assets/warning/pw-11-1/fiji_road_sign_pw-11.1_2048x2048.jpg"},
-      png: {"240":"assets/warning/pw-11-1/fiji_road_sign_pw-11.1_240x240.png","512":"assets/warning/pw-11-1/fiji_road_sign_pw-11.1_512x512.png","768":"assets/warning/pw-11-1/fiji_road_sign_pw-11.1_768x768.png","1024":"assets/warning/pw-11-1/fiji_road_sign_pw-11.1_1024x1024.png","2048":"assets/warning/pw-11-1/fiji_road_sign_pw-11.1_2048x2048.png"},
-      webp: {"240":"assets/warning/pw-11-1/fiji_road_sign_pw-11.1_240x240.webp","512":"assets/warning/pw-11-1/fiji_road_sign_pw-11.1_512x512.webp","768":"assets/warning/pw-11-1/fiji_road_sign_pw-11.1_768x768.webp","1024":"assets/warning/pw-11-1/fiji_road_sign_pw-11.1_1024x1024.webp","2048":"assets/warning/pw-11-1/fiji_road_sign_pw-11.1_2048x2048.webp"},
+      jpg: {"240":"assets/warning/pw-11/fiji_road_sign_pw-11_240x240.jpg","512":"assets/warning/pw-11/fiji_road_sign_pw-11_512x512.jpg","768":"assets/warning/pw-11/fiji_road_sign_pw-11_768x768.jpg","1024":"assets/warning/pw-11/fiji_road_sign_pw-11_1024x1024.jpg","2048":"assets/warning/pw-11/fiji_road_sign_pw-11_2048x2048.jpg"},
+      png: {"240":"assets/warning/pw-11/fiji_road_sign_pw-11_240x240.png","512":"assets/warning/pw-11/fiji_road_sign_pw-11_512x512.png","768":"assets/warning/pw-11/fiji_road_sign_pw-11_768x768.png","1024":"assets/warning/pw-11/fiji_road_sign_pw-11_1024x1024.png","2048":"assets/warning/pw-11/fiji_road_sign_pw-11_2048x2048.png"},
+      webp: {"240":"assets/warning/pw-11/fiji_road_sign_pw-11_240x240.webp","512":"assets/warning/pw-11/fiji_road_sign_pw-11_512x512.webp","768":"assets/warning/pw-11/fiji_road_sign_pw-11_768x768.webp","1024":"assets/warning/pw-11/fiji_road_sign_pw-11_1024x1024.webp","2048":"assets/warning/pw-11/fiji_road_sign_pw-11_2048x2048.webp"},
     },
     category: "warning",
     code: "PW-11",
@@ -199,9 +199,9 @@ export const signs: FJSign[] = [
   },
   {
     assets: {
-      jpg: {"240":"assets/warning/pw-12-1/fiji_road_sign_pw-12.1_240x240.jpg","512":"assets/warning/pw-12-1/fiji_road_sign_pw-12.1_512x512.jpg","768":"assets/warning/pw-12-1/fiji_road_sign_pw-12.1_768x768.jpg","1024":"assets/warning/pw-12-1/fiji_road_sign_pw-12.1_1024x1024.jpg","2048":"assets/warning/pw-12-1/fiji_road_sign_pw-12.1_2048x2048.jpg"},
-      png: {"240":"assets/warning/pw-12-1/fiji_road_sign_pw-12.1_240x240.png","512":"assets/warning/pw-12-1/fiji_road_sign_pw-12.1_512x512.png","768":"assets/warning/pw-12-1/fiji_road_sign_pw-12.1_768x768.png","1024":"assets/warning/pw-12-1/fiji_road_sign_pw-12.1_1024x1024.png","2048":"assets/warning/pw-12-1/fiji_road_sign_pw-12.1_2048x2048.png"},
-      webp: {"240":"assets/warning/pw-12-1/fiji_road_sign_pw-12.1_240x240.webp","512":"assets/warning/pw-12-1/fiji_road_sign_pw-12.1_512x512.webp","768":"assets/warning/pw-12-1/fiji_road_sign_pw-12.1_768x768.webp","1024":"assets/warning/pw-12-1/fiji_road_sign_pw-12.1_1024x1024.webp","2048":"assets/warning/pw-12-1/fiji_road_sign_pw-12.1_2048x2048.webp"},
+      jpg: {"240":"assets/warning/pw-12/fiji_road_sign_pw-12_240x240.jpg","512":"assets/warning/pw-12/fiji_road_sign_pw-12_512x512.jpg","768":"assets/warning/pw-12/fiji_road_sign_pw-12_768x768.jpg","1024":"assets/warning/pw-12/fiji_road_sign_pw-12_1024x1024.jpg","2048":"assets/warning/pw-12/fiji_road_sign_pw-12_2048x2048.jpg"},
+      png: {"240":"assets/warning/pw-12/fiji_road_sign_pw-12_240x240.png","512":"assets/warning/pw-12/fiji_road_sign_pw-12_512x512.png","768":"assets/warning/pw-12/fiji_road_sign_pw-12_768x768.png","1024":"assets/warning/pw-12/fiji_road_sign_pw-12_1024x1024.png","2048":"assets/warning/pw-12/fiji_road_sign_pw-12_2048x2048.png"},
+      webp: {"240":"assets/warning/pw-12/fiji_road_sign_pw-12_240x240.webp","512":"assets/warning/pw-12/fiji_road_sign_pw-12_512x512.webp","768":"assets/warning/pw-12/fiji_road_sign_pw-12_768x768.webp","1024":"assets/warning/pw-12/fiji_road_sign_pw-12_1024x1024.webp","2048":"assets/warning/pw-12/fiji_road_sign_pw-12_2048x2048.webp"},
     },
     category: "warning",
     code: "PW-12",
@@ -223,9 +223,9 @@ export const signs: FJSign[] = [
   },
   {
     assets: {
-      jpg: {"240":"assets/warning/pw-13-3/fiji_road_sign_pw-13.3_240x240.jpg","512":"assets/warning/pw-13-3/fiji_road_sign_pw-13.3_512x512.jpg","768":"assets/warning/pw-13-3/fiji_road_sign_pw-13.3_768x768.jpg","1024":"assets/warning/pw-13-3/fiji_road_sign_pw-13.3_1024x1024.jpg","2048":"assets/warning/pw-13-3/fiji_road_sign_pw-13.3_2048x2048.jpg"},
-      png: {"240":"assets/warning/pw-13-3/fiji_road_sign_pw-13.3_240x240.png","512":"assets/warning/pw-13-3/fiji_road_sign_pw-13.3_512x512.png","768":"assets/warning/pw-13-3/fiji_road_sign_pw-13.3_768x768.png","1024":"assets/warning/pw-13-3/fiji_road_sign_pw-13.3_1024x1024.png","2048":"assets/warning/pw-13-3/fiji_road_sign_pw-13.3_2048x2048.png"},
-      webp: {"240":"assets/warning/pw-13-3/fiji_road_sign_pw-13.3_240x240.webp","512":"assets/warning/pw-13-3/fiji_road_sign_pw-13.3_512x512.webp","768":"assets/warning/pw-13-3/fiji_road_sign_pw-13.3_768x768.webp","1024":"assets/warning/pw-13-3/fiji_road_sign_pw-13.3_1024x1024.webp","2048":"assets/warning/pw-13-3/fiji_road_sign_pw-13.3_2048x2048.webp"},
+      jpg: {"240":"assets/warning/pw-13/fiji_road_sign_pw-13_240x240.jpg","512":"assets/warning/pw-13/fiji_road_sign_pw-13_512x512.jpg","768":"assets/warning/pw-13/fiji_road_sign_pw-13_768x768.jpg","1024":"assets/warning/pw-13/fiji_road_sign_pw-13_1024x1024.jpg","2048":"assets/warning/pw-13/fiji_road_sign_pw-13_2048x2048.jpg"},
+      png: {"240":"assets/warning/pw-13/fiji_road_sign_pw-13_240x240.png","512":"assets/warning/pw-13/fiji_road_sign_pw-13_512x512.png","768":"assets/warning/pw-13/fiji_road_sign_pw-13_768x768.png","1024":"assets/warning/pw-13/fiji_road_sign_pw-13_1024x1024.png","2048":"assets/warning/pw-13/fiji_road_sign_pw-13_2048x2048.png"},
+      webp: {"240":"assets/warning/pw-13/fiji_road_sign_pw-13_240x240.webp","512":"assets/warning/pw-13/fiji_road_sign_pw-13_512x512.webp","768":"assets/warning/pw-13/fiji_road_sign_pw-13_768x768.webp","1024":"assets/warning/pw-13/fiji_road_sign_pw-13_1024x1024.webp","2048":"assets/warning/pw-13/fiji_road_sign_pw-13_2048x2048.webp"},
     },
     category: "warning",
     code: "PW-13",
@@ -499,9 +499,9 @@ export const signs: FJSign[] = [
   },
   {
     assets: {
-      jpg: {"240":"assets/warning/pw-36-1/fiji_road_sign_pw-36.1_240x240.jpg","512":"assets/warning/pw-36-1/fiji_road_sign_pw-36.1_512x512.jpg","768":"assets/warning/pw-36-1/fiji_road_sign_pw-36.1_768x768.jpg","1024":"assets/warning/pw-36-1/fiji_road_sign_pw-36.1_1024x1024.jpg","2048":"assets/warning/pw-36-1/fiji_road_sign_pw-36.1_2048x2048.jpg"},
-      png: {"240":"assets/warning/pw-36-1/fiji_road_sign_pw-36.1_240x240.png","512":"assets/warning/pw-36-1/fiji_road_sign_pw-36.1_512x512.png","768":"assets/warning/pw-36-1/fiji_road_sign_pw-36.1_768x768.png","1024":"assets/warning/pw-36-1/fiji_road_sign_pw-36.1_1024x1024.png","2048":"assets/warning/pw-36-1/fiji_road_sign_pw-36.1_2048x2048.png"},
-      webp: {"240":"assets/warning/pw-36-1/fiji_road_sign_pw-36.1_240x240.webp","512":"assets/warning/pw-36-1/fiji_road_sign_pw-36.1_512x512.webp","768":"assets/warning/pw-36-1/fiji_road_sign_pw-36.1_768x768.webp","1024":"assets/warning/pw-36-1/fiji_road_sign_pw-36.1_1024x1024.webp","2048":"assets/warning/pw-36-1/fiji_road_sign_pw-36.1_2048x2048.webp"},
+      jpg: {"240":"assets/warning/pw-36/fiji_road_sign_pw-36_240x240.jpg","512":"assets/warning/pw-36/fiji_road_sign_pw-36_512x512.jpg","768":"assets/warning/pw-36/fiji_road_sign_pw-36_768x768.jpg","1024":"assets/warning/pw-36/fiji_road_sign_pw-36_1024x1024.jpg","2048":"assets/warning/pw-36/fiji_road_sign_pw-36_2048x2048.jpg"},
+      png: {"240":"assets/warning/pw-36/fiji_road_sign_pw-36_240x240.png","512":"assets/warning/pw-36/fiji_road_sign_pw-36_512x512.png","768":"assets/warning/pw-36/fiji_road_sign_pw-36_768x768.png","1024":"assets/warning/pw-36/fiji_road_sign_pw-36_1024x1024.png","2048":"assets/warning/pw-36/fiji_road_sign_pw-36_2048x2048.png"},
+      webp: {"240":"assets/warning/pw-36/fiji_road_sign_pw-36_240x240.webp","512":"assets/warning/pw-36/fiji_road_sign_pw-36_512x512.webp","768":"assets/warning/pw-36/fiji_road_sign_pw-36_768x768.webp","1024":"assets/warning/pw-36/fiji_road_sign_pw-36_1024x1024.webp","2048":"assets/warning/pw-36/fiji_road_sign_pw-36_2048x2048.webp"},
     },
     category: "warning",
     code: "PW-36",
@@ -523,9 +523,9 @@ export const signs: FJSign[] = [
   },
   {
     assets: {
-      jpg: {"240":"assets/warning/pw-37-1/fiji_road_sign_pw-37.1_240x240.jpg","512":"assets/warning/pw-37-1/fiji_road_sign_pw-37.1_512x512.jpg","768":"assets/warning/pw-37-1/fiji_road_sign_pw-37.1_768x768.jpg","1024":"assets/warning/pw-37-1/fiji_road_sign_pw-37.1_1024x1024.jpg","2048":"assets/warning/pw-37-1/fiji_road_sign_pw-37.1_2048x2048.jpg"},
-      png: {"240":"assets/warning/pw-37-1/fiji_road_sign_pw-37.1_240x240.png","512":"assets/warning/pw-37-1/fiji_road_sign_pw-37.1_512x512.png","768":"assets/warning/pw-37-1/fiji_road_sign_pw-37.1_768x768.png","1024":"assets/warning/pw-37-1/fiji_road_sign_pw-37.1_1024x1024.png","2048":"assets/warning/pw-37-1/fiji_road_sign_pw-37.1_2048x2048.png"},
-      webp: {"240":"assets/warning/pw-37-1/fiji_road_sign_pw-37.1_240x240.webp","512":"assets/warning/pw-37-1/fiji_road_sign_pw-37.1_512x512.webp","768":"assets/warning/pw-37-1/fiji_road_sign_pw-37.1_768x768.webp","1024":"assets/warning/pw-37-1/fiji_road_sign_pw-37.1_1024x1024.webp","2048":"assets/warning/pw-37-1/fiji_road_sign_pw-37.1_2048x2048.webp"},
+      jpg: {"240":"assets/warning/pw-37/fiji_road_sign_pw-37_240x240.jpg","512":"assets/warning/pw-37/fiji_road_sign_pw-37_512x512.jpg","768":"assets/warning/pw-37/fiji_road_sign_pw-37_768x768.jpg","1024":"assets/warning/pw-37/fiji_road_sign_pw-37_1024x1024.jpg","2048":"assets/warning/pw-37/fiji_road_sign_pw-37_2048x2048.jpg"},
+      png: {"240":"assets/warning/pw-37/fiji_road_sign_pw-37_240x240.png","512":"assets/warning/pw-37/fiji_road_sign_pw-37_512x512.png","768":"assets/warning/pw-37/fiji_road_sign_pw-37_768x768.png","1024":"assets/warning/pw-37/fiji_road_sign_pw-37_1024x1024.png","2048":"assets/warning/pw-37/fiji_road_sign_pw-37_2048x2048.png"},
+      webp: {"240":"assets/warning/pw-37/fiji_road_sign_pw-37_240x240.webp","512":"assets/warning/pw-37/fiji_road_sign_pw-37_512x512.webp","768":"assets/warning/pw-37/fiji_road_sign_pw-37_768x768.webp","1024":"assets/warning/pw-37/fiji_road_sign_pw-37_1024x1024.webp","2048":"assets/warning/pw-37/fiji_road_sign_pw-37_2048x2048.webp"},
     },
     category: "warning",
     code: "PW-37",
@@ -583,9 +583,9 @@ export const signs: FJSign[] = [
   },
   {
     assets: {
-      jpg: {"240":"assets/warning/pw-41-3/fiji_road_sign_pw-41.3_240x240.jpg","512":"assets/warning/pw-41-3/fiji_road_sign_pw-41.3_512x512.jpg","768":"assets/warning/pw-41-3/fiji_road_sign_pw-41.3_768x768.jpg","1024":"assets/warning/pw-41-3/fiji_road_sign_pw-41.3_1024x1024.jpg","2048":"assets/warning/pw-41-3/fiji_road_sign_pw-41.3_2048x2048.jpg"},
-      png: {"240":"assets/warning/pw-41-3/fiji_road_sign_pw-41.3_240x240.png","512":"assets/warning/pw-41-3/fiji_road_sign_pw-41.3_512x512.png","768":"assets/warning/pw-41-3/fiji_road_sign_pw-41.3_768x768.png","1024":"assets/warning/pw-41-3/fiji_road_sign_pw-41.3_1024x1024.png","2048":"assets/warning/pw-41-3/fiji_road_sign_pw-41.3_2048x2048.png"},
-      webp: {"240":"assets/warning/pw-41-3/fiji_road_sign_pw-41.3_240x240.webp","512":"assets/warning/pw-41-3/fiji_road_sign_pw-41.3_512x512.webp","768":"assets/warning/pw-41-3/fiji_road_sign_pw-41.3_768x768.webp","1024":"assets/warning/pw-41-3/fiji_road_sign_pw-41.3_1024x1024.webp","2048":"assets/warning/pw-41-3/fiji_road_sign_pw-41.3_2048x2048.webp"},
+      jpg: {"240":"assets/warning/pw-41/fiji_road_sign_pw-41_240x240.jpg","512":"assets/warning/pw-41/fiji_road_sign_pw-41_512x512.jpg","768":"assets/warning/pw-41/fiji_road_sign_pw-41_768x768.jpg","1024":"assets/warning/pw-41/fiji_road_sign_pw-41_1024x1024.jpg","2048":"assets/warning/pw-41/fiji_road_sign_pw-41_2048x2048.jpg"},
+      png: {"240":"assets/warning/pw-41/fiji_road_sign_pw-41_240x240.png","512":"assets/warning/pw-41/fiji_road_sign_pw-41_512x512.png","768":"assets/warning/pw-41/fiji_road_sign_pw-41_768x768.png","1024":"assets/warning/pw-41/fiji_road_sign_pw-41_1024x1024.png","2048":"assets/warning/pw-41/fiji_road_sign_pw-41_2048x2048.png"},
+      webp: {"240":"assets/warning/pw-41/fiji_road_sign_pw-41_240x240.webp","512":"assets/warning/pw-41/fiji_road_sign_pw-41_512x512.webp","768":"assets/warning/pw-41/fiji_road_sign_pw-41_768x768.webp","1024":"assets/warning/pw-41/fiji_road_sign_pw-41_1024x1024.webp","2048":"assets/warning/pw-41/fiji_road_sign_pw-41_2048x2048.webp"},
     },
     category: "warning",
     code: "PW-41",
@@ -631,9 +631,9 @@ export const signs: FJSign[] = [
   },
   {
     assets: {
-      jpg: {"240":"assets/warning/pw-43-4/fiji_road_sign_pw-43.4_240x240.jpg","512":"assets/warning/pw-43-4/fiji_road_sign_pw-43.4_512x512.jpg","768":"assets/warning/pw-43-4/fiji_road_sign_pw-43.4_768x768.jpg","1024":"assets/warning/pw-43-4/fiji_road_sign_pw-43.4_1024x1024.jpg","2048":"assets/warning/pw-43-4/fiji_road_sign_pw-43.4_2048x2048.jpg"},
-      png: {"240":"assets/warning/pw-43-4/fiji_road_sign_pw-43.4_240x240.png","512":"assets/warning/pw-43-4/fiji_road_sign_pw-43.4_512x512.png","768":"assets/warning/pw-43-4/fiji_road_sign_pw-43.4_768x768.png","1024":"assets/warning/pw-43-4/fiji_road_sign_pw-43.4_1024x1024.png","2048":"assets/warning/pw-43-4/fiji_road_sign_pw-43.4_2048x2048.png"},
-      webp: {"240":"assets/warning/pw-43-4/fiji_road_sign_pw-43.4_240x240.webp","512":"assets/warning/pw-43-4/fiji_road_sign_pw-43.4_512x512.webp","768":"assets/warning/pw-43-4/fiji_road_sign_pw-43.4_768x768.webp","1024":"assets/warning/pw-43-4/fiji_road_sign_pw-43.4_1024x1024.webp","2048":"assets/warning/pw-43-4/fiji_road_sign_pw-43.4_2048x2048.webp"},
+      jpg: {"240":"assets/warning/pw-43/fiji_road_sign_pw-43_240x240.jpg","512":"assets/warning/pw-43/fiji_road_sign_pw-43_512x512.jpg","768":"assets/warning/pw-43/fiji_road_sign_pw-43_768x768.jpg","1024":"assets/warning/pw-43/fiji_road_sign_pw-43_1024x1024.jpg","2048":"assets/warning/pw-43/fiji_road_sign_pw-43_2048x2048.jpg"},
+      png: {"240":"assets/warning/pw-43/fiji_road_sign_pw-43_240x240.png","512":"assets/warning/pw-43/fiji_road_sign_pw-43_512x512.png","768":"assets/warning/pw-43/fiji_road_sign_pw-43_768x768.png","1024":"assets/warning/pw-43/fiji_road_sign_pw-43_1024x1024.png","2048":"assets/warning/pw-43/fiji_road_sign_pw-43_2048x2048.png"},
+      webp: {"240":"assets/warning/pw-43/fiji_road_sign_pw-43_240x240.webp","512":"assets/warning/pw-43/fiji_road_sign_pw-43_512x512.webp","768":"assets/warning/pw-43/fiji_road_sign_pw-43_768x768.webp","1024":"assets/warning/pw-43/fiji_road_sign_pw-43_1024x1024.webp","2048":"assets/warning/pw-43/fiji_road_sign_pw-43_2048x2048.webp"},
     },
     category: "warning",
     code: "PW-43",
@@ -667,9 +667,9 @@ export const signs: FJSign[] = [
   },
   {
     assets: {
-      jpg: {"240":"assets/warning/pw-44-1/fiji_road_sign_pw-44.1_240x240.jpg","512":"assets/warning/pw-44-1/fiji_road_sign_pw-44.1_512x512.jpg","768":"assets/warning/pw-44-1/fiji_road_sign_pw-44.1_768x768.jpg","1024":"assets/warning/pw-44-1/fiji_road_sign_pw-44.1_1024x1024.jpg","2048":"assets/warning/pw-44-1/fiji_road_sign_pw-44.1_2048x2048.jpg"},
-      png: {"240":"assets/warning/pw-44-1/fiji_road_sign_pw-44.1_240x240.png","512":"assets/warning/pw-44-1/fiji_road_sign_pw-44.1_512x512.png","768":"assets/warning/pw-44-1/fiji_road_sign_pw-44.1_768x768.png","1024":"assets/warning/pw-44-1/fiji_road_sign_pw-44.1_1024x1024.png","2048":"assets/warning/pw-44-1/fiji_road_sign_pw-44.1_2048x2048.png"},
-      webp: {"240":"assets/warning/pw-44-1/fiji_road_sign_pw-44.1_240x240.webp","512":"assets/warning/pw-44-1/fiji_road_sign_pw-44.1_512x512.webp","768":"assets/warning/pw-44-1/fiji_road_sign_pw-44.1_768x768.webp","1024":"assets/warning/pw-44-1/fiji_road_sign_pw-44.1_1024x1024.webp","2048":"assets/warning/pw-44-1/fiji_road_sign_pw-44.1_2048x2048.webp"},
+      jpg: {"240":"assets/warning/pw-44/fiji_road_sign_pw-44_240x240.jpg","512":"assets/warning/pw-44/fiji_road_sign_pw-44_512x512.jpg","768":"assets/warning/pw-44/fiji_road_sign_pw-44_768x768.jpg","1024":"assets/warning/pw-44/fiji_road_sign_pw-44_1024x1024.jpg","2048":"assets/warning/pw-44/fiji_road_sign_pw-44_2048x2048.jpg"},
+      png: {"240":"assets/warning/pw-44/fiji_road_sign_pw-44_240x240.png","512":"assets/warning/pw-44/fiji_road_sign_pw-44_512x512.png","768":"assets/warning/pw-44/fiji_road_sign_pw-44_768x768.png","1024":"assets/warning/pw-44/fiji_road_sign_pw-44_1024x1024.png","2048":"assets/warning/pw-44/fiji_road_sign_pw-44_2048x2048.png"},
+      webp: {"240":"assets/warning/pw-44/fiji_road_sign_pw-44_240x240.webp","512":"assets/warning/pw-44/fiji_road_sign_pw-44_512x512.webp","768":"assets/warning/pw-44/fiji_road_sign_pw-44_768x768.webp","1024":"assets/warning/pw-44/fiji_road_sign_pw-44_1024x1024.webp","2048":"assets/warning/pw-44/fiji_road_sign_pw-44_2048x2048.webp"},
     },
     category: "warning",
     code: "PW-44",
@@ -739,9 +739,9 @@ export const signs: FJSign[] = [
   },
   {
     assets: {
-      jpg: {"240":"assets/warning/pw-53-3/fiji_road_sign_pw-53.3_240x240.jpg","512":"assets/warning/pw-53-3/fiji_road_sign_pw-53.3_512x512.jpg","768":"assets/warning/pw-53-3/fiji_road_sign_pw-53.3_768x768.jpg","1024":"assets/warning/pw-53-3/fiji_road_sign_pw-53.3_1024x1024.jpg","2048":"assets/warning/pw-53-3/fiji_road_sign_pw-53.3_2048x2048.jpg"},
-      png: {"240":"assets/warning/pw-53-3/fiji_road_sign_pw-53.3_240x240.png","512":"assets/warning/pw-53-3/fiji_road_sign_pw-53.3_512x512.png","768":"assets/warning/pw-53-3/fiji_road_sign_pw-53.3_768x768.png","1024":"assets/warning/pw-53-3/fiji_road_sign_pw-53.3_1024x1024.png","2048":"assets/warning/pw-53-3/fiji_road_sign_pw-53.3_2048x2048.png"},
-      webp: {"240":"assets/warning/pw-53-3/fiji_road_sign_pw-53.3_240x240.webp","512":"assets/warning/pw-53-3/fiji_road_sign_pw-53.3_512x512.webp","768":"assets/warning/pw-53-3/fiji_road_sign_pw-53.3_768x768.webp","1024":"assets/warning/pw-53-3/fiji_road_sign_pw-53.3_1024x1024.webp","2048":"assets/warning/pw-53-3/fiji_road_sign_pw-53.3_2048x2048.webp"},
+      jpg: {"240":"assets/warning/pw-53/fiji_road_sign_pw-53_240x240.jpg","512":"assets/warning/pw-53/fiji_road_sign_pw-53_512x512.jpg","768":"assets/warning/pw-53/fiji_road_sign_pw-53_768x768.jpg","1024":"assets/warning/pw-53/fiji_road_sign_pw-53_1024x1024.jpg","2048":"assets/warning/pw-53/fiji_road_sign_pw-53_2048x2048.jpg"},
+      png: {"240":"assets/warning/pw-53/fiji_road_sign_pw-53_240x240.png","512":"assets/warning/pw-53/fiji_road_sign_pw-53_512x512.png","768":"assets/warning/pw-53/fiji_road_sign_pw-53_768x768.png","1024":"assets/warning/pw-53/fiji_road_sign_pw-53_1024x1024.png","2048":"assets/warning/pw-53/fiji_road_sign_pw-53_2048x2048.png"},
+      webp: {"240":"assets/warning/pw-53/fiji_road_sign_pw-53_240x240.webp","512":"assets/warning/pw-53/fiji_road_sign_pw-53_512x512.webp","768":"assets/warning/pw-53/fiji_road_sign_pw-53_768x768.webp","1024":"assets/warning/pw-53/fiji_road_sign_pw-53_1024x1024.webp","2048":"assets/warning/pw-53/fiji_road_sign_pw-53_2048x2048.webp"},
     },
     category: "warning",
     code: "PW-53",
@@ -823,9 +823,9 @@ export const signs: FJSign[] = [
   },
   {
     assets: {
-      jpg: {"240":"assets/warning/pw-57-1/fiji_road_sign_pw-57.1_240x240.jpg","512":"assets/warning/pw-57-1/fiji_road_sign_pw-57.1_512x512.jpg","768":"assets/warning/pw-57-1/fiji_road_sign_pw-57.1_768x768.jpg","1024":"assets/warning/pw-57-1/fiji_road_sign_pw-57.1_1024x1024.jpg","2048":"assets/warning/pw-57-1/fiji_road_sign_pw-57.1_2048x2048.jpg"},
-      png: {"240":"assets/warning/pw-57-1/fiji_road_sign_pw-57.1_240x240.png","512":"assets/warning/pw-57-1/fiji_road_sign_pw-57.1_512x512.png","768":"assets/warning/pw-57-1/fiji_road_sign_pw-57.1_768x768.png","1024":"assets/warning/pw-57-1/fiji_road_sign_pw-57.1_1024x1024.png","2048":"assets/warning/pw-57-1/fiji_road_sign_pw-57.1_2048x2048.png"},
-      webp: {"240":"assets/warning/pw-57-1/fiji_road_sign_pw-57.1_240x240.webp","512":"assets/warning/pw-57-1/fiji_road_sign_pw-57.1_512x512.webp","768":"assets/warning/pw-57-1/fiji_road_sign_pw-57.1_768x768.webp","1024":"assets/warning/pw-57-1/fiji_road_sign_pw-57.1_1024x1024.webp","2048":"assets/warning/pw-57-1/fiji_road_sign_pw-57.1_2048x2048.webp"},
+      jpg: {"240":"assets/warning/pw-57/fiji_road_sign_pw-57_240x240.jpg","512":"assets/warning/pw-57/fiji_road_sign_pw-57_512x512.jpg","768":"assets/warning/pw-57/fiji_road_sign_pw-57_768x768.jpg","1024":"assets/warning/pw-57/fiji_road_sign_pw-57_1024x1024.jpg","2048":"assets/warning/pw-57/fiji_road_sign_pw-57_2048x2048.jpg"},
+      png: {"240":"assets/warning/pw-57/fiji_road_sign_pw-57_240x240.png","512":"assets/warning/pw-57/fiji_road_sign_pw-57_512x512.png","768":"assets/warning/pw-57/fiji_road_sign_pw-57_768x768.png","1024":"assets/warning/pw-57/fiji_road_sign_pw-57_1024x1024.png","2048":"assets/warning/pw-57/fiji_road_sign_pw-57_2048x2048.png"},
+      webp: {"240":"assets/warning/pw-57/fiji_road_sign_pw-57_240x240.webp","512":"assets/warning/pw-57/fiji_road_sign_pw-57_512x512.webp","768":"assets/warning/pw-57/fiji_road_sign_pw-57_768x768.webp","1024":"assets/warning/pw-57/fiji_road_sign_pw-57_1024x1024.webp","2048":"assets/warning/pw-57/fiji_road_sign_pw-57_2048x2048.webp"},
     },
     category: "warning",
     code: "PW-57",
@@ -991,9 +991,9 @@ export const signs: FJSign[] = [
   },
   {
     assets: {
-      jpg: {"240":"assets/priority/rg-6r/fiji_road_sign_rg-6r_240x240.jpg","512":"assets/priority/rg-6r/fiji_road_sign_rg-6r_512x512.jpg","768":"assets/priority/rg-6r/fiji_road_sign_rg-6r_768x768.jpg","1024":"assets/priority/rg-6r/fiji_road_sign_rg-6r_1024x1024.jpg","2048":"assets/priority/rg-6r/fiji_road_sign_rg-6r_2048x2048.jpg"},
-      png: {"240":"assets/priority/rg-6r/fiji_road_sign_rg-6r_240x240.png","512":"assets/priority/rg-6r/fiji_road_sign_rg-6r_512x512.png","768":"assets/priority/rg-6r/fiji_road_sign_rg-6r_768x768.png","1024":"assets/priority/rg-6r/fiji_road_sign_rg-6r_1024x1024.png","2048":"assets/priority/rg-6r/fiji_road_sign_rg-6r_2048x2048.png"},
-      webp: {"240":"assets/priority/rg-6r/fiji_road_sign_rg-6r_240x240.webp","512":"assets/priority/rg-6r/fiji_road_sign_rg-6r_512x512.webp","768":"assets/priority/rg-6r/fiji_road_sign_rg-6r_768x768.webp","1024":"assets/priority/rg-6r/fiji_road_sign_rg-6r_1024x1024.webp","2048":"assets/priority/rg-6r/fiji_road_sign_rg-6r_2048x2048.webp"},
+      jpg: {"240":"assets/priority/rg-6/fiji_road_sign_rg-6_240x240.jpg","512":"assets/priority/rg-6/fiji_road_sign_rg-6_512x512.jpg","768":"assets/priority/rg-6/fiji_road_sign_rg-6_768x768.jpg","1024":"assets/priority/rg-6/fiji_road_sign_rg-6_1024x1024.jpg","2048":"assets/priority/rg-6/fiji_road_sign_rg-6_2048x2048.jpg"},
+      png: {"240":"assets/priority/rg-6/fiji_road_sign_rg-6_240x240.png","512":"assets/priority/rg-6/fiji_road_sign_rg-6_512x512.png","768":"assets/priority/rg-6/fiji_road_sign_rg-6_768x768.png","1024":"assets/priority/rg-6/fiji_road_sign_rg-6_1024x1024.png","2048":"assets/priority/rg-6/fiji_road_sign_rg-6_2048x2048.png"},
+      webp: {"240":"assets/priority/rg-6/fiji_road_sign_rg-6_240x240.webp","512":"assets/priority/rg-6/fiji_road_sign_rg-6_512x512.webp","768":"assets/priority/rg-6/fiji_road_sign_rg-6_768x768.webp","1024":"assets/priority/rg-6/fiji_road_sign_rg-6_1024x1024.webp","2048":"assets/priority/rg-6/fiji_road_sign_rg-6_2048x2048.webp"},
     },
     category: "priority",
     code: "RG-6",
@@ -1051,9 +1051,9 @@ export const signs: FJSign[] = [
   },
   {
     assets: {
-      jpg: {"240":"assets/priority/rg-19-1/fiji_road_sign_rg-19.1_240x240.jpg","512":"assets/priority/rg-19-1/fiji_road_sign_rg-19.1_512x512.jpg","768":"assets/priority/rg-19-1/fiji_road_sign_rg-19.1_768x768.jpg","1024":"assets/priority/rg-19-1/fiji_road_sign_rg-19.1_1024x1024.jpg","2048":"assets/priority/rg-19-1/fiji_road_sign_rg-19.1_2048x2048.jpg"},
-      png: {"240":"assets/priority/rg-19-1/fiji_road_sign_rg-19.1_240x240.png","512":"assets/priority/rg-19-1/fiji_road_sign_rg-19.1_512x512.png","768":"assets/priority/rg-19-1/fiji_road_sign_rg-19.1_768x768.png","1024":"assets/priority/rg-19-1/fiji_road_sign_rg-19.1_1024x1024.png","2048":"assets/priority/rg-19-1/fiji_road_sign_rg-19.1_2048x2048.png"},
-      webp: {"240":"assets/priority/rg-19-1/fiji_road_sign_rg-19.1_240x240.webp","512":"assets/priority/rg-19-1/fiji_road_sign_rg-19.1_512x512.webp","768":"assets/priority/rg-19-1/fiji_road_sign_rg-19.1_768x768.webp","1024":"assets/priority/rg-19-1/fiji_road_sign_rg-19.1_1024x1024.webp","2048":"assets/priority/rg-19-1/fiji_road_sign_rg-19.1_2048x2048.webp"},
+      jpg: {"240":"assets/priority/rg-19/fiji_road_sign_rg-19_240x240.jpg","512":"assets/priority/rg-19/fiji_road_sign_rg-19_512x512.jpg","768":"assets/priority/rg-19/fiji_road_sign_rg-19_768x768.jpg","1024":"assets/priority/rg-19/fiji_road_sign_rg-19_1024x1024.jpg","2048":"assets/priority/rg-19/fiji_road_sign_rg-19_2048x2048.jpg"},
+      png: {"240":"assets/priority/rg-19/fiji_road_sign_rg-19_240x240.png","512":"assets/priority/rg-19/fiji_road_sign_rg-19_512x512.png","768":"assets/priority/rg-19/fiji_road_sign_rg-19_768x768.png","1024":"assets/priority/rg-19/fiji_road_sign_rg-19_1024x1024.png","2048":"assets/priority/rg-19/fiji_road_sign_rg-19_2048x2048.png"},
+      webp: {"240":"assets/priority/rg-19/fiji_road_sign_rg-19_240x240.webp","512":"assets/priority/rg-19/fiji_road_sign_rg-19_512x512.webp","768":"assets/priority/rg-19/fiji_road_sign_rg-19_768x768.webp","1024":"assets/priority/rg-19/fiji_road_sign_rg-19_1024x1024.webp","2048":"assets/priority/rg-19/fiji_road_sign_rg-19_2048x2048.webp"},
     },
     category: "priority",
     code: "RG-19",
@@ -1147,9 +1147,9 @@ export const signs: FJSign[] = [
   },
   {
     assets: {
-      jpg: {"240":"assets/prohibitory/rg-18/fiji_road_sign_rg-18_240x240.jpg","512":"assets/prohibitory/rg-18/fiji_road_sign_rg-18_512x512.jpg","768":"assets/prohibitory/rg-18/fiji_road_sign_rg-18_768x768.jpg","1024":"assets/prohibitory/rg-18/fiji_road_sign_rg-18_1024x1024.jpg","2048":"assets/prohibitory/rg-18/fiji_road_sign_rg-18_2048x2048.jpg"},
-      png: {"240":"assets/prohibitory/rg-18/fiji_road_sign_rg-18_240x240.png","512":"assets/prohibitory/rg-18/fiji_road_sign_rg-18_512x512.png","768":"assets/prohibitory/rg-18/fiji_road_sign_rg-18_768x768.png","1024":"assets/prohibitory/rg-18/fiji_road_sign_rg-18_1024x1024.png","2048":"assets/prohibitory/rg-18/fiji_road_sign_rg-18_2048x2048.png"},
-      webp: {"240":"assets/prohibitory/rg-18/fiji_road_sign_rg-18_240x240.webp","512":"assets/prohibitory/rg-18/fiji_road_sign_rg-18_512x512.webp","768":"assets/prohibitory/rg-18/fiji_road_sign_rg-18_768x768.webp","1024":"assets/prohibitory/rg-18/fiji_road_sign_rg-18_1024x1024.webp","2048":"assets/prohibitory/rg-18/fiji_road_sign_rg-18_2048x2048.webp"},
+      jpg: {"240":"assets/prohibitory/rg-1/fiji_road_sign_rg-1_240x240.jpg","512":"assets/prohibitory/rg-1/fiji_road_sign_rg-1_512x512.jpg","768":"assets/prohibitory/rg-1/fiji_road_sign_rg-1_768x768.jpg","1024":"assets/prohibitory/rg-1/fiji_road_sign_rg-1_1024x1024.jpg","2048":"assets/prohibitory/rg-1/fiji_road_sign_rg-1_2048x2048.jpg"},
+      png: {"240":"assets/prohibitory/rg-1/fiji_road_sign_rg-1_240x240.png","512":"assets/prohibitory/rg-1/fiji_road_sign_rg-1_512x512.png","768":"assets/prohibitory/rg-1/fiji_road_sign_rg-1_768x768.png","1024":"assets/prohibitory/rg-1/fiji_road_sign_rg-1_1024x1024.png","2048":"assets/prohibitory/rg-1/fiji_road_sign_rg-1_2048x2048.png"},
+      webp: {"240":"assets/prohibitory/rg-1/fiji_road_sign_rg-1_240x240.webp","512":"assets/prohibitory/rg-1/fiji_road_sign_rg-1_512x512.webp","768":"assets/prohibitory/rg-1/fiji_road_sign_rg-1_768x768.webp","1024":"assets/prohibitory/rg-1/fiji_road_sign_rg-1_1024x1024.webp","2048":"assets/prohibitory/rg-1/fiji_road_sign_rg-1_2048x2048.webp"},
     },
     category: "prohibitory",
     code: "RG-1",
@@ -1159,9 +1159,9 @@ export const signs: FJSign[] = [
   },
   {
     assets: {
-      jpg: {"240":"assets/prohibitory/rg-48/fiji_road_sign_rg-48_240x240.jpg","512":"assets/prohibitory/rg-48/fiji_road_sign_rg-48_512x512.jpg","768":"assets/prohibitory/rg-48/fiji_road_sign_rg-48_768x768.jpg","1024":"assets/prohibitory/rg-48/fiji_road_sign_rg-48_1024x1024.jpg","2048":"assets/prohibitory/rg-48/fiji_road_sign_rg-48_2048x2048.jpg"},
-      png: {"240":"assets/prohibitory/rg-48/fiji_road_sign_rg-48_240x240.png","512":"assets/prohibitory/rg-48/fiji_road_sign_rg-48_512x512.png","768":"assets/prohibitory/rg-48/fiji_road_sign_rg-48_768x768.png","1024":"assets/prohibitory/rg-48/fiji_road_sign_rg-48_1024x1024.png","2048":"assets/prohibitory/rg-48/fiji_road_sign_rg-48_2048x2048.png"},
-      webp: {"240":"assets/prohibitory/rg-48/fiji_road_sign_rg-48_240x240.webp","512":"assets/prohibitory/rg-48/fiji_road_sign_rg-48_512x512.webp","768":"assets/prohibitory/rg-48/fiji_road_sign_rg-48_768x768.webp","1024":"assets/prohibitory/rg-48/fiji_road_sign_rg-48_1024x1024.webp","2048":"assets/prohibitory/rg-48/fiji_road_sign_rg-48_2048x2048.webp"},
+      jpg: {"240":"assets/prohibitory/rg-4/fiji_road_sign_rg-4_240x240.jpg","512":"assets/prohibitory/rg-4/fiji_road_sign_rg-4_512x512.jpg","768":"assets/prohibitory/rg-4/fiji_road_sign_rg-4_768x768.jpg","1024":"assets/prohibitory/rg-4/fiji_road_sign_rg-4_1024x1024.jpg","2048":"assets/prohibitory/rg-4/fiji_road_sign_rg-4_2048x2048.jpg"},
+      png: {"240":"assets/prohibitory/rg-4/fiji_road_sign_rg-4_240x240.png","512":"assets/prohibitory/rg-4/fiji_road_sign_rg-4_512x512.png","768":"assets/prohibitory/rg-4/fiji_road_sign_rg-4_768x768.png","1024":"assets/prohibitory/rg-4/fiji_road_sign_rg-4_1024x1024.png","2048":"assets/prohibitory/rg-4/fiji_road_sign_rg-4_2048x2048.png"},
+      webp: {"240":"assets/prohibitory/rg-4/fiji_road_sign_rg-4_240x240.webp","512":"assets/prohibitory/rg-4/fiji_road_sign_rg-4_512x512.webp","768":"assets/prohibitory/rg-4/fiji_road_sign_rg-4_768x768.webp","1024":"assets/prohibitory/rg-4/fiji_road_sign_rg-4_1024x1024.webp","2048":"assets/prohibitory/rg-4/fiji_road_sign_rg-4_2048x2048.webp"},
     },
     category: "prohibitory",
     code: "RG-4",
@@ -1399,9 +1399,9 @@ export const signs: FJSign[] = [
   },
   {
     assets: {
-      jpg: {"240":"assets/prohibitory/rp-15/fiji_road_sign_rp-15_240x240.jpg","512":"assets/prohibitory/rp-15/fiji_road_sign_rp-15_512x512.jpg","768":"assets/prohibitory/rp-15/fiji_road_sign_rp-15_768x768.jpg","1024":"assets/prohibitory/rp-15/fiji_road_sign_rp-15_1024x1024.jpg","2048":"assets/prohibitory/rp-15/fiji_road_sign_rp-15_2048x2048.jpg"},
-      png: {"240":"assets/prohibitory/rp-15/fiji_road_sign_rp-15_240x240.png","512":"assets/prohibitory/rp-15/fiji_road_sign_rp-15_512x512.png","768":"assets/prohibitory/rp-15/fiji_road_sign_rp-15_768x768.png","1024":"assets/prohibitory/rp-15/fiji_road_sign_rp-15_1024x1024.png","2048":"assets/prohibitory/rp-15/fiji_road_sign_rp-15_2048x2048.png"},
-      webp: {"240":"assets/prohibitory/rp-15/fiji_road_sign_rp-15_240x240.webp","512":"assets/prohibitory/rp-15/fiji_road_sign_rp-15_512x512.webp","768":"assets/prohibitory/rp-15/fiji_road_sign_rp-15_768x768.webp","1024":"assets/prohibitory/rp-15/fiji_road_sign_rp-15_1024x1024.webp","2048":"assets/prohibitory/rp-15/fiji_road_sign_rp-15_2048x2048.webp"},
+      jpg: {"240":"assets/prohibitory/rp-1/fiji_road_sign_rp-1_240x240.jpg","512":"assets/prohibitory/rp-1/fiji_road_sign_rp-1_512x512.jpg","768":"assets/prohibitory/rp-1/fiji_road_sign_rp-1_768x768.jpg","1024":"assets/prohibitory/rp-1/fiji_road_sign_rp-1_1024x1024.jpg","2048":"assets/prohibitory/rp-1/fiji_road_sign_rp-1_2048x2048.jpg"},
+      png: {"240":"assets/prohibitory/rp-1/fiji_road_sign_rp-1_240x240.png","512":"assets/prohibitory/rp-1/fiji_road_sign_rp-1_512x512.png","768":"assets/prohibitory/rp-1/fiji_road_sign_rp-1_768x768.png","1024":"assets/prohibitory/rp-1/fiji_road_sign_rp-1_1024x1024.png","2048":"assets/prohibitory/rp-1/fiji_road_sign_rp-1_2048x2048.png"},
+      webp: {"240":"assets/prohibitory/rp-1/fiji_road_sign_rp-1_240x240.webp","512":"assets/prohibitory/rp-1/fiji_road_sign_rp-1_512x512.webp","768":"assets/prohibitory/rp-1/fiji_road_sign_rp-1_768x768.webp","1024":"assets/prohibitory/rp-1/fiji_road_sign_rp-1_1024x1024.webp","2048":"assets/prohibitory/rp-1/fiji_road_sign_rp-1_2048x2048.webp"},
     },
     category: "prohibitory",
     code: "RP-1",
@@ -1423,9 +1423,9 @@ export const signs: FJSign[] = [
   },
   {
     assets: {
-      jpg: {"240":"assets/prohibitory/rp-12-2/fiji_road_sign_rp-12.2_240x240.jpg","512":"assets/prohibitory/rp-12-2/fiji_road_sign_rp-12.2_512x512.jpg","768":"assets/prohibitory/rp-12-2/fiji_road_sign_rp-12.2_768x768.jpg","1024":"assets/prohibitory/rp-12-2/fiji_road_sign_rp-12.2_1024x1024.jpg","2048":"assets/prohibitory/rp-12-2/fiji_road_sign_rp-12.2_2048x2048.jpg"},
-      png: {"240":"assets/prohibitory/rp-12-2/fiji_road_sign_rp-12.2_240x240.png","512":"assets/prohibitory/rp-12-2/fiji_road_sign_rp-12.2_512x512.png","768":"assets/prohibitory/rp-12-2/fiji_road_sign_rp-12.2_768x768.png","1024":"assets/prohibitory/rp-12-2/fiji_road_sign_rp-12.2_1024x1024.png","2048":"assets/prohibitory/rp-12-2/fiji_road_sign_rp-12.2_2048x2048.png"},
-      webp: {"240":"assets/prohibitory/rp-12-2/fiji_road_sign_rp-12.2_240x240.webp","512":"assets/prohibitory/rp-12-2/fiji_road_sign_rp-12.2_512x512.webp","768":"assets/prohibitory/rp-12-2/fiji_road_sign_rp-12.2_768x768.webp","1024":"assets/prohibitory/rp-12-2/fiji_road_sign_rp-12.2_1024x1024.webp","2048":"assets/prohibitory/rp-12-2/fiji_road_sign_rp-12.2_2048x2048.webp"},
+      jpg: {"240":"assets/prohibitory/rp-12/fiji_road_sign_rp-12_240x240.jpg","512":"assets/prohibitory/rp-12/fiji_road_sign_rp-12_512x512.jpg","768":"assets/prohibitory/rp-12/fiji_road_sign_rp-12_768x768.jpg","1024":"assets/prohibitory/rp-12/fiji_road_sign_rp-12_1024x1024.jpg","2048":"assets/prohibitory/rp-12/fiji_road_sign_rp-12_2048x2048.jpg"},
+      png: {"240":"assets/prohibitory/rp-12/fiji_road_sign_rp-12_240x240.png","512":"assets/prohibitory/rp-12/fiji_road_sign_rp-12_512x512.png","768":"assets/prohibitory/rp-12/fiji_road_sign_rp-12_768x768.png","1024":"assets/prohibitory/rp-12/fiji_road_sign_rp-12_1024x1024.png","2048":"assets/prohibitory/rp-12/fiji_road_sign_rp-12_2048x2048.png"},
+      webp: {"240":"assets/prohibitory/rp-12/fiji_road_sign_rp-12_240x240.webp","512":"assets/prohibitory/rp-12/fiji_road_sign_rp-12_512x512.webp","768":"assets/prohibitory/rp-12/fiji_road_sign_rp-12_768x768.webp","1024":"assets/prohibitory/rp-12/fiji_road_sign_rp-12_1024x1024.webp","2048":"assets/prohibitory/rp-12/fiji_road_sign_rp-12_2048x2048.webp"},
     },
     category: "prohibitory",
     code: "RP-1.2",
@@ -1447,9 +1447,9 @@ export const signs: FJSign[] = [
   },
   {
     assets: {
-      jpg: {"240":"assets/prohibitory/rp-2-1/fiji_road_sign_rp-2.1_240x240.jpg","512":"assets/prohibitory/rp-2-1/fiji_road_sign_rp-2.1_512x512.jpg","768":"assets/prohibitory/rp-2-1/fiji_road_sign_rp-2.1_768x768.jpg","1024":"assets/prohibitory/rp-2-1/fiji_road_sign_rp-2.1_1024x1024.jpg","2048":"assets/prohibitory/rp-2-1/fiji_road_sign_rp-2.1_2048x2048.jpg"},
-      png: {"240":"assets/prohibitory/rp-2-1/fiji_road_sign_rp-2.1_240x240.png","512":"assets/prohibitory/rp-2-1/fiji_road_sign_rp-2.1_512x512.png","768":"assets/prohibitory/rp-2-1/fiji_road_sign_rp-2.1_768x768.png","1024":"assets/prohibitory/rp-2-1/fiji_road_sign_rp-2.1_1024x1024.png","2048":"assets/prohibitory/rp-2-1/fiji_road_sign_rp-2.1_2048x2048.png"},
-      webp: {"240":"assets/prohibitory/rp-2-1/fiji_road_sign_rp-2.1_240x240.webp","512":"assets/prohibitory/rp-2-1/fiji_road_sign_rp-2.1_512x512.webp","768":"assets/prohibitory/rp-2-1/fiji_road_sign_rp-2.1_768x768.webp","1024":"assets/prohibitory/rp-2-1/fiji_road_sign_rp-2.1_1024x1024.webp","2048":"assets/prohibitory/rp-2-1/fiji_road_sign_rp-2.1_2048x2048.webp"},
+      jpg: {"240":"assets/prohibitory/rp-2/fiji_road_sign_rp-2_240x240.jpg","512":"assets/prohibitory/rp-2/fiji_road_sign_rp-2_512x512.jpg","768":"assets/prohibitory/rp-2/fiji_road_sign_rp-2_768x768.jpg","1024":"assets/prohibitory/rp-2/fiji_road_sign_rp-2_1024x1024.jpg","2048":"assets/prohibitory/rp-2/fiji_road_sign_rp-2_2048x2048.jpg"},
+      png: {"240":"assets/prohibitory/rp-2/fiji_road_sign_rp-2_240x240.png","512":"assets/prohibitory/rp-2/fiji_road_sign_rp-2_512x512.png","768":"assets/prohibitory/rp-2/fiji_road_sign_rp-2_768x768.png","1024":"assets/prohibitory/rp-2/fiji_road_sign_rp-2_1024x1024.png","2048":"assets/prohibitory/rp-2/fiji_road_sign_rp-2_2048x2048.png"},
+      webp: {"240":"assets/prohibitory/rp-2/fiji_road_sign_rp-2_240x240.webp","512":"assets/prohibitory/rp-2/fiji_road_sign_rp-2_512x512.webp","768":"assets/prohibitory/rp-2/fiji_road_sign_rp-2_768x768.webp","1024":"assets/prohibitory/rp-2/fiji_road_sign_rp-2_1024x1024.webp","2048":"assets/prohibitory/rp-2/fiji_road_sign_rp-2_2048x2048.webp"},
     },
     category: "prohibitory",
     code: "RP-2",
@@ -1471,9 +1471,9 @@ export const signs: FJSign[] = [
   },
   {
     assets: {
-      jpg: {"240":"assets/prohibitory/rp-3-5/fiji_road_sign_rp-3.5_240x240.jpg","512":"assets/prohibitory/rp-3-5/fiji_road_sign_rp-3.5_512x512.jpg","768":"assets/prohibitory/rp-3-5/fiji_road_sign_rp-3.5_768x768.jpg","1024":"assets/prohibitory/rp-3-5/fiji_road_sign_rp-3.5_1024x1024.jpg","2048":"assets/prohibitory/rp-3-5/fiji_road_sign_rp-3.5_2048x2048.jpg"},
-      png: {"240":"assets/prohibitory/rp-3-5/fiji_road_sign_rp-3.5_240x240.png","512":"assets/prohibitory/rp-3-5/fiji_road_sign_rp-3.5_512x512.png","768":"assets/prohibitory/rp-3-5/fiji_road_sign_rp-3.5_768x768.png","1024":"assets/prohibitory/rp-3-5/fiji_road_sign_rp-3.5_1024x1024.png","2048":"assets/prohibitory/rp-3-5/fiji_road_sign_rp-3.5_2048x2048.png"},
-      webp: {"240":"assets/prohibitory/rp-3-5/fiji_road_sign_rp-3.5_240x240.webp","512":"assets/prohibitory/rp-3-5/fiji_road_sign_rp-3.5_512x512.webp","768":"assets/prohibitory/rp-3-5/fiji_road_sign_rp-3.5_768x768.webp","1024":"assets/prohibitory/rp-3-5/fiji_road_sign_rp-3.5_1024x1024.webp","2048":"assets/prohibitory/rp-3-5/fiji_road_sign_rp-3.5_2048x2048.webp"},
+      jpg: {"240":"assets/prohibitory/rp-3/fiji_road_sign_rp-3_240x240.jpg","512":"assets/prohibitory/rp-3/fiji_road_sign_rp-3_512x512.jpg","768":"assets/prohibitory/rp-3/fiji_road_sign_rp-3_768x768.jpg","1024":"assets/prohibitory/rp-3/fiji_road_sign_rp-3_1024x1024.jpg","2048":"assets/prohibitory/rp-3/fiji_road_sign_rp-3_2048x2048.jpg"},
+      png: {"240":"assets/prohibitory/rp-3/fiji_road_sign_rp-3_240x240.png","512":"assets/prohibitory/rp-3/fiji_road_sign_rp-3_512x512.png","768":"assets/prohibitory/rp-3/fiji_road_sign_rp-3_768x768.png","1024":"assets/prohibitory/rp-3/fiji_road_sign_rp-3_1024x1024.png","2048":"assets/prohibitory/rp-3/fiji_road_sign_rp-3_2048x2048.png"},
+      webp: {"240":"assets/prohibitory/rp-3/fiji_road_sign_rp-3_240x240.webp","512":"assets/prohibitory/rp-3/fiji_road_sign_rp-3_512x512.webp","768":"assets/prohibitory/rp-3/fiji_road_sign_rp-3_768x768.webp","1024":"assets/prohibitory/rp-3/fiji_road_sign_rp-3_1024x1024.webp","2048":"assets/prohibitory/rp-3/fiji_road_sign_rp-3_2048x2048.webp"},
     },
     category: "prohibitory",
     code: "RP-3",
@@ -1531,9 +1531,9 @@ export const signs: FJSign[] = [
   },
   {
     assets: {
-      jpg: {"240":"assets/prohibitory/rp-4-3/fiji_road_sign_rp-4.3_240x240.jpg","512":"assets/prohibitory/rp-4-3/fiji_road_sign_rp-4.3_512x512.jpg","768":"assets/prohibitory/rp-4-3/fiji_road_sign_rp-4.3_768x768.jpg","1024":"assets/prohibitory/rp-4-3/fiji_road_sign_rp-4.3_1024x1024.jpg","2048":"assets/prohibitory/rp-4-3/fiji_road_sign_rp-4.3_2048x2048.jpg"},
-      png: {"240":"assets/prohibitory/rp-4-3/fiji_road_sign_rp-4.3_240x240.png","512":"assets/prohibitory/rp-4-3/fiji_road_sign_rp-4.3_512x512.png","768":"assets/prohibitory/rp-4-3/fiji_road_sign_rp-4.3_768x768.png","1024":"assets/prohibitory/rp-4-3/fiji_road_sign_rp-4.3_1024x1024.png","2048":"assets/prohibitory/rp-4-3/fiji_road_sign_rp-4.3_2048x2048.png"},
-      webp: {"240":"assets/prohibitory/rp-4-3/fiji_road_sign_rp-4.3_240x240.webp","512":"assets/prohibitory/rp-4-3/fiji_road_sign_rp-4.3_512x512.webp","768":"assets/prohibitory/rp-4-3/fiji_road_sign_rp-4.3_768x768.webp","1024":"assets/prohibitory/rp-4-3/fiji_road_sign_rp-4.3_1024x1024.webp","2048":"assets/prohibitory/rp-4-3/fiji_road_sign_rp-4.3_2048x2048.webp"},
+      jpg: {"240":"assets/prohibitory/rp-4/fiji_road_sign_rp-4_240x240.jpg","512":"assets/prohibitory/rp-4/fiji_road_sign_rp-4_512x512.jpg","768":"assets/prohibitory/rp-4/fiji_road_sign_rp-4_768x768.jpg","1024":"assets/prohibitory/rp-4/fiji_road_sign_rp-4_1024x1024.jpg","2048":"assets/prohibitory/rp-4/fiji_road_sign_rp-4_2048x2048.jpg"},
+      png: {"240":"assets/prohibitory/rp-4/fiji_road_sign_rp-4_240x240.png","512":"assets/prohibitory/rp-4/fiji_road_sign_rp-4_512x512.png","768":"assets/prohibitory/rp-4/fiji_road_sign_rp-4_768x768.png","1024":"assets/prohibitory/rp-4/fiji_road_sign_rp-4_1024x1024.png","2048":"assets/prohibitory/rp-4/fiji_road_sign_rp-4_2048x2048.png"},
+      webp: {"240":"assets/prohibitory/rp-4/fiji_road_sign_rp-4_240x240.webp","512":"assets/prohibitory/rp-4/fiji_road_sign_rp-4_512x512.webp","768":"assets/prohibitory/rp-4/fiji_road_sign_rp-4_768x768.webp","1024":"assets/prohibitory/rp-4/fiji_road_sign_rp-4_1024x1024.webp","2048":"assets/prohibitory/rp-4/fiji_road_sign_rp-4_2048x2048.webp"},
     },
     category: "prohibitory",
     code: "RP-4",
@@ -1579,9 +1579,9 @@ export const signs: FJSign[] = [
   },
   {
     assets: {
-      jpg: {"240":"assets/prohibitory/rp-5-1/fiji_road_sign_rp-5.1_240x240.jpg","512":"assets/prohibitory/rp-5-1/fiji_road_sign_rp-5.1_512x512.jpg","768":"assets/prohibitory/rp-5-1/fiji_road_sign_rp-5.1_768x768.jpg","1024":"assets/prohibitory/rp-5-1/fiji_road_sign_rp-5.1_1024x1024.jpg","2048":"assets/prohibitory/rp-5-1/fiji_road_sign_rp-5.1_2048x2048.jpg"},
-      png: {"240":"assets/prohibitory/rp-5-1/fiji_road_sign_rp-5.1_240x240.png","512":"assets/prohibitory/rp-5-1/fiji_road_sign_rp-5.1_512x512.png","768":"assets/prohibitory/rp-5-1/fiji_road_sign_rp-5.1_768x768.png","1024":"assets/prohibitory/rp-5-1/fiji_road_sign_rp-5.1_1024x1024.png","2048":"assets/prohibitory/rp-5-1/fiji_road_sign_rp-5.1_2048x2048.png"},
-      webp: {"240":"assets/prohibitory/rp-5-1/fiji_road_sign_rp-5.1_240x240.webp","512":"assets/prohibitory/rp-5-1/fiji_road_sign_rp-5.1_512x512.webp","768":"assets/prohibitory/rp-5-1/fiji_road_sign_rp-5.1_768x768.webp","1024":"assets/prohibitory/rp-5-1/fiji_road_sign_rp-5.1_1024x1024.webp","2048":"assets/prohibitory/rp-5-1/fiji_road_sign_rp-5.1_2048x2048.webp"},
+      jpg: {"240":"assets/prohibitory/rp-5/fiji_road_sign_rp-5_240x240.jpg","512":"assets/prohibitory/rp-5/fiji_road_sign_rp-5_512x512.jpg","768":"assets/prohibitory/rp-5/fiji_road_sign_rp-5_768x768.jpg","1024":"assets/prohibitory/rp-5/fiji_road_sign_rp-5_1024x1024.jpg","2048":"assets/prohibitory/rp-5/fiji_road_sign_rp-5_2048x2048.jpg"},
+      png: {"240":"assets/prohibitory/rp-5/fiji_road_sign_rp-5_240x240.png","512":"assets/prohibitory/rp-5/fiji_road_sign_rp-5_512x512.png","768":"assets/prohibitory/rp-5/fiji_road_sign_rp-5_768x768.png","1024":"assets/prohibitory/rp-5/fiji_road_sign_rp-5_1024x1024.png","2048":"assets/prohibitory/rp-5/fiji_road_sign_rp-5_2048x2048.png"},
+      webp: {"240":"assets/prohibitory/rp-5/fiji_road_sign_rp-5_240x240.webp","512":"assets/prohibitory/rp-5/fiji_road_sign_rp-5_512x512.webp","768":"assets/prohibitory/rp-5/fiji_road_sign_rp-5_768x768.webp","1024":"assets/prohibitory/rp-5/fiji_road_sign_rp-5_1024x1024.webp","2048":"assets/prohibitory/rp-5/fiji_road_sign_rp-5_2048x2048.webp"},
     },
     category: "prohibitory",
     code: "RP-5",
@@ -1603,9 +1603,9 @@ export const signs: FJSign[] = [
   },
   {
     assets: {
-      jpg: {"240":"assets/prohibitory/rp-6-1/fiji_road_sign_rp-6.1_240x240.jpg","512":"assets/prohibitory/rp-6-1/fiji_road_sign_rp-6.1_512x512.jpg","768":"assets/prohibitory/rp-6-1/fiji_road_sign_rp-6.1_768x768.jpg","1024":"assets/prohibitory/rp-6-1/fiji_road_sign_rp-6.1_1024x1024.jpg","2048":"assets/prohibitory/rp-6-1/fiji_road_sign_rp-6.1_2048x2048.jpg"},
-      png: {"240":"assets/prohibitory/rp-6-1/fiji_road_sign_rp-6.1_240x240.png","512":"assets/prohibitory/rp-6-1/fiji_road_sign_rp-6.1_512x512.png","768":"assets/prohibitory/rp-6-1/fiji_road_sign_rp-6.1_768x768.png","1024":"assets/prohibitory/rp-6-1/fiji_road_sign_rp-6.1_1024x1024.png","2048":"assets/prohibitory/rp-6-1/fiji_road_sign_rp-6.1_2048x2048.png"},
-      webp: {"240":"assets/prohibitory/rp-6-1/fiji_road_sign_rp-6.1_240x240.webp","512":"assets/prohibitory/rp-6-1/fiji_road_sign_rp-6.1_512x512.webp","768":"assets/prohibitory/rp-6-1/fiji_road_sign_rp-6.1_768x768.webp","1024":"assets/prohibitory/rp-6-1/fiji_road_sign_rp-6.1_1024x1024.webp","2048":"assets/prohibitory/rp-6-1/fiji_road_sign_rp-6.1_2048x2048.webp"},
+      jpg: {"240":"assets/prohibitory/rp-6/fiji_road_sign_rp-6_240x240.jpg","512":"assets/prohibitory/rp-6/fiji_road_sign_rp-6_512x512.jpg","768":"assets/prohibitory/rp-6/fiji_road_sign_rp-6_768x768.jpg","1024":"assets/prohibitory/rp-6/fiji_road_sign_rp-6_1024x1024.jpg","2048":"assets/prohibitory/rp-6/fiji_road_sign_rp-6_2048x2048.jpg"},
+      png: {"240":"assets/prohibitory/rp-6/fiji_road_sign_rp-6_240x240.png","512":"assets/prohibitory/rp-6/fiji_road_sign_rp-6_512x512.png","768":"assets/prohibitory/rp-6/fiji_road_sign_rp-6_768x768.png","1024":"assets/prohibitory/rp-6/fiji_road_sign_rp-6_1024x1024.png","2048":"assets/prohibitory/rp-6/fiji_road_sign_rp-6_2048x2048.png"},
+      webp: {"240":"assets/prohibitory/rp-6/fiji_road_sign_rp-6_240x240.webp","512":"assets/prohibitory/rp-6/fiji_road_sign_rp-6_512x512.webp","768":"assets/prohibitory/rp-6/fiji_road_sign_rp-6_768x768.webp","1024":"assets/prohibitory/rp-6/fiji_road_sign_rp-6_1024x1024.webp","2048":"assets/prohibitory/rp-6/fiji_road_sign_rp-6_2048x2048.webp"},
     },
     category: "prohibitory",
     code: "RP-6",
@@ -1627,9 +1627,9 @@ export const signs: FJSign[] = [
   },
   {
     assets: {
-      jpg: {"240":"assets/prohibitory/rp-7-3/fiji_road_sign_rp-7.3_240x240.jpg","512":"assets/prohibitory/rp-7-3/fiji_road_sign_rp-7.3_512x512.jpg","768":"assets/prohibitory/rp-7-3/fiji_road_sign_rp-7.3_768x768.jpg","1024":"assets/prohibitory/rp-7-3/fiji_road_sign_rp-7.3_1024x1024.jpg","2048":"assets/prohibitory/rp-7-3/fiji_road_sign_rp-7.3_2048x2048.jpg"},
-      png: {"240":"assets/prohibitory/rp-7-3/fiji_road_sign_rp-7.3_240x240.png","512":"assets/prohibitory/rp-7-3/fiji_road_sign_rp-7.3_512x512.png","768":"assets/prohibitory/rp-7-3/fiji_road_sign_rp-7.3_768x768.png","1024":"assets/prohibitory/rp-7-3/fiji_road_sign_rp-7.3_1024x1024.png","2048":"assets/prohibitory/rp-7-3/fiji_road_sign_rp-7.3_2048x2048.png"},
-      webp: {"240":"assets/prohibitory/rp-7-3/fiji_road_sign_rp-7.3_240x240.webp","512":"assets/prohibitory/rp-7-3/fiji_road_sign_rp-7.3_512x512.webp","768":"assets/prohibitory/rp-7-3/fiji_road_sign_rp-7.3_768x768.webp","1024":"assets/prohibitory/rp-7-3/fiji_road_sign_rp-7.3_1024x1024.webp","2048":"assets/prohibitory/rp-7-3/fiji_road_sign_rp-7.3_2048x2048.webp"},
+      jpg: {"240":"assets/prohibitory/rp-7/fiji_road_sign_rp-7_240x240.jpg","512":"assets/prohibitory/rp-7/fiji_road_sign_rp-7_512x512.jpg","768":"assets/prohibitory/rp-7/fiji_road_sign_rp-7_768x768.jpg","1024":"assets/prohibitory/rp-7/fiji_road_sign_rp-7_1024x1024.jpg","2048":"assets/prohibitory/rp-7/fiji_road_sign_rp-7_2048x2048.jpg"},
+      png: {"240":"assets/prohibitory/rp-7/fiji_road_sign_rp-7_240x240.png","512":"assets/prohibitory/rp-7/fiji_road_sign_rp-7_512x512.png","768":"assets/prohibitory/rp-7/fiji_road_sign_rp-7_768x768.png","1024":"assets/prohibitory/rp-7/fiji_road_sign_rp-7_1024x1024.png","2048":"assets/prohibitory/rp-7/fiji_road_sign_rp-7_2048x2048.png"},
+      webp: {"240":"assets/prohibitory/rp-7/fiji_road_sign_rp-7_240x240.webp","512":"assets/prohibitory/rp-7/fiji_road_sign_rp-7_512x512.webp","768":"assets/prohibitory/rp-7/fiji_road_sign_rp-7_768x768.webp","1024":"assets/prohibitory/rp-7/fiji_road_sign_rp-7_1024x1024.webp","2048":"assets/prohibitory/rp-7/fiji_road_sign_rp-7_2048x2048.webp"},
     },
     category: "prohibitory",
     code: "RP-7",
@@ -1651,9 +1651,9 @@ export const signs: FJSign[] = [
   },
   {
     assets: {
-      jpg: {"240":"assets/prohibitory/rp-7-2a/fiji_road_sign_rp-7.2a_240x240.jpg","512":"assets/prohibitory/rp-7-2a/fiji_road_sign_rp-7.2a_512x512.jpg","768":"assets/prohibitory/rp-7-2a/fiji_road_sign_rp-7.2a_768x768.jpg","1024":"assets/prohibitory/rp-7-2a/fiji_road_sign_rp-7.2a_1024x1024.jpg","2048":"assets/prohibitory/rp-7-2a/fiji_road_sign_rp-7.2a_2048x2048.jpg"},
-      png: {"240":"assets/prohibitory/rp-7-2a/fiji_road_sign_rp-7.2a_240x240.png","512":"assets/prohibitory/rp-7-2a/fiji_road_sign_rp-7.2a_512x512.png","768":"assets/prohibitory/rp-7-2a/fiji_road_sign_rp-7.2a_768x768.png","1024":"assets/prohibitory/rp-7-2a/fiji_road_sign_rp-7.2a_1024x1024.png","2048":"assets/prohibitory/rp-7-2a/fiji_road_sign_rp-7.2a_2048x2048.png"},
-      webp: {"240":"assets/prohibitory/rp-7-2a/fiji_road_sign_rp-7.2a_240x240.webp","512":"assets/prohibitory/rp-7-2a/fiji_road_sign_rp-7.2a_512x512.webp","768":"assets/prohibitory/rp-7-2a/fiji_road_sign_rp-7.2a_768x768.webp","1024":"assets/prohibitory/rp-7-2a/fiji_road_sign_rp-7.2a_1024x1024.webp","2048":"assets/prohibitory/rp-7-2a/fiji_road_sign_rp-7.2a_2048x2048.webp"},
+      jpg: {"240":"assets/prohibitory/rp-7-2/fiji_road_sign_rp-7.2_240x240.jpg","512":"assets/prohibitory/rp-7-2/fiji_road_sign_rp-7.2_512x512.jpg","768":"assets/prohibitory/rp-7-2/fiji_road_sign_rp-7.2_768x768.jpg","1024":"assets/prohibitory/rp-7-2/fiji_road_sign_rp-7.2_1024x1024.jpg","2048":"assets/prohibitory/rp-7-2/fiji_road_sign_rp-7.2_2048x2048.jpg"},
+      png: {"240":"assets/prohibitory/rp-7-2/fiji_road_sign_rp-7.2_240x240.png","512":"assets/prohibitory/rp-7-2/fiji_road_sign_rp-7.2_512x512.png","768":"assets/prohibitory/rp-7-2/fiji_road_sign_rp-7.2_768x768.png","1024":"assets/prohibitory/rp-7-2/fiji_road_sign_rp-7.2_1024x1024.png","2048":"assets/prohibitory/rp-7-2/fiji_road_sign_rp-7.2_2048x2048.png"},
+      webp: {"240":"assets/prohibitory/rp-7-2/fiji_road_sign_rp-7.2_240x240.webp","512":"assets/prohibitory/rp-7-2/fiji_road_sign_rp-7.2_512x512.webp","768":"assets/prohibitory/rp-7-2/fiji_road_sign_rp-7.2_768x768.webp","1024":"assets/prohibitory/rp-7-2/fiji_road_sign_rp-7.2_1024x1024.webp","2048":"assets/prohibitory/rp-7-2/fiji_road_sign_rp-7.2_2048x2048.webp"},
     },
     category: "prohibitory",
     code: "RP-7.2",
@@ -1687,9 +1687,9 @@ export const signs: FJSign[] = [
   },
   {
     assets: {
-      jpg: {"240":"assets/prohibitory/rp-8-1/fiji_road_sign_rp-8.1_240x240.jpg","512":"assets/prohibitory/rp-8-1/fiji_road_sign_rp-8.1_512x512.jpg","768":"assets/prohibitory/rp-8-1/fiji_road_sign_rp-8.1_768x768.jpg","1024":"assets/prohibitory/rp-8-1/fiji_road_sign_rp-8.1_1024x1024.jpg","2048":"assets/prohibitory/rp-8-1/fiji_road_sign_rp-8.1_2048x2048.jpg"},
-      png: {"240":"assets/prohibitory/rp-8-1/fiji_road_sign_rp-8.1_240x240.png","512":"assets/prohibitory/rp-8-1/fiji_road_sign_rp-8.1_512x512.png","768":"assets/prohibitory/rp-8-1/fiji_road_sign_rp-8.1_768x768.png","1024":"assets/prohibitory/rp-8-1/fiji_road_sign_rp-8.1_1024x1024.png","2048":"assets/prohibitory/rp-8-1/fiji_road_sign_rp-8.1_2048x2048.png"},
-      webp: {"240":"assets/prohibitory/rp-8-1/fiji_road_sign_rp-8.1_240x240.webp","512":"assets/prohibitory/rp-8-1/fiji_road_sign_rp-8.1_512x512.webp","768":"assets/prohibitory/rp-8-1/fiji_road_sign_rp-8.1_768x768.webp","1024":"assets/prohibitory/rp-8-1/fiji_road_sign_rp-8.1_1024x1024.webp","2048":"assets/prohibitory/rp-8-1/fiji_road_sign_rp-8.1_2048x2048.webp"},
+      jpg: {"240":"assets/prohibitory/rp-8/fiji_road_sign_rp-8_240x240.jpg","512":"assets/prohibitory/rp-8/fiji_road_sign_rp-8_512x512.jpg","768":"assets/prohibitory/rp-8/fiji_road_sign_rp-8_768x768.jpg","1024":"assets/prohibitory/rp-8/fiji_road_sign_rp-8_1024x1024.jpg","2048":"assets/prohibitory/rp-8/fiji_road_sign_rp-8_2048x2048.jpg"},
+      png: {"240":"assets/prohibitory/rp-8/fiji_road_sign_rp-8_240x240.png","512":"assets/prohibitory/rp-8/fiji_road_sign_rp-8_512x512.png","768":"assets/prohibitory/rp-8/fiji_road_sign_rp-8_768x768.png","1024":"assets/prohibitory/rp-8/fiji_road_sign_rp-8_1024x1024.png","2048":"assets/prohibitory/rp-8/fiji_road_sign_rp-8_2048x2048.png"},
+      webp: {"240":"assets/prohibitory/rp-8/fiji_road_sign_rp-8_240x240.webp","512":"assets/prohibitory/rp-8/fiji_road_sign_rp-8_512x512.webp","768":"assets/prohibitory/rp-8/fiji_road_sign_rp-8_768x768.webp","1024":"assets/prohibitory/rp-8/fiji_road_sign_rp-8_1024x1024.webp","2048":"assets/prohibitory/rp-8/fiji_road_sign_rp-8_2048x2048.webp"},
     },
     category: "prohibitory",
     code: "RP-8",
@@ -1711,9 +1711,9 @@ export const signs: FJSign[] = [
   },
   {
     assets: {
-      jpg: {"240":"assets/prohibitory/rp-9-1/fiji_road_sign_rp-9.1_240x240.jpg","512":"assets/prohibitory/rp-9-1/fiji_road_sign_rp-9.1_512x512.jpg","768":"assets/prohibitory/rp-9-1/fiji_road_sign_rp-9.1_768x768.jpg","1024":"assets/prohibitory/rp-9-1/fiji_road_sign_rp-9.1_1024x1024.jpg","2048":"assets/prohibitory/rp-9-1/fiji_road_sign_rp-9.1_2048x2048.jpg"},
-      png: {"240":"assets/prohibitory/rp-9-1/fiji_road_sign_rp-9.1_240x240.png","512":"assets/prohibitory/rp-9-1/fiji_road_sign_rp-9.1_512x512.png","768":"assets/prohibitory/rp-9-1/fiji_road_sign_rp-9.1_768x768.png","1024":"assets/prohibitory/rp-9-1/fiji_road_sign_rp-9.1_1024x1024.png","2048":"assets/prohibitory/rp-9-1/fiji_road_sign_rp-9.1_2048x2048.png"},
-      webp: {"240":"assets/prohibitory/rp-9-1/fiji_road_sign_rp-9.1_240x240.webp","512":"assets/prohibitory/rp-9-1/fiji_road_sign_rp-9.1_512x512.webp","768":"assets/prohibitory/rp-9-1/fiji_road_sign_rp-9.1_768x768.webp","1024":"assets/prohibitory/rp-9-1/fiji_road_sign_rp-9.1_1024x1024.webp","2048":"assets/prohibitory/rp-9-1/fiji_road_sign_rp-9.1_2048x2048.webp"},
+      jpg: {"240":"assets/prohibitory/rp-9/fiji_road_sign_rp-9_240x240.jpg","512":"assets/prohibitory/rp-9/fiji_road_sign_rp-9_512x512.jpg","768":"assets/prohibitory/rp-9/fiji_road_sign_rp-9_768x768.jpg","1024":"assets/prohibitory/rp-9/fiji_road_sign_rp-9_1024x1024.jpg","2048":"assets/prohibitory/rp-9/fiji_road_sign_rp-9_2048x2048.jpg"},
+      png: {"240":"assets/prohibitory/rp-9/fiji_road_sign_rp-9_240x240.png","512":"assets/prohibitory/rp-9/fiji_road_sign_rp-9_512x512.png","768":"assets/prohibitory/rp-9/fiji_road_sign_rp-9_768x768.png","1024":"assets/prohibitory/rp-9/fiji_road_sign_rp-9_1024x1024.png","2048":"assets/prohibitory/rp-9/fiji_road_sign_rp-9_2048x2048.png"},
+      webp: {"240":"assets/prohibitory/rp-9/fiji_road_sign_rp-9_240x240.webp","512":"assets/prohibitory/rp-9/fiji_road_sign_rp-9_512x512.webp","768":"assets/prohibitory/rp-9/fiji_road_sign_rp-9_768x768.webp","1024":"assets/prohibitory/rp-9/fiji_road_sign_rp-9_1024x1024.webp","2048":"assets/prohibitory/rp-9/fiji_road_sign_rp-9_2048x2048.webp"},
     },
     category: "prohibitory",
     code: "RP-9",
@@ -1735,9 +1735,9 @@ export const signs: FJSign[] = [
   },
   {
     assets: {
-      jpg: {"240":"assets/prohibitory/rp-10-2/fiji_road_sign_rp-10.2_240x240.jpg","512":"assets/prohibitory/rp-10-2/fiji_road_sign_rp-10.2_512x512.jpg","768":"assets/prohibitory/rp-10-2/fiji_road_sign_rp-10.2_768x768.jpg","1024":"assets/prohibitory/rp-10-2/fiji_road_sign_rp-10.2_1024x1024.jpg","2048":"assets/prohibitory/rp-10-2/fiji_road_sign_rp-10.2_2048x2048.jpg"},
-      png: {"240":"assets/prohibitory/rp-10-2/fiji_road_sign_rp-10.2_240x240.png","512":"assets/prohibitory/rp-10-2/fiji_road_sign_rp-10.2_512x512.png","768":"assets/prohibitory/rp-10-2/fiji_road_sign_rp-10.2_768x768.png","1024":"assets/prohibitory/rp-10-2/fiji_road_sign_rp-10.2_1024x1024.png","2048":"assets/prohibitory/rp-10-2/fiji_road_sign_rp-10.2_2048x2048.png"},
-      webp: {"240":"assets/prohibitory/rp-10-2/fiji_road_sign_rp-10.2_240x240.webp","512":"assets/prohibitory/rp-10-2/fiji_road_sign_rp-10.2_512x512.webp","768":"assets/prohibitory/rp-10-2/fiji_road_sign_rp-10.2_768x768.webp","1024":"assets/prohibitory/rp-10-2/fiji_road_sign_rp-10.2_1024x1024.webp","2048":"assets/prohibitory/rp-10-2/fiji_road_sign_rp-10.2_2048x2048.webp"},
+      jpg: {"240":"assets/prohibitory/rp-10/fiji_road_sign_rp-10_240x240.jpg","512":"assets/prohibitory/rp-10/fiji_road_sign_rp-10_512x512.jpg","768":"assets/prohibitory/rp-10/fiji_road_sign_rp-10_768x768.jpg","1024":"assets/prohibitory/rp-10/fiji_road_sign_rp-10_1024x1024.jpg","2048":"assets/prohibitory/rp-10/fiji_road_sign_rp-10_2048x2048.jpg"},
+      png: {"240":"assets/prohibitory/rp-10/fiji_road_sign_rp-10_240x240.png","512":"assets/prohibitory/rp-10/fiji_road_sign_rp-10_512x512.png","768":"assets/prohibitory/rp-10/fiji_road_sign_rp-10_768x768.png","1024":"assets/prohibitory/rp-10/fiji_road_sign_rp-10_1024x1024.png","2048":"assets/prohibitory/rp-10/fiji_road_sign_rp-10_2048x2048.png"},
+      webp: {"240":"assets/prohibitory/rp-10/fiji_road_sign_rp-10_240x240.webp","512":"assets/prohibitory/rp-10/fiji_road_sign_rp-10_512x512.webp","768":"assets/prohibitory/rp-10/fiji_road_sign_rp-10_768x768.webp","1024":"assets/prohibitory/rp-10/fiji_road_sign_rp-10_1024x1024.webp","2048":"assets/prohibitory/rp-10/fiji_road_sign_rp-10_2048x2048.webp"},
     },
     category: "prohibitory",
     code: "RP-10",
@@ -1771,9 +1771,9 @@ export const signs: FJSign[] = [
   },
   {
     assets: {
-      jpg: {"240":"assets/prohibitory/rp-12-2/fiji_road_sign_rp-12.2_240x240.jpg","512":"assets/prohibitory/rp-12-2/fiji_road_sign_rp-12.2_512x512.jpg","768":"assets/prohibitory/rp-12-2/fiji_road_sign_rp-12.2_768x768.jpg","1024":"assets/prohibitory/rp-12-2/fiji_road_sign_rp-12.2_1024x1024.jpg","2048":"assets/prohibitory/rp-12-2/fiji_road_sign_rp-12.2_2048x2048.jpg"},
-      png: {"240":"assets/prohibitory/rp-12-2/fiji_road_sign_rp-12.2_240x240.png","512":"assets/prohibitory/rp-12-2/fiji_road_sign_rp-12.2_512x512.png","768":"assets/prohibitory/rp-12-2/fiji_road_sign_rp-12.2_768x768.png","1024":"assets/prohibitory/rp-12-2/fiji_road_sign_rp-12.2_1024x1024.png","2048":"assets/prohibitory/rp-12-2/fiji_road_sign_rp-12.2_2048x2048.png"},
-      webp: {"240":"assets/prohibitory/rp-12-2/fiji_road_sign_rp-12.2_240x240.webp","512":"assets/prohibitory/rp-12-2/fiji_road_sign_rp-12.2_512x512.webp","768":"assets/prohibitory/rp-12-2/fiji_road_sign_rp-12.2_768x768.webp","1024":"assets/prohibitory/rp-12-2/fiji_road_sign_rp-12.2_1024x1024.webp","2048":"assets/prohibitory/rp-12-2/fiji_road_sign_rp-12.2_2048x2048.webp"},
+      jpg: {"240":"assets/prohibitory/rp-12/fiji_road_sign_rp-12_240x240.jpg","512":"assets/prohibitory/rp-12/fiji_road_sign_rp-12_512x512.jpg","768":"assets/prohibitory/rp-12/fiji_road_sign_rp-12_768x768.jpg","1024":"assets/prohibitory/rp-12/fiji_road_sign_rp-12_1024x1024.jpg","2048":"assets/prohibitory/rp-12/fiji_road_sign_rp-12_2048x2048.jpg"},
+      png: {"240":"assets/prohibitory/rp-12/fiji_road_sign_rp-12_240x240.png","512":"assets/prohibitory/rp-12/fiji_road_sign_rp-12_512x512.png","768":"assets/prohibitory/rp-12/fiji_road_sign_rp-12_768x768.png","1024":"assets/prohibitory/rp-12/fiji_road_sign_rp-12_1024x1024.png","2048":"assets/prohibitory/rp-12/fiji_road_sign_rp-12_2048x2048.png"},
+      webp: {"240":"assets/prohibitory/rp-12/fiji_road_sign_rp-12_240x240.webp","512":"assets/prohibitory/rp-12/fiji_road_sign_rp-12_512x512.webp","768":"assets/prohibitory/rp-12/fiji_road_sign_rp-12_768x768.webp","1024":"assets/prohibitory/rp-12/fiji_road_sign_rp-12_1024x1024.webp","2048":"assets/prohibitory/rp-12/fiji_road_sign_rp-12_2048x2048.webp"},
     },
     category: "prohibitory",
     code: "RP-12",
@@ -1879,9 +1879,9 @@ export const signs: FJSign[] = [
   },
   {
     assets: {
-      jpg: {"240":"assets/mandatory/rg-17-1/fiji_road_sign_rg-17.1_240x240.jpg","512":"assets/mandatory/rg-17-1/fiji_road_sign_rg-17.1_512x512.jpg","768":"assets/mandatory/rg-17-1/fiji_road_sign_rg-17.1_768x768.jpg","1024":"assets/mandatory/rg-17-1/fiji_road_sign_rg-17.1_1024x1024.jpg","2048":"assets/mandatory/rg-17-1/fiji_road_sign_rg-17.1_2048x2048.jpg"},
-      png: {"240":"assets/mandatory/rg-17-1/fiji_road_sign_rg-17.1_240x240.png","512":"assets/mandatory/rg-17-1/fiji_road_sign_rg-17.1_512x512.png","768":"assets/mandatory/rg-17-1/fiji_road_sign_rg-17.1_768x768.png","1024":"assets/mandatory/rg-17-1/fiji_road_sign_rg-17.1_1024x1024.png","2048":"assets/mandatory/rg-17-1/fiji_road_sign_rg-17.1_2048x2048.png"},
-      webp: {"240":"assets/mandatory/rg-17-1/fiji_road_sign_rg-17.1_240x240.webp","512":"assets/mandatory/rg-17-1/fiji_road_sign_rg-17.1_512x512.webp","768":"assets/mandatory/rg-17-1/fiji_road_sign_rg-17.1_768x768.webp","1024":"assets/mandatory/rg-17-1/fiji_road_sign_rg-17.1_1024x1024.webp","2048":"assets/mandatory/rg-17-1/fiji_road_sign_rg-17.1_2048x2048.webp"},
+      jpg: {"240":"assets/mandatory/rg-17/fiji_road_sign_rg-17_240x240.jpg","512":"assets/mandatory/rg-17/fiji_road_sign_rg-17_512x512.jpg","768":"assets/mandatory/rg-17/fiji_road_sign_rg-17_768x768.jpg","1024":"assets/mandatory/rg-17/fiji_road_sign_rg-17_1024x1024.jpg","2048":"assets/mandatory/rg-17/fiji_road_sign_rg-17_2048x2048.jpg"},
+      png: {"240":"assets/mandatory/rg-17/fiji_road_sign_rg-17_240x240.png","512":"assets/mandatory/rg-17/fiji_road_sign_rg-17_512x512.png","768":"assets/mandatory/rg-17/fiji_road_sign_rg-17_768x768.png","1024":"assets/mandatory/rg-17/fiji_road_sign_rg-17_1024x1024.png","2048":"assets/mandatory/rg-17/fiji_road_sign_rg-17_2048x2048.png"},
+      webp: {"240":"assets/mandatory/rg-17/fiji_road_sign_rg-17_240x240.webp","512":"assets/mandatory/rg-17/fiji_road_sign_rg-17_512x512.webp","768":"assets/mandatory/rg-17/fiji_road_sign_rg-17_768x768.webp","1024":"assets/mandatory/rg-17/fiji_road_sign_rg-17_1024x1024.webp","2048":"assets/mandatory/rg-17/fiji_road_sign_rg-17_2048x2048.webp"},
     },
     category: "mandatory",
     code: "RG-17",
@@ -1927,9 +1927,9 @@ export const signs: FJSign[] = [
   },
   {
     assets: {
-      jpg: {"240":"assets/mandatory/rg-26b/fiji_road_sign_rg-26b_240x240.jpg","512":"assets/mandatory/rg-26b/fiji_road_sign_rg-26b_512x512.jpg","768":"assets/mandatory/rg-26b/fiji_road_sign_rg-26b_768x768.jpg","1024":"assets/mandatory/rg-26b/fiji_road_sign_rg-26b_1024x1024.jpg","2048":"assets/mandatory/rg-26b/fiji_road_sign_rg-26b_2048x2048.jpg"},
-      png: {"240":"assets/mandatory/rg-26b/fiji_road_sign_rg-26b_240x240.png","512":"assets/mandatory/rg-26b/fiji_road_sign_rg-26b_512x512.png","768":"assets/mandatory/rg-26b/fiji_road_sign_rg-26b_768x768.png","1024":"assets/mandatory/rg-26b/fiji_road_sign_rg-26b_1024x1024.png","2048":"assets/mandatory/rg-26b/fiji_road_sign_rg-26b_2048x2048.png"},
-      webp: {"240":"assets/mandatory/rg-26b/fiji_road_sign_rg-26b_240x240.webp","512":"assets/mandatory/rg-26b/fiji_road_sign_rg-26b_512x512.webp","768":"assets/mandatory/rg-26b/fiji_road_sign_rg-26b_768x768.webp","1024":"assets/mandatory/rg-26b/fiji_road_sign_rg-26b_1024x1024.webp","2048":"assets/mandatory/rg-26b/fiji_road_sign_rg-26b_2048x2048.webp"},
+      jpg: {"240":"assets/mandatory/rg-26/fiji_road_sign_rg-26_240x240.jpg","512":"assets/mandatory/rg-26/fiji_road_sign_rg-26_512x512.jpg","768":"assets/mandatory/rg-26/fiji_road_sign_rg-26_768x768.jpg","1024":"assets/mandatory/rg-26/fiji_road_sign_rg-26_1024x1024.jpg","2048":"assets/mandatory/rg-26/fiji_road_sign_rg-26_2048x2048.jpg"},
+      png: {"240":"assets/mandatory/rg-26/fiji_road_sign_rg-26_240x240.png","512":"assets/mandatory/rg-26/fiji_road_sign_rg-26_512x512.png","768":"assets/mandatory/rg-26/fiji_road_sign_rg-26_768x768.png","1024":"assets/mandatory/rg-26/fiji_road_sign_rg-26_1024x1024.png","2048":"assets/mandatory/rg-26/fiji_road_sign_rg-26_2048x2048.png"},
+      webp: {"240":"assets/mandatory/rg-26/fiji_road_sign_rg-26_240x240.webp","512":"assets/mandatory/rg-26/fiji_road_sign_rg-26_512x512.webp","768":"assets/mandatory/rg-26/fiji_road_sign_rg-26_768x768.webp","1024":"assets/mandatory/rg-26/fiji_road_sign_rg-26_1024x1024.webp","2048":"assets/mandatory/rg-26/fiji_road_sign_rg-26_2048x2048.webp"},
     },
     category: "mandatory",
     code: "RG-26",

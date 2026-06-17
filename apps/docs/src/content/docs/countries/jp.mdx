@@ -55,19 +55,19 @@ npm install @road-signs/jp
     ```ts
     import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/jp';
 
-    // Example below uses the real JP sign "crossroads" — adjust to taste.
+    // Example below uses the real JP sign "E1" — adjust to taste.
 
     // All signs
     signs.length;
 
     // By slug ID
-    const sign = getSign("crossroads-crossroads");
+    const sign = getSign("e1-expressway-number-tomei");
 
     // By sign code
-    const s = getSignByCode("crossroads");
+    const s = getSignByCode("E1");
 
-    // All warning signs
-    const filtered = getSignsByCategory("warning");
+    // All information signs
+    const filtered = getSignsByCategory("information");
     ```
   </TabItem>
   <TabItem label="React">
@@ -75,12 +75,12 @@ npm install @road-signs/jp
     import { getSignsByCategory } from '@road-signs/jp';
     import { RoadSign } from '@road-signs/react';
 
-    const warningSigns = getSignsByCategory("warning");
+    const informationSigns = getSignsByCategory("information");
 
     export default function JPGrid() {
       return (
         <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-          {warningSigns.map((sign) => (
+          {informationSigns.map((sign) => (
             <RoadSign key={sign.id} sign={sign} size={64} />
           ))}
         </div>
@@ -94,12 +94,12 @@ npm install @road-signs/jp
     import { getSignsByCategory } from '@road-signs/jp';
     import { RoadSign } from '@road-signs/vue';
 
-    const warningSigns = getSignsByCategory("warning");
+    const informationSigns = getSignsByCategory("information");
     </script>
 
     <template>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <RoadSign v-for="sign in warningSigns" :key="sign.id" :sign="sign" :size="64" />
+        <RoadSign v-for="sign in informationSigns" :key="sign.id" :sign="sign" :size="64" />
       </div>
     </template>
     ```

@@ -55,16 +55,16 @@ npm install @road-signs/me
     ```ts
     import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/me';
 
-    // Example below uses the real ME sign "I-1.1" — adjust to taste.
+    // Example below uses the real ME sign "I-1" — adjust to taste.
 
     // All signs
     signs.length;
 
     // By slug ID
-    const sign = getSign("i-1-1-right-curve");
+    const sign = getSign("i-1-left-curve");
 
     // By sign code
-    const s = getSignByCode("I-1.1");
+    const s = getSignByCode("I-1");
 
     // All warning signs
     const filtered = getSignsByCategory("warning");

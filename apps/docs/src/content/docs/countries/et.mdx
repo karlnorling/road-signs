@@ -53,16 +53,16 @@ npm install @road-signs/et
     ```ts
     import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/et';
 
-    // Example below uses the real ET sign "ethiopia-road-sign-1-22" — adjust to taste.
+    // Placeholders — replace with real codes once @road-signs/et ships a registry.
 
     // All signs
     signs.length;
 
     // By slug ID
-    const sign = getSign("ethiopia-road-sign-1-22-ethiopia-road-sign-1-22");
+    const sign = getSign("example-sign");
 
     // By sign code
-    const s = getSignByCode("ethiopia-road-sign-1-22");
+    const s = getSignByCode("EXAMPLE-CODE");
 
     // All warning signs
     const filtered = getSignsByCategory("warning");

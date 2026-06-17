@@ -52,19 +52,19 @@ npm install @road-signs/ly
     ```ts
     import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/ly';
 
-    // Example below uses the real LY sign "libyan-stop-sign" — adjust to taste.
+    // Placeholders — replace with real codes once @road-signs/ly ships a registry.
 
     // All signs
     signs.length;
 
     // By slug ID
-    const sign = getSign("libyan-stop-sign-libyan-stop-sign");
+    const sign = getSign("example-sign");
 
     // By sign code
-    const s = getSignByCode("libyan-stop-sign");
+    const s = getSignByCode("EXAMPLE-CODE");
 
-    // All information signs
-    const filtered = getSignsByCategory("information");
+    // All warning signs
+    const filtered = getSignsByCategory("warning");
     ```
   </TabItem>
   <TabItem label="React">
@@ -72,12 +72,12 @@ npm install @road-signs/ly
     import { getSignsByCategory } from '@road-signs/ly';
     import { RoadSign } from '@road-signs/react';
 
-    const informationSigns = getSignsByCategory("information");
+    const warningSigns = getSignsByCategory("warning");
 
     export default function LYGrid() {
       return (
         <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-          {informationSigns.map((sign) => (
+          {warningSigns.map((sign) => (
             <RoadSign key={sign.id} sign={sign} size={64} />
           ))}
         </div>
@@ -91,12 +91,12 @@ npm install @road-signs/ly
     import { getSignsByCategory } from '@road-signs/ly';
     import { RoadSign } from '@road-signs/vue';
 
-    const informationSigns = getSignsByCategory("information");
+    const warningSigns = getSignsByCategory("warning");
     </script>
 
     <template>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <RoadSign v-for="sign in informationSigns" :key="sign.id" :sign="sign" :size="64" />
+        <RoadSign v-for="sign in warningSigns" :key="sign.id" :sign="sign" :size="64" />
       </div>
     </template>
     ```

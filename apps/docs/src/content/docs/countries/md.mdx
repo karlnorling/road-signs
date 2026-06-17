@@ -42,19 +42,19 @@ npm install @road-signs/md
     ```ts
     import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/md';
 
-    // Example below uses the real MD sign "level-crossing-with-barriers" — adjust to taste.
+    // Example below uses the real MD sign "M3" — adjust to taste.
 
     // All signs
     signs.length;
 
     // By slug ID
-    const sign = getSign("level-crossing-with-barriers-level-crossing-with-barriers");
+    const sign = getSign("m3-moldova-roadsign");
 
     // By sign code
-    const s = getSignByCode("level-crossing-with-barriers");
+    const s = getSignByCode("M3");
 
-    // All warning signs
-    const filtered = getSignsByCategory("warning");
+    // All information signs
+    const filtered = getSignsByCategory("information");
     ```
   </TabItem>
   <TabItem label="React">
@@ -62,12 +62,12 @@ npm install @road-signs/md
     import { getSignsByCategory } from '@road-signs/md';
     import { RoadSign } from '@road-signs/react';
 
-    const warningSigns = getSignsByCategory("warning");
+    const informationSigns = getSignsByCategory("information");
 
     export default function MDGrid() {
       return (
         <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-          {warningSigns.map((sign) => (
+          {informationSigns.map((sign) => (
             <RoadSign key={sign.id} sign={sign} size={64} />
           ))}
         </div>
@@ -81,12 +81,12 @@ npm install @road-signs/md
     import { getSignsByCategory } from '@road-signs/md';
     import { RoadSign } from '@road-signs/vue';
 
-    const warningSigns = getSignsByCategory("warning");
+    const informationSigns = getSignsByCategory("information");
     </script>
 
     <template>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <RoadSign v-for="sign in warningSigns" :key="sign.id" :sign="sign" :size="64" />
+        <RoadSign v-for="sign in informationSigns" :key="sign.id" :sign="sign" :size="64" />
       </div>
     </template>
     ```
@@ -101,18 +101,18 @@ npm install @road-signs/md
 
 | Metric | Value |
 | ------ | ----- |
-| Signs scraped | 250 |
-| Signs with SVG | 248 |
+| Signs scraped | 296 |
+| Signs with SVG | 294 |
 | Missing SVG | 2 |
 | Overall | **99%** |
 
 | Category | Scraped | With SVG | Missing | % |
 | -------- | ------: | -------: | ------: | -: |
-| `warning` | 49 | 47 | 2 | 96% |
+| `warning` | 51 | 49 | 2 | 96% |
 | `priority` | 7 | 7 | 0 | 100% |
 | `prohibitory` | 39 | 39 | 0 | 100% |
 | `mandatory` | 25 | 25 | 0 | 100% |
-| `information` | 130 | 130 | 0 | 100% |
+| `information` | 174 | 174 | 0 | 100% |
 
 **Standard:** Vienna Convention
 

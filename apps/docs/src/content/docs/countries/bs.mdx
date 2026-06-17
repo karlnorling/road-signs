@@ -41,19 +41,19 @@ npm install @road-signs/bs
     ```ts
     import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/bs';
 
-    // Example below uses the real BS sign "bahamas-no-entry" — adjust to taste.
+    // Placeholders — replace with real codes once @road-signs/bs ships a registry.
 
     // All signs
     signs.length;
 
     // By slug ID
-    const sign = getSign("bahamas-no-entry-bahamas-no-entry");
+    const sign = getSign("example-sign");
 
     // By sign code
-    const s = getSignByCode("bahamas-no-entry");
+    const s = getSignByCode("EXAMPLE-CODE");
 
-    // All priority signs
-    const filtered = getSignsByCategory("priority");
+    // All warning signs
+    const filtered = getSignsByCategory("warning");
     ```
   </TabItem>
   <TabItem label="React">
@@ -61,12 +61,12 @@ npm install @road-signs/bs
     import { getSignsByCategory } from '@road-signs/bs';
     import { RoadSign } from '@road-signs/react';
 
-    const prioritySigns = getSignsByCategory("priority");
+    const warningSigns = getSignsByCategory("warning");
 
     export default function BSGrid() {
       return (
         <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-          {prioritySigns.map((sign) => (
+          {warningSigns.map((sign) => (
             <RoadSign key={sign.id} sign={sign} size={64} />
           ))}
         </div>
@@ -80,12 +80,12 @@ npm install @road-signs/bs
     import { getSignsByCategory } from '@road-signs/bs';
     import { RoadSign } from '@road-signs/vue';
 
-    const prioritySigns = getSignsByCategory("priority");
+    const warningSigns = getSignsByCategory("warning");
     </script>
 
     <template>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <RoadSign v-for="sign in prioritySigns" :key="sign.id" :sign="sign" :size="64" />
+        <RoadSign v-for="sign in warningSigns" :key="sign.id" :sign="sign" :size="64" />
       </div>
     </template>
     ```

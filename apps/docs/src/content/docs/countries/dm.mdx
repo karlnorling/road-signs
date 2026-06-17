@@ -41,19 +41,19 @@ npm install @road-signs/dm
     ```ts
     import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/dm';
 
-    // Example below uses the real DM sign "dominica-give-way-sign" — adjust to taste.
+    // Placeholders — replace with real codes once @road-signs/dm ships a registry.
 
     // All signs
     signs.length;
 
     // By slug ID
-    const sign = getSign("dominica-give-way-sign-dominica-give-way-sign");
+    const sign = getSign("example-sign");
 
     // By sign code
-    const s = getSignByCode("dominica-give-way-sign");
+    const s = getSignByCode("EXAMPLE-CODE");
 
-    // All mandatory signs
-    const filtered = getSignsByCategory("mandatory");
+    // All warning signs
+    const filtered = getSignsByCategory("warning");
     ```
   </TabItem>
   <TabItem label="React">
@@ -61,12 +61,12 @@ npm install @road-signs/dm
     import { getSignsByCategory } from '@road-signs/dm';
     import { RoadSign } from '@road-signs/react';
 
-    const mandatorySigns = getSignsByCategory("mandatory");
+    const warningSigns = getSignsByCategory("warning");
 
     export default function DMGrid() {
       return (
         <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-          {mandatorySigns.map((sign) => (
+          {warningSigns.map((sign) => (
             <RoadSign key={sign.id} sign={sign} size={64} />
           ))}
         </div>
@@ -80,12 +80,12 @@ npm install @road-signs/dm
     import { getSignsByCategory } from '@road-signs/dm';
     import { RoadSign } from '@road-signs/vue';
 
-    const mandatorySigns = getSignsByCategory("mandatory");
+    const warningSigns = getSignsByCategory("warning");
     </script>
 
     <template>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <RoadSign v-for="sign in mandatorySigns" :key="sign.id" :sign="sign" :size="64" />
+        <RoadSign v-for="sign in warningSigns" :key="sign.id" :sign="sign" :size="64" />
       </div>
     </template>
     ```

@@ -56,16 +56,16 @@ npm install @road-signs/pl
     ```ts
     import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/pl';
 
-    // Example below uses the real PL sign "A-6A" — adjust to taste.
+    // Example below uses the real PL sign "A-1" — adjust to taste.
 
     // All signs
     signs.length;
 
     // By slug ID
-    const sign = getSign("a-6a-a-6a-intersection-with-side-roads-on-both-sides-of-the-road-drivers-on-the-side-roads-have-to-yield-3");
+    const sign = getSign("a-1-dangerous-curve-to-the-right");
 
     // By sign code
-    const s = getSignByCode("A-6A");
+    const s = getSignByCode("A-1");
 
     // All warning signs
     const filtered = getSignsByCategory("warning");

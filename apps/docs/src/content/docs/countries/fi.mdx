@@ -56,16 +56,16 @@ npm install @road-signs/fi
     ```ts
     import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/fi';
 
-    // Example below uses the real FI sign "198" — adjust to taste.
+    // Example below uses the real FI sign "V26" — adjust to taste.
 
     // All signs
     signs.length;
 
     // By slug ID
-    const sign = getSign("198-pedestrian-crossing-1969-0s");
+    const sign = getSign("v26-logging-route");
 
     // By sign code
-    const s = getSignByCode("198");
+    const s = getSignByCode("V26");
 
     // All warning signs
     const filtered = getSignsByCategory("warning");

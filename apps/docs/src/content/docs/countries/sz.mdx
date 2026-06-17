@@ -55,19 +55,19 @@ npm install @road-signs/sz
     ```ts
     import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/sz';
 
-    // Example below uses the real SZ sign "A1-1" — adjust to taste.
+    // Example below uses the real SZ sign "R101-600" — adjust to taste.
 
     // All signs
     signs.length;
 
     // By slug ID
-    const sign = getSign("a1-1-sadc-road-sign-gdls");
+    const sign = getSign("r101-600-sadc-road-sign");
 
     // By sign code
-    const s = getSignByCode("A1-1");
+    const s = getSignByCode("R101-600");
 
-    // All warning signs
-    const filtered = getSignsByCategory("warning");
+    // All mandatory signs
+    const filtered = getSignsByCategory("mandatory");
     ```
   </TabItem>
   <TabItem label="React">
@@ -75,12 +75,12 @@ npm install @road-signs/sz
     import { getSignsByCategory } from '@road-signs/sz';
     import { RoadSign } from '@road-signs/react';
 
-    const warningSigns = getSignsByCategory("warning");
+    const mandatorySigns = getSignsByCategory("mandatory");
 
     export default function SZGrid() {
       return (
         <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-          {warningSigns.map((sign) => (
+          {mandatorySigns.map((sign) => (
             <RoadSign key={sign.id} sign={sign} size={64} />
           ))}
         </div>
@@ -94,12 +94,12 @@ npm install @road-signs/sz
     import { getSignsByCategory } from '@road-signs/sz';
     import { RoadSign } from '@road-signs/vue';
 
-    const warningSigns = getSignsByCategory("warning");
+    const mandatorySigns = getSignsByCategory("mandatory");
     </script>
 
     <template>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <RoadSign v-for="sign in warningSigns" :key="sign.id" :sign="sign" :size="64" />
+        <RoadSign v-for="sign in mandatorySigns" :key="sign.id" :sign="sign" :size="64" />
       </div>
     </template>
     ```
@@ -114,18 +114,18 @@ npm install @road-signs/sz
 
 | Metric | Value |
 | ------ | ----- |
-| Signs scraped | 0 |
-| Signs with SVG | 0 |
+| Signs scraped | 46 |
+| Signs with SVG | 46 |
 | Missing SVG | 0 |
-| Overall | **—** |
+| Overall | **100%** |
 
 | Category | Scraped | With SVG | Missing | % |
 | -------- | ------: | -------: | ------: | -: |
 | `warning` | 0 | 0 | 0 | — |
 | `priority` | 0 | 0 | 0 | — |
 | `prohibitory` | 0 | 0 | 0 | — |
-| `mandatory` | 0 | 0 | 0 | — |
-| `information` | 0 | 0 | 0 | — |
+| `mandatory` | 44 | 44 | 0 | 100% |
+| `information` | 2 | 2 | 0 | 100% |
 
 **Standard:** SADC regional standard (Road Traffic Act)
 

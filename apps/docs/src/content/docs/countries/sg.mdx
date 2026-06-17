@@ -53,16 +53,16 @@ npm install @road-signs/sg
     ```ts
     import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/sg';
 
-    // Example below uses the real SG sign "W15" — adjust to taste.
+    // Example below uses the real SG sign "I1" — adjust to taste.
 
     // All signs
     signs.length;
 
     // By slug ID
-    const sign = getSign("w15-singapore-road-sign");
+    const sign = getSign("i1-singapore-road-sign");
 
     // By sign code
-    const s = getSignByCode("W15");
+    const s = getSignByCode("I1");
 
     // All information signs
     const filtered = getSignsByCategory("information");
@@ -112,8 +112,8 @@ npm install @road-signs/sg
 
 | Metric | Value |
 | ------ | ----- |
-| Signs scraped | 128 |
-| Signs with SVG | 128 |
+| Signs scraped | 137 |
+| Signs with SVG | 137 |
 | Missing SVG | 0 |
 | Overall | **100%** |
 
@@ -123,7 +123,7 @@ npm install @road-signs/sg
 | `priority` | 5 | 5 | 0 | 100% |
 | `prohibitory` | 17 | 17 | 0 | 100% |
 | `mandatory` | 7 | 7 | 0 | 100% |
-| `information` | 60 | 60 | 0 | 100% |
+| `information` | 69 | 69 | 0 | 100% |
 
 **Standard:** Road Traffic Act (Traffic Signs) Rules — Vienna Convention
 

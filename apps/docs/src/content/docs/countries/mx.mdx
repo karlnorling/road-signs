@@ -54,16 +54,16 @@ npm install @road-signs/mx
     ```ts
     import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/mx';
 
-    // Example below uses the real MX sign "SP-6" — adjust to taste.
+    // Example below uses the real MX sign "SP-6A" — adjust to taste.
 
     // All signs
     signs.length;
 
     // By slug ID
-    const sign = getSign("sp-6-sp-6");
+    const sign = getSign("sp-6a-curve-left");
 
     // By sign code
-    const s = getSignByCode("SP-6");
+    const s = getSignByCode("SP-6A");
 
     // All warning signs
     const filtered = getSignsByCategory("warning");

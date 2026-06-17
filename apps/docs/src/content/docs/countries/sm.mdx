@@ -54,19 +54,19 @@ npm install @road-signs/sm
     ```ts
     import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/sm';
 
-    // Placeholders — replace with real codes once @road-signs/sm ships a registry.
+    // Example below uses the real SM sign "A1" — adjust to taste.
 
     // All signs
     signs.length;
 
     // By slug ID
-    const sign = getSign("example-sign");
+    const sign = getSign("a1-beginning-of-a-danger-or-a-prescription-vertical");
 
     // By sign code
-    const s = getSignByCode("EXAMPLE-CODE");
+    const s = getSignByCode("A1");
 
-    // All warning signs
-    const filtered = getSignsByCategory("warning");
+    // All information signs
+    const filtered = getSignsByCategory("information");
     ```
   </TabItem>
   <TabItem label="React">
@@ -74,12 +74,12 @@ npm install @road-signs/sm
     import { getSignsByCategory } from '@road-signs/sm';
     import { RoadSign } from '@road-signs/react';
 
-    const warningSigns = getSignsByCategory("warning");
+    const informationSigns = getSignsByCategory("information");
 
     export default function SMGrid() {
       return (
         <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-          {warningSigns.map((sign) => (
+          {informationSigns.map((sign) => (
             <RoadSign key={sign.id} sign={sign} size={64} />
           ))}
         </div>
@@ -93,12 +93,12 @@ npm install @road-signs/sm
     import { getSignsByCategory } from '@road-signs/sm';
     import { RoadSign } from '@road-signs/vue';
 
-    const warningSigns = getSignsByCategory("warning");
+    const informationSigns = getSignsByCategory("information");
     </script>
 
     <template>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <RoadSign v-for="sign in warningSigns" :key="sign.id" :sign="sign" :size="64" />
+        <RoadSign v-for="sign in informationSigns" :key="sign.id" :sign="sign" :size="64" />
       </div>
     </template>
     ```
@@ -113,18 +113,18 @@ npm install @road-signs/sm
 
 | Metric | Value |
 | ------ | ----- |
-| Signs scraped | 333 |
-| Signs with SVG | 324 |
+| Signs scraped | 376 |
+| Signs with SVG | 367 |
 | Missing SVG | 9 |
-| Overall | **97%** |
+| Overall | **98%** |
 
 | Category | Scraped | With SVG | Missing | % |
 | -------- | ------: | -------: | ------: | -: |
 | `warning` | 51 | 51 | 0 | 100% |
 | `priority` | 0 | 0 | 0 | — |
-| `prohibitory` | 75 | 75 | 0 | 100% |
+| `prohibitory` | 77 | 77 | 0 | 100% |
 | `mandatory` | 0 | 0 | 0 | — |
-| `information` | 207 | 198 | 9 | 96% |
+| `information` | 248 | 239 | 9 | 96% |
 
 **Standard:** Vienna Convention (Codice della strada) — shared with Italy
 

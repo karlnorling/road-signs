@@ -54,16 +54,16 @@ npm install @road-signs/tw
     ```ts
     import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/tw';
 
-    // Example below uses the real TW sign "A4-1" — adjust to taste.
+    // Example below uses the real TW sign "A1" — adjust to taste.
 
     // All signs
     signs.length;
 
     // By slug ID
-    const sign = getSign("a4-1-taiwan-roc-road-sign");
+    const sign = getSign("a1-taiwan-roc-road-sign");
 
     // By sign code
-    const s = getSignByCode("A4-1");
+    const s = getSignByCode("A1");
 
     // All warning signs
     const filtered = getSignsByCategory("warning");
@@ -113,18 +113,18 @@ npm install @road-signs/tw
 
 | Metric | Value |
 | ------ | ----- |
-| Signs scraped | 159 |
-| Signs with SVG | 159 |
+| Signs scraped | 215 |
+| Signs with SVG | 215 |
 | Missing SVG | 0 |
 | Overall | **100%** |
 
 | Category | Scraped | With SVG | Missing | % |
 | -------- | ------: | -------: | ------: | -: |
-| `warning` | 15 | 15 | 0 | 100% |
-| `priority` | 7 | 7 | 0 | 100% |
-| `prohibitory` | 20 | 20 | 0 | 100% |
-| `mandatory` | 3 | 3 | 0 | 100% |
-| `information` | 114 | 114 | 0 | 100% |
+| `warning` | 17 | 17 | 0 | 100% |
+| `priority` | 8 | 8 | 0 | 100% |
+| `prohibitory` | 35 | 35 | 0 | 100% |
+| `mandatory` | 40 | 40 | 0 | 100% |
+| `information` | 115 | 115 | 0 | 100% |
 
 **Standard:** Road Traffic Safety Rules (道路交通標誌標線號誌設置規則)
 

@@ -56,19 +56,19 @@ npm install @road-signs/is
     ```ts
     import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/is';
 
-    // Example below uses the real IS sign "A07.22" — adjust to taste.
+    // Example below uses the real IS sign "D01.35" — adjust to taste.
 
     // All signs
     signs.length;
 
     // By slug ID
-    const sign = getSign("a07-22-iceland-road-sign");
+    const sign = getSign("d01-35-iceland-road-sign");
 
     // By sign code
-    const s = getSignByCode("A07.22");
+    const s = getSignByCode("D01.35");
 
-    // All warning signs
-    const filtered = getSignsByCategory("warning");
+    // All mandatory signs
+    const filtered = getSignsByCategory("mandatory");
     ```
   </TabItem>
   <TabItem label="React">
@@ -76,12 +76,12 @@ npm install @road-signs/is
     import { getSignsByCategory } from '@road-signs/is';
     import { RoadSign } from '@road-signs/react';
 
-    const warningSigns = getSignsByCategory("warning");
+    const mandatorySigns = getSignsByCategory("mandatory");
 
     export default function ISGrid() {
       return (
         <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-          {warningSigns.map((sign) => (
+          {mandatorySigns.map((sign) => (
             <RoadSign key={sign.id} sign={sign} size={64} />
           ))}
         </div>
@@ -95,12 +95,12 @@ npm install @road-signs/is
     import { getSignsByCategory } from '@road-signs/is';
     import { RoadSign } from '@road-signs/vue';
 
-    const warningSigns = getSignsByCategory("warning");
+    const mandatorySigns = getSignsByCategory("mandatory");
     </script>
 
     <template>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <RoadSign v-for="sign in warningSigns" :key="sign.id" :sign="sign" :size="64" />
+        <RoadSign v-for="sign in mandatorySigns" :key="sign.id" :sign="sign" :size="64" />
       </div>
     </template>
     ```

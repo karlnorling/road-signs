@@ -55,16 +55,16 @@ npm install @road-signs/mg
     ```ts
     import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/mg';
 
-    // Example below uses the real MG sign "A1-1" — adjust to taste.
+    // Placeholders — replace with real codes once @road-signs/mg ships a registry.
 
     // All signs
     signs.length;
 
     // By slug ID
-    const sign = getSign("a1-1-sadc-road-sign-gdls");
+    const sign = getSign("example-sign");
 
     // By sign code
-    const s = getSignByCode("A1-1");
+    const s = getSignByCode("EXAMPLE-CODE");
 
     // All warning signs
     const filtered = getSignsByCategory("warning");

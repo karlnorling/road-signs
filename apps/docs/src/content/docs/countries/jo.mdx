@@ -55,19 +55,19 @@ npm install @road-signs/jo
     ```ts
     import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/jo';
 
-    // Example below uses the real JO sign "jordan-road-sign-r" — adjust to taste.
+    // Example below uses the real JO sign "jordan-road-sign-r-30" — adjust to taste.
 
     // All signs
     signs.length;
 
     // By slug ID
-    const sign = getSign("jordan-road-sign-r-jordan-road-sign-r");
+    const sign = getSign("jordan-road-sign-r-30-jordan-road-sign-r-30");
 
     // By sign code
-    const s = getSignByCode("jordan-road-sign-r");
+    const s = getSignByCode("jordan-road-sign-r-30");
 
-    // All priority signs
-    const filtered = getSignsByCategory("priority");
+    // All prohibitory signs
+    const filtered = getSignsByCategory("prohibitory");
     ```
   </TabItem>
   <TabItem label="React">
@@ -75,12 +75,12 @@ npm install @road-signs/jo
     import { getSignsByCategory } from '@road-signs/jo';
     import { RoadSign } from '@road-signs/react';
 
-    const prioritySigns = getSignsByCategory("priority");
+    const prohibitorySigns = getSignsByCategory("prohibitory");
 
     export default function JOGrid() {
       return (
         <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-          {prioritySigns.map((sign) => (
+          {prohibitorySigns.map((sign) => (
             <RoadSign key={sign.id} sign={sign} size={64} />
           ))}
         </div>
@@ -94,12 +94,12 @@ npm install @road-signs/jo
     import { getSignsByCategory } from '@road-signs/jo';
     import { RoadSign } from '@road-signs/vue';
 
-    const prioritySigns = getSignsByCategory("priority");
+    const prohibitorySigns = getSignsByCategory("prohibitory");
     </script>
 
     <template>
       <div style="display:flex;gap:8px;flex-wrap:wrap">
-        <RoadSign v-for="sign in prioritySigns" :key="sign.id" :sign="sign" :size="64" />
+        <RoadSign v-for="sign in prohibitorySigns" :key="sign.id" :sign="sign" :size="64" />
       </div>
     </template>
     ```
@@ -114,16 +114,16 @@ npm install @road-signs/jo
 
 | Metric | Value |
 | ------ | ----- |
-| Signs scraped | 0 |
-| Signs with SVG | 0 |
+| Signs scraped | 4 |
+| Signs with SVG | 4 |
 | Missing SVG | 0 |
-| Overall | **—** |
+| Overall | **100%** |
 
 | Category | Scraped | With SVG | Missing | % |
 | -------- | ------: | -------: | ------: | -: |
 | `warning` | 0 | 0 | 0 | — |
 | `priority` | 0 | 0 | 0 | — |
-| `prohibitory` | 0 | 0 | 0 | — |
+| `prohibitory` | 4 | 4 | 0 | 100% |
 | `mandatory` | 0 | 0 | 0 | — |
 | `information` | 0 | 0 | 0 | — |
 

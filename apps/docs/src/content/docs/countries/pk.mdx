@@ -54,16 +54,16 @@ npm install @road-signs/pk
     ```ts
     import { signs, getSign, getSignByCode, getSignsByCategory } from '@road-signs/pk';
 
-    // Example below uses the real PK sign "W-01" — adjust to taste.
+    // Example below uses the real PK sign "M-1" — adjust to taste.
 
     // All signs
     signs.length;
 
     // By slug ID
-    const sign = getSign("w-01-pakistan-road-sign");
+    const sign = getSign("m-1-pakistan");
 
     // By sign code
-    const s = getSignByCode("W-01");
+    const s = getSignByCode("M-1");
 
     // All information signs
     const filtered = getSignsByCategory("information");
