@@ -140,7 +140,7 @@ const SCRAPERS: Record<string, string> = {
   sg: './scrape-sg',
   si: './scrape-si',
   sk: './scrape-sk',
-  sm: './scrape-sm',
+  // sm: re-exports @road-signs/it — no separate scrape required.
   sn: './scrape-sn',
   sr: './scrape-sr',
   sv: './scrape-sv',
