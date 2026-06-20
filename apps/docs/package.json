@@ -14,7 +14,7 @@
     "@astrojs/starlight": "^0.39.2",
     "@road-signs/core": "workspace:*",
     "@road-signs/us": "workspace:*",
-    "astro": "^6.3.2"
+    "astro": "^6.4.6"
   },
   "devDependencies": {
     "typescript": "^6.0.0"
