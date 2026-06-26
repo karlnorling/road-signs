@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Octagonal stop-sign shape used as a generic "road sign" icon -->
+  <polygon points="10,2 22,2 30,10 30,22 22,30 10,30 2,22 2,10" fill="#e63946" stroke="#fff" stroke-width="1.5"/>
+  <!-- Road: two white lines -->
+  <rect x="14" y="8" width="4" height="16" rx="1" fill="#fff"/>
+  <rect x="10" y="14" width="12" height="4" rx="1" fill="#fff"/>
+</svg>
