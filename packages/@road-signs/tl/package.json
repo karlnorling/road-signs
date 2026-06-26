@@ -1,6 +1,6 @@
 {
   "name": "@road-signs/tl",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "Timor-Leste road signs — TypeScript registry, inline SVGs, and image assets",
   "keywords": [
     "road-signs",

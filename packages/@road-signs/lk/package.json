@@ -1,6 +1,6 @@
 {
   "name": "@road-signs/lk",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Sri Lanka road signs — TypeScript registry, inline SVGs, and image assets",
   "keywords": [
     "road-signs",

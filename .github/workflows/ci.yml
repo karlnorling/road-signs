@@ -33,6 +33,9 @@ jobs:
       - name: Lint
         run: yarn lint
 
+      - name: Compile workspace packages
+        run: yarn compile
+
       - name: Type-check
         run: yarn type-check
 

@@ -1,6 +1,6 @@
 {
   "name": "@road-signs/au",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Australian AS1742 road signs — TypeScript registry, inline SVGs, and image assets",
   "keywords": [
     "road-signs",

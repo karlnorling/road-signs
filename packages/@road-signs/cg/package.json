@@ -1,6 +1,6 @@
 {
   "name": "@road-signs/cg",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "Republic of the Congo road signs — TypeScript registry, inline SVGs, and image assets",
   "keywords": [
     "road-signs",
