@@ -59,6 +59,11 @@ const categoryCounts = Object.fromEntries(
 
 const categoryLabel = (cat: string) =>
   cat.charAt(0).toUpperCase() + cat.slice(1);
+
+// Skip SVGs above 50KB — unoptimized Inkscape exports can be 8–29MB each and blow up page size.
+const SVG_SIZE_LIMIT = 50000;
+const inlineSvg = (svg: string | undefined) =>
+  svg && svg.length < SVG_SIZE_LIMIT ? svg : null;
 ---
 
 <div class="gallery">
@@ -111,8 +116,8 @@ const categoryLabel = (cat: string) =>
             data-code={sign.code.toLowerCase()}
             title={sign.description}
           >
-            {sign.svg
-              ? <div class="sign-svg" set:html={sign.svg} />
+            {inlineSvg(sign.svg)
+              ? <div class="sign-svg" set:html={inlineSvg(sign.svg)} />
               : fallbackPng
                 ? <div class="sign-svg"><img src={fallbackPng} alt={sign.name} loading="lazy" /></div>
                 : <div class="sign-svg sign-missing" aria-hidden="true">—</div>
