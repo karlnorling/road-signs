@@ -20,6 +20,10 @@ const allSigns = countries.flatMap(({ id, signs }) => signs.map((s) => ({ ...s, 
 const categoryCounts = Object.fromEntries(
   Object.keys(categoryMeta).map((id) => [id, allSigns.filter((s) => s.category === id).length]),
 );
+
+const SVG_CHAR_LIMIT = 50000;
+const inlineSvg = (svg: string | undefined) =>
+  svg && svg.length < SVG_CHAR_LIMIT ? svg : null;
 ---
 
 <div class="gallery">
@@ -65,20 +69,23 @@ const categoryCounts = Object.fromEntries(
 
   <div class="sign-grid" id="sign-grid">
     {
-      allSigns.map((sign) => (
-        <div
-          class="sign-card"
-          data-country={sign.country}
-          data-category={sign.category}
-          data-name={sign.name.toLowerCase()}
-          data-code={sign.code.toLowerCase()}
-          title={sign.description}
-        >
-          <div class="sign-svg" set:html={sign.svg} />
-          <span class="sign-code">{sign.code}</span>
-          <span class="sign-name">{sign.name}</span>
-        </div>
-      ))
+      allSigns.map((sign) => {
+        const svg = inlineSvg(sign.svg);
+        return (
+          <div
+            class="sign-card"
+            data-country={sign.country}
+            data-category={sign.category}
+            data-name={sign.name.toLowerCase()}
+            data-code={sign.code.toLowerCase()}
+            title={sign.description}
+          >
+            {svg && <div class="sign-svg" set:html={svg} />}
+            <span class="sign-code">{sign.code}</span>
+            <span class="sign-name">{sign.name}</span>
+          </div>
+        );
+      })
     }
   </div>
 </div>
