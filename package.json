@@ -52,7 +52,7 @@
     "esbuild": "^0.28.1",
     "flatted": "^3.4.2",
     "js-cookie": "^3.0.7",
-    "js-yaml": "^4.1.1",
+    "js-yaml": "^4.3.1",
     "minimatch": "^9.0.7",
     "phin": "^3.7.1",
     "picomatch": "^4.0.4",
