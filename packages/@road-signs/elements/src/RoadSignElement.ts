@@ -1,29 +1,46 @@
+import { decorateSvg, escapeHtml, signArtwork } from '@road-signs/core';
 import type { Sign } from '@road-signs/core';
 
-const esc = (s: string): string =>
-  s
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/'/g, '&#39;')
-    .replace(/"/g, '&quot;');
+/** A country package's `getSign` function. */
+export type SignLookup = (id: string) => Sign | undefined;
 
 /**
  * Base class for road sign custom elements.
  *
- * Usage after registering a country's signs:
+ * A sign can be supplied two ways:
+ *   - the `sign` property, for code that already has the object in hand;
+ *   - the `sign-id` attribute, which is resolved through the lookup passed to
+ *     `registerRoadSign` — this is what makes the element usable from plain
+ *     markup, with no JavaScript per instance.
+ *
  *   import { registerRoadSign } from '@road-signs/elements';
  *   import { getSign } from '@road-signs/us';
+ *
  *   registerRoadSign('road-sign-us', getSign);
+ *   // <road-sign-us sign-id="w1-1-turn" size="64"></road-sign-us>
  */
 export class RoadSignElement extends HTMLElement {
-  static readonly observedAttributes = ['sign-id', 'size', 'width', 'height', 'title', 'description'];
+  static readonly observedAttributes = [
+    'sign-id',
+    'size',
+    'width',
+    'height',
+    'title',
+    'description',
+  ];
+
+  /** Set by `registerRoadSign` on the subclass it defines. */
+  static lookup: SignLookup | undefined;
 
   #sign: Sign | undefined;
 
-  set sign(value: Sign) {
+  set sign(value: Sign | undefined) {
     this.#sign = value;
     this.#render();
+  }
+
+  get sign(): Sign | undefined {
+    return this.#sign ?? this.#fromAttribute();
   }
 
   connectedCallback(): void {
@@ -34,43 +51,64 @@ export class RoadSignElement extends HTMLElement {
     this.#render();
   }
 
+  #fromAttribute(): Sign | undefined {
+    const id = this.getAttribute('sign-id');
+    if (id === null) return undefined;
+    const { lookup } = this.constructor as typeof RoadSignElement;
+    return lookup?.(id);
+  }
+
   #render(): void {
-    if (!this.#sign) return;
-
-    const size = this.getAttribute('size') ?? '64';
-    const resolvedWidth = this.getAttribute('width') ?? size;
-    const resolvedHeight = this.getAttribute('height') ?? size;
-    const resolvedTitle = this.getAttribute('title') ?? this.#sign.name;
-    const resolvedDesc = this.getAttribute('description') ?? this.#sign.description;
-
-    const titleId = `rs-title-${this.#sign.id}`;
-    const descId = `rs-desc-${this.#sign.id}`;
-
-    // Fall back to a raster <img> for PDF-extracted signs that have no inline SVG.
-    if (!this.#sign.svg) {
-      const png = this.#sign.assets?.png;
-      const pngSrc = png
-        ? png[2048] ?? png[1024] ?? png[768] ?? png[512] ?? png[240]
-        : undefined;
-      if (!pngSrc) {
-        this.innerHTML = '';
-        return;
-      }
-      this.style.display = 'contents';
-      this.innerHTML =
-        `<img src="${esc(pngSrc)}" alt="${esc(resolvedTitle)}" title="${esc(resolvedDesc)}" ` +
-        `width="${esc(resolvedWidth)}" height="${esc(resolvedHeight)}" />`;
+    const sign = this.#sign ?? this.#fromAttribute();
+    if (!sign) {
+      this.innerHTML = '';
       return;
     }
 
-    const svgWithA11y = this.#sign.svg
-      .replace(
-        /<svg\b/,
-        `<svg role="img" aria-labelledby="${titleId} ${descId}" width="${esc(resolvedWidth)}" height="${esc(resolvedHeight)}"`,
-      )
-      .replace(/>/, `><title id="${titleId}">${esc(resolvedTitle)}</title><desc id="${descId}">${esc(resolvedDesc)}</desc>`);
+    const size = this.getAttribute('size') ?? '64';
+    const width = this.getAttribute('width') ?? size;
+    const height = this.getAttribute('height') ?? size;
+    const title = this.getAttribute('title') ?? sign.name;
+    const description = this.getAttribute('description') ?? sign.description;
+
+    const artwork = signArtwork(sign);
+    if (artwork === null) {
+      this.innerHTML = '';
+      return;
+    }
 
     this.style.display = 'contents';
-    this.innerHTML = svgWithA11y;
+
+    // Raster-only sign (no vector source). `src` is a self-contained data URI.
+    if (artwork.kind === 'png') {
+      this.innerHTML =
+        `<img src="${escapeHtml(artwork.src)}" alt="${escapeHtml(title)}" ` +
+        `title="${escapeHtml(description)}" ` +
+        `width="${escapeHtml(width)}" height="${escapeHtml(height)}" />`;
+      return;
+    }
+
+    this.innerHTML = decorateSvg(artwork.svg, {
+      description,
+      descId: `rs-desc-${sign.id}`,
+      height,
+      title,
+      titleId: `rs-title-${sign.id}`,
+      width,
+    });
   }
 }
+
+/**
+ * Define a custom element bound to one country's catalogue.
+ *
+ * Re-registering the same tag name is a no-op rather than a DOMException, so
+ * calling this from module scope in more than one entry point is safe.
+ */
+export const registerRoadSign = (tagName: string, lookup: SignLookup): void => {
+  if (customElements.get(tagName) !== undefined) return;
+  class CountryRoadSignElement extends RoadSignElement {
+    static override lookup = lookup;
+  }
+  customElements.define(tagName, CountryRoadSignElement);
+};

@@ -1,20 +1,7 @@
 import { defineComponent, h } from 'vue';
+import { decorateSvg, signArtwork } from '@road-signs/core';
 import type { Sign } from '@road-signs/core';
 import type { PropType } from 'vue';
-
-const esc = (s: string): string =>
-  s
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/'/g, '&#39;')
-    .replace(/"/g, '&quot;');
-
-const pickPng = (sign: Sign): string | undefined => {
-  const png = sign.assets?.png;
-  if (!png) return undefined;
-  return png[2048] ?? png[1024] ?? png[768] ?? png[512] ?? png[240];
-};
 
 export const RoadSign = defineComponent({
   name: 'RoadSign',
@@ -34,29 +21,29 @@ export const RoadSign = defineComponent({
       const resolvedTitle = props.title ?? props.sign.name;
       const resolvedDesc = props.description ?? props.sign.description;
 
-      const titleId = `rs-title-${props.sign.id}`;
-      const descId = `rs-desc-${props.sign.id}`;
+      const artwork = signArtwork(props.sign);
+      if (artwork === null) return null;
 
-      // Fall back to a raster <img> for PDF-extracted signs that have no inline SVG.
-      if (!props.sign.svg) {
-        const pngSrc = pickPng(props.sign);
-        if (!pngSrc) return null;
+      // Raster-only sign (no vector source). `src` is a self-contained data URI.
+      if (artwork.kind === 'png') {
         return h('img', {
           ...attrs,
           alt: resolvedTitle,
           height: resolvedHeight,
-          src: pngSrc,
+          src: artwork.src,
           title: resolvedDesc,
           width: resolvedWidth,
         });
       }
 
-      const svgWithA11y = props.sign.svg
-        .replace(
-          /<svg\b/,
-          `<svg role="img" aria-labelledby="${titleId} ${descId}" width="${esc(String(resolvedWidth))}" height="${esc(String(resolvedHeight))}"`,
-        )
-        .replace(/>/, `><title id="${titleId}">${esc(resolvedTitle)}</title><desc id="${descId}">${esc(resolvedDesc)}</desc>`);
+      const svgWithA11y = decorateSvg(artwork.svg, {
+        description: resolvedDesc,
+        descId: `rs-desc-${props.sign.id}`,
+        height: resolvedHeight,
+        title: resolvedTitle,
+        titleId: `rs-title-${props.sign.id}`,
+        width: resolvedWidth,
+      });
 
       return h('span', {
         ...attrs,

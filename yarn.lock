@@ -12168,9 +12168,11 @@ __metadata:
   dependencies:
     "@changesets/cli": "npm:^2.27.10"
     "@manypkg/cli": "npm:^0.23.0"
+    "@types/jest": "npm:^30.0.0"
     "@types/node": "npm:^22.10.7"
     "@types/potrace": "npm:^2.1.5"
     glob: "npm:^13.0.6"
+    jest: "npm:^30.3.0"
     lefthook: "npm:^2.1.6"
     node-html-parser: "npm:^7.0.1"
     oxfmt: "npm:^0.45.0"
@@ -12178,6 +12180,7 @@ __metadata:
     potrace: "npm:^2.1.8"
     sharp: "npm:^0.33.5"
     svgo: "npm:^4.0.1"
+    ts-jest: "npm:^29.4.0"
     tsx: "npm:^4.19.4"
     typescript: "npm:^6.0.0"
   languageName: unknown

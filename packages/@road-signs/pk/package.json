@@ -3,14 +3,18 @@
   "version": "1.0.0",
   "description": "Pakistan road signs — TypeScript registry, inline SVGs, and image assets",
   "keywords": [
+    "pakistan",
+    "pk",
     "road-signs",
     "signs",
     "svg",
-    "typescript",
-    "pakistan",
-    "pk"
+    "typescript"
   ],
   "license": "MIT",
+  "author": {
+    "name": "Karl Norling",
+    "url": "https://github.com/karlnorling"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/karlnorling/road-signs",
@@ -18,7 +22,6 @@
   },
   "files": [
     "dist/",
-    "assets/",
     "package.json",
     "README.md"
   ],
@@ -33,7 +36,7 @@
     }
   },
   "scripts": {
-    "compile": "tsc -p tsconfig.cjs.json && tsc -p tsconfig.esm.json && node -e \"require('fs').writeFileSync('dist/cjs/package.json', JSON.stringify({type:'commonjs'})); require('fs').writeFileSync('dist/esm/package.json', JSON.stringify({type:'module'}))\"",
+    "compile": "node -e \"require('fs').rmSync('dist',{recursive:true,force:true})\" && tsc -p tsconfig.cjs.json && tsc -p tsconfig.esm.json && node -e \"require('fs').writeFileSync('dist/cjs/package.json', JSON.stringify({type:'commonjs'})); require('fs').writeFileSync('dist/esm/package.json', JSON.stringify({type:'module'}))\"",
     "test": "jest --passWithNoTests",
     "type-check": "tsc --noEmit -p tsconfig.cjs.json"
   },
@@ -45,9 +48,5 @@
     "jest": "^30.3.0",
     "ts-jest": "^29.4.0",
     "typescript": "^6.0.0"
-  },
-  "author": {
-    "name": "Karl Norling",
-    "url": "https://github.com/karlnorling"
   }
 }
