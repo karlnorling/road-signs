@@ -225,7 +225,7 @@ export const signs: KESign[] = [
     category: "information",
     code: "kenya-road-sign-no-entry",
     description: "Kenya road sign-No entry",
-    id: "kenya-road-sign-no-entry-kenya-road-sign-no-entry",
+    id: "kenya-road-sign-no-entry",
     name: "Kenya road sign-No entry",
     svg: "<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 602 602\"><g transform=\"translate(0 305)\"><circle cx=\"301\" cy=\"-4\" r=\"300\" style=\"fill:#c8001a;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.25729\"/><circle cx=\"301\" cy=\"-4\" r=\"240\" style=\"fill:#fff;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.00583\"/><path d=\"M271-174h60v380h-60z\" style=\"fill:#000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:.338031\"/><path d=\"M226-112.5 301-224l75 111.5a250 250 0 0 0-150 0\" style=\"fill:#000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:.49239\"/><path d=\"M-240.011-505.668h60v580h-60z\" style=\"fill:#c8001a;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:.359736\" transform=\"rotate(45)scale(-1 1)\"/></g></svg>",
   },

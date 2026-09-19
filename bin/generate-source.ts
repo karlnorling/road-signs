@@ -17,16 +17,66 @@ import { globSync } from 'glob';
 
 const IMAGE_SIZES = [240, 512, 768, 1024, 2048] as const;
 
-const slugify = (str: string): string =>
+export const slugify = (str: string): string =>
   str
     .toLowerCase()
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-|-$/g, '');
 
-const cleanSvg = (svg: string): string =>
+/**
+ * Build a sign's slug ID from its code and name.
+ *
+ * Many scrapers have no separate code to report and fall back to using the
+ * sign's name as its code; others return names that already carry the code as
+ * a prefix ("W1-10aR Curve with crossroad (right)"). Naively joining the two
+ * produced IDs like `crossroads-crossroads` and
+ * `w1-10ar-w1-10ar-curve-with-crossroad-right` for 61% of the catalogue, so
+ * the code segment is only prepended when the name doesn't already carry it.
+ */
+export const makeId = (code: string, name: string): string => {
+  const c = slugify(code);
+  const n = slugify(name);
+  if (!c) return n;
+  if (!n || n === c) return c;
+  if (n.startsWith(`${c}-`)) return n;
+  return `${c}-${n}`;
+};
+
+/**
+ * Return `id`, or the first `id-2`, `id-3`, … not already in `used`. IDs are
+ * the package's public lookup key (`getSign(id)`), so collisions inside one
+ * country registry have to be broken deterministically rather than left to
+ * whichever sign `Array.find` reaches first.
+ */
+export const uniqueId = (id: string, used: Set<string>): string => {
+  if (!used.has(id)) {
+    used.add(id);
+    return id;
+  }
+  for (let n = 2; ; n++) {
+    const candidate = `${id}-${n}`;
+    if (!used.has(candidate)) {
+      used.add(candidate);
+      return candidate;
+    }
+  }
+};
+
+/**
+ * Strip everything before the root `<svg>` element.
+ *
+ * SVGO normally does this, but `buildSignLiteral` falls back to the raw file
+ * when SVGO throws (Inkscape bspline-heavy files exceed its entity limit), and
+ * those files lead with an `<!-- Created with Inkscape -->` comment. A leading
+ * comment silently breaks every downstream consumer: the sprite builder's
+ * root-element match fails, and the components inject their <title>/<desc>
+ * after the first `>` in the string — which lands inside the comment.
+ */
+export const cleanSvg = (svg: string): string =>
   svg
     .replace(/<\?xml[^>]*\?>/g, '')
     .replace(/<!DOCTYPE[^>]*>/g, '')
+    .replace(/<!--[\s\S]*?-->/g, '')
     .trim();
 
 const UNIT_TO_PX: Record<string, number> = {
@@ -39,7 +89,7 @@ const UNIT_TO_PX: Record<string, number> = {
   pc: 16,
 };
 
-const parsePx = (val: string): number | null => {
+export const parsePx = (val: string): number | null => {
   const m = val.match(/^([0-9.]+)(px|in|cm|mm|pt|pc|)$/i);
   if (!m) return null;
   const n = parseFloat(m[1]);
@@ -47,7 +97,7 @@ const parsePx = (val: string): number | null => {
   return n * (UNIT_TO_PX[m[2].toLowerCase()] ?? 1);
 };
 
-const normalizeSvg = (svg: string): string => {
+export const normalizeSvg = (svg: string): string => {
   const cleaned = cleanSvg(svg);
   const hasViewBox = /\bviewBox=["']/i.test(cleaned);
 
@@ -79,7 +129,7 @@ const normalizeSvg = (svg: string): string => {
   return out.replace(/<svg\b/, `<svg viewBox="0 0 100 100"`);
 };
 
-const scopeIds = (body: string, prefix: string): string => {
+export const scopeIds = (body: string, prefix: string): string => {
   const ids = new Set<string>();
   body.replace(/\bid="([^"]+)"/g, (_, id: string) => {
     ids.add(id);
@@ -156,16 +206,37 @@ const findPrimaryAsset = (code: string, assetsRoot: string): PrimaryAsset | unde
   return undefined;
 };
 
+/**
+ * Read a PNG off disk as a base64 data URI.
+ *
+ * Prefers the smallest generated render (240px, ~19KB) over the full-resolution
+ * original: this string is inlined into the registry that ships to npm, and at
+ * the 64px default render size 240px still covers 2x displays. Using the 512px
+ * variant instead tripled the affected packages' published size.
+ */
+const pngDataUri = async (filePath: string): Promise<string> => {
+  const dir = path.dirname(filePath);
+  const base = path.basename(filePath, path.extname(filePath));
+  const preferred = path.join(dir, `${base}_240x240.png`);
+  const src = fs.existsSync(preferred) ? preferred : filePath;
+  const buf = await fs.promises.readFile(src);
+  return `data:image/png;base64,${buf.toString('base64')}`;
+};
+
 /** Build the literal-object lines for a single sign (no leading/trailing array brackets). */
 const buildSignLiteral = async (
   category: string,
   sign: { code: string; name: string },
   asset: PrimaryAsset,
   relPath: string,
+  usedIds: Set<string>,
 ): Promise<string[]> => {
-  const id = slugify(`${sign.code}-${sign.name}`);
+  const id = uniqueId(makeId(sign.code, sign.name), usedIds);
   const assets = buildAssets(relPath);
   if (asset.isPng) {
+    // No vector source (PDF-extracted). Inline the raster as a data URI so the
+    // sign still renders from the published package, which ships no assets/.
+    const dataUri = await pngDataUri(asset.filePath);
     return [
       `  {`,
       `    assets: {`,
@@ -178,6 +249,7 @@ const buildSignLiteral = async (
       `    description: ${JSON.stringify(sign.name)},`,
       `    id: ${JSON.stringify(id)},`,
       `    name: ${JSON.stringify(sign.name)},`,
+      `    png: ${JSON.stringify(dataUri)},`,
       `  },`,
     ];
   }
@@ -242,6 +314,8 @@ export const generateSource = async (cc: string): Promise<void> => {
 
   // First pass: build all sign-literal lines, partitioned by category, with running byte size.
   const perCategory: Record<string, { lines: string[]; bytes: number }> = {};
+  // IDs must be unique across the whole country registry, not per category.
+  const usedIds = new Set<string>();
   let totalBytes = 0;
   let count = 0;
 
@@ -256,7 +330,7 @@ export const generateSource = async (cc: string): Promise<void> => {
         continue;
       }
       const relPath = path.relative(pkgDir, asset.filePath).replace(/\\/g, '/');
-      const literal = await buildSignLiteral(category, sign, asset, relPath);
+      const literal = await buildSignLiteral(category, sign, asset, relPath, usedIds);
       const bytes = literal.reduce((s, l) => s + l.length + 1, 0);
       if (!perCategory[category]) perCategory[category] = { lines: [], bytes: 0 };
       perCategory[category].lines.push(...literal);
