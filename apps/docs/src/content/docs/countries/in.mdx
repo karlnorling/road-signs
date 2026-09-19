@@ -5,7 +5,6 @@ description: Indian road signs — categories, installation, and usage.
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-
 {/* HERO:START */}
 
 import CountryHero from '../../../components/CountryHero.astro';
@@ -18,13 +17,13 @@ import CountryHero from '../../../components/CountryHero.astro';
 
 ## Quick facts
 
-| Field | Value |
-| ----- | ----- |
-| Drive side | Left-hand |
-| Language(s) | Hindi, English |
-| Regulator | IRC:67 |
-| Code format | `C / M / I` |
-| Standard | Motor Vehicles Act — IRC:67 standard |
+| Field       | Value                                |
+| ----------- | ------------------------------------ |
+| Drive side  | Left-hand                            |
+| Language(s) | Hindi, English                       |
+| Regulator   | IRC:67                               |
+| Code format | `C / M / I`                          |
+| Standard    | Motor Vehicles Act — IRC:67 standard |
 
 {/* QUICK_FACTS:END */}
 
@@ -39,11 +38,11 @@ npm install @road-signs/in
 
 ## Sign categories
 
-| Category | Series | Description |
-| -------- | ------ | ----------- |
-| `warning` | Cautionary | Cautionary signs — hazard warnings |
-| `prohibitory` | Mandatory | Mandatory signs — prohibitions and regulations |
-| `information` | Informatory | Informatory signs — information and direction |
+| Category      | Series      | Description                                    |
+| ------------- | ----------- | ---------------------------------------------- |
+| `warning`     | Cautionary  | Cautionary signs — hazard warnings             |
+| `prohibitory` | Mandatory   | Mandatory signs — prohibitions and regulations |
+| `information` | Informatory | Informatory signs — information and direction  |
 
 {/* USAGE:START */}
 
@@ -68,6 +67,7 @@ npm install @road-signs/in
     // All warning signs
     const filtered = getSignsByCategory("warning");
     ```
+
   </TabItem>
   <TabItem label="React">
     ```tsx
@@ -86,6 +86,7 @@ npm install @road-signs/in
       );
     }
     ```
+
   </TabItem>
   <TabItem label="Vue 3">
     ```vue
@@ -102,6 +103,7 @@ npm install @road-signs/in
       </div>
     </template>
     ```
+
   </TabItem>
 </Tabs>
 
@@ -111,20 +113,20 @@ npm install @road-signs/in
 
 ## Coverage
 
-| Metric | Value |
-| ------ | ----- |
-| Signs scraped | 214 |
-| Signs with SVG | 214 |
-| Missing SVG | 0 |
-| Overall | **100%** |
+| Metric         | Value    |
+| -------------- | -------- |
+| Signs scraped  | 214      |
+| Signs with SVG | 214      |
+| Missing SVG    | 0        |
+| Overall        | **100%** |
 
-| Category | Scraped | With SVG | Missing | % |
-| -------- | ------: | -------: | ------: | -: |
-| `warning` | 79 | 79 | 0 | 100% |
-| `priority` | 0 | 0 | 0 | — |
-| `prohibitory` | 36 | 36 | 0 | 100% |
-| `mandatory` | 18 | 18 | 0 | 100% |
-| `information` | 81 | 81 | 0 | 100% |
+| Category      | Scraped | With SVG | Missing |    % |
+| ------------- | ------: | -------: | ------: | ---: |
+| `warning`     |      79 |       79 |       0 | 100% |
+| `priority`    |       0 |        0 |       0 |    — |
+| `prohibitory` |      36 |       36 |       0 | 100% |
+| `mandatory`   |      18 |       18 |       0 | 100% |
+| `information` |      81 |       81 |       0 | 100% |
 
 **Standard:** Motor Vehicles Act — IRC:67 standard
 
@@ -146,18 +148,15 @@ _Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.c
 ```ts
 import type { INSign, INCategory } from '@road-signs/in';
 
-type INCategory =
-  | 'information'
-  | 'prohibitory'
-  | 'warning';
+type INCategory = 'information' | 'prohibitory' | 'warning';
 
 interface INSign {
-  id: string;          // e.g. "w1-sharp-bend"
-  code: string;        // sign code, e.g. "W1"
+  id: string; // e.g. "w1-sharp-bend"
+  code: string; // sign code, e.g. "W1"
   name: string;
   description: string;
   category: INCategory;
-  svg: string;         // inline SVG string
+  svg: string; // inline SVG string
   assets: {
     svg: string;
     png: Record<number, string>;

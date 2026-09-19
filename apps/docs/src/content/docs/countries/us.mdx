@@ -5,7 +5,6 @@ description: MUTCD road signs for the United States — categories, installation
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-
 {/* HERO:START */}
 
 import CountryHero from '../../../components/CountryHero.astro';
@@ -18,13 +17,13 @@ import CountryHero from '../../../components/CountryHero.astro';
 
 ## Quick facts
 
-| Field | Value |
-| ----- | ----- |
-| Drive side | Right-hand |
-| Language(s) | English |
-| Regulator | FHWA |
-| Code format | `W1-1 / R2-1 / D5-1 / M1-1` |
-| Standard | MUTCD (Manual on Uniform Traffic Control Devices) — FHWA |
+| Field       | Value                                                    |
+| ----------- | -------------------------------------------------------- |
+| Drive side  | Right-hand                                               |
+| Language(s) | English                                                  |
+| Regulator   | FHWA                                                     |
+| Code format | `W1-1 / R2-1 / D5-1 / M1-1`                              |
+| Standard    | MUTCD (Manual on Uniform Traffic Control Devices) — FHWA |
 
 {/* QUICK_FACTS:END */}
 
@@ -40,15 +39,15 @@ npm install @road-signs/us
 
 ## Sign categories
 
-| Category | MUTCD series | Description |
-| -------- | ------------ | ----------- |
-| `warning` | W series | Warn drivers of conditions ahead — diamond-shaped, yellow |
-| `regulatory` | R series | Inform drivers of laws and regulations — white/red |
-| `guide` | D/G series | Destination and mileage information — green/blue |
-| `school` | S series | School zone and pedestrian crossing — fluorescent yellow-green |
-| `construction` | C series | Work zone signs — orange |
-| `recreational` | RA series | Recreation and cultural interest — brown |
-| `informational` | M/I series | Motorist services and general information |
+| Category        | MUTCD series | Description                                                    |
+| --------------- | ------------ | -------------------------------------------------------------- |
+| `warning`       | W series     | Warn drivers of conditions ahead — diamond-shaped, yellow      |
+| `regulatory`    | R series     | Inform drivers of laws and regulations — white/red             |
+| `guide`         | D/G series   | Destination and mileage information — green/blue               |
+| `school`        | S series     | School zone and pedestrian crossing — fluorescent yellow-green |
+| `construction`  | C series     | Work zone signs — orange                                       |
+| `recreational`  | RA series    | Recreation and cultural interest — brown                       |
+| `informational` | M/I series   | Motorist services and general information                      |
 
 {/* USAGE:START */}
 
@@ -73,6 +72,7 @@ npm install @road-signs/us
     // All warning signs
     const filtered = getSignsByCategory("warning");
     ```
+
   </TabItem>
   <TabItem label="React">
     ```tsx
@@ -91,6 +91,7 @@ npm install @road-signs/us
       );
     }
     ```
+
   </TabItem>
   <TabItem label="Vue 3">
     ```vue
@@ -107,6 +108,7 @@ npm install @road-signs/us
       </div>
     </template>
     ```
+
   </TabItem>
 </Tabs>
 
@@ -116,22 +118,22 @@ npm install @road-signs/us
 
 ## Coverage
 
-| Metric | Value |
-| ------ | ----- |
-| Signs scraped | 1521 |
-| Signs with SVG | 1449 |
-| Missing SVG | 72 |
-| Overall | **95%** |
+| Metric         | Value   |
+| -------------- | ------- |
+| Signs scraped  | 1521    |
+| Signs with SVG | 1449    |
+| Missing SVG    | 72      |
+| Overall        | **95%** |
 
-| Category | Scraped | With SVG | Missing | % |
-| -------- | ------: | -------: | ------: | -: |
-| `warning` | 367 | 362 | 5 | 99% |
-| `regulatory` | 559 | 557 | 2 | 100% |
-| `guide` | 312 | 312 | 0 | 100% |
-| `school` | 23 | 18 | 5 | 78% |
-| `construction` | 56 | 56 | 0 | 100% |
-| `recreational` | 56 | 56 | 0 | 100% |
-| `informational` | 148 | 88 | 60 | 59% |
+| Category        | Scraped | With SVG | Missing |    % |
+| --------------- | ------: | -------: | ------: | ---: |
+| `warning`       |     367 |      362 |       5 |  99% |
+| `regulatory`    |     559 |      557 |       2 | 100% |
+| `guide`         |     312 |      312 |       0 | 100% |
+| `school`        |      23 |       18 |       5 |  78% |
+| `construction`  |      56 |       56 |       0 | 100% |
+| `recreational`  |      56 |       56 |       0 | 100% |
+| `informational` |     148 |       88 |      60 |  59% |
 
 **Standard:** MUTCD (Manual on Uniform Traffic Control Devices) — FHWA
 
@@ -164,12 +166,12 @@ type USCategory =
   | 'warning';
 
 interface USSign {
-  id: string;        // e.g. "w1-1-turn"
-  code: string;      // e.g. "W1-1"
-  name: string;      // e.g. "Turn"
+  id: string; // e.g. "w1-1-turn"
+  code: string; // e.g. "W1-1"
+  name: string; // e.g. "Turn"
   description: string;
   category: USCategory;
-  svg: string;       // inline SVG string
+  svg: string; // inline SVG string
   assets: {
     svg: string;
     png: Record<number, string>;

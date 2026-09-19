@@ -5,7 +5,6 @@ description: Mauritius road signs — categories, installation, and usage.
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-
 {/* HERO:START */}
 
 import CountryHero from '../../../components/CountryHero.astro';
@@ -18,12 +17,12 @@ import CountryHero from '../../../components/CountryHero.astro';
 
 ## Quick facts
 
-| Field | Value |
-| ----- | ----- |
-| Drive side | Left-hand |
-| Language(s) | English, French |
-| Regulator | Traffic Management Road Safety Unit |
-| Standard | Traffic Signs Regulations 1990 — UK-derived system |
+| Field       | Value                                              |
+| ----------- | -------------------------------------------------- |
+| Drive side  | Left-hand                                          |
+| Language(s) | English, French                                    |
+| Regulator   | Traffic Management Road Safety Unit                |
+| Standard    | Traffic Signs Regulations 1990 — UK-derived system |
 
 {/* QUICK_FACTS:END */}
 
@@ -38,12 +37,12 @@ npm install @road-signs/mu
 
 ## Sign categories
 
-| Category | Series | Description |
-| -------- | ------ | ----------- |
-| `warning` | Warning | Hazard and warning signs |
-| `priority` | Priority | Priority and right-of-way signs |
-| `prohibitory` | Prohibitory | Prohibition and restriction signs |
-| `mandatory` | Mandatory | Mandatory instruction signs |
+| Category      | Series                             | Description                                |
+| ------------- | ---------------------------------- | ------------------------------------------ |
+| `warning`     | Warning                            | Hazard and warning signs                   |
+| `priority`    | Priority                           | Priority and right-of-way signs            |
+| `prohibitory` | Prohibitory                        | Prohibition and restriction signs          |
+| `mandatory`   | Mandatory                          | Mandatory instruction signs                |
 | `information` | Information / Service / Additional | Information, service, and additional signs |
 
 {/* USAGE:START */}
@@ -69,6 +68,7 @@ npm install @road-signs/mu
     // All warning signs
     const filtered = getSignsByCategory("warning");
     ```
+
   </TabItem>
   <TabItem label="React">
     ```tsx
@@ -87,6 +87,7 @@ npm install @road-signs/mu
       );
     }
     ```
+
   </TabItem>
   <TabItem label="Vue 3">
     ```vue
@@ -103,6 +104,7 @@ npm install @road-signs/mu
       </div>
     </template>
     ```
+
   </TabItem>
 </Tabs>
 
@@ -112,20 +114,20 @@ npm install @road-signs/mu
 
 ## Coverage
 
-| Metric | Value |
-| ------ | ----- |
-| Signs scraped | 104 |
-| Signs with SVG | 104 |
-| Missing SVG | 0 |
-| Overall | **100%** |
+| Metric         | Value    |
+| -------------- | -------- |
+| Signs scraped  | 104      |
+| Signs with SVG | 104      |
+| Missing SVG    | 0        |
+| Overall        | **100%** |
 
-| Category | Scraped | With SVG | Missing | % |
-| -------- | ------: | -------: | ------: | -: |
-| `warning` | 36 | 36 | 0 | 100% |
-| `priority` | 8 | 8 | 0 | 100% |
-| `prohibitory` | 30 | 30 | 0 | 100% |
-| `mandatory` | 14 | 14 | 0 | 100% |
-| `information` | 16 | 16 | 0 | 100% |
+| Category      | Scraped | With SVG | Missing |    % |
+| ------------- | ------: | -------: | ------: | ---: |
+| `warning`     |      36 |       36 |       0 | 100% |
+| `priority`    |       8 |        8 |       0 | 100% |
+| `prohibitory` |      30 |       30 |       0 | 100% |
+| `mandatory`   |      14 |       14 |       0 | 100% |
+| `information` |      16 |       16 |       0 | 100% |
 
 **Standard:** Traffic Signs Regulations 1990 — UK-derived system
 

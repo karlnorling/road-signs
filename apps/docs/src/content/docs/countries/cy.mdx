@@ -5,7 +5,6 @@ description: Cypriot road signs — categories, installation, and usage.
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-
 {/* HERO:START */}
 
 import CountryHero from '../../../components/CountryHero.astro';
@@ -18,12 +17,12 @@ import CountryHero from '../../../components/CountryHero.astro';
 
 ## Quick facts
 
-| Field | Value |
-| ----- | ----- |
-| Drive side | Left-hand |
-| Language(s) | Greek, Turkish, English |
-| Regulator | Road Transport Department |
-| Standard | Road Traffic Law (Cap. 332) — Vienna Convention |
+| Field       | Value                                           |
+| ----------- | ----------------------------------------------- |
+| Drive side  | Left-hand                                       |
+| Language(s) | Greek, Turkish, English                         |
+| Regulator   | Road Transport Department                       |
+| Standard    | Road Traffic Law (Cap. 332) — Vienna Convention |
 
 {/* QUICK_FACTS:END */}
 
@@ -38,13 +37,13 @@ npm install @road-signs/cy
 
 ## Sign categories
 
-| Category | Series | Description |
-| -------- | ------ | ----------- |
-| `warning` | A series | Hazard warnings |
-| `priority` | B series | Right-of-way signs |
-| `prohibitory` | C series | Prohibitions and restrictions |
-| `mandatory` | D series | Mandatory actions |
-| `information` | E–F series | Information and direction |
+| Category      | Series     | Description                   |
+| ------------- | ---------- | ----------------------------- |
+| `warning`     | A series   | Hazard warnings               |
+| `priority`    | B series   | Right-of-way signs            |
+| `prohibitory` | C series   | Prohibitions and restrictions |
+| `mandatory`   | D series   | Mandatory actions             |
+| `information` | E–F series | Information and direction     |
 
 {/* USAGE:START */}
 
@@ -69,6 +68,7 @@ npm install @road-signs/cy
     // All information signs
     const filtered = getSignsByCategory("information");
     ```
+
   </TabItem>
   <TabItem label="React">
     ```tsx
@@ -87,6 +87,7 @@ npm install @road-signs/cy
       );
     }
     ```
+
   </TabItem>
   <TabItem label="Vue 3">
     ```vue
@@ -103,6 +104,7 @@ npm install @road-signs/cy
       </div>
     </template>
     ```
+
   </TabItem>
 </Tabs>
 
@@ -112,20 +114,20 @@ npm install @road-signs/cy
 
 ## Coverage
 
-| Metric | Value |
-| ------ | ----- |
-| Signs scraped | 153 |
-| Signs with SVG | 153 |
-| Missing SVG | 0 |
-| Overall | **100%** |
+| Metric         | Value    |
+| -------------- | -------- |
+| Signs scraped  | 153      |
+| Signs with SVG | 153      |
+| Missing SVG    | 0        |
+| Overall        | **100%** |
 
-| Category | Scraped | With SVG | Missing | % |
-| -------- | ------: | -------: | ------: | -: |
-| `warning` | 51 | 51 | 0 | 100% |
-| `priority` | 0 | 0 | 0 | — |
-| `prohibitory` | 77 | 77 | 0 | 100% |
-| `mandatory` | 0 | 0 | 0 | — |
-| `information` | 25 | 25 | 0 | 100% |
+| Category      | Scraped | With SVG | Missing |    % |
+| ------------- | ------: | -------: | ------: | ---: |
+| `warning`     |      51 |       51 |       0 | 100% |
+| `priority`    |       0 |        0 |       0 |    — |
+| `prohibitory` |      77 |       77 |       0 | 100% |
+| `mandatory`   |       0 |        0 |       0 |    — |
+| `information` |      25 |       25 |       0 | 100% |
 
 **Standard:** Road Traffic Law (Cap. 332) — Vienna Convention
 
@@ -142,20 +144,15 @@ _Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.c
 ```ts
 import type { CYSign, CYCategory } from '@road-signs/cy';
 
-type CYCategory =
-  | 'information'
-  | 'mandatory'
-  | 'priority'
-  | 'prohibitory'
-  | 'warning';
+type CYCategory = 'information' | 'mandatory' | 'priority' | 'prohibitory' | 'warning';
 
 interface CYSign {
-  id: string;          // e.g. "a1-sharp-bend"
-  code: string;        // sign code, e.g. "A1"
+  id: string; // e.g. "a1-sharp-bend"
+  code: string; // sign code, e.g. "A1"
   name: string;
   description: string;
   category: CYCategory;
-  svg: string;         // inline SVG string
+  svg: string; // inline SVG string
   assets: {
     svg: string;
     png: Record<number, string>;

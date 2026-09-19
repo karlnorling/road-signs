@@ -5,7 +5,6 @@ description: Bolivia road signs — categories, installation, and usage.
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-
 {/* HERO:START */}
 
 import CountryHero from '../../../components/CountryHero.astro';
@@ -25,9 +24,9 @@ npm install @road-signs/bo
 
 ## Sign categories
 
-| Category | Series | Description |
-| -------- | ------ | ----------- |
-| `warning` | Warning | Hazard and warning signs |
+| Category      | Series     | Description                      |
+| ------------- | ---------- | -------------------------------- |
+| `warning`     | Warning    | Hazard and warning signs         |
 | `prohibitory` | Regulatory | Regulatory and prohibition signs |
 
 {/* USAGE:START */}
@@ -53,6 +52,7 @@ npm install @road-signs/bo
     // All information signs
     const filtered = getSignsByCategory("information");
     ```
+
   </TabItem>
   <TabItem label="React">
     ```tsx
@@ -71,6 +71,7 @@ npm install @road-signs/bo
       );
     }
     ```
+
   </TabItem>
   <TabItem label="Vue 3">
     ```vue
@@ -87,6 +88,7 @@ npm install @road-signs/bo
       </div>
     </template>
     ```
+
   </TabItem>
 </Tabs>
 
@@ -96,20 +98,20 @@ npm install @road-signs/bo
 
 ## Coverage
 
-| Metric | Value |
-| ------ | ----- |
-| Signs scraped | 53 |
-| Signs with SVG | 53 |
-| Missing SVG | 0 |
-| Overall | **100%** |
+| Metric         | Value    |
+| -------------- | -------- |
+| Signs scraped  | 53       |
+| Signs with SVG | 53       |
+| Missing SVG    | 0        |
+| Overall        | **100%** |
 
-| Category | Scraped | With SVG | Missing | % |
-| -------- | ------: | -------: | ------: | -: |
-| `warning` | 0 | 0 | 0 | — |
-| `priority` | 0 | 0 | 0 | — |
-| `prohibitory` | 0 | 0 | 0 | — |
-| `mandatory` | 0 | 0 | 0 | — |
-| `information` | 53 | 53 | 0 | 100% |
+| Category      | Scraped | With SVG | Missing |    % |
+| ------------- | ------: | -------: | ------: | ---: |
+| `warning`     |       0 |        0 |       0 |    — |
+| `priority`    |       0 |        0 |       0 |    — |
+| `prohibitory` |       0 |        0 |       0 |    — |
+| `mandatory`   |       0 |        0 |       0 |    — |
+| `information` |      53 |       53 |       0 | 100% |
 
 **Standard:** Manual de Señalización Vial (SIECA-based)
 

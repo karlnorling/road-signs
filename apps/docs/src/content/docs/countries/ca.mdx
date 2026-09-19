@@ -5,7 +5,6 @@ description: MUTCDC road signs for Canada — categories, installation, and usag
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-
 {/* HERO:START */}
 
 import CountryHero from '../../../components/CountryHero.astro';
@@ -18,13 +17,13 @@ import CountryHero from '../../../components/CountryHero.astro';
 
 ## Quick facts
 
-| Field | Value |
-| ----- | ----- |
-| Drive side | Right-hand |
-| Language(s) | English, French |
-| Regulator | Transport Canada (MUTCDC) |
-| Code format | `RA-2 / WA-8 / TC-1` |
-| Standard | MUTCDC (Manual of Uniform Traffic Control Devices for Canada) |
+| Field       | Value                                                         |
+| ----------- | ------------------------------------------------------------- |
+| Drive side  | Right-hand                                                    |
+| Language(s) | English, French                                               |
+| Regulator   | Transport Canada (MUTCDC)                                     |
+| Code format | `RA-2 / WA-8 / TC-1`                                          |
+| Standard    | MUTCDC (Manual of Uniform Traffic Control Devices for Canada) |
 
 {/* QUICK_FACTS:END */}
 
@@ -40,13 +39,13 @@ npm install @road-signs/ca
 
 ## Sign categories
 
-| Category | MUTCDC series | Description |
-| -------- | ------------- | ----------- |
-| `warning` | WA/WB series | Warn drivers of conditions ahead — diamond-shaped, yellow/black |
-| `regulatory` | RA/RB series | Inform drivers of laws and regulations — white/red/black |
-| `information` | GA/GB/GC/IM series | Destination, guide, and motorist services — green/blue |
-| `school` | WC series | School zone and pedestrian crossing — fluorescent yellow-green |
-| `temporary` | TC series | Temporary traffic control / work zone — orange |
+| Category      | MUTCDC series      | Description                                                     |
+| ------------- | ------------------ | --------------------------------------------------------------- |
+| `warning`     | WA/WB series       | Warn drivers of conditions ahead — diamond-shaped, yellow/black |
+| `regulatory`  | RA/RB series       | Inform drivers of laws and regulations — white/red/black        |
+| `information` | GA/GB/GC/IM series | Destination, guide, and motorist services — green/blue          |
+| `school`      | WC series          | School zone and pedestrian crossing — fluorescent yellow-green  |
+| `temporary`   | TC series          | Temporary traffic control / work zone — orange                  |
 
 {/* USAGE:START */}
 
@@ -71,6 +70,7 @@ npm install @road-signs/ca
     // All warning signs
     const filtered = getSignsByCategory("warning");
     ```
+
   </TabItem>
   <TabItem label="React">
     ```tsx
@@ -89,6 +89,7 @@ npm install @road-signs/ca
       );
     }
     ```
+
   </TabItem>
   <TabItem label="Vue 3">
     ```vue
@@ -105,6 +106,7 @@ npm install @road-signs/ca
       </div>
     </template>
     ```
+
   </TabItem>
 </Tabs>
 
@@ -114,20 +116,20 @@ npm install @road-signs/ca
 
 ## Coverage
 
-| Metric | Value |
-| ------ | ----- |
-| Signs scraped | 245 |
-| Signs with SVG | 245 |
-| Missing SVG | 0 |
-| Overall | **100%** |
+| Metric         | Value    |
+| -------------- | -------- |
+| Signs scraped  | 245      |
+| Signs with SVG | 245      |
+| Missing SVG    | 0        |
+| Overall        | **100%** |
 
-| Category | Scraped | With SVG | Missing | % |
-| -------- | ------: | -------: | ------: | -: |
-| `warning` | 103 | 103 | 0 | 100% |
-| `regulatory` | 27 | 27 | 0 | 100% |
-| `school` | 41 | 41 | 0 | 100% |
-| `temporary` | 3 | 3 | 0 | 100% |
-| `information` | 71 | 71 | 0 | 100% |
+| Category      | Scraped | With SVG | Missing |    % |
+| ------------- | ------: | -------: | ------: | ---: |
+| `warning`     |     103 |      103 |       0 | 100% |
+| `regulatory`  |      27 |       27 |       0 | 100% |
+| `school`      |      41 |       41 |       0 | 100% |
+| `temporary`   |       3 |        3 |       0 | 100% |
+| `information` |      71 |       71 |       0 | 100% |
 
 **Standard:** MUTCDC (Manual of Uniform Traffic Control Devices for Canada)
 
@@ -157,20 +159,15 @@ _Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.c
 ```ts
 import type { CASign, CACategory } from '@road-signs/ca';
 
-type CACategory =
-  | 'information'
-  | 'regulatory'
-  | 'school'
-  | 'temporary'
-  | 'warning';
+type CACategory = 'information' | 'regulatory' | 'school' | 'temporary' | 'warning';
 
 interface CASign {
-  id: string;        // e.g. "wa-1-curve-right"
-  code: string;      // e.g. "WA-1"
-  name: string;      // e.g. "Curve Right"
+  id: string; // e.g. "wa-1-curve-right"
+  code: string; // e.g. "WA-1"
+  name: string; // e.g. "Curve Right"
   description: string;
   category: CACategory;
-  svg: string;       // inline SVG string
+  svg: string; // inline SVG string
   assets: {
     svg: string;
     png: Record<number, string>;

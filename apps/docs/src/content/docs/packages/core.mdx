@@ -20,18 +20,18 @@ import type { Sign, SignAssets } from '@road-signs/core';
 
 interface SignAssets {
   svg: string;
-  png: Record<number, string>;   // { 240: '...', 512: '...', ... }
+  png: Record<number, string>; // { 240: '...', 512: '...', ... }
   jpg: Record<number, string>;
   webp: Record<number, string>;
 }
 
 interface Sign<TCategory extends string = string> {
-  id: string;          // slug, e.g. "w1-1-turn"
-  code: string;        // official code, e.g. "W1-1"
-  name: string;        // e.g. "Turn"
+  id: string; // slug, e.g. "w1-1-turn"
+  code: string; // official code, e.g. "W1-1"
+  name: string; // e.g. "Turn"
   description: string;
   category: TCategory; // narrowed per country, e.g. USCategory
-  svg: string;         // inline SVG string, SVGO-optimised
+  svg: string; // inline SVG string, SVGO-optimised
   assets: SignAssets;
 }
 ```
@@ -44,10 +44,10 @@ The helpers are generic so they can operate on any country's narrowed sign type:
 import { getAllSigns, getSign, getSignByCode, getSignsByCategory } from '@road-signs/core';
 import { signs } from '@road-signs/us';
 
-getAllSigns(signs);                        // USSign[]
-getSign(signs, 'w1-1-turn');              // USSign | undefined
-getSignByCode(signs, 'W1-1');             // USSign | undefined
-getSignsByCategory(signs, 'warning');     // USSign[]
+getAllSigns(signs); // USSign[]
+getSign(signs, 'w1-1-turn'); // USSign | undefined
+getSignByCode(signs, 'W1-1'); // USSign | undefined
+getSignsByCategory(signs, 'warning'); // USSign[]
 ```
 
 Country packages re-export these pre-bound to their own registry:

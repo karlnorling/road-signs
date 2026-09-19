@@ -5,7 +5,6 @@ description: Argentina road signs — categories, installation, and usage.
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-
 {/* HERO:START */}
 
 import CountryHero from '../../../components/CountryHero.astro';
@@ -18,13 +17,13 @@ import CountryHero from '../../../components/CountryHero.astro';
 
 ## Quick facts
 
-| Field | Value |
-| ----- | ----- |
-| Drive side | Right-hand |
-| Language(s) | Spanish |
-| Regulator | CNRT |
-| Code format | `P-1 / R-1 / I-1` |
-| Standard | Decreto 779/95 — Reglamento Nacional de Tránsito (Vienna Convention variant) |
+| Field       | Value                                                                        |
+| ----------- | ---------------------------------------------------------------------------- |
+| Drive side  | Right-hand                                                                   |
+| Language(s) | Spanish                                                                      |
+| Regulator   | CNRT                                                                         |
+| Code format | `P-1 / R-1 / I-1`                                                            |
+| Standard    | Decreto 779/95 — Reglamento Nacional de Tránsito (Vienna Convention variant) |
 
 {/* QUICK_FACTS:END */}
 
@@ -39,11 +38,11 @@ npm install @road-signs/ar
 
 ## Sign categories
 
-| Category | Series | Description |
-| -------- | ------ | ----------- |
-| `warning` | Preventivas | Señales preventivas — hazard warnings |
+| Category      | Series         | Description                                           |
+| ------------- | -------------- | ----------------------------------------------------- |
+| `warning`     | Preventivas    | Señales preventivas — hazard warnings                 |
 | `prohibitory` | Reglamentarias | Señales reglamentarias — prohibitions and regulations |
-| `information` | Informativas | Señales informativas — information and direction |
+| `information` | Informativas   | Señales informativas — information and direction      |
 
 {/* USAGE:START */}
 
@@ -68,6 +67,7 @@ npm install @road-signs/ar
     // All warning signs
     const filtered = getSignsByCategory("warning");
     ```
+
   </TabItem>
   <TabItem label="React">
     ```tsx
@@ -86,6 +86,7 @@ npm install @road-signs/ar
       );
     }
     ```
+
   </TabItem>
   <TabItem label="Vue 3">
     ```vue
@@ -102,6 +103,7 @@ npm install @road-signs/ar
       </div>
     </template>
     ```
+
   </TabItem>
 </Tabs>
 
@@ -111,20 +113,20 @@ npm install @road-signs/ar
 
 ## Coverage
 
-| Metric | Value |
-| ------ | ----- |
-| Signs scraped | 140 |
-| Signs with SVG | 140 |
-| Missing SVG | 0 |
-| Overall | **100%** |
+| Metric         | Value    |
+| -------------- | -------- |
+| Signs scraped  | 140      |
+| Signs with SVG | 140      |
+| Missing SVG    | 0        |
+| Overall        | **100%** |
 
-| Category | Scraped | With SVG | Missing | % |
-| -------- | ------: | -------: | ------: | -: |
-| `warning` | 62 | 62 | 0 | 100% |
-| `priority` | 0 | 0 | 0 | — |
-| `prohibitory` | 78 | 78 | 0 | 100% |
-| `mandatory` | 0 | 0 | 0 | — |
-| `information` | 0 | 0 | 0 | — |
+| Category      | Scraped | With SVG | Missing |    % |
+| ------------- | ------: | -------: | ------: | ---: |
+| `warning`     |      62 |       62 |       0 | 100% |
+| `priority`    |       0 |        0 |       0 |    — |
+| `prohibitory` |      78 |       78 |       0 | 100% |
+| `mandatory`   |       0 |        0 |       0 |    — |
+| `information` |       0 |        0 |       0 |    — |
 
 **Standard:** Decreto 779/95 — Reglamento Nacional de Tránsito (Vienna Convention variant)
 
@@ -142,18 +144,15 @@ _Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.c
 ```ts
 import type { ARSign, ARCategory } from '@road-signs/ar';
 
-type ARCategory =
-  | 'information'
-  | 'prohibitory'
-  | 'warning';
+type ARCategory = 'information' | 'prohibitory' | 'warning';
 
 interface ARSign {
-  id: string;          // e.g. "p1-sharp-bend"
-  code: string;        // sign code, e.g. "P1"
+  id: string; // e.g. "p1-sharp-bend"
+  code: string; // sign code, e.g. "P1"
   name: string;
   description: string;
   category: ARCategory;
-  svg: string;         // inline SVG string
+  svg: string; // inline SVG string
   assets: {
     svg: string;
     png: Record<number, string>;

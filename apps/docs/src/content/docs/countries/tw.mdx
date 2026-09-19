@@ -5,7 +5,6 @@ description: Taiwan road signs — categories, installation, and usage.
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-
 {/* HERO:START */}
 
 import CountryHero from '../../../components/CountryHero.astro';
@@ -18,12 +17,12 @@ import CountryHero from '../../../components/CountryHero.astro';
 
 ## Quick facts
 
-| Field | Value |
-| ----- | ----- |
-| Drive side | Right-hand |
-| Language(s) | Mandarin |
-| Regulator | MOTC Taiwan |
-| Standard | Road Traffic Safety Rules (道路交通標誌標線號誌設置規則) |
+| Field       | Value                                                    |
+| ----------- | -------------------------------------------------------- |
+| Drive side  | Right-hand                                               |
+| Language(s) | Mandarin                                                 |
+| Regulator   | MOTC Taiwan                                              |
+| Standard    | Road Traffic Safety Rules (道路交通標誌標線號誌設置規則) |
 
 {/* QUICK_FACTS:END */}
 
@@ -38,12 +37,12 @@ npm install @road-signs/tw
 
 ## Sign categories
 
-| Category | Series | Description |
-| -------- | ------ | ----------- |
-| `warning` | Warning | 警告標誌 — hazard warnings |
-| `prohibitory` | Regulatory | 禁制標誌 — prohibitory and regulatory signs |
-| `mandatory` | Instruction | 指示標誌 — mandatory instruction signs |
-| `information` | Guide | 指引標誌 — guide and information signs |
+| Category      | Series      | Description                                 |
+| ------------- | ----------- | ------------------------------------------- |
+| `warning`     | Warning     | 警告標誌 — hazard warnings                  |
+| `prohibitory` | Regulatory  | 禁制標誌 — prohibitory and regulatory signs |
+| `mandatory`   | Instruction | 指示標誌 — mandatory instruction signs      |
+| `information` | Guide       | 指引標誌 — guide and information signs      |
 
 {/* USAGE:START */}
 
@@ -68,6 +67,7 @@ npm install @road-signs/tw
     // All warning signs
     const filtered = getSignsByCategory("warning");
     ```
+
   </TabItem>
   <TabItem label="React">
     ```tsx
@@ -86,6 +86,7 @@ npm install @road-signs/tw
       );
     }
     ```
+
   </TabItem>
   <TabItem label="Vue 3">
     ```vue
@@ -102,6 +103,7 @@ npm install @road-signs/tw
       </div>
     </template>
     ```
+
   </TabItem>
 </Tabs>
 
@@ -111,20 +113,20 @@ npm install @road-signs/tw
 
 ## Coverage
 
-| Metric | Value |
-| ------ | ----- |
-| Signs scraped | 215 |
-| Signs with SVG | 215 |
-| Missing SVG | 0 |
-| Overall | **100%** |
+| Metric         | Value    |
+| -------------- | -------- |
+| Signs scraped  | 215      |
+| Signs with SVG | 215      |
+| Missing SVG    | 0        |
+| Overall        | **100%** |
 
-| Category | Scraped | With SVG | Missing | % |
-| -------- | ------: | -------: | ------: | -: |
-| `warning` | 17 | 17 | 0 | 100% |
-| `priority` | 8 | 8 | 0 | 100% |
-| `prohibitory` | 35 | 35 | 0 | 100% |
-| `mandatory` | 40 | 40 | 0 | 100% |
-| `information` | 115 | 115 | 0 | 100% |
+| Category      | Scraped | With SVG | Missing |    % |
+| ------------- | ------: | -------: | ------: | ---: |
+| `warning`     |      17 |       17 |       0 | 100% |
+| `priority`    |       8 |        8 |       0 | 100% |
+| `prohibitory` |      35 |       35 |       0 | 100% |
+| `mandatory`   |      40 |       40 |       0 | 100% |
+| `information` |     115 |      115 |       0 | 100% |
 
 **Standard:** Road Traffic Safety Rules (道路交通標誌標線號誌設置規則)
 
@@ -142,19 +144,15 @@ _Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.c
 ```ts
 import type { TWSign, TWCategory } from '@road-signs/tw';
 
-type TWCategory =
-  | 'information'
-  | 'mandatory'
-  | 'prohibitory'
-  | 'warning';
+type TWCategory = 'information' | 'mandatory' | 'prohibitory' | 'warning';
 
 interface TWSign {
-  id: string;          // e.g. "w1-sharp-bend"
-  code: string;        // sign code, e.g. "W1"
+  id: string; // e.g. "w1-sharp-bend"
+  code: string; // sign code, e.g. "W1"
   name: string;
   description: string;
   category: TWCategory;
-  svg: string;         // inline SVG string
+  svg: string; // inline SVG string
   assets: {
     svg: string;
     png: Record<number, string>;

@@ -1,10 +1,13 @@
 dist/
 coverage/
 data/
-packages/@road-signs/*/assets/
-packages/@road-signs/*/src/signs.generated.ts
-**/CHANGELOG.md
 node_modules
-package.json
-src
-tsconfig.json
+packages/@road-signs/*/assets/
+
+# Generated registries: multi-megabyte literal arrays that oxfmt would spend
+# real time on and that nothing hand-edits. Covers the sharded layout too
+# (signs.warning.generated.ts, signs.information_1.generated.ts, …).
+packages/@road-signs/*/src/signs.generated.ts
+packages/@road-signs/*/src/signs.*.generated.ts
+
+**/CHANGELOG.md

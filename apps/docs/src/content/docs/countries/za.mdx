@@ -5,7 +5,6 @@ description: South African road signs — categories, installation, and usage.
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-
 {/* HERO:START */}
 
 import CountryHero from '../../../components/CountryHero.astro';
@@ -18,12 +17,12 @@ import CountryHero from '../../../components/CountryHero.astro';
 
 ## Quick facts
 
-| Field | Value |
-| ----- | ----- |
-| Drive side | Left-hand |
-| Language(s) | English, Afrikaans |
-| Regulator | SARTSM |
-| Standard | SARTSM (South African Road Traffic Signs Manual) |
+| Field       | Value                                            |
+| ----------- | ------------------------------------------------ |
+| Drive side  | Left-hand                                        |
+| Language(s) | English, Afrikaans                               |
+| Regulator   | SARTSM                                           |
+| Standard    | SARTSM (South African Road Traffic Signs Manual) |
 
 {/* QUICK_FACTS:END */}
 
@@ -38,12 +37,12 @@ npm install @road-signs/za
 
 ## Sign categories
 
-| Category | Series | Description |
-| -------- | ------ | ----------- |
-| `warning` | W series | Hazard warnings |
+| Category     | Series   | Description                      |
+| ------------ | -------- | -------------------------------- |
+| `warning`    | W series | Hazard warnings                  |
 | `regulatory` | R series | Regulatory and prohibitory signs |
-| `guidance` | G series | Guidance and information |
-| `temporary` | T series | Temporary traffic management |
+| `guidance`   | G series | Guidance and information         |
+| `temporary`  | T series | Temporary traffic management     |
 
 {/* USAGE:START */}
 
@@ -68,6 +67,7 @@ npm install @road-signs/za
     // All prohibitory signs
     const filtered = getSignsByCategory("prohibitory");
     ```
+
   </TabItem>
   <TabItem label="React">
     ```tsx
@@ -86,6 +86,7 @@ npm install @road-signs/za
       );
     }
     ```
+
   </TabItem>
   <TabItem label="Vue 3">
     ```vue
@@ -102,6 +103,7 @@ npm install @road-signs/za
       </div>
     </template>
     ```
+
   </TabItem>
 </Tabs>
 
@@ -111,20 +113,20 @@ npm install @road-signs/za
 
 ## Coverage
 
-| Metric | Value |
-| ------ | ----- |
-| Signs scraped | 322 |
-| Signs with SVG | 322 |
-| Missing SVG | 0 |
-| Overall | **100%** |
+| Metric         | Value    |
+| -------------- | -------- |
+| Signs scraped  | 322      |
+| Signs with SVG | 322      |
+| Missing SVG    | 0        |
+| Overall        | **100%** |
 
-| Category | Scraped | With SVG | Missing | % |
-| -------- | ------: | -------: | ------: | -: |
-| `warning` | 79 | 79 | 0 | 100% |
-| `priority` | 0 | 0 | 0 | — |
-| `prohibitory` | 223 | 223 | 0 | 100% |
-| `mandatory` | 0 | 0 | 0 | — |
-| `information` | 20 | 20 | 0 | 100% |
+| Category      | Scraped | With SVG | Missing |    % |
+| ------------- | ------: | -------: | ------: | ---: |
+| `warning`     |      79 |       79 |       0 | 100% |
+| `priority`    |       0 |        0 |       0 |    — |
+| `prohibitory` |     223 |      223 |       0 | 100% |
+| `mandatory`   |       0 |        0 |       0 |    — |
+| `information` |      20 |       20 |       0 | 100% |
 
 **Standard:** SARTSM (South African Road Traffic Signs Manual)
 
@@ -142,19 +144,15 @@ _Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.c
 ```ts
 import type { ZASign, ZACategory } from '@road-signs/za';
 
-type ZACategory =
-  | 'guidance'
-  | 'regulatory'
-  | 'temporary'
-  | 'warning';
+type ZACategory = 'guidance' | 'regulatory' | 'temporary' | 'warning';
 
 interface ZASign {
-  id: string;          // e.g. "w1-sharp-bend"
-  code: string;        // sign code, e.g. "W1"
+  id: string; // e.g. "w1-sharp-bend"
+  code: string; // sign code, e.g. "W1"
   name: string;
   description: string;
   category: ZACategory;
-  svg: string;         // inline SVG string
+  svg: string; // inline SVG string
   assets: {
     svg: string;
     png: Record<number, string>;

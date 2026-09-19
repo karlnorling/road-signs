@@ -5,7 +5,6 @@ description: Rwanda road signs — categories, installation, and usage.
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-
 {/* HERO:START */}
 
 import CountryHero from '../../../components/CountryHero.astro';
@@ -18,12 +17,12 @@ import CountryHero from '../../../components/CountryHero.astro';
 
 ## Quick facts
 
-| Field | Value |
-| ----- | ----- |
-| Drive side | Right-hand |
-| Language(s) | Kinyarwanda, English, French |
-| Regulator | RNRA |
-| Standard | Vienna Convention / Belgian-influenced |
+| Field       | Value                                  |
+| ----------- | -------------------------------------- |
+| Drive side  | Right-hand                             |
+| Language(s) | Kinyarwanda, English, French           |
+| Regulator   | RNRA                                   |
+| Standard    | Vienna Convention / Belgian-influenced |
 
 {/* QUICK_FACTS:END */}
 
@@ -38,11 +37,11 @@ npm install @road-signs/rw
 
 ## Sign categories
 
-| Category | Series | Description |
-| -------- | ------ | ----------- |
-| `warning` | Warning | Hazard and warning signs |
-| `prohibitory` | Prohibitory | Prohibition and restriction signs |
-| `mandatory` | Mandatory | Mandatory instruction signs |
+| Category      | Series                             | Description                                      |
+| ------------- | ---------------------------------- | ------------------------------------------------ |
+| `warning`     | Warning                            | Hazard and warning signs                         |
+| `prohibitory` | Prohibitory                        | Prohibition and restriction signs                |
+| `mandatory`   | Mandatory                          | Mandatory instruction signs                      |
 | `information` | Information / Service / Additional | Information, service, and additional plate signs |
 
 {/* USAGE:START */}
@@ -68,6 +67,7 @@ npm install @road-signs/rw
     // All mandatory signs
     const filtered = getSignsByCategory("mandatory");
     ```
+
   </TabItem>
   <TabItem label="React">
     ```tsx
@@ -86,6 +86,7 @@ npm install @road-signs/rw
       );
     }
     ```
+
   </TabItem>
   <TabItem label="Vue 3">
     ```vue
@@ -102,6 +103,7 @@ npm install @road-signs/rw
       </div>
     </template>
     ```
+
   </TabItem>
 </Tabs>
 
@@ -111,20 +113,20 @@ npm install @road-signs/rw
 
 ## Coverage
 
-| Metric | Value |
-| ------ | ----- |
-| Signs scraped | 45 |
-| Signs with SVG | 45 |
-| Missing SVG | 0 |
-| Overall | **100%** |
+| Metric         | Value    |
+| -------------- | -------- |
+| Signs scraped  | 45       |
+| Signs with SVG | 45       |
+| Missing SVG    | 0        |
+| Overall        | **100%** |
 
-| Category | Scraped | With SVG | Missing | % |
-| -------- | ------: | -------: | ------: | -: |
-| `warning` | 0 | 0 | 0 | — |
-| `priority` | 0 | 0 | 0 | — |
-| `prohibitory` | 0 | 0 | 0 | — |
-| `mandatory` | 45 | 45 | 0 | 100% |
-| `information` | 0 | 0 | 0 | — |
+| Category      | Scraped | With SVG | Missing |    % |
+| ------------- | ------: | -------: | ------: | ---: |
+| `warning`     |       0 |        0 |       0 |    — |
+| `priority`    |       0 |        0 |       0 |    — |
+| `prohibitory` |       0 |        0 |       0 |    — |
+| `mandatory`   |      45 |       45 |       0 | 100% |
+| `information` |       0 |        0 |       0 |    — |
 
 **Standard:** Vienna Convention / Belgian-influenced
 

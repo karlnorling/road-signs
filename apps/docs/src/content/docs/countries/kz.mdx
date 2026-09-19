@@ -5,7 +5,6 @@ description: Kazakhstan road signs — categories, installation, and usage.
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-
 {/* HERO:START */}
 
 import CountryHero from '../../../components/CountryHero.astro';
@@ -25,10 +24,10 @@ npm install @road-signs/kz
 
 ## Sign categories
 
-| Category | Series | Description |
-| -------- | ------ | ----------- |
-| `warning` | Warning | Hazard and warning signs |
-| `prohibitory` | Regulatory | Prohibition and restriction signs |
+| Category      | Series                             | Description                                      |
+| ------------- | ---------------------------------- | ------------------------------------------------ |
+| `warning`     | Warning                            | Hazard and warning signs                         |
+| `prohibitory` | Regulatory                         | Prohibition and restriction signs                |
 | `information` | Information / Service / Additional | Information, service, and additional plate signs |
 
 {/* USAGE:START */}
@@ -54,6 +53,7 @@ npm install @road-signs/kz
     // All warning signs
     const filtered = getSignsByCategory("warning");
     ```
+
   </TabItem>
   <TabItem label="React">
     ```tsx
@@ -72,6 +72,7 @@ npm install @road-signs/kz
       );
     }
     ```
+
   </TabItem>
   <TabItem label="Vue 3">
     ```vue
@@ -88,6 +89,7 @@ npm install @road-signs/kz
       </div>
     </template>
     ```
+
   </TabItem>
 </Tabs>
 
@@ -97,20 +99,20 @@ npm install @road-signs/kz
 
 ## Coverage
 
-| Metric | Value |
-| ------ | ----- |
-| Signs scraped | 226 |
-| Signs with SVG | 226 |
-| Missing SVG | 0 |
-| Overall | **100%** |
+| Metric         | Value    |
+| -------------- | -------- |
+| Signs scraped  | 226      |
+| Signs with SVG | 226      |
+| Missing SVG    | 0        |
+| Overall        | **100%** |
 
-| Category | Scraped | With SVG | Missing | % |
-| -------- | ------: | -------: | ------: | -: |
-| `warning` | 43 | 43 | 0 | 100% |
-| `priority` | 13 | 13 | 0 | 100% |
-| `prohibitory` | 36 | 36 | 0 | 100% |
-| `mandatory` | 21 | 21 | 0 | 100% |
-| `information` | 113 | 113 | 0 | 100% |
+| Category      | Scraped | With SVG | Missing |    % |
+| ------------- | ------: | -------: | ------: | ---: |
+| `warning`     |      43 |       43 |       0 | 100% |
+| `priority`    |      13 |       13 |       0 | 100% |
+| `prohibitory` |      36 |       36 |       0 | 100% |
+| `mandatory`   |      21 |       21 |       0 | 100% |
+| `information` |     113 |      113 |       0 | 100% |
 
 **Standard:** Vienna Convention (ГОСТ РК 1.1)
 

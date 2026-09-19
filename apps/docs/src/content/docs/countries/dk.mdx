@@ -5,7 +5,6 @@ description: Danish Færdselsloven road signs — categories, installation, and 
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-
 {/* HERO:START */}
 
 import CountryHero from '../../../components/CountryHero.astro';
@@ -18,13 +17,13 @@ import CountryHero from '../../../components/CountryHero.astro';
 
 ## Quick facts
 
-| Field | Value |
-| ----- | ----- |
-| Drive side | Right-hand |
-| Language(s) | Danish |
-| Regulator | Vejdirektoratet |
-| Code format | `A11 / B11 / C11` |
-| Standard | Færdselsloven — Vienna Convention |
+| Field       | Value                             |
+| ----------- | --------------------------------- |
+| Drive side  | Right-hand                        |
+| Language(s) | Danish                            |
+| Regulator   | Vejdirektoratet                   |
+| Code format | `A11 / B11 / C11`                 |
+| Standard    | Færdselsloven — Vienna Convention |
 
 {/* QUICK_FACTS:END */}
 
@@ -39,12 +38,12 @@ npm install @road-signs/dk
 
 ## Sign categories
 
-| Category | Series | Description |
-| -------- | ------ | ----------- |
-| `warning` | A series | Advarselstavler — hazard warnings |
-| `priority` | B series | Vigepligtstavler — right-of-way |
-| `prohibitory` | C series | Forbudstavler — prohibitions |
-| `mandatory` | D series | Påbudstavler — compulsory actions |
+| Category      | Series     | Description                          |
+| ------------- | ---------- | ------------------------------------ |
+| `warning`     | A series   | Advarselstavler — hazard warnings    |
+| `priority`    | B series   | Vigepligtstavler — right-of-way      |
+| `prohibitory` | C series   | Forbudstavler — prohibitions         |
+| `mandatory`   | D series   | Påbudstavler — compulsory actions    |
 | `information` | E–F series | Oplysningstavler / Vejledningstavler |
 
 {/* USAGE:START */}
@@ -70,6 +69,7 @@ npm install @road-signs/dk
     // All warning signs
     const filtered = getSignsByCategory("warning");
     ```
+
   </TabItem>
   <TabItem label="React">
     ```tsx
@@ -88,6 +88,7 @@ npm install @road-signs/dk
       );
     }
     ```
+
   </TabItem>
   <TabItem label="Vue 3">
     ```vue
@@ -104,6 +105,7 @@ npm install @road-signs/dk
       </div>
     </template>
     ```
+
   </TabItem>
 </Tabs>
 
@@ -113,20 +115,20 @@ npm install @road-signs/dk
 
 ## Coverage
 
-| Metric | Value |
-| ------ | ----- |
-| Signs scraped | 290 |
-| Signs with SVG | 290 |
-| Missing SVG | 0 |
-| Overall | **100%** |
+| Metric         | Value    |
+| -------------- | -------- |
+| Signs scraped  | 290      |
+| Signs with SVG | 290      |
+| Missing SVG    | 0        |
+| Overall        | **100%** |
 
-| Category | Scraped | With SVG | Missing | % |
-| -------- | ------: | -------: | ------: | -: |
-| `warning` | 49 | 49 | 0 | 100% |
-| `priority` | 10 | 10 | 0 | 100% |
-| `prohibitory` | 46 | 46 | 0 | 100% |
-| `mandatory` | 28 | 28 | 0 | 100% |
-| `information` | 157 | 157 | 0 | 100% |
+| Category      | Scraped | With SVG | Missing |    % |
+| ------------- | ------: | -------: | ------: | ---: |
+| `warning`     |      49 |       49 |       0 | 100% |
+| `priority`    |      10 |       10 |       0 | 100% |
+| `prohibitory` |      46 |       46 |       0 | 100% |
+| `mandatory`   |      28 |       28 |       0 | 100% |
+| `information` |     157 |      157 |       0 | 100% |
 
 **Standard:** Færdselsloven — Vienna Convention
 
@@ -144,20 +146,15 @@ _Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.c
 ```ts
 import type { DKSign, DKCategory } from '@road-signs/dk';
 
-type DKCategory =
-  | 'information'
-  | 'mandatory'
-  | 'priority'
-  | 'prohibitory'
-  | 'warning';
+type DKCategory = 'information' | 'mandatory' | 'priority' | 'prohibitory' | 'warning';
 
 interface DKSign {
-  id: string;          // e.g. "a21-dangerous-bend"
-  code: string;        // e.g. "A21"
+  id: string; // e.g. "a21-dangerous-bend"
+  code: string; // e.g. "A21"
   name: string;
   description: string;
   category: DKCategory;
-  svg: string;         // inline SVG string
+  svg: string; // inline SVG string
   assets: {
     svg: string;
     png: Record<number, string>;

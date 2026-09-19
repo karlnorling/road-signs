@@ -5,7 +5,6 @@ description: Chile road signs — categories, installation, and usage.
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-
 {/* HERO:START */}
 
 import CountryHero from '../../../components/CountryHero.astro';
@@ -18,13 +17,13 @@ import CountryHero from '../../../components/CountryHero.astro';
 
 ## Quick facts
 
-| Field | Value |
-| ----- | ----- |
-| Drive side | Right-hand |
-| Language(s) | Spanish |
-| Regulator | MOP (DGOP) |
-| Code format | `PA-1 / RP-1 / IT-1` |
-| Standard | Manual de Señalización de Tránsito (DGOP/MOP) — Vienna Convention variant |
+| Field       | Value                                                                     |
+| ----------- | ------------------------------------------------------------------------- |
+| Drive side  | Right-hand                                                                |
+| Language(s) | Spanish                                                                   |
+| Regulator   | MOP (DGOP)                                                                |
+| Code format | `PA-1 / RP-1 / IT-1`                                                      |
+| Standard    | Manual de Señalización de Tránsito (DGOP/MOP) — Vienna Convention variant |
 
 {/* QUICK_FACTS:END */}
 
@@ -39,11 +38,11 @@ npm install @road-signs/cl
 
 ## Sign categories
 
-| Category | Series | Description |
-| -------- | ------ | ----------- |
-| `warning` | Preventivas | Señales preventivas — hazard warnings |
+| Category      | Series         | Description                                           |
+| ------------- | -------------- | ----------------------------------------------------- |
+| `warning`     | Preventivas    | Señales preventivas — hazard warnings                 |
 | `prohibitory` | Reglamentarias | Señales reglamentarias — prohibitions and regulations |
-| `information` | Informativas | Señales informativas — information and direction |
+| `information` | Informativas   | Señales informativas — information and direction      |
 
 {/* USAGE:START */}
 
@@ -68,6 +67,7 @@ npm install @road-signs/cl
     // All warning signs
     const filtered = getSignsByCategory("warning");
     ```
+
   </TabItem>
   <TabItem label="React">
     ```tsx
@@ -86,6 +86,7 @@ npm install @road-signs/cl
       );
     }
     ```
+
   </TabItem>
   <TabItem label="Vue 3">
     ```vue
@@ -102,6 +103,7 @@ npm install @road-signs/cl
       </div>
     </template>
     ```
+
   </TabItem>
 </Tabs>
 
@@ -111,20 +113,20 @@ npm install @road-signs/cl
 
 ## Coverage
 
-| Metric | Value |
-| ------ | ----- |
-| Signs scraped | 144 |
-| Signs with SVG | 144 |
-| Missing SVG | 0 |
-| Overall | **100%** |
+| Metric         | Value    |
+| -------------- | -------- |
+| Signs scraped  | 144      |
+| Signs with SVG | 144      |
+| Missing SVG    | 0        |
+| Overall        | **100%** |
 
-| Category | Scraped | With SVG | Missing | % |
-| -------- | ------: | -------: | ------: | -: |
-| `warning` | 74 | 74 | 0 | 100% |
-| `priority` | 3 | 3 | 0 | 100% |
-| `prohibitory` | 30 | 30 | 0 | 100% |
-| `mandatory` | 27 | 27 | 0 | 100% |
-| `information` | 10 | 10 | 0 | 100% |
+| Category      | Scraped | With SVG | Missing |    % |
+| ------------- | ------: | -------: | ------: | ---: |
+| `warning`     |      74 |       74 |       0 | 100% |
+| `priority`    |       3 |        3 |       0 | 100% |
+| `prohibitory` |      30 |       30 |       0 | 100% |
+| `mandatory`   |      27 |       27 |       0 | 100% |
+| `information` |      10 |       10 |       0 | 100% |
 
 **Standard:** Manual de Señalización de Tránsito (DGOP/MOP) — Vienna Convention variant
 
@@ -142,18 +144,15 @@ _Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.c
 ```ts
 import type { CLSign, CLCategory } from '@road-signs/cl';
 
-type CLCategory =
-  | 'information'
-  | 'prohibitory'
-  | 'warning';
+type CLCategory = 'information' | 'prohibitory' | 'warning';
 
 interface CLSign {
-  id: string;          // e.g. "p1-sharp-bend"
-  code: string;        // sign code, e.g. "P1"
+  id: string; // e.g. "p1-sharp-bend"
+  code: string; // sign code, e.g. "P1"
   name: string;
   description: string;
   category: CLCategory;
-  svg: string;         // inline SVG string
+  svg: string; // inline SVG string
   assets: {
     svg: string;
     png: Record<number, string>;

@@ -5,7 +5,6 @@ description: Polish road signs — categories, installation, and usage.
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-
 {/* HERO:START */}
 
 import CountryHero from '../../../components/CountryHero.astro';
@@ -18,13 +17,13 @@ import CountryHero from '../../../components/CountryHero.astro';
 
 ## Quick facts
 
-| Field | Value |
-| ----- | ----- |
-| Drive side | Right-hand |
-| Language(s) | Polish |
-| Regulator | GDDKiA |
-| Code format | `A-1 / B-1 / C-1 / D-1` |
-| Standard | Prawo o ruchu drogowym — Vienna Convention |
+| Field       | Value                                      |
+| ----------- | ------------------------------------------ |
+| Drive side  | Right-hand                                 |
+| Language(s) | Polish                                     |
+| Regulator   | GDDKiA                                     |
+| Code format | `A-1 / B-1 / C-1 / D-1`                    |
+| Standard    | Prawo o ruchu drogowym — Vienna Convention |
 
 {/* QUICK_FACTS:END */}
 
@@ -39,13 +38,13 @@ npm install @road-signs/pl
 
 ## Sign categories
 
-| Category | Series | Description |
-| -------- | ------ | ----------- |
-| `warning` | A series | Ostrzegawcze (warning) — triangular, red border |
-| `priority` | A series (priority) | Pierwszeństwo (right-of-way) signs |
-| `prohibitory` | B series | Zakazu (prohibition) — circular, red border |
-| `mandatory` | C series | Nakazu (obligation) — circular, blue background |
-| `information` | D / E / F series | Informacyjne (information) and direction signs |
+| Category      | Series              | Description                                     |
+| ------------- | ------------------- | ----------------------------------------------- |
+| `warning`     | A series            | Ostrzegawcze (warning) — triangular, red border |
+| `priority`    | A series (priority) | Pierwszeństwo (right-of-way) signs              |
+| `prohibitory` | B series            | Zakazu (prohibition) — circular, red border     |
+| `mandatory`   | C series            | Nakazu (obligation) — circular, blue background |
+| `information` | D / E / F series    | Informacyjne (information) and direction signs  |
 
 {/* USAGE:START */}
 
@@ -70,6 +69,7 @@ npm install @road-signs/pl
     // All warning signs
     const filtered = getSignsByCategory("warning");
     ```
+
   </TabItem>
   <TabItem label="React">
     ```tsx
@@ -88,6 +88,7 @@ npm install @road-signs/pl
       );
     }
     ```
+
   </TabItem>
   <TabItem label="Vue 3">
     ```vue
@@ -104,6 +105,7 @@ npm install @road-signs/pl
       </div>
     </template>
     ```
+
   </TabItem>
 </Tabs>
 
@@ -113,20 +115,20 @@ npm install @road-signs/pl
 
 ## Coverage
 
-| Metric | Value |
-| ------ | ----- |
-| Signs scraped | 415 |
-| Signs with SVG | 415 |
-| Missing SVG | 0 |
-| Overall | **100%** |
+| Metric         | Value    |
+| -------------- | -------- |
+| Signs scraped  | 415      |
+| Signs with SVG | 415      |
+| Missing SVG    | 0        |
+| Overall        | **100%** |
 
-| Category | Scraped | With SVG | Missing | % |
-| -------- | ------: | -------: | ------: | -: |
-| `warning` | 50 | 50 | 0 | 100% |
-| `priority` | 0 | 0 | 0 | — |
-| `prohibitory` | 58 | 58 | 0 | 100% |
-| `mandatory` | 25 | 25 | 0 | 100% |
-| `information` | 282 | 282 | 0 | 100% |
+| Category      | Scraped | With SVG | Missing |    % |
+| ------------- | ------: | -------: | ------: | ---: |
+| `warning`     |      50 |       50 |       0 | 100% |
+| `priority`    |       0 |        0 |       0 |    — |
+| `prohibitory` |      58 |       58 |       0 | 100% |
+| `mandatory`   |      25 |       25 |       0 | 100% |
+| `information` |     282 |      282 |       0 | 100% |
 
 **Standard:** Prawo o ruchu drogowym — Vienna Convention
 
@@ -147,20 +149,15 @@ _Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.c
 ```ts
 import type { PLSign, PLCategory } from '@road-signs/pl';
 
-type PLCategory =
-  | 'information'
-  | 'mandatory'
-  | 'priority'
-  | 'prohibitory'
-  | 'warning';
+type PLCategory = 'information' | 'mandatory' | 'priority' | 'prohibitory' | 'warning';
 
 interface PLSign {
-  id: string;          // e.g. "a-1-dangerous-bend"
-  code: string;        // Series code, e.g. "A-1"
+  id: string; // e.g. "a-1-dangerous-bend"
+  code: string; // Series code, e.g. "A-1"
   name: string;
   description: string;
   category: PLCategory;
-  svg: string;         // inline SVG string
+  svg: string; // inline SVG string
   assets: {
     svg: string;
     png: Record<number, string>;

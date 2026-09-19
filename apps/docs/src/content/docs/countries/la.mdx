@@ -5,7 +5,6 @@ description: Laos road signs — categories, installation, and usage.
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-
 {/* HERO:START */}
 
 import CountryHero from '../../../components/CountryHero.astro';
@@ -18,12 +17,12 @@ import CountryHero from '../../../components/CountryHero.astro';
 
 ## Quick facts
 
-| Field | Value |
-| ----- | ----- |
-| Drive side | Right-hand |
-| Language(s) | Lao |
-| Regulator | MPWT |
-| Standard | Vienna Convention (Lao PDR Road Traffic Law) |
+| Field       | Value                                        |
+| ----------- | -------------------------------------------- |
+| Drive side  | Right-hand                                   |
+| Language(s) | Lao                                          |
+| Regulator   | MPWT                                         |
+| Standard    | Vienna Convention (Lao PDR Road Traffic Law) |
 
 {/* QUICK_FACTS:END */}
 
@@ -38,11 +37,11 @@ npm install @road-signs/la
 
 ## Sign categories
 
-| Category | Series | Description |
-| -------- | ------ | ----------- |
-| `warning` | Warning | Hazard and warning signs |
-| `prohibitory` | Prohibitory | Prohibition and restriction signs |
-| `mandatory` | Mandatory | Mandatory instruction signs |
+| Category      | Series                             | Description                                      |
+| ------------- | ---------------------------------- | ------------------------------------------------ |
+| `warning`     | Warning                            | Hazard and warning signs                         |
+| `prohibitory` | Prohibitory                        | Prohibition and restriction signs                |
+| `mandatory`   | Mandatory                          | Mandatory instruction signs                      |
 | `information` | Information / Service / Additional | Information, service, and additional plate signs |
 
 {/* USAGE:START */}
@@ -68,6 +67,7 @@ npm install @road-signs/la
     // All warning signs
     const filtered = getSignsByCategory("warning");
     ```
+
   </TabItem>
   <TabItem label="React">
     ```tsx
@@ -86,6 +86,7 @@ npm install @road-signs/la
       );
     }
     ```
+
   </TabItem>
   <TabItem label="Vue 3">
     ```vue
@@ -102,6 +103,7 @@ npm install @road-signs/la
       </div>
     </template>
     ```
+
   </TabItem>
 </Tabs>
 
@@ -111,20 +113,20 @@ npm install @road-signs/la
 
 ## Coverage
 
-| Metric | Value |
-| ------ | ----- |
-| Signs scraped | 33 |
-| Signs with SVG | 33 |
-| Missing SVG | 0 |
-| Overall | **100%** |
+| Metric         | Value    |
+| -------------- | -------- |
+| Signs scraped  | 33       |
+| Signs with SVG | 33       |
+| Missing SVG    | 0        |
+| Overall        | **100%** |
 
-| Category | Scraped | With SVG | Missing | % |
-| -------- | ------: | -------: | ------: | -: |
-| `warning` | 6 | 6 | 0 | 100% |
-| `priority` | 4 | 4 | 0 | 100% |
-| `prohibitory` | 7 | 7 | 0 | 100% |
-| `mandatory` | 15 | 15 | 0 | 100% |
-| `information` | 1 | 1 | 0 | 100% |
+| Category      | Scraped | With SVG | Missing |    % |
+| ------------- | ------: | -------: | ------: | ---: |
+| `warning`     |       6 |        6 |       0 | 100% |
+| `priority`    |       4 |        4 |       0 | 100% |
+| `prohibitory` |       7 |        7 |       0 | 100% |
+| `mandatory`   |      15 |       15 |       0 | 100% |
+| `information` |       1 |        1 |       0 | 100% |
 
 **Standard:** Vienna Convention (Lao PDR Road Traffic Law)
 
