@@ -3,6 +3,14 @@ import fs from 'node:fs';
 import path from 'node:path';
 import rawSvg from '../assets/world-map.svg?raw';
 
+// `define:vars` scripts are emitted inline and never pass through Vite, so
+// import.meta.env.BASE_URL is not substituted inside them — it has to be
+// handed in from here.
+const base = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
+const countryBase = `${base}countries/`;
+
 // Astro build cwd = apps/docs; monorepo packages are 2 levels up
 const packagesDir = path.resolve(process.cwd(), '../../packages/@road-signs');
 
@@ -293,7 +301,7 @@ const totalSigns = Object.values(countryData).reduce((s, c) => s + c.count, 0);
   }
 </style>
 
-<script define:vars={{ countryData }}>
+<script define:vars={{ countryData, countryBase }}>
   const mapEl = document.getElementById('world-map');
   const wrapper = document.getElementById('world-map-wrapper');
   const tooltip = document.getElementById('map-tooltip');
@@ -467,13 +475,13 @@ const totalSigns = Object.values(countryData).reduce((s, c) => s + c.count, 0);
 
     if (data.hasData) {
       const navigate = () => {
-        if (!didDrag) window.location.href = `/road-signs/countries/${cc}/`;
+        if (!didDrag) window.location.href = `${countryBase}${cc}/`;
       };
       pathEl.addEventListener('click', navigate);
       pathEl.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault();
-          window.location.href = `/road-signs/countries/${cc}/`;
+          window.location.href = `${countryBase}${cc}/`;
         }
       });
     }

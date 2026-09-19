@@ -17,7 +17,7 @@ import { globSync } from 'glob';
 // Country metadata
 // ---------------------------------------------------------------------------
 
-interface CountryMeta {
+export interface CountryMeta {
   name: string;
   standard: string;
   sources: Array<{ label: string; url: string }>;
@@ -32,7 +32,7 @@ interface CountryMeta {
   codePrefix?: string;
 }
 
-const COUNTRIES: Record<string, CountryMeta> = {
+export const COUNTRIES: Record<string, CountryMeta> = {
   al: {
     name: 'Albania',
     standard: 'Kodi Rrugor — Vienna Convention',
@@ -3619,35 +3619,39 @@ const injectCoverageMdx = (mdxPath: string, cov: CountryCoverage): void => {
 // Entry point
 // ---------------------------------------------------------------------------
 
-const docsDir = path.join('packages', '@road-signs', 'docs');
-const coverageDir = path.join(docsDir, 'coverage');
-const astroPagesDir = path.join('apps', 'docs', 'src', 'content', 'docs', 'countries');
+const main = (): void => {
+  const docsDir = path.join('packages', '@road-signs', 'docs');
+  const coverageDir = path.join(docsDir, 'coverage');
+  const astroPagesDir = path.join('apps', 'docs', 'src', 'content', 'docs', 'countries');
 
-const coverages = Object.keys(COUNTRIES)
-  .map(computeCoverage)
-  .filter((c): c is CountryCoverage => c !== null);
+  const coverages = Object.keys(COUNTRIES)
+    .map(computeCoverage)
+    .filter((c): c is CountryCoverage => c !== null);
 
-fs.mkdirSync(coverageDir, { recursive: true });
+  fs.mkdirSync(coverageDir, { recursive: true });
 
-console.log('Writing @road-signs/docs package...');
-for (const cov of coverages) {
-  const outPath = path.join(coverageDir, `${cov.cc}.md`);
-  fs.writeFileSync(outPath, generateCountryDoc(cov), 'utf-8');
-  console.log(`  ${outPath}`);
-}
-const readmePath = path.join(docsDir, 'README.md');
-fs.writeFileSync(readmePath, generateOverview(coverages), 'utf-8');
-console.log(`  ${readmePath}`);
+  console.log('Writing @road-signs/docs package...');
+  for (const cov of coverages) {
+    const outPath = path.join(coverageDir, `${cov.cc}.md`);
+    fs.writeFileSync(outPath, generateCountryDoc(cov), 'utf-8');
+    console.log(`  ${outPath}`);
+  }
+  const readmePath = path.join(docsDir, 'README.md');
+  fs.writeFileSync(readmePath, generateOverview(coverages), 'utf-8');
+  console.log(`  ${readmePath}`);
 
-console.log('\nInjecting hero strip + coverage sections into Astro docs...');
-for (const cov of coverages) {
-  const mdxPath = path.join(astroPagesDir, `${cov.cc}.mdx`);
-  // Skip the hero if the country has no signs at all (e.g. Lebanon).
-  if (cov.totalScraped > 0) injectHeroMdx(mdxPath, cov.cc);
-  injectQuickFactsMdx(mdxPath, cov);
-  injectUsageMdx(mdxPath, cov.cc);
-  injectCoverageMdx(mdxPath, cov);
-  console.log(`  ${mdxPath}`);
-}
+  console.log('\nInjecting hero strip + coverage sections into Astro docs...');
+  for (const cov of coverages) {
+    const mdxPath = path.join(astroPagesDir, `${cov.cc}.mdx`);
+    // Skip the hero if the country has no signs at all (e.g. Lebanon).
+    if (cov.totalScraped > 0) injectHeroMdx(mdxPath, cov.cc);
+    injectQuickFactsMdx(mdxPath, cov);
+    injectUsageMdx(mdxPath, cov.cc);
+    injectCoverageMdx(mdxPath, cov);
+    console.log(`  ${mdxPath}`);
+  }
 
-console.log(`\nDone — ${coverages.length} countries documented.`);
+  console.log(`\nDone — ${coverages.length} countries documented.`);
+};
+
+if (process.argv[1]?.includes('generate-docs')) main();

@@ -10,26 +10,12 @@ import { Tabs, TabItem } from '@astrojs/starlight/components';
 Install a country package and a framework adapter:
 
 <Tabs>
-  <TabItem label="React">
-    ```sh
-    npm install @road-signs/us @road-signs/react
-    ```
-  </TabItem>
-  <TabItem label="Vue 3">
-    ```sh
-    npm install @road-signs/us @road-signs/vue
-    ```
-  </TabItem>
+  <TabItem label="React">```sh npm install @road-signs/us @road-signs/react ```</TabItem>
+  <TabItem label="Vue 3">```sh npm install @road-signs/us @road-signs/vue ```</TabItem>
   <TabItem label="Web Components">
-    ```sh
-    npm install @road-signs/us @road-signs/elements
-    ```
+    ```sh npm install @road-signs/us @road-signs/elements ```
   </TabItem>
-  <TabItem label="CSS sprite">
-    ```sh
-    npm install @road-signs/us
-    ```
-  </TabItem>
+  <TabItem label="CSS sprite">```sh npm install @road-signs/us ```</TabItem>
 </Tabs>
 
 ## Quick start
@@ -46,6 +32,7 @@ Install a country package and a framework adapter:
       return <RoadSign sign={sign} size={64} />;
     }
     ```
+
   </TabItem>
   <TabItem label="Vue 3">
     ```vue
@@ -60,31 +47,56 @@ Install a country package and a framework adapter:
       <RoadSign :sign="sign" :size="64" />
     </template>
     ```
+
   </TabItem>
   <TabItem label="Web Components">
     ```ts
-    import { RoadSignElement } from '@road-signs/elements';
+    import { registerRoadSign } from '@road-signs/elements';
     import { getSign } from '@road-signs/us';
 
-    customElements.define('road-sign', RoadSignElement);
-
-    const el = document.createElement('road-sign') as RoadSignElement;
-    el.sign = getSign('w1-1-turn')!;
-    document.body.appendChild(el);
+    registerRoadSign('road-sign-us', getSign);
     ```
+
+    Then use it straight from markup — no per-instance JavaScript:
+
+    ```html
+    <road-sign-us sign-id="w1-1-turn" size="64"></road-sign-us>
+    ```
+
+    Or set the sign object directly:
+
+    ```ts
+    const el = document.querySelector('road-sign-us') as RoadSignElement;
+    el.sign = getSign('w1-1-turn')!;
+    ```
+
   </TabItem>
   <TabItem label="CSS sprite">
     ```html
-    <!-- Import the sprite stylesheet from the package dist -->
+    <!-- Self-contained: every class embeds its own artwork as a data URI,
+         so there are no image files to copy alongside the stylesheet. -->
     <link rel="stylesheet" href="node_modules/@road-signs/us/dist/sprite.css" />
 
     <span
-      class="rs-us-w1-1"
+      class="rs-us-w1-1-turn"
       style="display:inline-block;width:64px;height:64px"
       role="img"
       aria-label="Turn"
     ></span>
     ```
+
+    The class name is `rs-{country}-{sign id}` — the same ID `getSign()` takes.
+
+    Because the artwork is embedded, a whole-country stylesheet is large
+    (`@road-signs/us` is ~9MB, ~1.9MB gzipped). If you only need a handful of
+    signs, inline `sign.svg` yourself instead, or use `dist/sprite.svg`:
+
+    ```html
+    <svg width="64" height="64" role="img" aria-label="Turn">
+      <use href="node_modules/@road-signs/us/dist/sprite.svg#rs-us-w1-1-turn" />
+    </svg>
+    ```
+
   </TabItem>
 </Tabs>
 

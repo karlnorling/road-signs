@@ -21,6 +21,11 @@ const countries = [
   { cc: 'fr', label: 'France',         load: frSigns },
   { cc: 'jp', label: 'Japan',          load: jpSigns },
 ];
+
+// Carries astro.config.mjs's `base`, so links stay correct if it changes.
+const base = import.meta.env.BASE_URL.endsWith('/')
+  ? import.meta.env.BASE_URL
+  : `${import.meta.env.BASE_URL}/`;
 ---
 
 <StarlightPage
@@ -63,7 +68,7 @@ const countries = [
     {countries.map((c) => (
       <div class="compare-panel" data-cc={c.cc} hidden>
         <h2>
-          {c.label} <small>(<a href={`/road-signs/countries/${c.cc}/`}><code>@road-signs/{c.cc}</code></a>)</small>
+          {c.label} <small>(<a href={`${base}countries/${c.cc}/`}><code>@road-signs/{c.cc}</code></a>)</small>
         </h2>
         <CountryGallery signs={c.load().slice(0, SIGN_CAP)} id={`compare-${c.cc}`} />
       </div>

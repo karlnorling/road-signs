@@ -10,10 +10,10 @@ import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
   }}
 >
   <p>
-    Search ~38,000 signs across 197 countries. Type a code (<code>W1-1</code>,
-    <code>101</code>), a sign name (<code>stop</code>, <code>yield</code>), or a
-    country code (<code>de</code>, <code>jp</code>). Results link straight into
-    the country's gallery.
+    Search every sign in <code>@road-signs/*</code>. Type a code
+    (<code>W1-1</code>, <code>101</code>), a sign name (<code>stop</code>,
+    <code>yield</code>), or a country code (<code>de</code>, <code>jp</code>).
+    Results link straight into the country's gallery.
   </p>
 
   <input
@@ -129,7 +129,6 @@ import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
   const list = document.getElementById('search-results') as HTMLUListElement;
 
   let index: SignEntry[] = [];
-  let loadError = false;
 
   const escapeHtml = (s: string): string =>
     s
@@ -139,13 +138,14 @@ import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
       .replace(/'/g, '&#39;')
       .replace(/"/g, '&quot;');
 
-  // Best-effort URL — we always pass `/road-signs` as the base prefix because
-  // that's what astro.config.mjs sets and there's no easy way to read it
-  // client-side. The country gallery URL also includes #<sign-id> to anchor
-  // the result; the gallery page reads location.hash to scroll into view if
-  // implemented (no-op today, but the URL is at least correct).
-  const galleryUrl = (cc: string, id: string): string =>
-    `/road-signs/gallery/${cc}/#${id}`;
+  // `import.meta.env.BASE_URL` is inlined by Vite at build time and already
+  // carries astro.config.mjs's `base`, so this stays correct under `astro dev`,
+  // `astro preview`, and any deployment that isn't at /road-signs.
+  const withBase = (pathname: string): string =>
+    `${import.meta.env.BASE_URL.replace(/\/$/, '')}/${pathname.replace(/^\//, '')}`;
+
+  // The URL carries #<sign-id> to anchor the result in the country gallery.
+  const galleryUrl = (cc: string, id: string): string => withBase(`gallery/${cc}/#${id}`);
 
   const MAX_RESULTS = 100;
 
@@ -165,17 +165,26 @@ import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
     return 0;
   };
 
+  /** Idle-state status line. Counts come from the index, never a literal. */
+  const summary = (): string => {
+    const countries = new Set(index.map((e) => e.cc)).size;
+    return `Type to search ${index.length.toLocaleString()} signs across ${countries} countries.`;
+  };
+
   const renderResults = (q: string) => {
     if (!q) {
       list.innerHTML = '';
-      status.textContent = `Type to search ${index.length.toLocaleString()} signs across 197 countries.`;
+      status.textContent = summary();
       return;
     }
+    // Rank the whole index before truncating. Breaking out of the scan early
+    // capped `ranked.length` at an arbitrary point in index order, so the
+    // "of N matches" figure undercounted and a better-ranked match late in the
+    // index could never appear.
     const ranked: Array<{ entry: SignEntry; rank: number }> = [];
     for (const entry of index) {
       const r = rankMatch(entry, q);
       if (r > 0) ranked.push({ entry, rank: r });
-      if (ranked.length > MAX_RESULTS * 4) break; // cap scan effort
     }
     ranked.sort((a, b) => b.rank - a.rank || a.entry.cc.localeCompare(b.entry.cc));
     const shown = ranked.slice(0, MAX_RESULTS);
@@ -216,18 +225,17 @@ import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
 
   const init = async () => {
     try {
-      const res = await fetch('/road-signs/signs-index.json');
+      const res = await fetch(withBase('signs-index.json'));
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       index = (await res.json()) as SignEntry[];
     } catch (err) {
-      loadError = true;
       status.textContent =
         'Could not load the search index. Try refreshing the page; if it persists, the index may not have been generated for this build.';
       console.error('Search index load failed:', err);
       return;
     }
     input.disabled = false;
-    status.textContent = `Type to search ${index.length.toLocaleString()} signs across 197 countries.`;
+    status.textContent = summary();
     input.addEventListener('input', onInput);
     // If the URL already has ?q=... pre-fill it.
     const initial = new URLSearchParams(location.search).get('q');
