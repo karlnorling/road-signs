@@ -43,5 +43,18 @@ jobs:
       - name: Validate category unions
         run: yarn validate-categories
 
+      # The generated registries carry @ts-nocheck, so type-check never looks
+      # inside them. This checks the payload itself: artwork present, IDs
+      # unique and derivable, and the five hand-maintained country lists in
+      # agreement with the packages on disk.
+      - name: Validate registries
+        run: yarn validate-registries
+
       - name: Test
         run: yarn test
+
+      # The docs build used to be gated only by the deploy workflow, which runs
+      # *after* CI passes — so an Astro break landed on main and only failed at
+      # deploy time. Building here keeps that on the PR.
+      - name: Build docs
+        run: yarn build-docs

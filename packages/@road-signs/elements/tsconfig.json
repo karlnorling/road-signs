@@ -13,5 +13,5 @@
     "moduleResolution": "bundler"
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules"]
+  "exclude": ["src/**/__tests__/**/*", "node_modules"]
 }

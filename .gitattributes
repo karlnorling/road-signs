@@ -2,3 +2,15 @@
 /.yarn/releases/*    binary
 /.yarn/plugins/**/*  binary
 /.pnp.*              binary linguist-generated
+
+# Generated registries: ~330MB of machine-written literals, with single lines
+# holding a whole inlined SVG. Marking them generated keeps them out of language
+# stats and collapsed in review; `-diff` stops git from producing multi-megabyte
+# textual diffs for a regeneration nobody reads line by line.
+packages/@road-signs/*/src/signs.generated.ts    linguist-generated -diff
+packages/@road-signs/*/src/signs.*.generated.ts  linguist-generated -diff
+
+# Generated from the registries and the COUNTRIES metadata.
+packages/@road-signs/*/README.md                 linguist-generated
+packages/@road-signs/docs/coverage/*.md          linguist-generated
+apps/docs/src/content/docs/gallery/*.mdx         linguist-generated

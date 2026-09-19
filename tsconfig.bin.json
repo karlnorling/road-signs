@@ -3,7 +3,8 @@
   "compilerOptions": {
     "module": "esnext",
     "moduleResolution": "bundler",
-    "noEmit": true
+    "noEmit": true,
+    "types": ["node", "jest"]
   },
   "include": ["bin/**/*", "packages/@road-signs/core/src/types.ts"]
 }

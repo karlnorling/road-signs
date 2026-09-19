@@ -16,3 +16,5 @@ pre-push:
       run: yarn lint
     validate-categories:
       run: yarn validate-categories
+    validate-registries:
+      run: yarn validate-registries
