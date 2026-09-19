@@ -9,7 +9,5 @@ export type USCategory =
   | 'school'
   | 'warning';
 
-export interface USSign extends Sign<USCategory> {
-  /** MUTCD sign code, e.g. "W1-1". Alias for Sign.code. */
-  code: string;
-}
+/** A US road sign. `code` holds its MUTCD sign code, e.g. "W1-1". */
+export type USSign = Sign<USCategory>;

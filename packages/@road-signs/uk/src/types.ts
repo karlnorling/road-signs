@@ -1,13 +1,6 @@
 import type { Sign } from '@road-signs/core';
 
-export type UKCategory =
-  | 'direction'
-  | 'information'
-  | 'regulatory'
-  | 'temporary'
-  | 'warning';
+export type UKCategory = 'direction' | 'information' | 'regulatory' | 'temporary' | 'warning';
 
-export interface UKSign extends Sign<UKCategory> {
-  /** TSRGD diagram number, e.g. "601", "2025". Alias for Sign.code. */
-  code: string;
-}
+/** A UK road sign. `code` holds its TSRGD diagram number, e.g. "601", "2025". */
+export type UKSign = Sign<UKCategory>;

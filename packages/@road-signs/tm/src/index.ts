@@ -1,16 +1,20 @@
+import {
+  getAllSigns as coreGetAllSigns,
+  getSign as coreGetSign,
+  getSignByCode as coreGetSignByCode,
+  getSignsByCategory as coreGetSignsByCategory,
+} from '@road-signs/core';
 import type { TMCategory, TMSign } from './types';
 import { signs } from './signs.generated';
 
 export type { TMCategory, TMSign } from './types';
 export { signs };
 
-export const getAllSigns = (): TMSign[] => [...signs];
+export const getAllSigns = (): TMSign[] => coreGetAllSigns(signs);
 
-export const getSign = (id: string): TMSign | undefined =>
-  signs.find((s) => s.id === id);
+export const getSign = (id: string): TMSign | undefined => coreGetSign(signs, id);
 
-export const getSignByCode = (code: string): TMSign | undefined =>
-  signs.find((s) => s.code === code);
+export const getSignByCode = (code: string): TMSign | undefined => coreGetSignByCode(signs, code);
 
 export const getSignsByCategory = (category: TMCategory): TMSign[] =>
-  signs.filter((s) => s.category === category);
+  coreGetSignsByCategory(signs, category);
