@@ -1,0 +1,95 @@
+# Dependabot configuration
+#
+# Two layers of supply-chain protection work together here:
+#
+#   1. `cooldown` below — makes Dependabot wait before it even opens a PR for a
+#      newly published version. NOTE: cooldown applies to *version updates only*.
+#      Security updates (driven by Dependabot alerts) deliberately ignore it, so
+#      a CVE fix is never delayed.
+#   2. `npmMinimalAgeGate` in .yarnrc.yml — a hard floor applied at resolution
+#      time to *every* install, local or CI, no matter who or what triggered it.
+#      This is the layer that covers security updates and manual `yarn add`.
+version: 2
+
+updates:
+  # ---------------------------------------------------------------------------
+  # npm — one entry covers the whole Yarn workspace tree (root, packages/*, apps/*)
+  # ---------------------------------------------------------------------------
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: '06:00'
+      timezone: Europe/London
+
+    open-pull-requests-limit: 10
+    versioning-strategy: increase
+
+    # Match the commit style already in the history: `chore(deps):` / `chore(deps-dev):`
+    commit-message:
+      prefix: chore
+      prefix-development: chore
+      include: scope
+
+    labels:
+      - dependencies
+
+    # Don't look at a release until the ecosystem has had time to notice it is
+    # malicious. Majors wait longer because they also need time to shake out
+    # ordinary breakage.
+    cooldown:
+      default-days: 7
+      semver-patch-days: 7
+      semver-minor-days: 7
+      semver-major-days: 14
+
+    groups:
+      # Minor + patch arrive as two reviewable PRs instead of a dozen.
+      production-minor-patch:
+        applies-to: version-updates
+        dependency-type: production
+        update-types: [minor, patch]
+        patterns: ['*']
+
+      development-minor-patch:
+        applies-to: version-updates
+        dependency-type: development
+        update-types: [minor, patch]
+        patterns: ['*']
+
+      # Majors are deliberately left ungrouped so each gets its own PR.
+
+      # A compromised-package wave (Shai-Hulud style) lands as one PR, not 30.
+      security:
+        applies-to: security-updates
+        patterns: ['*']
+
+  # ---------------------------------------------------------------------------
+  # GitHub Actions — the other half of the supply chain this repo depends on
+  # ---------------------------------------------------------------------------
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: '06:00'
+      timezone: Europe/London
+
+    open-pull-requests-limit: 5
+
+    commit-message:
+      prefix: chore
+      include: scope
+
+    labels:
+      - dependencies
+      - github-actions
+
+    cooldown:
+      default-days: 7
+
+    groups:
+      actions:
+        applies-to: version-updates
+        patterns: ['*']

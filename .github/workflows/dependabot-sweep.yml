@@ -1,0 +1,70 @@
+name: Dependabot sweep
+
+# Processes the queue of open Dependabot PRs on a schedule: holds anything newer
+# than the age floor, asks Dependabot to rebase anything stale, adds a changeset
+# when a published package's manifest actually changed, and merges the rest once
+# CI is green.
+#
+# All logic lives in scripts/dependabot-sweep.sh so it can be rehearsed locally:
+#   DRY_RUN=true bash scripts/dependabot-sweep.sh
+
+on:
+  schedule:
+    # Twice a day. Dependabot opens PRs Monday 06:00 Europe/London, so the first
+    # sweep of the week picks them up the following morning, past the age floor.
+    - cron: '17 7,19 * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Report only — do not merge or push'
+        type: boolean
+        default: true
+      min_age_hours:
+        description: 'Minimum PR age before merging (hours)'
+        type: string
+        default: '168'
+
+# Never let two sweeps merge into main at once.
+concurrency:
+  group: dependabot-sweep
+  cancel-in-progress: false
+
+permissions: {}
+
+jobs:
+  sweep:
+    name: Process open Dependabot PRs
+    runs-on: ubuntu-latest
+
+    steps:
+      # The App token (not GITHUB_TOKEN) is deliberate: merges made with
+      # GITHUB_TOKEN do not trigger further workflow runs, which would skip the
+      # CI + Release run on main and so skip publishing any changeset this
+      # sweep added.
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          app-id: ${{ secrets.ROAD_SIGNS_BOT_APP_ID }}
+          private-key: ${{ secrets.ROAD_SIGNS_PRIVATE_KEY }}
+
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          token: ${{ steps.app-token.outputs.token }}
+          fetch-depth: 0
+
+      - name: Sweep
+        env:
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run || 'false' }}
+          MIN_AGE_HOURS: ${{ inputs.min_age_hours || '168' }}
+          BASE_BRANCH: ${{ github.event.repository.default_branch }}
+          # Optional. Dependabot refuses `@dependabot` commands from a GitHub
+          # App (dependabot-core#9147), so without this the sweep can only
+          # label a conflicted PR for a human. With a fine-grained token that
+          # has pull-requests write, it asks Dependabot to recreate the branch
+          # instead, which fixes conflicts automatically.
+          DEPENDABOT_PAT: ${{ secrets.DEPENDABOT_PAT }}
+        run: bash scripts/dependabot-sweep.sh
