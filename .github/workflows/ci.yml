@@ -33,6 +33,13 @@ jobs:
       - name: Lint
         run: yarn lint
 
+      # Country packages import types from @road-signs/core, which only exist
+      # once it has been compiled. Without this the type-check fails on a clean
+      # checkout with:
+      #   src/types.ts(1,73): error TS2307: Cannot find module '@road-signs/core'
+      - name: Compile workspace packages
+        run: yarn compile
+
       - name: Type-check
         run: yarn type-check
 
