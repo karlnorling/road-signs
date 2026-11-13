@@ -7949,6 +7949,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"entities@npm:^8.0.0":
+  version: 8.1.0
+  resolution: "entities@npm:8.1.0"
+  checksum: 10c0/da0bf22912c19d2a4707783e1b905d3f6a977e93e0655a8d2c526455eb3996f668f9f2e4c2a07af8d6927d232c41b6e929a7044df0236c7bf6e9c38e070e3719
+  languageName: node
+  linkType: hard
+
 "env-paths@npm:^2.2.0":
   version: 2.2.1
   resolution: "env-paths@npm:2.2.1"
@@ -8838,15 +8845,6 @@ __metadata:
     property-information: "npm:^7.0.0"
     space-separated-tokens: "npm:^2.0.0"
   checksum: 10c0/18dc8064e5c3a7a2ae862978e626b97a254e1c8a67ee9d0c9f06d373bba155ed805fc5b5ce21b990fb7bc174624889e5e1ce1cade264f1b1d58b48f994bc85ce
-  languageName: node
-  linkType: hard
-
-"he@npm:1.2.0":
-  version: 1.2.0
-  resolution: "he@npm:1.2.0"
-  bin:
-    he: bin/he
-  checksum: 10c0/a27d478befe3c8192f006cdd0639a66798979dfa6e2125c6ac582a19a5ebfec62ad83e8382e6036170d873f46e4536a7e795bf8b95bf7c247f4cc0825ccc8c17
   languageName: node
   linkType: hard
 
@@ -10894,13 +10892,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-html-parser@npm:^7.0.1":
-  version: 7.1.0
-  resolution: "node-html-parser@npm:7.1.0"
+"node-html-parser@npm:^9.0.6":
+  version: 9.0.6
+  resolution: "node-html-parser@npm:9.0.6"
   dependencies:
     css-select: "npm:^5.1.0"
-    he: "npm:1.2.0"
-  checksum: 10c0/8bee2616de374bb6f43b62cc8523f6d923cd199b2b7a42c6cf2ca503f1e89c32fb44195bd5af17d6fde1b992ad62c24465b29437213ae25f7770261fc9819173
+    entities: "npm:^8.0.0"
+  checksum: 10c0/b9f88d050349f43ef2a2665799a7e5b5b53aad180eff2bde1fb8c66aebf217a3d89539f0b53b1753b04c1bd155b834922f948c4250863a4d0241e08fec2536ec
   languageName: node
   linkType: hard
 
@@ -12051,7 +12049,7 @@ __metadata:
     "@types/potrace": "npm:^2.1.5"
     glob: "npm:^14.0.3"
     lefthook: "npm:^2.1.6"
-    node-html-parser: "npm:^7.0.1"
+    node-html-parser: "npm:^9.0.6"
     oxfmt: "npm:^0.45.0"
     oxlint: "npm:^1.60.0"
     potrace: "npm:^2.1.8"
