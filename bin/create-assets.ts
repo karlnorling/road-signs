@@ -17,6 +17,11 @@ import { globSync } from 'glob';
 import { optimize } from 'svgo';
 import sharp from 'sharp';
 
+// sharp 0.35 changed how its types resolve, so the `sharp.Sharp` namespace is
+// no longer reachable from a default import. Deriving the instance type from
+// the function itself keeps this working across versions.
+type SharpInstance = ReturnType<typeof sharp>;
+
 /**
  * Scraper-agnostic input: a category → sign-list map. Each country scraper
  * narrows the category union further (USCategory, ViennaCategory, etc.) and
@@ -282,7 +287,7 @@ const rasterFromCommonsThumbnail = async (svgPath: string): Promise<boolean> => 
       // down-rate the requested size). Resize explicitly to the canonical
       // pipeline sizes so consumers get the same dimensions as locally
       // rasterised signs.
-      const resize = (b: sharp.Sharp) =>
+      const resize = (b: SharpInstance) =>
         b.resize(size, size, { fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } });
       await resize(sharp(pngBuf)).png({ quality: 90 }).toFile(pngOut);
       await resize(sharp(pngBuf)).jpeg({ quality: 90 }).toFile(jpgOut);

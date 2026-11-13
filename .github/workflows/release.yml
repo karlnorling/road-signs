@@ -56,9 +56,13 @@ jobs:
           # GITHUB_TOKEN is also present. Setting the env var does not
           # configure the action at all, which is how v1 did it.
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          publish-script: yarn changeset publish
+          publish-script: bash scripts/publish-when-enabled.sh
           version-script: yarn changeset version
           commit-message: 'chore: version packages'
           pr-title: 'chore: version packages'
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          # Opt-in switch. Until this repository variable is 'true' the publish
+          # path is a no-op, so a merge cannot mass-publish the scope before
+          # trusted publishing is configured.
+          PUBLISH_ENABLED: ${{ vars.PUBLISH_ENABLED }}

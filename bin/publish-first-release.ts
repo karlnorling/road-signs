@@ -32,6 +32,7 @@
  *   yarn publish-first-release --min-coverage=60
  *   yarn publish-first-release --only=se,no,dk
  *   yarn publish-first-release --execute           # actually publish
+ *   yarn publish-first-release --only=se --execute --otp=123456
  *
  * Publishing requires NPM_JS_AUTH to be set, which .yarnrc.yml reads as the
  * registry token.
@@ -123,6 +124,9 @@ const arg = (name: string): string | undefined => {
 const flag = (name: string): boolean => process.argv.includes(`--${name}`);
 
 const minCoverage = Number(arg('min-coverage') ?? DEFAULT_MIN_COVERAGE);
+// Only needed when the npm account requires 2FA for writes and the token in
+// use does not bypass it; a granular or automation token normally does.
+const otp = arg('otp');
 const only = arg('only')
   ?.split(',')
   .map((s) => s.trim())
@@ -189,6 +193,16 @@ if (!execute) {
   process.exit(0);
 }
 
+// A one-time password expires long before a large sequential run finishes.
+if (otp && toPublish.length > 5) {
+  console.error(
+    `--otp with ${toPublish.length} packages will not work: the code expires long before`,
+  );
+  console.error('a run that size finishes. Use a granular or automation token, which');
+  console.error('bypasses 2FA, or publish in small batches with --only.');
+  process.exit(2);
+}
+
 if (!process.env.NPM_JS_AUTH) {
   console.error(
     'NPM_JS_AUTH is not set; .yarnrc.yml needs it to authenticate. Refusing to publish.',
@@ -215,11 +229,13 @@ void (async () => {
     process.stdout.write(`  ${target.name}@${target.version} ... `);
     try {
       // --tolerate-republish makes a re-run safe after a partial failure.
-      const out = execFileSync(
-        'yarn',
-        ['npm', 'publish', '--access', 'public', '--tolerate-republish'],
-        { cwd: dir, encoding: 'utf-8', stdio: ['ignore', 'pipe', 'pipe'] },
-      );
+      const args = ['npm', 'publish', '--access', 'public', '--tolerate-republish'];
+      if (otp) args.push('--otp', otp);
+      const out = execFileSync('yarn', args, {
+        cwd: dir,
+        encoding: 'utf-8',
+        stdio: ['ignore', 'pipe', 'pipe'],
+      });
       if (/already exists|tolerate/i.test(out)) {
         console.log('already published, skipped');
         skipped++;
