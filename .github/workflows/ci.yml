@@ -14,12 +14,12 @@ jobs:
     name: Lint, type-check, validate
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
-          node-version: '24'
+          node-version-file: .nvmrc
 
       - name: Enable corepack
         run: corepack enable
@@ -29,6 +29,16 @@ jobs:
 
       - name: manypkg check
         run: yarn check
+
+      # GitHub Actions only *warns* when an action is passed an input it does
+      # not declare, so an action major bump that renames inputs fails
+      # silently. The release workflow runs only on push to main, where such a
+      # regression lands before anyone sees it. Fails on an undeclared input;
+      # deprecations only warn.
+      - name: Audit GitHub Action inputs
+        run: yarn audit-actions
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Lint
         run: yarn lint
