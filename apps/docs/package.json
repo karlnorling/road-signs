@@ -11,7 +11,7 @@
     "type-check": "astro check"
   },
   "dependencies": {
-    "@astrojs/starlight": "^0.39.2",
+    "@astrojs/starlight": "^0.42.9",
     "@road-signs/core": "workspace:*",
     "@road-signs/us": "workspace:*",
     "astro": "^6.3.2"
