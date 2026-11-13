@@ -25,6 +25,7 @@
     "lint": "oxlint .",
     "prepare": "lefthook install",
     "publish": "yarn changeset publish",
+    "publish-first-release": "tsx bin/publish-first-release.ts",
     "test": "yarn workspaces foreach -A run test",
     "trace-missing": "tsx bin/trace-missing.ts",
     "type-check": "yarn workspaces foreach -A --include '@road-signs/*' run type-check",
