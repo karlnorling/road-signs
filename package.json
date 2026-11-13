@@ -7,6 +7,7 @@
     "apps/*"
   ],
   "scripts": {
+    "audit-actions": "node scripts/audit-action-inputs.mjs",
     "build": "yarn update && yarn compile",
     "build-docs": "yarn workspace @road-signs-docs/app build",
     "changeset": "changeset",
@@ -46,7 +47,8 @@
     "sharp": "^0.33.5",
     "svgo": "^4.0.1",
     "tsx": "^4.19.4",
-    "typescript": "^6.0.0"
+    "typescript": "^6.0.0",
+    "yaml": "^2.9.1"
   },
   "resolutions": {
     "brace-expansion": "^2.0.3",
@@ -62,5 +64,5 @@
   "engines": {
     "node": ">= 24.0.0"
   },
-  "packageManager": "yarn@4.6.0"
+  "packageManager": "yarn@4.18.1"
 }
