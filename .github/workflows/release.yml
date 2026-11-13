@@ -49,12 +49,16 @@ jobs:
       #   2. If the merge to main consumed the version PR: run `publish` to
       #      push the bumped packages to npm.
       - name: Create release PR or publish
-        uses: changesets/action@v1
+        uses: changesets/action@v2
         with:
-          publish: yarn changeset publish
-          version: yarn changeset version
-          commit: 'chore: version packages'
-          title: 'chore: version packages'
+          # v2 renamed every input and takes the token as an input rather than
+          # from the environment; it refuses to run when a mismatched
+          # GITHUB_TOKEN is also present. Setting the env var does not
+          # configure the action at all, which is how v1 did it.
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          publish-script: yarn changeset publish
+          version-script: yarn changeset version
+          commit-message: 'chore: version packages'
+          pr-title: 'chore: version packages'
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
