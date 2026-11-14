@@ -33,6 +33,7 @@
  *   yarn publish-first-release --only=se,no,dk
  *   yarn publish-first-release --execute           # actually publish
  *   yarn publish-first-release --only=se --execute --otp=123456
+ *   yarn publish-first-release --only=se --execute --interactive
  *
  * Publishing requires NPM_JS_AUTH to be set, which .yarnrc.yml reads as the
  * registry token.
@@ -127,6 +128,11 @@ const minCoverage = Number(arg('min-coverage') ?? DEFAULT_MIN_COVERAGE);
 // Only needed when the npm account requires 2FA for writes and the token in
 // use does not bypass it; a granular or automation token normally does.
 const otp = arg('otp');
+// Yarn can only prompt for a one-time password when it owns the terminal, and
+// the publish output is normally piped so failures can be reported.
+// --interactive hands the terminal over: workable for a small --only batch,
+// not for a run of 137.
+const interactive = flag('interactive');
 const only = arg('only')
   ?.split(',')
   .map((s) => s.trim())
@@ -275,9 +281,9 @@ void (async () => {
       const out = execFileSync('yarn', args, {
         cwd: dir,
         encoding: 'utf-8',
-        stdio: ['ignore', 'pipe', 'pipe'],
+        stdio: interactive ? 'inherit' : ['ignore', 'pipe', 'pipe'],
       });
-      if (/already exists|tolerate/i.test(out)) {
+      if (/already exists|tolerate|already published/i.test(out ?? '')) {
         console.log('already published, skipped');
         skipped++;
       } else {
@@ -300,6 +306,22 @@ void (async () => {
       console.log('FAILED');
       console.log(`           ${detail || e.message || String(error)}`);
       failed.push(target.name);
+
+      // Every remaining package fails the same way, so stop rather than
+      // grinding through 130 more identical failures.
+      if (/YN0033|requires additional authentication|EOTP|one-time pass/i.test(detail)) {
+        console.error('');
+        console.error('npm demanded a one-time password, so the token in use does not bypass');
+        console.error('2FA. Stopping; every remaining package would fail identically.');
+        console.error('');
+        console.error('Fix it at the token: create a granular access token on npmjs.com scoped');
+        console.error('to @road-signs with Read and write AND "Bypass 2FA" enabled, then');
+        console.error('re-run. Versions already published are skipped.');
+        console.error('');
+        console.error('For a handful of packages you can type the codes yourself instead:');
+        console.error('  yarn publish-first-release --only=se --execute --interactive');
+        break;
+      }
     }
     await sleep(DELAY_MS);
   }
