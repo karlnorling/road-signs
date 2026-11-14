@@ -210,6 +210,42 @@ if (!process.env.NPM_JS_AUTH) {
   process.exit(2);
 }
 
+// Check the token once, rather than discovering it is dead 137 publishes in.
+// npm answers a bad token on a write with E404 rather than 401, so a failed
+// run reads as "package not found" and sends everyone hunting the wrong
+// problem. /-/whoami is a read, so this cannot publish anything.
+try {
+  const who = execFileSync(
+    'curl',
+    [
+      '-sS',
+      '-H',
+      `Authorization: Bearer ${process.env.NPM_JS_AUTH}`,
+      'https://registry.npmjs.org/-/whoami',
+    ],
+    { encoding: 'utf-8' },
+  );
+  const username = (JSON.parse(who) as { username?: string }).username;
+  if (!username) {
+    // An invalid bearer token gets an empty object back, not an error status.
+    throw new Error(
+      who.trim() === '{}' ? 'token not recognised (no username returned)' : who.trim(),
+    );
+  }
+  console.log(`Authenticated to npm as ${username}.\n`);
+} catch (error) {
+  const detail = error instanceof Error ? error.message.split('\n')[0] : String(error);
+  console.error('NPM_JS_AUTH was rejected by the registry, so nothing was published.');
+  console.error(`  registry said: ${detail}`);
+  console.error('');
+  console.error('Create a granular access token on npmjs.com scoped to @road-signs with');
+  console.error('Read and write, and Bypass 2FA enabled, then re-run. Verify it with:');
+  console.error(
+    '  curl -sS -H "Authorization: Bearer <token>" https://registry.npmjs.org/-/whoami',
+  );
+  process.exit(2);
+}
+
 const sleep = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
 
 // Wrapped in an async IIFE, as bin/verify.ts and bin/trace-missing.ts are:
