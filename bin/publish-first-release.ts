@@ -221,7 +221,12 @@ void (async () => {
 
   for (const target of toPublish) {
     const dir = path.join(PACKAGES_ROOT, target.cc);
-    if (!fs.existsSync(path.join(dir, 'dist'))) {
+    // Only packages whose `files` ships dist/ need a build; @road-signs/docs
+    // ships coverage/ and README.md and has no compile step.
+    const shipsDist = (readManifest(target.cc).files ?? []).some(
+      (f: string) => f.replace(/\/$/, '') === 'dist',
+    );
+    if (shipsDist && !fs.existsSync(path.join(dir, 'dist'))) {
       console.error(`  ${target.name}: no dist/ — run \`yarn compile\` first`);
       failed.push(target.name);
       continue;
@@ -244,8 +249,20 @@ void (async () => {
         published++;
       }
     } catch (error) {
-      const message = error instanceof Error ? error.message.split('\n')[0] : String(error);
-      console.log(`FAILED — ${message}`);
+      // `yarn npm publish` writes the useful part to stdout/stderr, which are
+      // piped; Error.message is only "Command failed", so print the captured
+      // output or the failure is undiagnosable.
+      const e = error as { stdout?: Buffer | string; stderr?: Buffer | string; message?: string };
+      const detail = [e.stdout, e.stderr]
+        .map((b) => (b ? b.toString() : ''))
+        .join('\n')
+        .split('\n')
+        .map((l) => l.trim())
+        .filter((l) => l && !/^(➤ )?YN0000/.test(l))
+        .slice(-6)
+        .join('\n           ');
+      console.log('FAILED');
+      console.log(`           ${detail || e.message || String(error)}`);
       failed.push(target.name);
     }
     await sleep(DELAY_MS);
