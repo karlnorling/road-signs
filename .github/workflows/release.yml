@@ -17,10 +17,23 @@ jobs:
       pull-requests: write
       id-token: write
     steps:
+      # `secrets.GITHUB_TOKEN` cannot open the Version Packages PR: the run
+      # fails with "GitHub Actions is not permitted to create or approve pull
+      # requests" unless the repository setting is enabled, and even then a
+      # GITHUB_TOKEN-authored PR triggers no workflows, so the Version PR would
+      # never get the status check it needs to merge. The App token does both.
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          app-id: ${{ secrets.ROAD_SIGNS_BOT_APP_ID }}
+          private-key: ${{ secrets.ROAD_SIGNS_PRIVATE_KEY }}
+
       - uses: actions/checkout@v7
         with:
           # Changesets needs the full history to compute diff vs. baseBranch.
           fetch-depth: 0
+          token: ${{ steps.app-token.outputs.token }}
 
       - name: Set up Node.js
         uses: actions/setup-node@v7
@@ -55,9 +68,15 @@ jobs:
           # from the environment; it refuses to run when a mismatched
           # GITHUB_TOKEN is also present. Setting the env var does not
           # configure the action at all, which is how v1 did it.
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-token: ${{ steps.app-token.outputs.token }}
           publish-script: bash scripts/publish-when-enabled.sh
-          version-script: yarn changeset version
+          # Internal deps here are `workspace:*`, which `changeset version`
+          # leaves alone, so yarn.lock does not currently drift -- verified by
+          # running the bump locally and passing `yarn install --immutable`.
+          # This keeps the lockfile refresh anyway, matching the other three
+          # repos: switching any package to `workspace:^` would start the drift,
+          # and that failure only ever shows up on a push to main.
+          version-script: yarn version-packages
           commit-message: 'chore: version packages'
           pr-title: 'chore: version packages'
         env:
