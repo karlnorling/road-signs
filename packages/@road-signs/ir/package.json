@@ -1,6 +1,6 @@
 {
   "name": "@road-signs/ir",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Iran road signs — TypeScript registry, inline SVGs, and image assets",
   "keywords": [
     "road-signs",
