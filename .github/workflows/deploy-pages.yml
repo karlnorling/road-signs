@@ -1,0 +1,62 @@
+name: Deploy Docs to GitHub Pages
+
+# Pages serves this repo from the `gh-pages` branch (legacy build), the same way
+# the other three repos do. Nothing was deploying it: the last commit on
+# gh-pages was a manual push on 2026-06-26, so the published docs sat five
+# months behind main.
+on:
+  push:
+    branches: [main]
+  # The docs build is heavy (every sign's SVG is inlined), so allow a manual
+  # re-deploy without pushing a commit.
+  workflow_dispatch:
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+permissions:
+  contents: write # peaceiris/actions-gh-pages pushes to the gh-pages branch
+
+jobs:
+  deploy:
+    name: Build and deploy docs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Enable Corepack (Yarn 4)
+        run: corepack enable
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      # The docs import from the country packages, so their dist/ has to exist
+      # before Astro resolves anything. Same reason the CI job compiles before
+      # type-checking.
+      - name: Compile workspace packages
+        run: yarn compile
+
+      # `prebuild` regenerates the search index from the registries first, and
+      # the build itself raises the heap to 8GB -- both are wired into the
+      # workspace's own scripts.
+      - name: Build docs
+        run: yarn workspace @road-signs-docs/app build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: apps/docs/dist
+          # The built site is ~470MB, almost all of it `gallery/` pages with
+          # every sign's SVG inlined. Keeping gh-pages history would add a fresh
+          # ~470MB tree on every push to main and bloat the repo within days, so
+          # publish a single-commit orphan branch instead. The other three repos
+          # omit this because their sites are a few MB.
+          force_orphan: true

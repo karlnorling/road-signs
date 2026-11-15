@@ -4,10 +4,21 @@ on:
   pull_request:
   push:
     branches: [main]
+  # Publish a single package by hand, to prove npm trusted publishing (OIDC)
+  # works before a release puts it in front of every package at once.
+  workflow_dispatch:
+    inputs:
+      smoke-test-package:
+        description: 'Publish only this package (e.g. core) to verify OIDC'
+        required: true
+        type: string
 
 concurrency:
   group: ci-${{ github.ref }}
-  cancel-in-progress: true
+  # Supersede stale PR runs, but never cancel a run on main: it may be
+  # mid-publish, and killing `npm publish` between packages leaves a partial
+  # release that the next run has to pick apart.
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
 
 jobs:
   lint-and-type-check:
@@ -58,3 +69,100 @@ jobs:
 
       - name: Test
         run: yarn test
+
+  # Publishing lives here rather than in its own workflow because npm's
+  # trusted publisher config names the workflow *file*. Registering 137
+  # packages against `ci.yml` and then publishing from `release.yml` fails
+  # every publish with a 404 on PUT, which reads like an auth error but is a
+  # filename mismatch. The other three repos put the release job in ci.yml for
+  # the same reason.
+  release:
+    name: Version or publish
+    needs: lint-and-type-check
+    if: >-
+      (github.event_name == 'push' && github.ref == 'refs/heads/main') ||
+      github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      id-token: write
+    steps:
+      # `secrets.GITHUB_TOKEN` cannot open the Version Packages PR: the run
+      # fails with "GitHub Actions is not permitted to create or approve pull
+      # requests" unless the repository setting is enabled, and even then a
+      # GITHUB_TOKEN-authored PR triggers no workflows, so the Version PR would
+      # never get the status check it needs to merge. The App token does both.
+      - name: Generate GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          app-id: ${{ secrets.ROAD_SIGNS_BOT_APP_ID }}
+          private-key: ${{ secrets.ROAD_SIGNS_PRIVATE_KEY }}
+
+      - uses: actions/checkout@v7
+        with:
+          # Changesets needs the full history to compute diff vs. baseBranch.
+          fetch-depth: 0
+          token: ${{ steps.app-token.outputs.token }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Enable corepack
+        run: corepack enable
+
+      - name: Install dependencies
+        run: yarn install --immutable
+
+      # Compile every workspace's dist/. Country packages need this because
+      # `files` in package.json includes `dist/` and that's what gets shipped.
+      # Note: this is `yarn compile`, NOT `yarn build` — the latter re-scrapes
+      # every country (hours-long, requires Wikimedia rate-limiting), which is
+      # not what we want on CI. The country signs.generated.ts files are
+      # checked into git and are the source of truth for releases.
+      - name: Compile workspaces
+        run: yarn compile
+
+      # Changesets action does two things depending on the repo state:
+      #   1. If there are unconsumed changesets in .changeset/: open or update
+      #      a "Version Packages" PR that runs `version` and bumps versions.
+      #   2. If the merge to main consumed the version PR: run `publish` to
+      #      push the bumped packages to npm.
+      # A dispatch bypasses changesets entirely: nothing is versioned or tagged,
+      # one already-versioned package is pushed to npm through the same
+      # credentials path a real release uses.
+      - name: Smoke-test trusted publishing
+        if: github.event_name == 'workflow_dispatch'
+        run: bash scripts/publish.sh
+        env:
+          PUBLISH_ONLY: ${{ inputs.smoke-test-package }}
+
+      - name: Create release PR or publish
+        if: github.event_name == 'push'
+        uses: changesets/action@v2
+        with:
+          # v2 renamed every input and takes the token as an input rather than
+          # from the environment; it refuses to run when a mismatched
+          # GITHUB_TOKEN is also present. Setting the env var does not
+          # configure the action at all, which is how v1 did it.
+          github-token: ${{ steps.app-token.outputs.token }}
+          publish-script: bash scripts/publish-when-enabled.sh
+          # Internal deps here are `workspace:*`, which `changeset version`
+          # leaves alone, so yarn.lock does not currently drift -- verified by
+          # running the bump locally and passing `yarn install --immutable`.
+          # This keeps the lockfile refresh anyway, matching the other three
+          # repos: switching any package to `workspace:^` would start the drift,
+          # and that failure only ever shows up on a push to main.
+          version-script: yarn version-packages
+          commit-message: 'chore: version packages'
+          pr-title: 'chore: version packages'
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          # Opt-in switch. Until this repository variable is 'true' the publish
+          # path is a no-op, so a merge cannot mass-publish the scope before
+          # trusted publishing is configured.
+          PUBLISH_ENABLED: ${{ vars.PUBLISH_ENABLED }}
