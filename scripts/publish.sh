@@ -33,6 +33,16 @@ ONLY="${PUBLISH_ONLY:-}"
 TMP=$(mktemp -d)
 trap 'rm -rf "$TMP"' EXIT
 
+# Which packages are worth publishing is decided by bin/publishable.ts, next to
+# the registry reader that enforces it: it drops the 63 scaffolded placeholders
+# with empty registries and anything under the 50% artwork-coverage bar set for
+# the first release. Doing this in bash got it wrong -- a placeholder's
+# signs.generated.ts exists, it just holds an empty array.
+PUBLISHABLE="$TMP/publishable.txt"
+yarn publishable > "$PUBLISHABLE"
+echo "$(wc -l < "$PUBLISHABLE" | tr -d ' ') packages are publishable"
+echo
+
 published=0
 skipped=0
 failed=0
@@ -48,25 +58,10 @@ for dir in packages/@road-signs/*/; do
 
   name=$(node -p "require('./${dir}package.json').name")
   version=$(node -p "require('./${dir}package.json').version")
-  private=$(node -p "require('./${dir}package.json').private || false")
-  [ "$private" = "true" ] && continue
 
-  # An empty registry means there is nothing worth shipping. These packages are
-  # scaffolded placeholders; publishing them just reserves a name with no signs.
-  signs=$(node -p "
-    const fs = require('fs');
-    const f = './${dir}src/signs.generated.ts';
-    try { fs.statSync(f); process.stdout.write('yes'); } catch { process.stdout.write('no'); }
-  " 2>/dev/null || echo 'no')
-  if [ "$signs" = 'no' ] && [ -z "$ONLY" ]; then
-    case "$pkg" in
-      core | docs | elements | react | vue | sm | va) ;;
-      *)
-        echo "Skipping ${name} (no registry to ship)"
-        skipped=$((skipped + 1))
-        continue
-        ;;
-    esac
+  if ! grep -qxF "$name" "$PUBLISHABLE"; then
+    skipped=$((skipped + 1))
+    continue
   fi
 
   if npm view "${name}@${version}" version >/dev/null 2>&1; then
