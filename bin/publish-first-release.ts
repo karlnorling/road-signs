@@ -282,6 +282,12 @@ void (async () => {
         cwd: dir,
         encoding: 'utf-8',
         stdio: interactive ? 'inherit' : ['ignore', 'pipe', 'pipe'],
+        // `yarn npm publish` lists every packed file, and a country package
+        // can hold tens of thousands. The default 1 MB buffer overflows on
+        // those, and Node then kills the child mid-upload -- which showed up
+        // as `spawnSync yarn ENOBUFS` on 11 of 137 packages, all of them the
+        // ones with 12k+ files.
+        maxBuffer: 256 * 1024 * 1024,
       });
       if (/already exists|tolerate|already published/i.test(out ?? '')) {
         console.log('already published, skipped');
