@@ -150,7 +150,7 @@ jobs:
           # GITHUB_TOKEN is also present. Setting the env var does not
           # configure the action at all, which is how v1 did it.
           github-token: ${{ steps.app-token.outputs.token }}
-          publish-script: bash scripts/publish-when-enabled.sh
+          publish-script: bash scripts/publish.sh
           # Internal deps here are `workspace:*`, which `changeset version`
           # leaves alone, so yarn.lock does not currently drift -- verified by
           # running the bump locally and passing `yarn install --immutable`.
@@ -160,9 +160,3 @@ jobs:
           version-script: yarn version-packages
           commit-message: 'chore: version packages'
           pr-title: 'chore: version packages'
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          # Opt-in switch. Until this repository variable is 'true' the publish
-          # path is a no-op, so a merge cannot mass-publish the scope before
-          # trusted publishing is configured.
-          PUBLISH_ENABLED: ${{ vars.PUBLISH_ENABLED }}
