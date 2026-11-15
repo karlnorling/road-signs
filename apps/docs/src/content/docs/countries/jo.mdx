@@ -5,7 +5,6 @@ description: Jordan road signs — categories, installation, and usage.
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-
 {/* HERO:START */}
 
 import CountryHero from '../../../components/CountryHero.astro';
@@ -18,12 +17,12 @@ import CountryHero from '../../../components/CountryHero.astro';
 
 ## Quick facts
 
-| Field | Value |
-| ----- | ----- |
-| Drive side | Right-hand |
-| Language(s) | Arabic, English |
-| Regulator | Ministry of Public Works |
-| Standard | Vienna Convention, bilingual Arabic/English (GCC Manual) |
+| Field       | Value                                                    |
+| ----------- | -------------------------------------------------------- |
+| Drive side  | Right-hand                                               |
+| Language(s) | Arabic, English                                          |
+| Regulator   | Ministry of Public Works                                 |
+| Standard    | Vienna Convention, bilingual Arabic/English (GCC Manual) |
 
 {/* QUICK_FACTS:END */}
 
@@ -38,12 +37,12 @@ npm install @road-signs/jo
 
 ## Sign categories
 
-| Category | Series | Description |
-| -------- | ------ | ----------- |
-| `warning` | Warning | Hazard and warning signs |
-| `priority` | Priority | Priority and right-of-way signs |
+| Category      | Series      | Description                       |
+| ------------- | ----------- | --------------------------------- |
+| `warning`     | Warning     | Hazard and warning signs          |
+| `priority`    | Priority    | Priority and right-of-way signs   |
 | `prohibitory` | Prohibitory | Prohibition and restriction signs |
-| `mandatory` | Mandatory | Mandatory instruction signs |
+| `mandatory`   | Mandatory   | Mandatory instruction signs       |
 | `information` | Information | Information and directional signs |
 
 {/* USAGE:START */}
@@ -69,6 +68,7 @@ npm install @road-signs/jo
     // All prohibitory signs
     const filtered = getSignsByCategory("prohibitory");
     ```
+
   </TabItem>
   <TabItem label="React">
     ```tsx
@@ -87,6 +87,7 @@ npm install @road-signs/jo
       );
     }
     ```
+
   </TabItem>
   <TabItem label="Vue 3">
     ```vue
@@ -103,6 +104,7 @@ npm install @road-signs/jo
       </div>
     </template>
     ```
+
   </TabItem>
 </Tabs>
 
@@ -112,20 +114,20 @@ npm install @road-signs/jo
 
 ## Coverage
 
-| Metric | Value |
-| ------ | ----- |
-| Signs scraped | 4 |
-| Signs with SVG | 4 |
-| Missing SVG | 0 |
-| Overall | **100%** |
+| Metric         | Value    |
+| -------------- | -------- |
+| Signs scraped  | 4        |
+| Signs with SVG | 4        |
+| Missing SVG    | 0        |
+| Overall        | **100%** |
 
-| Category | Scraped | With SVG | Missing | % |
-| -------- | ------: | -------: | ------: | -: |
-| `warning` | 0 | 0 | 0 | — |
-| `priority` | 0 | 0 | 0 | — |
-| `prohibitory` | 4 | 4 | 0 | 100% |
-| `mandatory` | 0 | 0 | 0 | — |
-| `information` | 0 | 0 | 0 | — |
+| Category      | Scraped | With SVG | Missing |    % |
+| ------------- | ------: | -------: | ------: | ---: |
+| `warning`     |       0 |        0 |       0 |    — |
+| `priority`    |       0 |        0 |       0 |    — |
+| `prohibitory` |       4 |        4 |       0 | 100% |
+| `mandatory`   |       0 |        0 |       0 |    — |
+| `information` |       0 |        0 |       0 |    — |
 
 **Standard:** Vienna Convention, bilingual Arabic/English (GCC Manual)
 

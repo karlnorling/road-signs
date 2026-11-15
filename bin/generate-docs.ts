@@ -11,6 +11,7 @@
 
 import fs from 'fs';
 import path from 'path';
+import { execFileSync } from 'child_process';
 import { globSync } from 'glob';
 
 // Country metadata lives in ./lib/countries so that other generators can read
@@ -39,7 +40,7 @@ const normalise = (s: string): string => s.toLowerCase().replace(/[^a-z0-9]/g, '
 
 const buildLocalPathTokens = (assetsRoot: string): string[] =>
   globSync(path.join(assetsRoot, '**', '*.svg'))
-    .filter((f) => !/_\d+x\d+\.svg$/.test(f))
+    .filter((f) => !/_\d+x\d+\.svg$/.test(f) && !isTraced(f))
     .map((f) =>
       f
         .replace(/\\/g, '/')
@@ -53,9 +54,20 @@ const sanitize = (s: string): string =>
     .replace(/\s/g, '_')
     .toLowerCase();
 
+/**
+ * A potrace trace is not vector artwork. `bin/trace-missing.ts` writes
+ * `<code>.traced.svg` for signs with no SVG upstream, and posterize emits
+ * monochrome layers, so counting those as coverage reported countries at 100%
+ * while a third of their signs rendered as black blobs -- mm was 231 of 233.
+ * See `yarn audit-svgs`.
+ */
+const isTraced = (file: string): boolean => file.endsWith('.traced.svg');
+
 const svgExistsForCode = (code: string, pathTokens: string[], assetsRoot: string): boolean => {
   const dirs = globSync(path.join(assetsRoot, '*', sanitize(code)));
-  if (dirs.some((d) => globSync(path.join(d, '*.svg')).length > 0)) return true;
+  if (dirs.some((d) => globSync(path.join(d, '*.svg')).filter((f) => !isTraced(f)).length > 0)) {
+    return true;
+  }
   const token = normalise(code);
   if (token.length < 2) return false;
   return pathTokens.some((p) => p.includes(token));
@@ -657,5 +669,12 @@ for (const cov of coverages) {
   injectCoverageMdx(mdxPath, cov);
   console.log(`  ${mdxPath}`);
 }
+
+// oxfmt pads markdown tables, so the raw output above fails
+// `yarn format:check` on every run -- the generated docs README has been
+// drifting from the formatter since June for exactly this reason.
+execFileSync('yarn', ['oxfmt', docsDir, astroPagesDir], {
+  stdio: ['ignore', 'ignore', 'inherit'],
+});
 
 console.log(`\nDone — ${coverages.length} countries documented.`);

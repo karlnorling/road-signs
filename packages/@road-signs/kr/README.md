@@ -1,6 +1,6 @@
 # @road-signs/kr
 
-Road signs for South Korea — a TypeScript registry with every sign's artwork inlined as SVG, plus typed lookup helpers.
+Road signs for South Korea — a TypeScript registry with most signs' artwork inlined as SVG, plus typed lookup helpers.
 
 ## Install
 
@@ -13,7 +13,7 @@ npm install @road-signs/kr
 |                     |                                                      |
 | ------------------- | ---------------------------------------------------- |
 | Signs               | 146                                                  |
-| With vector artwork | 146                                                  |
+| With vector artwork | 120                                                  |
 | Categories          | `information`, `mandatory`, `prohibitory`, `warning` |
 | Standard            | Road Traffic Act (도로교통법)                        |
 | Regulator           | KNPA                                                 |
@@ -38,6 +38,12 @@ const sign = getSign('crossroad-crossroad')!;
 
 sign.svg; // inline, SVGO-optimised SVG markup
 ```
+
+> **26 of these signs carry inline artwork.**
+> They have no usable vector source — either none was published upstream,
+> or the only artwork is a monochrome trace that renders as a black shape.
+> Vector sources for South Korea are welcome:
+> see [the coverage notes](https://karlnorling.github.io/road-signs/countries/kr/).
 
 > `sign.assets` holds paths into this repo's build-time `assets/` tree.
 > That directory is ~16GB across all countries and is **not published** —

@@ -1,6 +1,6 @@
 # @road-signs/mx
 
-Road signs for Mexico — a TypeScript registry with every sign's artwork inlined as SVG, plus typed lookup helpers.
+Road signs for Mexico — a TypeScript registry with most signs' artwork inlined as SVG, plus typed lookup helpers.
 
 ## Install
 
@@ -13,7 +13,7 @@ npm install @road-signs/mx
 |                     |                                                                              |
 | ------------------- | ---------------------------------------------------------------------------- |
 | Signs               | 316                                                                          |
-| With vector artwork | 316                                                                          |
+| With vector artwork | 314                                                                          |
 | Categories          | `information`, `prohibitory`, `warning`                                      |
 | Standard            | SCT (Secretaría de Comunicaciones y Transportes) — Vienna Convention variant |
 | Regulator           | SCT                                                                          |
@@ -38,6 +38,12 @@ const sign = getSign('sp-6a-curve-left')!;
 
 sign.svg; // inline, SVGO-optimised SVG markup
 ```
+
+> **2 of these signs carry inline artwork.**
+> They have no usable vector source — either none was published upstream,
+> or the only artwork is a monochrome trace that renders as a black shape.
+> Vector sources for Mexico are welcome:
+> see [the coverage notes](https://karlnorling.github.io/road-signs/countries/mx/).
 
 > `sign.assets` holds paths into this repo's build-time `assets/` tree.
 > That directory is ~16GB across all countries and is **not published** —

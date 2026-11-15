@@ -5,7 +5,6 @@ description: Armenia road signs — categories, installation, and usage.
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-
 {/* HERO:START */}
 
 import CountryHero from '../../../components/CountryHero.astro';
@@ -25,12 +24,12 @@ npm install @road-signs/am
 
 ## Sign categories
 
-| Category | Series | Description |
-| -------- | ------ | ----------- |
-| `warning` | Warning | Hazard and warning signs |
-| `priority` | Priority | Priority and right-of-way signs |
-| `prohibitory` | Prohibitory | Prohibition and restriction signs |
-| `mandatory` | Mandatory | Mandatory instruction signs |
+| Category      | Series                             | Description                                      |
+| ------------- | ---------------------------------- | ------------------------------------------------ |
+| `warning`     | Warning                            | Hazard and warning signs                         |
+| `priority`    | Priority                           | Priority and right-of-way signs                  |
+| `prohibitory` | Prohibitory                        | Prohibition and restriction signs                |
+| `mandatory`   | Mandatory                          | Mandatory instruction signs                      |
 | `information` | Information / Service / Additional | Information, service, and additional plate signs |
 
 {/* USAGE:START */}
@@ -56,6 +55,7 @@ npm install @road-signs/am
     // All warning signs
     const filtered = getSignsByCategory("warning");
     ```
+
   </TabItem>
   <TabItem label="React">
     ```tsx
@@ -74,6 +74,7 @@ npm install @road-signs/am
       );
     }
     ```
+
   </TabItem>
   <TabItem label="Vue 3">
     ```vue
@@ -90,6 +91,7 @@ npm install @road-signs/am
       </div>
     </template>
     ```
+
   </TabItem>
 </Tabs>
 
@@ -99,20 +101,20 @@ npm install @road-signs/am
 
 ## Coverage
 
-| Metric | Value |
-| ------ | ----- |
-| Signs scraped | 173 |
-| Signs with SVG | 173 |
-| Missing SVG | 0 |
-| Overall | **100%** |
+| Metric         | Value    |
+| -------------- | -------- |
+| Signs scraped  | 173      |
+| Signs with SVG | 173      |
+| Missing SVG    | 0        |
+| Overall        | **100%** |
 
-| Category | Scraped | With SVG | Missing | % |
-| -------- | ------: | -------: | ------: | -: |
-| `warning` | 37 | 37 | 0 | 100% |
-| `priority` | 13 | 13 | 0 | 100% |
-| `prohibitory` | 44 | 44 | 0 | 100% |
-| `mandatory` | 14 | 14 | 0 | 100% |
-| `information` | 65 | 65 | 0 | 100% |
+| Category      | Scraped | With SVG | Missing |    % |
+| ------------- | ------: | -------: | ------: | ---: |
+| `warning`     |      37 |       37 |       0 | 100% |
+| `priority`    |      13 |       13 |       0 | 100% |
+| `prohibitory` |      44 |       44 |       0 | 100% |
+| `mandatory`   |      14 |       14 |       0 | 100% |
+| `information` |      65 |       65 |       0 | 100% |
 
 **Standard:** Vienna Convention (ՀՀ ճանապարհային նշաններ)
 

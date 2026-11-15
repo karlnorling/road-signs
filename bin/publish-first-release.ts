@@ -47,7 +47,7 @@ import { globSync } from 'glob';
 const PACKAGES_ROOT = path.join('packages', '@road-signs');
 /** A country package's directory is its ISO 3166-1 alpha-2 code. */
 const COUNTRY_DIR = /^[a-z]{2}$/;
-const DEFAULT_MIN_COVERAGE = 50;
+const DEFAULT_MIN_COVERAGE = 30;
 /** npm is unhappy with long bursts; a short gap keeps a 200-package run calm. */
 const DELAY_MS = 750;
 

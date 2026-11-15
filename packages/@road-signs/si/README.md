@@ -1,6 +1,6 @@
 # @road-signs/si
 
-Road signs for Slovenia — a TypeScript registry with every sign's artwork inlined as SVG, plus typed lookup helpers.
+Road signs for Slovenia — a TypeScript registry with most signs' artwork inlined as SVG, plus typed lookup helpers.
 
 ## Install
 
@@ -13,7 +13,7 @@ npm install @road-signs/si
 |                     |                                                        |
 | ------------------- | ------------------------------------------------------ |
 | Signs               | 183                                                    |
-| With vector artwork | 183                                                    |
+| With vector artwork | 181                                                    |
 | Categories          | `information`, `mandatory`, `priority`, `warning`      |
 | Standard            | Pravilnik o prometni signalizaciji — Vienna Convention |
 | Regulator           | DRSI                                                   |
@@ -38,6 +38,12 @@ const sign = getSign('i-1-curve-to-the-left')!;
 
 sign.svg; // inline, SVGO-optimised SVG markup
 ```
+
+> **2 of these signs carry inline artwork.**
+> They have no usable vector source — either none was published upstream,
+> or the only artwork is a monochrome trace that renders as a black shape.
+> Vector sources for Slovenia are welcome:
+> see [the coverage notes](https://karlnorling.github.io/road-signs/countries/si/).
 
 > `sign.assets` holds paths into this repo's build-time `assets/` tree.
 > That directory is ~16GB across all countries and is **not published** —

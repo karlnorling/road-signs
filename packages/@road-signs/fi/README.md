@@ -1,6 +1,6 @@
 # @road-signs/fi
 
-Road signs for Finland — a TypeScript registry with every sign's artwork inlined as SVG, plus typed lookup helpers.
+Road signs for Finland — a TypeScript registry with most signs' artwork inlined as SVG, plus typed lookup helpers.
 
 ## Install
 
@@ -13,7 +13,7 @@ npm install @road-signs/fi
 |                     |                                                                  |
 | ------------------- | ---------------------------------------------------------------- |
 | Signs               | 445                                                              |
-| With vector artwork | 445                                                              |
+| With vector artwork | 401                                                              |
 | Categories          | `information`, `mandatory`, `priority`, `prohibitory`, `warning` |
 | Standard            | Tieliikennelaki — Vienna Convention                              |
 | Regulator           | Traficom                                                         |
@@ -40,6 +40,12 @@ const sign = getSign(
 
 sign.svg; // inline, SVGO-optimised SVG markup
 ```
+
+> **44 of these signs carry inline artwork.**
+> They have no usable vector source — either none was published upstream,
+> or the only artwork is a monochrome trace that renders as a black shape.
+> Vector sources for Finland are welcome:
+> see [the coverage notes](https://karlnorling.github.io/road-signs/countries/fi/).
 
 > `sign.assets` holds paths into this repo's build-time `assets/` tree.
 > That directory is ~16GB across all countries and is **not published** —

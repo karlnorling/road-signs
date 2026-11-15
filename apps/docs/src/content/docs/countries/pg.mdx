@@ -16,11 +16,11 @@ npm install @road-signs/pg
 
 ## Sign categories
 
-| Category | Series | Description |
-| -------- | ------ | ----------- |
-| `warning` | Warning | Hazard and warning signs |
-| `prohibitory` | Prohibitory | Prohibition and restriction signs |
-| `mandatory` | Mandatory | Mandatory instruction signs |
+| Category      | Series                             | Description                                      |
+| ------------- | ---------------------------------- | ------------------------------------------------ |
+| `warning`     | Warning                            | Hazard and warning signs                         |
+| `prohibitory` | Prohibitory                        | Prohibition and restriction signs                |
+| `mandatory`   | Mandatory                          | Mandatory instruction signs                      |
 | `information` | Information / Service / Additional | Information, service, and additional plate signs |
 
 {/* USAGE:START */}
@@ -46,6 +46,7 @@ npm install @road-signs/pg
     // All warning signs
     const filtered = getSignsByCategory("warning");
     ```
+
   </TabItem>
   <TabItem label="React">
     ```tsx
@@ -64,6 +65,7 @@ npm install @road-signs/pg
       );
     }
     ```
+
   </TabItem>
   <TabItem label="Vue 3">
     ```vue
@@ -80,6 +82,7 @@ npm install @road-signs/pg
       </div>
     </template>
     ```
+
   </TabItem>
 </Tabs>
 
@@ -89,20 +92,20 @@ npm install @road-signs/pg
 
 ## Coverage
 
-| Metric | Value |
-| ------ | ----- |
-| Signs scraped | 0 |
-| Signs with SVG | 0 |
-| Missing SVG | 0 |
-| Overall | **—** |
+| Metric         | Value |
+| -------------- | ----- |
+| Signs scraped  | 0     |
+| Signs with SVG | 0     |
+| Missing SVG    | 0     |
+| Overall        | **—** |
 
-| Category | Scraped | With SVG | Missing | % |
-| -------- | ------: | -------: | ------: | -: |
-| `warning` | 0 | 0 | 0 | — |
-| `priority` | 0 | 0 | 0 | — |
-| `prohibitory` | 0 | 0 | 0 | — |
-| `mandatory` | 0 | 0 | 0 | — |
-| `information` | 0 | 0 | 0 | — |
+| Category      | Scraped | With SVG | Missing |   % |
+| ------------- | ------: | -------: | ------: | --: |
+| `warning`     |       0 |        0 |       0 |   — |
+| `priority`    |       0 |        0 |       0 |   — |
+| `prohibitory` |       0 |        0 |       0 |   — |
+| `mandatory`   |       0 |        0 |       0 |   — |
+| `information` |       0 |        0 |       0 |   — |
 
 **Standard:** British-derived (Motor Traffic Act / Road User Rules 2017)
 

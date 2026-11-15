@@ -1,6 +1,6 @@
 # @road-signs/id
 
-Road signs for Indonesia — a TypeScript registry with every sign's artwork inlined as SVG, plus typed lookup helpers.
+Road signs for Indonesia — a TypeScript registry with most signs' artwork inlined as SVG, plus typed lookup helpers.
 
 ## Install
 
@@ -13,7 +13,7 @@ npm install @road-signs/id
 |                     |                                                                 |
 | ------------------- | --------------------------------------------------------------- |
 | Signs               | 295                                                             |
-| With vector artwork | 295                                                             |
+| With vector artwork | 210                                                             |
 | Categories          | `information`, `mandatory`, `prohibitory`, `warning`            |
 | Standard            | Vienna Convention based (Minister of Transport Regulation 2014) |
 | Regulator           | Ministry of Transportation                                      |
@@ -38,6 +38,12 @@ const sign = getSign('bend-bend')!;
 
 sign.svg; // inline, SVGO-optimised SVG markup
 ```
+
+> **85 of these signs carry inline artwork.**
+> They have no usable vector source — either none was published upstream,
+> or the only artwork is a monochrome trace that renders as a black shape.
+> Vector sources for Indonesia are welcome:
+> see [the coverage notes](https://karlnorling.github.io/road-signs/countries/id/).
 
 > `sign.assets` holds paths into this repo's build-time `assets/` tree.
 > That directory is ~16GB across all countries and is **not published** —

@@ -1,6 +1,6 @@
 # @road-signs/mm
 
-Road signs for Myanmar — a TypeScript registry with every sign's artwork inlined as SVG, plus typed lookup helpers.
+Road signs for Myanmar — a TypeScript registry with most signs' artwork inlined as SVG, plus typed lookup helpers.
 
 ## Install
 
@@ -13,7 +13,7 @@ npm install @road-signs/mm
 |                     |                                                                  |
 | ------------------- | ---------------------------------------------------------------- |
 | Signs               | 233                                                              |
-| With vector artwork | 233                                                              |
+| With vector artwork | 2                                                                |
 | Categories          | `information`, `mandatory`, `priority`, `prohibitory`, `warning` |
 | Standard            | Vienna Convention / UK-influenced                                |
 | Regulator           | Ministry of Construction                                         |
@@ -38,6 +38,12 @@ const sign = getSign('1-curve-left-1-curve-left')!;
 
 sign.svg; // inline, SVGO-optimised SVG markup
 ```
+
+> **231 of these signs carry inline artwork.**
+> They have no usable vector source — either none was published upstream,
+> or the only artwork is a monochrome trace that renders as a black shape.
+> Vector sources for Myanmar are welcome:
+> see [the coverage notes](https://karlnorling.github.io/road-signs/countries/mm/).
 
 > `sign.assets` holds paths into this repo's build-time `assets/` tree.
 > That directory is ~16GB across all countries and is **not published** —

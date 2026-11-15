@@ -1,6 +1,6 @@
 # @road-signs/uk
 
-Road signs for United Kingdom — a TypeScript registry with every sign's artwork inlined as SVG, plus typed lookup helpers.
+Road signs for United Kingdom — a TypeScript registry with most signs' artwork inlined as SVG, plus typed lookup helpers.
 
 ## Install
 
@@ -13,7 +13,7 @@ npm install @road-signs/uk
 |                     |                                                                  |
 | ------------------- | ---------------------------------------------------------------- |
 | Signs               | 468                                                              |
-| With vector artwork | 468                                                              |
+| With vector artwork | 453                                                              |
 | Categories          | `direction`, `information`, `regulatory`, `temporary`, `warning` |
 | Standard            | TSRGD (Traffic Signs Regulations and General Directions)         |
 | Regulator           | DfT (TSRGD 2016)                                                 |
@@ -38,6 +38,12 @@ const sign = getSign('stop-or-give-way-ahead-stop-or-give-way-ahead')!;
 
 sign.svg; // inline, SVGO-optimised SVG markup
 ```
+
+> **15 of these signs carry inline artwork.**
+> They have no usable vector source — either none was published upstream,
+> or the only artwork is a monochrome trace that renders as a black shape.
+> Vector sources for United Kingdom are welcome:
+> see [the coverage notes](https://karlnorling.github.io/road-signs/countries/uk/).
 
 > `sign.assets` holds paths into this repo's build-time `assets/` tree.
 > That directory is ~16GB across all countries and is **not published** —

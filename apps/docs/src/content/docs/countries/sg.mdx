@@ -5,7 +5,6 @@ description: Singapore road signs — categories, installation, and usage.
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-
 {/* HERO:START */}
 
 import CountryHero from '../../../components/CountryHero.astro';
@@ -18,12 +17,12 @@ import CountryHero from '../../../components/CountryHero.astro';
 
 ## Quick facts
 
-| Field | Value |
-| ----- | ----- |
-| Drive side | Left-hand |
-| Language(s) | English |
-| Regulator | LTA |
-| Standard | Road Traffic Act (Traffic Signs) Rules — Vienna Convention |
+| Field       | Value                                                      |
+| ----------- | ---------------------------------------------------------- |
+| Drive side  | Left-hand                                                  |
+| Language(s) | English                                                    |
+| Regulator   | LTA                                                        |
+| Standard    | Road Traffic Act (Traffic Signs) Rules — Vienna Convention |
 
 {/* QUICK_FACTS:END */}
 
@@ -38,10 +37,10 @@ npm install @road-signs/sg
 
 ## Sign categories
 
-| Category | Series | Description |
-| -------- | ------ | ----------- |
-| `warning` | Warning | Hazard and warning signs |
-| `prohibitory` | Regulatory | Regulatory and prohibition signs |
+| Category      | Series                  | Description                       |
+| ------------- | ----------------------- | --------------------------------- |
+| `warning`     | Warning                 | Hazard and warning signs          |
+| `prohibitory` | Regulatory              | Regulatory and prohibition signs  |
 | `information` | Directional / Temporary | Information and directional signs |
 
 {/* USAGE:START */}
@@ -67,6 +66,7 @@ npm install @road-signs/sg
     // All information signs
     const filtered = getSignsByCategory("information");
     ```
+
   </TabItem>
   <TabItem label="React">
     ```tsx
@@ -85,6 +85,7 @@ npm install @road-signs/sg
       );
     }
     ```
+
   </TabItem>
   <TabItem label="Vue 3">
     ```vue
@@ -101,6 +102,7 @@ npm install @road-signs/sg
       </div>
     </template>
     ```
+
   </TabItem>
 </Tabs>
 
@@ -110,20 +112,20 @@ npm install @road-signs/sg
 
 ## Coverage
 
-| Metric | Value |
-| ------ | ----- |
-| Signs scraped | 137 |
-| Signs with SVG | 137 |
-| Missing SVG | 0 |
-| Overall | **100%** |
+| Metric         | Value   |
+| -------------- | ------- |
+| Signs scraped  | 137     |
+| Signs with SVG | 136     |
+| Missing SVG    | 1       |
+| Overall        | **99%** |
 
-| Category | Scraped | With SVG | Missing | % |
-| -------- | ------: | -------: | ------: | -: |
-| `warning` | 39 | 39 | 0 | 100% |
-| `priority` | 5 | 5 | 0 | 100% |
-| `prohibitory` | 17 | 17 | 0 | 100% |
-| `mandatory` | 7 | 7 | 0 | 100% |
-| `information` | 69 | 69 | 0 | 100% |
+| Category      | Scraped | With SVG | Missing |    % |
+| ------------- | ------: | -------: | ------: | ---: |
+| `warning`     |      39 |       39 |       0 | 100% |
+| `priority`    |       5 |        5 |       0 | 100% |
+| `prohibitory` |      17 |       17 |       0 | 100% |
+| `mandatory`   |       7 |        7 |       0 | 100% |
+| `information` |      69 |       68 |       1 |  99% |
 
 **Standard:** Road Traffic Act (Traffic Signs) Rules — Vienna Convention
 

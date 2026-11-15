@@ -5,7 +5,6 @@ description: Romanian road signs — categories, installation, and usage.
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-
 {/* HERO:START */}
 
 import CountryHero from '../../../components/CountryHero.astro';
@@ -18,12 +17,12 @@ import CountryHero from '../../../components/CountryHero.astro';
 
 ## Quick facts
 
-| Field | Value |
-| ----- | ----- |
-| Drive side | Right-hand |
-| Language(s) | Romanian |
-| Regulator | IGPR |
-| Standard | Codul rutier (OUG 195/2002) — Vienna Convention |
+| Field       | Value                                           |
+| ----------- | ----------------------------------------------- |
+| Drive side  | Right-hand                                      |
+| Language(s) | Romanian                                        |
+| Regulator   | IGPR                                            |
+| Standard    | Codul rutier (OUG 195/2002) — Vienna Convention |
 
 {/* QUICK_FACTS:END */}
 
@@ -38,13 +37,13 @@ npm install @road-signs/ro
 
 ## Sign categories
 
-| Category | Series | Description |
-| -------- | ------ | ----------- |
-| `warning` | A series | Indicatoare de avertizare — hazard warnings |
-| `priority` | B series | Indicatoare de prioritate — right-of-way |
-| `prohibitory` | C series | Indicatoare de interzicere sau restrictie — regulatory |
-| `mandatory` | D series | Indicatoare de obligare — mandatory |
-| `information` | E–F series | Indicatoare de informare — information |
+| Category      | Series     | Description                                            |
+| ------------- | ---------- | ------------------------------------------------------ |
+| `warning`     | A series   | Indicatoare de avertizare — hazard warnings            |
+| `priority`    | B series   | Indicatoare de prioritate — right-of-way               |
+| `prohibitory` | C series   | Indicatoare de interzicere sau restrictie — regulatory |
+| `mandatory`   | D series   | Indicatoare de obligare — mandatory                    |
+| `information` | E–F series | Indicatoare de informare — information                 |
 
 {/* USAGE:START */}
 
@@ -69,6 +68,7 @@ npm install @road-signs/ro
     // All warning signs
     const filtered = getSignsByCategory("warning");
     ```
+
   </TabItem>
   <TabItem label="React">
     ```tsx
@@ -87,6 +87,7 @@ npm install @road-signs/ro
       );
     }
     ```
+
   </TabItem>
   <TabItem label="Vue 3">
     ```vue
@@ -103,6 +104,7 @@ npm install @road-signs/ro
       </div>
     </template>
     ```
+
   </TabItem>
 </Tabs>
 
@@ -112,20 +114,20 @@ npm install @road-signs/ro
 
 ## Coverage
 
-| Metric | Value |
-| ------ | ----- |
-| Signs scraped | 305 |
-| Signs with SVG | 305 |
-| Missing SVG | 0 |
-| Overall | **100%** |
+| Metric         | Value    |
+| -------------- | -------- |
+| Signs scraped  | 305      |
+| Signs with SVG | 305      |
+| Missing SVG    | 0        |
+| Overall        | **100%** |
 
-| Category | Scraped | With SVG | Missing | % |
-| -------- | ------: | -------: | ------: | -: |
-| `warning` | 53 | 53 | 0 | 100% |
-| `priority` | 6 | 6 | 0 | 100% |
-| `prohibitory` | 48 | 48 | 0 | 100% |
-| `mandatory` | 18 | 18 | 0 | 100% |
-| `information` | 180 | 180 | 0 | 100% |
+| Category      | Scraped | With SVG | Missing |    % |
+| ------------- | ------: | -------: | ------: | ---: |
+| `warning`     |      53 |       53 |       0 | 100% |
+| `priority`    |       6 |        6 |       0 | 100% |
+| `prohibitory` |      48 |       48 |       0 | 100% |
+| `mandatory`   |      18 |       18 |       0 | 100% |
+| `information` |     180 |      180 |       0 | 100% |
 
 **Standard:** Codul rutier (OUG 195/2002) — Vienna Convention
 
@@ -142,20 +144,15 @@ _Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.c
 ```ts
 import type { ROSign, ROCategory } from '@road-signs/ro';
 
-type ROCategory =
-  | 'information'
-  | 'mandatory'
-  | 'priority'
-  | 'prohibitory'
-  | 'warning';
+type ROCategory = 'information' | 'mandatory' | 'priority' | 'prohibitory' | 'warning';
 
 interface ROSign {
-  id: string;          // e.g. "a1-sharp-bend"
-  code: string;        // sign code, e.g. "A1"
+  id: string; // e.g. "a1-sharp-bend"
+  code: string; // sign code, e.g. "A1"
   name: string;
   description: string;
   category: ROCategory;
-  svg: string;         // inline SVG string
+  svg: string; // inline SVG string
   assets: {
     svg: string;
     png: Record<number, string>;

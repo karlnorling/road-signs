@@ -6,12 +6,12 @@
 
 ## SVG Coverage
 
-| Metric | Value |
-| ------ | ----- |
-| Total signs scraped | 0 |
-| Signs with SVG asset | 0 |
-| Missing SVG | 0 |
-| Overall coverage | **—** |
+| Metric               | Value |
+| -------------------- | ----- |
+| Total signs scraped  | 0     |
+| Signs with SVG asset | 0     |
+| Missing SVG          | 0     |
+| Overall coverage     | **—** |
 
 ## Coverage by Category
 

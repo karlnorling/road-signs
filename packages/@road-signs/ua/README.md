@@ -1,6 +1,6 @@
 # @road-signs/ua
 
-Road signs for Ukraine — a TypeScript registry with every sign's artwork inlined as SVG, plus typed lookup helpers.
+Road signs for Ukraine — a TypeScript registry with most signs' artwork inlined as SVG, plus typed lookup helpers.
 
 ## Install
 
@@ -13,7 +13,7 @@ npm install @road-signs/ua
 |                     |                                                                  |
 | ------------------- | ---------------------------------------------------------------- |
 | Signs               | 309                                                              |
-| With vector artwork | 309                                                              |
+| With vector artwork | 303                                                              |
 | Categories          | `information`, `mandatory`, `priority`, `prohibitory`, `warning` |
 | Standard            | Правила дорожнього руху (PDR) — Vienna Convention                |
 | Regulator           | Ukravtodor                                                       |
@@ -38,6 +38,12 @@ const sign = getSign('curve-to-the-right-curve-to-the-right')!;
 
 sign.svg; // inline, SVGO-optimised SVG markup
 ```
+
+> **6 of these signs carry inline artwork.**
+> They have no usable vector source — either none was published upstream,
+> or the only artwork is a monochrome trace that renders as a black shape.
+> Vector sources for Ukraine are welcome:
+> see [the coverage notes](https://karlnorling.github.io/road-signs/countries/ua/).
 
 > `sign.assets` holds paths into this repo's build-time `assets/` tree.
 > That directory is ~16GB across all countries and is **not published** —

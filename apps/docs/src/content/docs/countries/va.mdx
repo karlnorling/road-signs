@@ -5,18 +5,16 @@ description: Vatican City road signs — categories, installation, and usage.
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-
-
 {/* QUICK_FACTS:START */}
 
 ## Quick facts
 
-| Field | Value |
-| ----- | ----- |
-| Drive side | Right-hand |
-| Language(s) | Italian, Latin |
-| Regulator | Italian Codice della Strada (de facto) |
-| Standard | Italian Codice della Strada (re-exported from @road-signs/it) |
+| Field       | Value                                                         |
+| ----------- | ------------------------------------------------------------- |
+| Drive side  | Right-hand                                                    |
+| Language(s) | Italian, Latin                                                |
+| Regulator   | Italian Codice della Strada (de facto)                        |
+| Standard    | Italian Codice della Strada (re-exported from @road-signs/it) |
 
 {/* QUICK_FACTS:END */}
 
@@ -51,6 +49,7 @@ npm install @road-signs/va
     // All information signs
     const filtered = getSignsByCategory("information");
     ```
+
   </TabItem>
   <TabItem label="React">
     ```tsx
@@ -69,6 +68,7 @@ npm install @road-signs/va
       );
     }
     ```
+
   </TabItem>
   <TabItem label="Vue 3">
     ```vue
@@ -85,6 +85,7 @@ npm install @road-signs/va
       </div>
     </template>
     ```
+
   </TabItem>
 </Tabs>
 
@@ -94,15 +95,15 @@ npm install @road-signs/va
 
 ## Coverage
 
-| Metric | Value |
-| ------ | ----- |
-| Signs scraped | 0 |
-| Signs with SVG | 0 |
-| Missing SVG | 0 |
-| Overall | **—** |
+| Metric         | Value |
+| -------------- | ----- |
+| Signs scraped  | 0     |
+| Signs with SVG | 0     |
+| Missing SVG    | 0     |
+| Overall        | **—** |
 
-| Category | Scraped | With SVG | Missing | % |
-| -------- | ------: | -------: | ------: | -: |
+| Category | Scraped | With SVG | Missing |   % |
+| -------- | ------: | -------: | ------: | --: |
 
 **Standard:** Italian Codice della Strada (re-exported from @road-signs/it)
 

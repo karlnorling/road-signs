@@ -1,6 +1,6 @@
 # @road-signs/it
 
-Road signs for Italy — a TypeScript registry with every sign's artwork inlined as SVG, plus typed lookup helpers.
+Road signs for Italy — a TypeScript registry with most signs' artwork inlined as SVG, plus typed lookup helpers.
 
 ## Install
 
@@ -13,7 +13,7 @@ npm install @road-signs/it
 |                     |                                         |
 | ------------------- | --------------------------------------- |
 | Signs               | 326                                     |
-| With vector artwork | 326                                     |
+| With vector artwork | 317                                     |
 | Categories          | `information`, `prohibitory`, `warning` |
 | Standard            | Codice della strada — Vienna Convention |
 | Regulator           | MIT (Codice della Strada)               |
@@ -42,6 +42,12 @@ const sign = getSign(
 
 sign.svg; // inline, SVGO-optimised SVG markup
 ```
+
+> **9 of these signs carry inline artwork.**
+> They have no usable vector source — either none was published upstream,
+> or the only artwork is a monochrome trace that renders as a black shape.
+> Vector sources for Italy are welcome:
+> see [the coverage notes](https://karlnorling.github.io/road-signs/countries/it/).
 
 > `sign.assets` holds paths into this repo's build-time `assets/` tree.
 > That directory is ~16GB across all countries and is **not published** —

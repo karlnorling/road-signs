@@ -10,10 +10,10 @@
  *   - An empty registry. 64 country packages are scaffolded placeholders whose
  *     `signs.generated.ts` is an empty array. There is nothing to ship, and
  *     none of them has ever been published.
- *   - Coverage below MIN_COVERAGE, matching the bar set for the first release:
- *     only publish a country whose signs mostly have artwork. Today that
- *     excludes exactly fj, whose 176 signs are all raster-only and so render
- *     as nothing from a published package.
+ *   - Coverage below MIN_COVERAGE (30%): only publish a country where enough
+ *     signs have usable artwork. Artwork means what `bin/audit-svgs.ts` calls
+ *     usable -- a potrace trace does not count, because it renders as a black
+ *     shape with no colour.
  *
  * Usage: yarn publishable [--verbose]
  */
@@ -21,10 +21,11 @@
 import fs from 'fs';
 import path from 'path';
 import { PACKAGES_DIR, readRegistry } from './lib/registry';
+import { classify } from './audit-svgs';
 import { MIRRORS } from './lib/countries';
 
-/** Matches `bin/publish-first-release.ts`, which gated the first release. */
-const MIN_COVERAGE = 0.5;
+/** Matches `bin/publish-first-release.ts`. Set to 30% on 2026-11-15. */
+const MIN_COVERAGE = 0.3;
 
 /** Not country packages, so the coverage rule does not apply to them. */
 const SHARED = new Set(['core', 'docs', 'elements', 'react', 'vue']);
@@ -58,7 +59,14 @@ for (const pkg of packages) {
     continue;
   }
 
-  const coverage = signs.filter((s) => s.svg).length / signs.length;
+  // Judge artwork as audit-svgs does. Counting `s.svg` alone would let a
+  // potrace trace pass as coverage, which makes the gate meaningless: mm would
+  // score 99% while 231 of its 233 signs render as black blobs.
+  const withArtwork = signs.filter((s) => {
+    const verdict = classify(s.svg);
+    return verdict === 'ok' || verdict === 'mono';
+  }).length;
+  const coverage = withArtwork / signs.length;
   if (coverage < MIN_COVERAGE) {
     if (verbose) {
       console.error(

@@ -1,6 +1,6 @@
 # @road-signs/cz
 
-Road signs for Czech Republic — a TypeScript registry with every sign's artwork inlined as SVG, plus typed lookup helpers.
+Road signs for Czech Republic — a TypeScript registry with most signs' artwork inlined as SVG, plus typed lookup helpers.
 
 ## Install
 
@@ -13,7 +13,7 @@ npm install @road-signs/cz
 |                     |                                                                  |
 | ------------------- | ---------------------------------------------------------------- |
 | Signs               | 270                                                              |
-| With vector artwork | 270                                                              |
+| With vector artwork | 193                                                              |
 | Categories          | `information`, `mandatory`, `priority`, `prohibitory`, `warning` |
 | Standard            | Zákon č. 361/2000 Sb. — Vienna Convention                        |
 | Regulator           | MD ČR                                                            |
@@ -38,6 +38,12 @@ const sign = getSign('i-1a-i-1a-dangerous-curve-to-the-right')!;
 
 sign.svg; // inline, SVGO-optimised SVG markup
 ```
+
+> **77 of these signs carry inline artwork.**
+> They have no usable vector source — either none was published upstream,
+> or the only artwork is a monochrome trace that renders as a black shape.
+> Vector sources for Czech Republic are welcome:
+> see [the coverage notes](https://karlnorling.github.io/road-signs/countries/cz/).
 
 > `sign.assets` holds paths into this repo's build-time `assets/` tree.
 > That directory is ~16GB across all countries and is **not published** —

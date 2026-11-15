@@ -1,6 +1,6 @@
 # @road-signs/se
 
-Road signs for Sweden — a TypeScript registry with every sign's artwork inlined as SVG, plus typed lookup helpers.
+Road signs for Sweden — a TypeScript registry with most signs' artwork inlined as SVG, plus typed lookup helpers.
 
 ## Install
 
@@ -13,7 +13,7 @@ npm install @road-signs/se
 |                     |                                                                  |
 | ------------------- | ---------------------------------------------------------------- |
 | Signs               | 267                                                              |
-| With vector artwork | 267                                                              |
+| With vector artwork | 260                                                              |
 | Categories          | `information`, `mandatory`, `priority`, `prohibitory`, `warning` |
 | Standard            | Vägmärkesförordning (VMF) — Vienna Convention                    |
 | Regulator           | Trafikverket (VMF)                                               |
@@ -38,6 +38,12 @@ const sign = getSign('dangerous-curve-to-left-dangerous-curve-to-left')!;
 
 sign.svg; // inline, SVGO-optimised SVG markup
 ```
+
+> **7 of these signs carry inline artwork.**
+> They have no usable vector source — either none was published upstream,
+> or the only artwork is a monochrome trace that renders as a black shape.
+> Vector sources for Sweden are welcome:
+> see [the coverage notes](https://karlnorling.github.io/road-signs/countries/se/).
 
 > `sign.assets` holds paths into this repo's build-time `assets/` tree.
 > That directory is ~16GB across all countries and is **not published** —

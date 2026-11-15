@@ -5,7 +5,6 @@ description: Tunisia road signs — categories, installation, and usage.
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-
 {/* HERO:START */}
 
 import CountryHero from '../../../components/CountryHero.astro';
@@ -18,12 +17,12 @@ import CountryHero from '../../../components/CountryHero.astro';
 
 ## Quick facts
 
-| Field | Value |
-| ----- | ----- |
-| Drive side | Right-hand |
-| Language(s) | Arabic |
-| Regulator | Ministry of Transport |
-| Standard | Code de la route — Vienna Convention / French-influenced |
+| Field       | Value                                                    |
+| ----------- | -------------------------------------------------------- |
+| Drive side  | Right-hand                                               |
+| Language(s) | Arabic                                                   |
+| Regulator   | Ministry of Transport                                    |
+| Standard    | Code de la route — Vienna Convention / French-influenced |
 
 {/* QUICK_FACTS:END */}
 
@@ -38,11 +37,11 @@ npm install @road-signs/tn
 
 ## Sign categories
 
-| Category | Series | Description |
-| -------- | ------ | ----------- |
-| `warning` | Warning | Hazard and warning signs |
-| `prohibitory` | Regulatory | Regulatory and prohibition signs |
-| `mandatory` | Mandatory | Mandatory instruction signs |
+| Category      | Series      | Description                       |
+| ------------- | ----------- | --------------------------------- |
+| `warning`     | Warning     | Hazard and warning signs          |
+| `prohibitory` | Regulatory  | Regulatory and prohibition signs  |
+| `mandatory`   | Mandatory   | Mandatory instruction signs       |
 | `information` | Information | Information and directional signs |
 
 {/* USAGE:START */}
@@ -68,6 +67,7 @@ npm install @road-signs/tn
     // All warning signs
     const filtered = getSignsByCategory("warning");
     ```
+
   </TabItem>
   <TabItem label="React">
     ```tsx
@@ -86,6 +86,7 @@ npm install @road-signs/tn
       );
     }
     ```
+
   </TabItem>
   <TabItem label="Vue 3">
     ```vue
@@ -102,6 +103,7 @@ npm install @road-signs/tn
       </div>
     </template>
     ```
+
   </TabItem>
 </Tabs>
 
@@ -111,20 +113,20 @@ npm install @road-signs/tn
 
 ## Coverage
 
-| Metric | Value |
-| ------ | ----- |
-| Signs scraped | 0 |
-| Signs with SVG | 0 |
-| Missing SVG | 0 |
-| Overall | **—** |
+| Metric         | Value |
+| -------------- | ----- |
+| Signs scraped  | 0     |
+| Signs with SVG | 0     |
+| Missing SVG    | 0     |
+| Overall        | **—** |
 
-| Category | Scraped | With SVG | Missing | % |
-| -------- | ------: | -------: | ------: | -: |
-| `warning` | 0 | 0 | 0 | — |
-| `priority` | 0 | 0 | 0 | — |
-| `prohibitory` | 0 | 0 | 0 | — |
-| `mandatory` | 0 | 0 | 0 | — |
-| `information` | 0 | 0 | 0 | — |
+| Category      | Scraped | With SVG | Missing |   % |
+| ------------- | ------: | -------: | ------: | --: |
+| `warning`     |       0 |        0 |       0 |   — |
+| `priority`    |       0 |        0 |       0 |   — |
+| `prohibitory` |       0 |        0 |       0 |   — |
+| `mandatory`   |       0 |        0 |       0 |   — |
+| `information` |       0 |        0 |       0 |   — |
 
 **Standard:** Code de la route — Vienna Convention / French-influenced
 

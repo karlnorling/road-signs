@@ -5,7 +5,6 @@ description: Suriname road signs — categories, installation, and usage.
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-
 {/* HERO:START */}
 
 import CountryHero from '../../../components/CountryHero.astro';
@@ -25,13 +24,13 @@ npm install @road-signs/sr
 
 ## Sign categories
 
-| Category | Series | Description |
-| -------- | ------ | ----------- |
-| `warning` | A — Warning | Hazard and warning signs |
-| `priority` | B — Priority | Priority and right-of-way signs |
-| `prohibitory` | C — Prohibitory | Prohibition and restriction signs |
-| `mandatory` | D / E — Mandatory | Mandatory instruction signs |
-| `information` | F / G / H / L — Information | Information and additional signs |
+| Category      | Series                      | Description                       |
+| ------------- | --------------------------- | --------------------------------- |
+| `warning`     | A — Warning                 | Hazard and warning signs          |
+| `priority`    | B — Priority                | Priority and right-of-way signs   |
+| `prohibitory` | C — Prohibitory             | Prohibition and restriction signs |
+| `mandatory`   | D / E — Mandatory           | Mandatory instruction signs       |
+| `information` | F / G / H / L — Information | Information and additional signs  |
 
 {/* USAGE:START */}
 
@@ -56,6 +55,7 @@ npm install @road-signs/sr
     // All warning signs
     const filtered = getSignsByCategory("warning");
     ```
+
   </TabItem>
   <TabItem label="React">
     ```tsx
@@ -74,6 +74,7 @@ npm install @road-signs/sr
       );
     }
     ```
+
   </TabItem>
   <TabItem label="Vue 3">
     ```vue
@@ -90,6 +91,7 @@ npm install @road-signs/sr
       </div>
     </template>
     ```
+
   </TabItem>
 </Tabs>
 
@@ -99,20 +101,20 @@ npm install @road-signs/sr
 
 ## Coverage
 
-| Metric | Value |
-| ------ | ----- |
-| Signs scraped | 282 |
-| Signs with SVG | 282 |
-| Missing SVG | 0 |
-| Overall | **100%** |
+| Metric         | Value    |
+| -------------- | -------- |
+| Signs scraped  | 282      |
+| Signs with SVG | 282      |
+| Missing SVG    | 0        |
+| Overall        | **100%** |
 
-| Category | Scraped | With SVG | Missing | % |
-| -------- | ------: | -------: | ------: | -: |
-| `warning` | 43 | 43 | 0 | 100% |
-| `priority` | 12 | 12 | 0 | 100% |
-| `prohibitory` | 10 | 10 | 0 | 100% |
-| `mandatory` | 92 | 92 | 0 | 100% |
-| `information` | 125 | 125 | 0 | 100% |
+| Category      | Scraped | With SVG | Missing |    % |
+| ------------- | ------: | -------: | ------: | ---: |
+| `warning`     |      43 |       43 |       0 | 100% |
+| `priority`    |      12 |       12 |       0 | 100% |
+| `prohibitory` |      10 |       10 |       0 | 100% |
+| `mandatory`   |      92 |       92 |       0 | 100% |
+| `information` |     125 |      125 |       0 | 100% |
 
 **Standard:** Vienna Convention / Dutch-influenced (Verkeerstekenbesluit)
 

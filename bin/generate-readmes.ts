@@ -16,6 +16,7 @@ import fs from 'fs';
 import path from 'path';
 import { PACKAGES_DIR, listCountries, readRegistry } from './lib/registry';
 import { COUNTRIES, MIRRORS } from './lib/countries';
+import { classify } from './audit-svgs';
 import type { CountryMeta } from './lib/countries';
 
 const REPO = 'https://github.com/karlnorling/road-signs';
@@ -55,7 +56,14 @@ const countryReadme = (cc: string, meta: CountryMeta | undefined): string => {
   const mirrorOf = MIRRORS[cc];
   const signs = readRegistry(mirrorOf ?? cc);
   const categories = [...new Set(signs.map((s) => s.category))].sort();
-  const withSvg = signs.filter((s) => s.svg).length;
+  // `s.svg` being set is not the same as the sign having usable artwork: a
+  // potrace trace lands in that same field and renders as a black blob, so
+  // counting it here is what let a README claim 100% vector coverage for a
+  // country that was 231/233 traced. See `yarn audit-svgs`.
+  const withSvg = signs.filter((s) => {
+    const verdict = classify(s.svg);
+    return verdict === 'ok' || verdict === 'mono';
+  }).length;
   const name = meta?.name ?? U;
 
   const artwork =
@@ -151,9 +159,9 @@ const countryReadme = (cc: string, meta: CountryMeta | undefined): string => {
     const allMissing = withSvg === 0;
     lines.push(
       `> **${allMissing ? 'No' : `${signs.length - withSvg} of these`} signs carry inline artwork.**`,
-      `> They were extracted from raster sources, so they expose only \`sign.assets\``,
-      `> paths into this repo's build-time \`assets/\` tree — which is **not published** —`,
-      `> and render as nothing. Vector sources for ${name} are welcome:`,
+      `> They have no usable vector source — either none was published upstream,`,
+      `> or the only artwork is a monochrome trace that renders as a black shape.`,
+      `> Vector sources for ${name} are welcome:`,
       `> see [the coverage notes](${DOCS}/countries/${cc}/).`,
       ``,
     );

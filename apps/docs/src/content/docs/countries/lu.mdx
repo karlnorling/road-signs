@@ -5,7 +5,6 @@ description: Luxembourg road signs — categories, installation, and usage.
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-
 {/* HERO:START */}
 
 import CountryHero from '../../../components/CountryHero.astro';
@@ -18,12 +17,12 @@ import CountryHero from '../../../components/CountryHero.astro';
 
 ## Quick facts
 
-| Field | Value |
-| ----- | ----- |
-| Drive side | Right-hand |
-| Language(s) | French, German, Luxembourgish |
-| Regulator | MMTP |
-| Standard | Code de la route — Vienna Convention |
+| Field       | Value                                |
+| ----------- | ------------------------------------ |
+| Drive side  | Right-hand                           |
+| Language(s) | French, German, Luxembourgish        |
+| Regulator   | MMTP                                 |
+| Standard    | Code de la route — Vienna Convention |
 
 {/* QUICK_FACTS:END */}
 
@@ -38,13 +37,13 @@ npm install @road-signs/lu
 
 ## Sign categories
 
-| Category | Series | Description |
-| -------- | ------ | ----------- |
-| `warning` | A series | Danger — hazard warnings |
-| `priority` | B series | Priorité — right-of-way |
-| `prohibitory` | C series | Interdictions et restrictions — prohibitions |
-| `mandatory` | D series | Obligations — mandatory actions |
-| `information` | E–F series | Indication — information and direction |
+| Category      | Series     | Description                                  |
+| ------------- | ---------- | -------------------------------------------- |
+| `warning`     | A series   | Danger — hazard warnings                     |
+| `priority`    | B series   | Priorité — right-of-way                      |
+| `prohibitory` | C series   | Interdictions et restrictions — prohibitions |
+| `mandatory`   | D series   | Obligations — mandatory actions              |
+| `information` | E–F series | Indication — information and direction       |
 
 {/* USAGE:START */}
 
@@ -69,6 +68,7 @@ npm install @road-signs/lu
     // All warning signs
     const filtered = getSignsByCategory("warning");
     ```
+
   </TabItem>
   <TabItem label="React">
     ```tsx
@@ -87,6 +87,7 @@ npm install @road-signs/lu
       );
     }
     ```
+
   </TabItem>
   <TabItem label="Vue 3">
     ```vue
@@ -103,6 +104,7 @@ npm install @road-signs/lu
       </div>
     </template>
     ```
+
   </TabItem>
 </Tabs>
 
@@ -112,20 +114,20 @@ npm install @road-signs/lu
 
 ## Coverage
 
-| Metric | Value |
-| ------ | ----- |
-| Signs scraped | 0 |
-| Signs with SVG | 0 |
-| Missing SVG | 0 |
-| Overall | **—** |
+| Metric         | Value |
+| -------------- | ----- |
+| Signs scraped  | 0     |
+| Signs with SVG | 0     |
+| Missing SVG    | 0     |
+| Overall        | **—** |
 
-| Category | Scraped | With SVG | Missing | % |
-| -------- | ------: | -------: | ------: | -: |
-| `warning` | 0 | 0 | 0 | — |
-| `priority` | 0 | 0 | 0 | — |
-| `prohibitory` | 0 | 0 | 0 | — |
-| `mandatory` | 0 | 0 | 0 | — |
-| `information` | 0 | 0 | 0 | — |
+| Category      | Scraped | With SVG | Missing |   % |
+| ------------- | ------: | -------: | ------: | --: |
+| `warning`     |       0 |        0 |       0 |   — |
+| `priority`    |       0 |        0 |       0 |   — |
+| `prohibitory` |       0 |        0 |       0 |   — |
+| `mandatory`   |       0 |        0 |       0 |   — |
+| `information` |       0 |        0 |       0 |   — |
 
 **Standard:** Code de la route — Vienna Convention
 
@@ -142,20 +144,15 @@ _Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.c
 ```ts
 import type { LUSign, LUCategory } from '@road-signs/lu';
 
-type LUCategory =
-  | 'information'
-  | 'mandatory'
-  | 'priority'
-  | 'prohibitory'
-  | 'warning';
+type LUCategory = 'information' | 'mandatory' | 'priority' | 'prohibitory' | 'warning';
 
 interface LUSign {
-  id: string;          // e.g. "a1-sharp-bend"
-  code: string;        // sign code, e.g. "A1"
+  id: string; // e.g. "a1-sharp-bend"
+  code: string; // sign code, e.g. "A1"
   name: string;
   description: string;
   category: LUCategory;
-  svg: string;         // inline SVG string
+  svg: string; // inline SVG string
   assets: {
     svg: string;
     png: Record<number, string>;

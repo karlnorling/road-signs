@@ -6,22 +6,22 @@
 
 ## SVG Coverage
 
-| Metric | Value |
-| ------ | ----- |
-| Total signs scraped | 146 |
-| Signs with SVG asset | 146 |
-| Missing SVG | 0 |
-| Overall coverage | **100%** |
+| Metric               | Value    |
+| -------------------- | -------- |
+| Total signs scraped  | 146      |
+| Signs with SVG asset | 146      |
+| Missing SVG          | 0        |
+| Overall coverage     | **100%** |
 
 ## Coverage by Category
 
-| Category | Scraped | With SVG | Missing | Coverage |
-| -------- | ------: | -------: | ------: | -------: |
-| `warning` | 70 | 70 | 0 | 100% |
-| `priority` | 0 | 0 | 0 | — |
-| `prohibitory` | 37 | 37 | 0 | 100% |
-| `mandatory` | 1 | 1 | 0 | 100% |
-| `information` | 38 | 38 | 0 | 100% |
+| Category      | Scraped | With SVG | Missing | Coverage |
+| ------------- | ------: | -------: | ------: | -------: |
+| `warning`     |      70 |       70 |       0 |     100% |
+| `priority`    |       0 |        0 |       0 |        — |
+| `prohibitory` |      37 |       37 |       0 |     100% |
+| `mandatory`   |       1 |        1 |       0 |     100% |
+| `information` |      38 |       38 |       0 |     100% |
 
 ## Sources
 

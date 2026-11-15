@@ -5,7 +5,6 @@ description: Cuba road signs — categories, installation, and usage.
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-
 {/* HERO:START */}
 
 import CountryHero from '../../../components/CountryHero.astro';
@@ -25,10 +24,10 @@ npm install @road-signs/cu
 
 ## Sign categories
 
-| Category | Series | Description |
-| -------- | ------ | ----------- |
-| `warning` | Warning | Hazard and warning signs |
-| `prohibitory` | Prohibitory | Prohibition and restriction signs |
+| Category      | Series                             | Description                                      |
+| ------------- | ---------------------------------- | ------------------------------------------------ |
+| `warning`     | Warning                            | Hazard and warning signs                         |
+| `prohibitory` | Prohibitory                        | Prohibition and restriction signs                |
 | `information` | Information / Service / Additional | Information, service, and additional plate signs |
 
 {/* USAGE:START */}
@@ -54,6 +53,7 @@ npm install @road-signs/cu
     // All warning signs
     const filtered = getSignsByCategory("warning");
     ```
+
   </TabItem>
   <TabItem label="React">
     ```tsx
@@ -72,6 +72,7 @@ npm install @road-signs/cu
       );
     }
     ```
+
   </TabItem>
   <TabItem label="Vue 3">
     ```vue
@@ -88,6 +89,7 @@ npm install @road-signs/cu
       </div>
     </template>
     ```
+
   </TabItem>
 </Tabs>
 
@@ -97,20 +99,20 @@ npm install @road-signs/cu
 
 ## Coverage
 
-| Metric | Value |
-| ------ | ----- |
-| Signs scraped | 43 |
-| Signs with SVG | 43 |
-| Missing SVG | 0 |
-| Overall | **100%** |
+| Metric         | Value    |
+| -------------- | -------- |
+| Signs scraped  | 43       |
+| Signs with SVG | 43       |
+| Missing SVG    | 0        |
+| Overall        | **100%** |
 
-| Category | Scraped | With SVG | Missing | % |
-| -------- | ------: | -------: | ------: | -: |
-| `warning` | 5 | 5 | 0 | 100% |
-| `priority` | 7 | 7 | 0 | 100% |
-| `prohibitory` | 9 | 9 | 0 | 100% |
-| `mandatory` | 13 | 13 | 0 | 100% |
-| `information` | 9 | 9 | 0 | 100% |
+| Category      | Scraped | With SVG | Missing |    % |
+| ------------- | ------: | -------: | ------: | ---: |
+| `warning`     |       5 |        5 |       0 | 100% |
+| `priority`    |       7 |        7 |       0 | 100% |
+| `prohibitory` |       9 |        9 |       0 | 100% |
+| `mandatory`   |      13 |       13 |       0 | 100% |
+| `information` |       9 |        9 |       0 | 100% |
 
 **Standard:** Vienna Convention variant
 

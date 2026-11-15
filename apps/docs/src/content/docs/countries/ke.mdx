@@ -5,7 +5,6 @@ description: Kenya road signs — categories, installation, and usage.
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-
 {/* HERO:START */}
 
 import CountryHero from '../../../components/CountryHero.astro';
@@ -18,12 +17,12 @@ import CountryHero from '../../../components/CountryHero.astro';
 
 ## Quick facts
 
-| Field | Value |
-| ----- | ----- |
-| Drive side | Left-hand |
-| Language(s) | English, Swahili |
-| Regulator | NTSA |
-| Standard | British-derived (NTSA Highway Code) |
+| Field       | Value                               |
+| ----------- | ----------------------------------- |
+| Drive side  | Left-hand                           |
+| Language(s) | English, Swahili                    |
+| Regulator   | NTSA                                |
+| Standard    | British-derived (NTSA Highway Code) |
 
 {/* QUICK_FACTS:END */}
 
@@ -38,9 +37,9 @@ npm install @road-signs/ke
 
 ## Sign categories
 
-| Category | Series | Description |
-| -------- | ------ | ----------- |
-| `warning` | Warning | Hazard and warning signs |
+| Category      | Series                   | Description                       |
+| ------------- | ------------------------ | --------------------------------- |
+| `warning`     | Warning                  | Hazard and warning signs          |
 | `prohibitory` | Regulatory / Prohibitory | Prohibition and restriction signs |
 
 {/* USAGE:START */}
@@ -66,6 +65,7 @@ npm install @road-signs/ke
     // All information signs
     const filtered = getSignsByCategory("information");
     ```
+
   </TabItem>
   <TabItem label="React">
     ```tsx
@@ -84,6 +84,7 @@ npm install @road-signs/ke
       );
     }
     ```
+
   </TabItem>
   <TabItem label="Vue 3">
     ```vue
@@ -100,6 +101,7 @@ npm install @road-signs/ke
       </div>
     </template>
     ```
+
   </TabItem>
 </Tabs>
 
@@ -109,20 +111,20 @@ npm install @road-signs/ke
 
 ## Coverage
 
-| Metric | Value |
-| ------ | ----- |
-| Signs scraped | 16 |
-| Signs with SVG | 16 |
-| Missing SVG | 0 |
-| Overall | **100%** |
+| Metric         | Value    |
+| -------------- | -------- |
+| Signs scraped  | 16       |
+| Signs with SVG | 16       |
+| Missing SVG    | 0        |
+| Overall        | **100%** |
 
-| Category | Scraped | With SVG | Missing | % |
-| -------- | ------: | -------: | ------: | -: |
-| `warning` | 0 | 0 | 0 | — |
-| `priority` | 0 | 0 | 0 | — |
-| `prohibitory` | 0 | 0 | 0 | — |
-| `mandatory` | 0 | 0 | 0 | — |
-| `information` | 16 | 16 | 0 | 100% |
+| Category      | Scraped | With SVG | Missing |    % |
+| ------------- | ------: | -------: | ------: | ---: |
+| `warning`     |       0 |        0 |       0 |    — |
+| `priority`    |       0 |        0 |       0 |    — |
+| `prohibitory` |       0 |        0 |       0 |    — |
+| `mandatory`   |       0 |        0 |       0 |    — |
+| `information` |      16 |       16 |       0 | 100% |
 
 **Standard:** British-derived (NTSA Highway Code)
 

@@ -6,24 +6,24 @@
 
 ## SVG Coverage
 
-| Metric | Value |
-| ------ | ----- |
-| Total signs scraped | 1521 |
-| Signs with SVG asset | 1449 |
-| Missing SVG | 72 |
-| Overall coverage | **95%** |
+| Metric               | Value   |
+| -------------------- | ------- |
+| Total signs scraped  | 1521    |
+| Signs with SVG asset | 1449    |
+| Missing SVG          | 72      |
+| Overall coverage     | **95%** |
 
 ## Coverage by Category
 
-| Category | Scraped | With SVG | Missing | Coverage |
-| -------- | ------: | -------: | ------: | -------: |
-| `warning` | 367 | 362 | 5 | 99% |
-| `regulatory` | 559 | 557 | 2 | 100% |
-| `guide` | 312 | 312 | 0 | 100% |
-| `school` | 23 | 18 | 5 | 78% |
-| `construction` | 56 | 56 | 0 | 100% |
-| `recreational` | 56 | 56 | 0 | 100% |
-| `informational` | 148 | 88 | 60 | 59% |
+| Category        | Scraped | With SVG | Missing | Coverage |
+| --------------- | ------: | -------: | ------: | -------: |
+| `warning`       |     367 |      362 |       5 |      99% |
+| `regulatory`    |     559 |      557 |       2 |     100% |
+| `guide`         |     312 |      312 |       0 |     100% |
+| `school`        |      23 |       18 |       5 |      78% |
+| `construction`  |      56 |       56 |       0 |     100% |
+| `recreational`  |      56 |       56 |       0 |     100% |
+| `informational` |     148 |       88 |      60 |      59% |
 
 ## Sources
 

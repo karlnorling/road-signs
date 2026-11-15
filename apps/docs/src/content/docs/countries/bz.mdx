@@ -5,7 +5,6 @@ description: Belize road signs — categories, installation, and usage.
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-
 {/* HERO:START */}
 
 import CountryHero from '../../../components/CountryHero.astro';
@@ -25,11 +24,11 @@ npm install @road-signs/bz
 
 ## Sign categories
 
-| Category | Series | Description |
-| -------- | ------ | ----------- |
-| `warning` | Warning | Hazard and warning signs |
-| `prohibitory` | Prohibitory | Prohibition and restriction signs |
-| `mandatory` | Mandatory | Mandatory instruction signs |
+| Category      | Series                             | Description                                      |
+| ------------- | ---------------------------------- | ------------------------------------------------ |
+| `warning`     | Warning                            | Hazard and warning signs                         |
+| `prohibitory` | Prohibitory                        | Prohibition and restriction signs                |
+| `mandatory`   | Mandatory                          | Mandatory instruction signs                      |
 | `information` | Information / Service / Additional | Information, service, and additional plate signs |
 
 {/* USAGE:START */}
@@ -55,6 +54,7 @@ npm install @road-signs/bz
     // All information signs
     const filtered = getSignsByCategory("information");
     ```
+
   </TabItem>
   <TabItem label="React">
     ```tsx
@@ -73,6 +73,7 @@ npm install @road-signs/bz
       );
     }
     ```
+
   </TabItem>
   <TabItem label="Vue 3">
     ```vue
@@ -89,6 +90,7 @@ npm install @road-signs/bz
       </div>
     </template>
     ```
+
   </TabItem>
 </Tabs>
 
@@ -98,20 +100,20 @@ npm install @road-signs/bz
 
 ## Coverage
 
-| Metric | Value |
-| ------ | ----- |
-| Signs scraped | 8 |
-| Signs with SVG | 8 |
-| Missing SVG | 0 |
-| Overall | **100%** |
+| Metric         | Value    |
+| -------------- | -------- |
+| Signs scraped  | 8        |
+| Signs with SVG | 8        |
+| Missing SVG    | 0        |
+| Overall        | **100%** |
 
-| Category | Scraped | With SVG | Missing | % |
-| -------- | ------: | -------: | ------: | -: |
-| `warning` | 0 | 0 | 0 | — |
-| `priority` | 0 | 0 | 0 | — |
-| `prohibitory` | 0 | 0 | 0 | — |
-| `mandatory` | 0 | 0 | 0 | — |
-| `information` | 8 | 8 | 0 | 100% |
+| Category      | Scraped | With SVG | Missing |    % |
+| ------------- | ------: | -------: | ------: | ---: |
+| `warning`     |       0 |        0 |       0 |    — |
+| `priority`    |       0 |        0 |       0 |    — |
+| `prohibitory` |       0 |        0 |       0 |    — |
+| `mandatory`   |       0 |        0 |       0 |    — |
+| `information` |       8 |        8 |       0 | 100% |
 
 **Standard:** UK-influenced / SIECA (Manual Centroamericano)
 

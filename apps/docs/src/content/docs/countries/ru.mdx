@@ -5,7 +5,6 @@ description: Russia road signs — categories, installation, and usage.
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-
 {/* HERO:START */}
 
 import CountryHero from '../../../components/CountryHero.astro';
@@ -18,13 +17,13 @@ import CountryHero from '../../../components/CountryHero.astro';
 
 ## Quick facts
 
-| Field | Value |
-| ----- | ----- |
-| Drive side | Right-hand |
-| Language(s) | Russian |
-| Regulator | ГИБДД (GIBDD) |
-| Code format | `1.1 / 2.1 / 3.1` |
-| Standard | Vienna Convention (ГОСТ Р 52290) |
+| Field       | Value                            |
+| ----------- | -------------------------------- |
+| Drive side  | Right-hand                       |
+| Language(s) | Russian                          |
+| Regulator   | ГИБДД (GIBDD)                    |
+| Code format | `1.1 / 2.1 / 3.1`                |
+| Standard    | Vienna Convention (ГОСТ Р 52290) |
 
 {/* QUICK_FACTS:END */}
 
@@ -39,12 +38,12 @@ npm install @road-signs/ru
 
 ## Sign categories
 
-| Category | Series | Description |
-| -------- | ------ | ----------- |
-| `warning` | Warning | Hazard and warning signs |
-| `priority` | Priority | Priority and right-of-way signs |
-| `prohibitory` | Prohibitory | Prohibition and restriction signs |
-| `mandatory` | Mandatory | Mandatory instruction signs |
+| Category      | Series                             | Description                                      |
+| ------------- | ---------------------------------- | ------------------------------------------------ |
+| `warning`     | Warning                            | Hazard and warning signs                         |
+| `priority`    | Priority                           | Priority and right-of-way signs                  |
+| `prohibitory` | Prohibitory                        | Prohibition and restriction signs                |
+| `mandatory`   | Mandatory                          | Mandatory instruction signs                      |
 | `information` | Information / Service / Additional | Information, service, and additional plate signs |
 
 {/* USAGE:START */}
@@ -70,6 +69,7 @@ npm install @road-signs/ru
     // All warning signs
     const filtered = getSignsByCategory("warning");
     ```
+
   </TabItem>
   <TabItem label="React">
     ```tsx
@@ -88,6 +88,7 @@ npm install @road-signs/ru
       );
     }
     ```
+
   </TabItem>
   <TabItem label="Vue 3">
     ```vue
@@ -104,6 +105,7 @@ npm install @road-signs/ru
       </div>
     </template>
     ```
+
   </TabItem>
 </Tabs>
 
@@ -113,20 +115,20 @@ npm install @road-signs/ru
 
 ## Coverage
 
-| Metric | Value |
-| ------ | ----- |
-| Signs scraped | 497 |
-| Signs with SVG | 497 |
-| Missing SVG | 0 |
-| Overall | **100%** |
+| Metric         | Value    |
+| -------------- | -------- |
+| Signs scraped  | 497      |
+| Signs with SVG | 497      |
+| Missing SVG    | 0        |
+| Overall        | **100%** |
 
-| Category | Scraped | With SVG | Missing | % |
-| -------- | ------: | -------: | ------: | -: |
-| `warning` | 59 | 59 | 0 | 100% |
-| `priority` | 15 | 15 | 0 | 100% |
-| `prohibitory` | 72 | 72 | 0 | 100% |
-| `mandatory` | 24 | 24 | 0 | 100% |
-| `information` | 327 | 327 | 0 | 100% |
+| Category      | Scraped | With SVG | Missing |    % |
+| ------------- | ------: | -------: | ------: | ---: |
+| `warning`     |      59 |       59 |       0 | 100% |
+| `priority`    |      15 |       15 |       0 | 100% |
+| `prohibitory` |      72 |       72 |       0 | 100% |
+| `mandatory`   |      24 |       24 |       0 | 100% |
+| `information` |     327 |      327 |       0 | 100% |
 
 **Standard:** Vienna Convention (ГОСТ Р 52290)
 
