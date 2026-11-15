@@ -1,6 +1,6 @@
 {
   "name": "@road-signs/rs",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Serbian road signs — TypeScript registry, inline SVGs",
   "keywords": [
     "zbs",
