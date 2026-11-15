@@ -1,7 +1,7 @@
 {
   "name": "road-signs-monorepo",
   "private": true,
-  "description": "Road sign SVGs, React, Vue 3, and web components \u2014 one package per country",
+  "description": "Road sign SVGs, React, Vue 3, and web components — one package per country",
   "workspaces": [
     "packages/@road-signs/*",
     "apps/*"
