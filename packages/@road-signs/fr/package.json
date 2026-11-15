@@ -1,6 +1,6 @@
 {
   "name": "@road-signs/fr",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "French road signs (Code de la route) — TypeScript registry, inline SVGs, and image assets",
   "keywords": [
     "road-signs",

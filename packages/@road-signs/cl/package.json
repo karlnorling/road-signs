@@ -1,6 +1,6 @@
 {
   "name": "@road-signs/cl",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Chile road signs — TypeScript registry, inline SVGs, and image assets",
   "keywords": [
     "mst",
