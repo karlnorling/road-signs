@@ -1,5 +1,13 @@
 # @road-signs/ua
 
+## 0.1.2
+
+### Patch Changes
+
+- aee57d4: Replace monochrome traced artwork with the real coloured SVG, which was already
+  on disk but losing a glob race to the trace. 270 signs across 23 countries now
+  render in colour instead of as black shapes.
+
 ## 0.1.1
 
 ### Patch Changes
