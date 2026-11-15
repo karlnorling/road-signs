@@ -219,21 +219,45 @@ const deduplicateScraped = (
   return { result, removed };
 };
 
-const runCountry = async (cc: string): Promise<void> => {
+const runCountry = async (cc: string, cached: boolean, sourceOnly: boolean): Promise<void> => {
   console.log(`\n=== ${cc.toUpperCase()} ===`);
 
-  console.log('Step 1/3: Scraping...');
-  const scraperModule = await import(SCRAPERS[cc]);
-  const scrape = scraperModule.default;
-  const rawData = await scrape();
-  const { result: data, removed } = deduplicateScraped(rawData);
-  if (removed > 0) console.log(`  Removed ${removed} duplicate sign(s)`);
-
   const dataDir = path.join('data', cc);
-  await fs.promises.mkdir(dataDir, { recursive: true });
   const cacheFile = path.join(dataDir, 'scraped.json');
-  await fs.promises.writeFile(cacheFile, JSON.stringify(data, null, 2), 'utf-8');
-  console.log(`  Cached to ${cacheFile}`);
+  let data: Record<string, Array<{ code: string; imageUrl: string | null }>>;
+
+  if (cached) {
+    // Rebuild assets and source from the existing scrape. Needed after
+    // `yarn refetch-svgs` drops a real SVG next to a traced one: the artwork
+    // changed on disk but the scrape did not, and re-scraping would mean
+    // hammering Wikipedia for a result already cached here.
+    console.log(`Step 1/${sourceOnly ? 2 : 3}: Reusing ${cacheFile}`);
+    data = JSON.parse(await fs.promises.readFile(cacheFile, 'utf-8')) as typeof data;
+  } else {
+    console.log('Step 1/3: Scraping...');
+    const scraperModule = await import(SCRAPERS[cc]);
+    const scrape = scraperModule.default;
+    const rawData = await scrape();
+    const deduped = deduplicateScraped(rawData);
+    data = deduped.result;
+    if (deduped.removed > 0) console.log(`  Removed ${deduped.removed} duplicate sign(s)`);
+
+    await fs.promises.mkdir(dataDir, { recursive: true });
+    await fs.promises.writeFile(cacheFile, JSON.stringify(data, null, 2), 'utf-8');
+    console.log(`  Cached to ${cacheFile}`);
+  }
+
+  if (sourceOnly) {
+    // Rebuild only signs.generated.ts. Useful when the artwork on disk is
+    // already correct and just the registry is stale -- which was the case for
+    // 286 signs whose real SVG had been sitting beside a `.traced.svg` since
+    // June while generate-source kept picking the trace. Re-rasterising every
+    // sign at five sizes to fix that would take hours for no benefit.
+    console.log('Step 2/2: Generating source (skipping assets)...');
+    const { generateSource } = await import('./generate-source');
+    await generateSource(cc);
+    return;
+  }
 
   console.log('Step 2/3: Creating assets...');
   const { default: createAssets } = await import('./create-assets');
@@ -246,8 +270,11 @@ const runCountry = async (cc: string): Promise<void> => {
 
 (async () => {
   const countries = getCountries();
+  const sourceOnly = process.argv.includes('--source-only');
+  // --source-only implies the scrape is reused: it never touches the network.
+  const cached = sourceOnly || process.argv.includes('--cached');
   for (const cc of countries) {
-    await runCountry(cc);
+    await runCountry(cc, cached, sourceOnly);
   }
   console.log('\nAll done!');
 })();

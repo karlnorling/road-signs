@@ -1,6 +1,6 @@
 # @road-signs/gr
 
-Road signs for Greece — a TypeScript registry with every sign's artwork inlined as SVG, plus typed lookup helpers.
+Road signs for Greece — a TypeScript registry with most signs' artwork inlined as SVG, plus typed lookup helpers.
 
 ## Install
 
@@ -13,7 +13,7 @@ npm install @road-signs/gr
 |                     |                                                      |
 | ------------------- | ---------------------------------------------------- |
 | Signs               | 444                                                  |
-| With vector artwork | 444                                                  |
+| With vector artwork | 425                                                  |
 | Categories          | `information`, `prohibitory`, `warning`              |
 | Standard            | ΚΟΚ (Κώδικας Οδικής Κυκλοφορίας) — Vienna Convention |
 | Regulator           | Greek Ministry of Infrastructure                     |
@@ -38,6 +38,12 @@ const sign = getSign('1-curve-left-1-curve-left')!;
 
 sign.svg; // inline, SVGO-optimised SVG markup
 ```
+
+> **19 of these signs carry inline artwork.**
+> They have no usable vector source — either none was published upstream,
+> or the only artwork is a monochrome trace that renders as a black shape.
+> Vector sources for Greece are welcome:
+> see [the coverage notes](https://karlnorling.github.io/road-signs/countries/gr/).
 
 > `sign.assets` holds paths into this repo's build-time `assets/` tree.
 > That directory is ~16GB across all countries and is **not published** —

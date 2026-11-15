@@ -5,7 +5,6 @@ description: Finnish Tieliikennelaki road signs — categories, installation, an
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-
 {/* HERO:START */}
 
 import CountryHero from '../../../components/CountryHero.astro';
@@ -18,13 +17,13 @@ import CountryHero from '../../../components/CountryHero.astro';
 
 ## Quick facts
 
-| Field | Value |
-| ----- | ----- |
-| Drive side | Right-hand |
-| Language(s) | Finnish, Swedish |
-| Regulator | Traficom |
-| Code format | `111 / 211 / 311` |
-| Standard | Tieliikennelaki — Vienna Convention |
+| Field       | Value                               |
+| ----------- | ----------------------------------- |
+| Drive side  | Right-hand                          |
+| Language(s) | Finnish, Swedish                    |
+| Regulator   | Traficom                            |
+| Code format | `111 / 211 / 311`                   |
+| Standard    | Tieliikennelaki — Vienna Convention |
 
 {/* QUICK_FACTS:END */}
 
@@ -39,13 +38,13 @@ npm install @road-signs/fi
 
 ## Sign categories
 
-| Category | Series | Description |
-| -------- | ------ | ----------- |
-| `warning` | 111–199 | Warning signs |
-| `priority` | 211–299 | Right-of-way signs |
-| `prohibitory` | 311–399 | Prohibition signs |
-| `mandatory` | 411–499 | Mandatory signs |
-| `information` | 511+ | Information and guide signs |
+| Category      | Series  | Description                 |
+| ------------- | ------- | --------------------------- |
+| `warning`     | 111–199 | Warning signs               |
+| `priority`    | 211–299 | Right-of-way signs          |
+| `prohibitory` | 311–399 | Prohibition signs           |
+| `mandatory`   | 411–499 | Mandatory signs             |
+| `information` | 511+    | Information and guide signs |
 
 {/* USAGE:START */}
 
@@ -70,6 +69,7 @@ npm install @road-signs/fi
     // All warning signs
     const filtered = getSignsByCategory("warning");
     ```
+
   </TabItem>
   <TabItem label="React">
     ```tsx
@@ -88,6 +88,7 @@ npm install @road-signs/fi
       );
     }
     ```
+
   </TabItem>
   <TabItem label="Vue 3">
     ```vue
@@ -104,6 +105,7 @@ npm install @road-signs/fi
       </div>
     </template>
     ```
+
   </TabItem>
 </Tabs>
 
@@ -113,20 +115,20 @@ npm install @road-signs/fi
 
 ## Coverage
 
-| Metric | Value |
-| ------ | ----- |
-| Signs scraped | 450 |
-| Signs with SVG | 450 |
-| Missing SVG | 0 |
-| Overall | **100%** |
+| Metric         | Value   |
+| -------------- | ------- |
+| Signs scraped  | 450     |
+| Signs with SVG | 406     |
+| Missing SVG    | 44      |
+| Overall        | **90%** |
 
-| Category | Scraped | With SVG | Missing | % |
-| -------- | ------: | -------: | ------: | -: |
-| `warning` | 58 | 58 | 0 | 100% |
-| `priority` | 17 | 17 | 0 | 100% |
-| `prohibitory` | 92 | 92 | 0 | 100% |
-| `mandatory` | 51 | 51 | 0 | 100% |
-| `information` | 232 | 232 | 0 | 100% |
+| Category      | Scraped | With SVG | Missing |    % |
+| ------------- | ------: | -------: | ------: | ---: |
+| `warning`     |      58 |       49 |       9 |  84% |
+| `priority`    |      17 |       17 |       0 | 100% |
+| `prohibitory` |      92 |       85 |       7 |  92% |
+| `mandatory`   |      51 |       47 |       4 |  92% |
+| `information` |     232 |      208 |      24 |  90% |
 
 **Standard:** Tieliikennelaki — Vienna Convention
 
@@ -147,20 +149,15 @@ _Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.c
 ```ts
 import type { FISign, FICategory } from '@road-signs/fi';
 
-type FICategory =
-  | 'information'
-  | 'mandatory'
-  | 'priority'
-  | 'prohibitory'
-  | 'warning';
+type FICategory = 'information' | 'mandatory' | 'priority' | 'prohibitory' | 'warning';
 
 interface FISign {
-  id: string;          // e.g. "111-dangerous-bend"
-  code: string;        // e.g. "111"
+  id: string; // e.g. "111-dangerous-bend"
+  code: string; // e.g. "111"
   name: string;
   description: string;
   category: FICategory;
-  svg: string;         // inline SVG string
+  svg: string; // inline SVG string
   assets: {
     svg: string;
     png: Record<number, string>;

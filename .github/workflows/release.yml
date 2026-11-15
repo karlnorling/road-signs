@@ -3,6 +3,16 @@ name: Release
 on:
   push:
     branches: [main]
+  # Publish a single package by hand, to prove npm trusted publishing (OIDC)
+  # works before a release puts it in front of every package at once. This has
+  # to live in release.yml: the npm trusted publisher config names the workflow
+  # *filename*, so a publish from any other workflow is rejected.
+  workflow_dispatch:
+    inputs:
+      smoke-test-package:
+        description: 'Publish only this package (e.g. core) to verify OIDC'
+        required: true
+        type: string
 
 concurrency:
   group: release-${{ github.ref }}
@@ -61,7 +71,17 @@ jobs:
       #      a "Version Packages" PR that runs `version` and bumps versions.
       #   2. If the merge to main consumed the version PR: run `publish` to
       #      push the bumped packages to npm.
+      # A dispatch bypasses changesets entirely: nothing is versioned or tagged,
+      # one already-versioned package is pushed to npm through the same
+      # credentials path a real release uses.
+      - name: Smoke-test trusted publishing
+        if: github.event_name == 'workflow_dispatch'
+        run: bash scripts/publish.sh
+        env:
+          PUBLISH_ONLY: ${{ inputs.smoke-test-package }}
+
       - name: Create release PR or publish
+        if: github.event_name == 'push'
         uses: changesets/action@v2
         with:
           # v2 renamed every input and takes the token as an input rather than

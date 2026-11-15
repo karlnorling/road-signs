@@ -5,7 +5,6 @@ description: Norwegian Skiltforskriften road signs — categories, installation,
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-
 {/* HERO:START */}
 
 import CountryHero from '../../../components/CountryHero.astro';
@@ -18,13 +17,13 @@ import CountryHero from '../../../components/CountryHero.astro';
 
 ## Quick facts
 
-| Field | Value |
-| ----- | ----- |
-| Drive side | Right-hand |
-| Language(s) | Norwegian |
-| Regulator | Statens vegvesen |
-| Code format | `100 / 202 / 306` |
-| Standard | Skiltforskriften — Vienna Convention |
+| Field       | Value                                |
+| ----------- | ------------------------------------ |
+| Drive side  | Right-hand                           |
+| Language(s) | Norwegian                            |
+| Regulator   | Statens vegvesen                     |
+| Code format | `100 / 202 / 306`                    |
+| Standard    | Skiltforskriften — Vienna Convention |
 
 {/* QUICK_FACTS:END */}
 
@@ -39,13 +38,13 @@ npm install @road-signs/no
 
 ## Sign categories
 
-| Category | Series | Description |
-| -------- | ------ | ----------- |
-| `warning` | 1xx | Advarselsskilt — hazard warnings |
-| `priority` | 2xx | Vikepliktsskilt — right-of-way |
-| `prohibitory` | 3xx | Forbudsskilt — prohibitions |
-| `mandatory` | 4xx | Påbudsskilt — compulsory actions |
-| `information` | 5–7xx | Opplysningsskilt — information signs |
+| Category      | Series | Description                          |
+| ------------- | ------ | ------------------------------------ |
+| `warning`     | 1xx    | Advarselsskilt — hazard warnings     |
+| `priority`    | 2xx    | Vikepliktsskilt — right-of-way       |
+| `prohibitory` | 3xx    | Forbudsskilt — prohibitions          |
+| `mandatory`   | 4xx    | Påbudsskilt — compulsory actions     |
+| `information` | 5–7xx  | Opplysningsskilt — information signs |
 
 {/* USAGE:START */}
 
@@ -70,6 +69,7 @@ npm install @road-signs/no
     // All prohibitory signs
     const filtered = getSignsByCategory("prohibitory");
     ```
+
   </TabItem>
   <TabItem label="React">
     ```tsx
@@ -88,6 +88,7 @@ npm install @road-signs/no
       );
     }
     ```
+
   </TabItem>
   <TabItem label="Vue 3">
     ```vue
@@ -104,6 +105,7 @@ npm install @road-signs/no
       </div>
     </template>
     ```
+
   </TabItem>
 </Tabs>
 
@@ -113,20 +115,20 @@ npm install @road-signs/no
 
 ## Coverage
 
-| Metric | Value |
-| ------ | ----- |
-| Signs scraped | 270 |
-| Signs with SVG | 270 |
-| Missing SVG | 0 |
-| Overall | **100%** |
+| Metric         | Value   |
+| -------------- | ------- |
+| Signs scraped  | 270     |
+| Signs with SVG | 260     |
+| Missing SVG    | 10      |
+| Overall        | **96%** |
 
-| Category | Scraped | With SVG | Missing | % |
-| -------- | ------: | -------: | ------: | -: |
-| `warning` | 47 | 47 | 0 | 100% |
-| `priority` | 7 | 7 | 0 | 100% |
-| `prohibitory` | 46 | 46 | 0 | 100% |
-| `mandatory` | 12 | 12 | 0 | 100% |
-| `information` | 158 | 158 | 0 | 100% |
+| Category      | Scraped | With SVG | Missing |    % |
+| ------------- | ------: | -------: | ------: | ---: |
+| `warning`     |      47 |       46 |       1 |  98% |
+| `priority`    |       7 |        7 |       0 | 100% |
+| `prohibitory` |      46 |       42 |       4 |  91% |
+| `mandatory`   |      12 |       12 |       0 | 100% |
+| `information` |     158 |      153 |       5 |  97% |
 
 **Standard:** Skiltforskriften — Vienna Convention
 
@@ -147,20 +149,15 @@ _Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.c
 ```ts
 import type { NOSign, NOCategory } from '@road-signs/no';
 
-type NOCategory =
-  | 'information'
-  | 'mandatory'
-  | 'priority'
-  | 'prohibitory'
-  | 'warning';
+type NOCategory = 'information' | 'mandatory' | 'priority' | 'prohibitory' | 'warning';
 
 interface NOSign {
-  id: string;          // e.g. "104-dangerous-bend"
-  code: string;        // e.g. "104"
+  id: string; // e.g. "104-dangerous-bend"
+  code: string; // e.g. "104"
   name: string;
   description: string;
   category: NOCategory;
-  svg: string;         // inline SVG string
+  svg: string; // inline SVG string
   assets: {
     svg: string;
     png: Record<number, string>;

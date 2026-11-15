@@ -5,7 +5,6 @@ description: Iran road signs — categories, installation, and usage.
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-
 {/* HERO:START */}
 
 import CountryHero from '../../../components/CountryHero.astro';
@@ -18,12 +17,12 @@ import CountryHero from '../../../components/CountryHero.astro';
 
 ## Quick facts
 
-| Field | Value |
-| ----- | ----- |
-| Drive side | Right-hand |
-| Language(s) | Persian |
-| Regulator | Ministry of Roads & Urban Development |
-| Standard | Vienna Convention adjacent (Road Signs Manual of Iran) |
+| Field       | Value                                                  |
+| ----------- | ------------------------------------------------------ |
+| Drive side  | Right-hand                                             |
+| Language(s) | Persian                                                |
+| Regulator   | Ministry of Roads & Urban Development                  |
+| Standard    | Vienna Convention adjacent (Road Signs Manual of Iran) |
 
 {/* QUICK_FACTS:END */}
 
@@ -38,11 +37,11 @@ npm install @road-signs/ir
 
 ## Sign categories
 
-| Category | Series | Description |
-| -------- | ------ | ----------- |
-| `warning` | Warning | Hazard and warning signs |
-| `prohibitory` | Prohibitory | Prohibition and restriction signs |
-| `mandatory` | Mandatory | Mandatory instruction signs |
+| Category      | Series                             | Description                                      |
+| ------------- | ---------------------------------- | ------------------------------------------------ |
+| `warning`     | Warning                            | Hazard and warning signs                         |
+| `prohibitory` | Prohibitory                        | Prohibition and restriction signs                |
+| `mandatory`   | Mandatory                          | Mandatory instruction signs                      |
 | `information` | Information / Service / Additional | Information, service, and additional plate signs |
 
 {/* USAGE:START */}
@@ -68,6 +67,7 @@ npm install @road-signs/ir
     // All warning signs
     const filtered = getSignsByCategory("warning");
     ```
+
   </TabItem>
   <TabItem label="React">
     ```tsx
@@ -86,6 +86,7 @@ npm install @road-signs/ir
       );
     }
     ```
+
   </TabItem>
   <TabItem label="Vue 3">
     ```vue
@@ -102,6 +103,7 @@ npm install @road-signs/ir
       </div>
     </template>
     ```
+
   </TabItem>
 </Tabs>
 
@@ -111,18 +113,18 @@ npm install @road-signs/ir
 
 ## Coverage
 
-| Metric | Value |
-| ------ | ----- |
-| Signs scraped | 51 |
-| Signs with SVG | 51 |
-| Missing SVG | 0 |
-| Overall | **100%** |
+| Metric         | Value    |
+| -------------- | -------- |
+| Signs scraped  | 51       |
+| Signs with SVG | 51       |
+| Missing SVG    | 0        |
+| Overall        | **100%** |
 
-| Category | Scraped | With SVG | Missing | % |
-| -------- | ------: | -------: | ------: | -: |
-| `warning` | 25 | 25 | 0 | 100% |
-| `mandatory` | 19 | 19 | 0 | 100% |
-| `information` | 7 | 7 | 0 | 100% |
+| Category      | Scraped | With SVG | Missing |    % |
+| ------------- | ------: | -------: | ------: | ---: |
+| `warning`     |      25 |       25 |       0 | 100% |
+| `mandatory`   |      19 |       19 |       0 | 100% |
+| `information` |       7 |        7 |       0 | 100% |
 
 **Standard:** Vienna Convention adjacent (Road Signs Manual of Iran)
 

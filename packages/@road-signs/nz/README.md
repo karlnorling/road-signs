@@ -1,6 +1,6 @@
 # @road-signs/nz
 
-Road signs for New Zealand — a TypeScript registry with every sign's artwork inlined as SVG, plus typed lookup helpers.
+Road signs for New Zealand — a TypeScript registry with most signs' artwork inlined as SVG, plus typed lookup helpers.
 
 ## Install
 
@@ -13,7 +13,7 @@ npm install @road-signs/nz
 |                     |                                         |
 | ------------------- | --------------------------------------- |
 | Signs               | 417                                     |
-| With vector artwork | 417                                     |
+| With vector artwork | 407                                     |
 | Categories          | `information`, `prohibitory`, `warning` |
 | Standard            | Traffic Control Devices Rule (NZTA)     |
 | Regulator           | NZTA (TCD Rule)                         |
@@ -38,6 +38,12 @@ const sign = getSign('stop-ahead-stop-ahead')!;
 
 sign.svg; // inline, SVGO-optimised SVG markup
 ```
+
+> **10 of these signs carry inline artwork.**
+> They have no usable vector source — either none was published upstream,
+> or the only artwork is a monochrome trace that renders as a black shape.
+> Vector sources for New Zealand are welcome:
+> see [the coverage notes](https://karlnorling.github.io/road-signs/countries/nz/).
 
 > `sign.assets` holds paths into this repo's build-time `assets/` tree.
 > That directory is ~16GB across all countries and is **not published** —

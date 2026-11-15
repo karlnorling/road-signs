@@ -1,6 +1,6 @@
 # @road-signs/la
 
-Road signs for Laos — a TypeScript registry with every sign's artwork inlined as SVG, plus typed lookup helpers.
+Road signs for Laos — a TypeScript registry with most signs' artwork inlined as SVG, plus typed lookup helpers.
 
 ## Install
 
@@ -13,7 +13,7 @@ npm install @road-signs/la
 |                     |                                                                  |
 | ------------------- | ---------------------------------------------------------------- |
 | Signs               | 33                                                               |
-| With vector artwork | 33                                                               |
+| With vector artwork | 32                                                               |
 | Categories          | `information`, `mandatory`, `priority`, `prohibitory`, `warning` |
 | Standard            | Vienna Convention (Lao PDR Road Traffic Law)                     |
 | Regulator           | MPWT                                                             |
@@ -38,6 +38,12 @@ const sign = getSign('v1-curve-to-left')!;
 
 sign.svg; // inline, SVGO-optimised SVG markup
 ```
+
+> **1 of these signs carry inline artwork.**
+> They have no usable vector source — either none was published upstream,
+> or the only artwork is a monochrome trace that renders as a black shape.
+> Vector sources for Laos are welcome:
+> see [the coverage notes](https://karlnorling.github.io/road-signs/countries/la/).
 
 > `sign.assets` holds paths into this repo's build-time `assets/` tree.
 > That directory is ~16GB across all countries and is **not published** —

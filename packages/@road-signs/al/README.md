@@ -1,6 +1,6 @@
 # @road-signs/al
 
-Road signs for Albania — a TypeScript registry with every sign's artwork inlined as SVG, plus typed lookup helpers.
+Road signs for Albania — a TypeScript registry with most signs' artwork inlined as SVG, plus typed lookup helpers.
 
 ## Install
 
@@ -13,7 +13,7 @@ npm install @road-signs/al
 |                     |                                                                  |
 | ------------------- | ---------------------------------------------------------------- |
 | Signs               | 155                                                              |
-| With vector artwork | 155                                                              |
+| With vector artwork | 124                                                              |
 | Categories          | `information`, `mandatory`, `priority`, `prohibitory`, `warning` |
 | Standard            | Kodi Rrugor — Vienna Convention                                  |
 | Regulator           | Drejtoria e Përgjithshme e Rrugëve                               |
@@ -38,6 +38,12 @@ const sign = getSign('deer-on-road-ahead-deer-on-road-ahead')!;
 
 sign.svg; // inline, SVGO-optimised SVG markup
 ```
+
+> **31 of these signs carry inline artwork.**
+> They have no usable vector source — either none was published upstream,
+> or the only artwork is a monochrome trace that renders as a black shape.
+> Vector sources for Albania are welcome:
+> see [the coverage notes](https://karlnorling.github.io/road-signs/countries/al/).
 
 > `sign.assets` holds paths into this repo's build-time `assets/` tree.
 > That directory is ~16GB across all countries and is **not published** —

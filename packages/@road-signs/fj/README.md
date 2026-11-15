@@ -29,9 +29,9 @@ getSignsByCategory('information'); // by category
 ```
 
 > **No signs carry inline artwork.**
-> They were extracted from raster sources, so they expose only `sign.assets`
-> paths into this repo's build-time `assets/` tree — which is **not published** —
-> and render as nothing. Vector sources for Fiji are welcome:
+> They have no usable vector source — either none was published upstream,
+> or the only artwork is a monochrome trace that renders as a black shape.
+> Vector sources for Fiji are welcome:
 > see [the coverage notes](https://karlnorling.github.io/road-signs/countries/fj/).
 
 ## Sources

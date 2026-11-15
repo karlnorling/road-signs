@@ -26,6 +26,8 @@
     "lint": "oxlint .",
     "prepare": "lefthook install",
     "publish": "yarn changeset publish",
+    "audit-svgs": "tsx bin/audit-svgs.ts",
+    "publishable": "tsx bin/publishable.ts",
     "version-packages": "changeset version && yarn install --mode=update-lockfile",
     "publish-first-release": "tsx bin/publish-first-release.ts",
     "test": "yarn workspaces foreach -A run test",

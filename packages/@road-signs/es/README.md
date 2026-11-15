@@ -1,6 +1,6 @@
 # @road-signs/es
 
-Road signs for Spain — a TypeScript registry with every sign's artwork inlined as SVG, plus typed lookup helpers.
+Road signs for Spain — a TypeScript registry with most signs' artwork inlined as SVG, plus typed lookup helpers.
 
 ## Install
 
@@ -13,7 +13,7 @@ npm install @road-signs/es
 |                     |                                                                  |
 | ------------------- | ---------------------------------------------------------------- |
 | Signs               | 419                                                              |
-| With vector artwork | 419                                                              |
+| With vector artwork | 395                                                              |
 | Categories          | `information`, `mandatory`, `priority`, `prohibitory`, `warning` |
 | Standard            | Reglamento General de Circulación — Vienna Convention            |
 | Regulator           | DGT                                                              |
@@ -38,6 +38,12 @@ const sign = getSign('p-1-intersection-with-priority')!;
 
 sign.svg; // inline, SVGO-optimised SVG markup
 ```
+
+> **24 of these signs carry inline artwork.**
+> They have no usable vector source — either none was published upstream,
+> or the only artwork is a monochrome trace that renders as a black shape.
+> Vector sources for Spain are welcome:
+> see [the coverage notes](https://karlnorling.github.io/road-signs/countries/es/).
 
 > `sign.assets` holds paths into this repo's build-time `assets/` tree.
 > That directory is ~16GB across all countries and is **not published** —

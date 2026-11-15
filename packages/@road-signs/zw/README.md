@@ -1,6 +1,6 @@
 # @road-signs/zw
 
-Road signs for Zimbabwe — a TypeScript registry with every sign's artwork inlined as SVG, plus typed lookup helpers.
+Road signs for Zimbabwe — a TypeScript registry with most signs' artwork inlined as SVG, plus typed lookup helpers.
 
 ## Install
 
@@ -13,7 +13,7 @@ npm install @road-signs/zw
 |                     |                                                       |
 | ------------------- | ----------------------------------------------------- |
 | Signs               | 322                                                   |
-| With vector artwork | 322                                                   |
+| With vector artwork | 321                                                   |
 | Categories          | `information`, `prohibitory`, `warning`               |
 | Standard            | British-derived (Road Traffic Act, left-hand traffic) |
 | Regulator           | Traffic Safety Council                                |
@@ -38,6 +38,12 @@ const sign = getSign('crossroad-ahead-crossroad-ahead')!;
 
 sign.svg; // inline, SVGO-optimised SVG markup
 ```
+
+> **1 of these signs carry inline artwork.**
+> They have no usable vector source — either none was published upstream,
+> or the only artwork is a monochrome trace that renders as a black shape.
+> Vector sources for Zimbabwe are welcome:
+> see [the coverage notes](https://karlnorling.github.io/road-signs/countries/zw/).
 
 > `sign.assets` holds paths into this repo's build-time `assets/` tree.
 > That directory is ~16GB across all countries and is **not published** —

@@ -5,7 +5,6 @@ description: Swedish road signs (Vägmärkesförordningen) — categories, insta
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-
 {/* HERO:START */}
 
 import CountryHero from '../../../components/CountryHero.astro';
@@ -18,13 +17,13 @@ import CountryHero from '../../../components/CountryHero.astro';
 
 ## Quick facts
 
-| Field | Value |
-| ----- | ----- |
-| Drive side | Right-hand |
-| Language(s) | Swedish |
-| Regulator | Trafikverket (VMF) |
-| Code format | `A1 / B1 / C1 / D1` |
-| Standard | Vägmärkesförordning (VMF) — Vienna Convention |
+| Field       | Value                                         |
+| ----------- | --------------------------------------------- |
+| Drive side  | Right-hand                                    |
+| Language(s) | Swedish                                       |
+| Regulator   | Trafikverket (VMF)                            |
+| Code format | `A1 / B1 / C1 / D1`                           |
+| Standard    | Vägmärkesförordning (VMF) — Vienna Convention |
 
 {/* QUICK_FACTS:END */}
 
@@ -41,13 +40,13 @@ npm install @road-signs/se
 
 ## Sign categories
 
-| Category | Series | Description |
-| -------- | ------ | ----------- |
-| `warning` | A series | Warn of hazards ahead — triangular, yellow background |
-| `priority` | B series | Right-of-way and yield — stop sign, yield, priority road |
-| `prohibitory` | C series | Prohibitions and restrictions — circular, red border |
-| `mandatory` | D series | Compulsory actions — circular, blue background |
-| `information` | E–I series | Information, directions, and services — rectangular |
+| Category      | Series     | Description                                              |
+| ------------- | ---------- | -------------------------------------------------------- |
+| `warning`     | A series   | Warn of hazards ahead — triangular, yellow background    |
+| `priority`    | B series   | Right-of-way and yield — stop sign, yield, priority road |
+| `prohibitory` | C series   | Prohibitions and restrictions — circular, red border     |
+| `mandatory`   | D series   | Compulsory actions — circular, blue background           |
+| `information` | E–I series | Information, directions, and services — rectangular      |
 
 {/* USAGE:START */}
 
@@ -72,6 +71,7 @@ npm install @road-signs/se
     // All information signs
     const filtered = getSignsByCategory("information");
     ```
+
   </TabItem>
   <TabItem label="React">
     ```tsx
@@ -90,6 +90,7 @@ npm install @road-signs/se
       );
     }
     ```
+
   </TabItem>
   <TabItem label="Vue 3">
     ```vue
@@ -106,6 +107,7 @@ npm install @road-signs/se
       </div>
     </template>
     ```
+
   </TabItem>
 </Tabs>
 
@@ -115,20 +117,20 @@ npm install @road-signs/se
 
 ## Coverage
 
-| Metric | Value |
-| ------ | ----- |
-| Signs scraped | 267 |
-| Signs with SVG | 267 |
-| Missing SVG | 0 |
-| Overall | **100%** |
+| Metric         | Value    |
+| -------------- | -------- |
+| Signs scraped  | 267      |
+| Signs with SVG | 267      |
+| Missing SVG    | 0        |
+| Overall        | **100%** |
 
-| Category | Scraped | With SVG | Missing | % |
-| -------- | ------: | -------: | ------: | -: |
-| `warning` | 69 | 69 | 0 | 100% |
-| `priority` | 9 | 9 | 0 | 100% |
-| `prohibitory` | 45 | 45 | 0 | 100% |
-| `mandatory` | 14 | 14 | 0 | 100% |
-| `information` | 130 | 130 | 0 | 100% |
+| Category      | Scraped | With SVG | Missing |    % |
+| ------------- | ------: | -------: | ------: | ---: |
+| `warning`     |      69 |       69 |       0 | 100% |
+| `priority`    |       9 |        9 |       0 | 100% |
+| `prohibitory` |      45 |       45 |       0 | 100% |
+| `mandatory`   |      14 |       14 |       0 | 100% |
+| `information` |     130 |      130 |       0 | 100% |
 
 **Standard:** Vägmärkesförordning (VMF) — Vienna Convention
 
@@ -146,20 +148,15 @@ _Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.c
 ```ts
 import type { SESign, SECategory } from '@road-signs/se';
 
-type SECategory =
-  | 'information'
-  | 'mandatory'
-  | 'priority'
-  | 'prohibitory'
-  | 'warning';
+type SECategory = 'information' | 'mandatory' | 'priority' | 'prohibitory' | 'warning';
 
 interface SESign {
-  id: string;        // e.g. "a1-curve-right"
-  code: string;      // e.g. "A1"
-  name: string;      // e.g. "Curve Right"
+  id: string; // e.g. "a1-curve-right"
+  code: string; // e.g. "A1"
+  name: string; // e.g. "Curve Right"
   description: string;
   category: SECategory;
-  svg: string;       // inline SVG string
+  svg: string; // inline SVG string
   assets: {
     svg: string;
     png: Record<number, string>;

@@ -5,7 +5,6 @@ description: Monaco road signs — categories, installation, and usage.
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-
 {/* HERO:START */}
 
 import CountryHero from '../../../components/CountryHero.astro';
@@ -25,11 +24,11 @@ npm install @road-signs/mc
 
 ## Sign categories
 
-| Category | Series | Description |
-| -------- | ------ | ----------- |
-| `warning` | Warning | Hazard and warning signs |
-| `prohibitory` | Prohibitory | Prohibition and restriction signs |
-| `mandatory` | Mandatory | Mandatory instruction signs |
+| Category      | Series                             | Description                                      |
+| ------------- | ---------------------------------- | ------------------------------------------------ |
+| `warning`     | Warning                            | Hazard and warning signs                         |
+| `prohibitory` | Prohibitory                        | Prohibition and restriction signs                |
+| `mandatory`   | Mandatory                          | Mandatory instruction signs                      |
 | `information` | Information / Service / Additional | Information, service, and additional plate signs |
 
 {/* USAGE:START */}
@@ -55,6 +54,7 @@ npm install @road-signs/mc
     // All prohibitory signs
     const filtered = getSignsByCategory("prohibitory");
     ```
+
   </TabItem>
   <TabItem label="React">
     ```tsx
@@ -73,6 +73,7 @@ npm install @road-signs/mc
       );
     }
     ```
+
   </TabItem>
   <TabItem label="Vue 3">
     ```vue
@@ -89,6 +90,7 @@ npm install @road-signs/mc
       </div>
     </template>
     ```
+
   </TabItem>
 </Tabs>
 
@@ -98,20 +100,20 @@ npm install @road-signs/mc
 
 ## Coverage
 
-| Metric | Value |
-| ------ | ----- |
-| Signs scraped | 336 |
-| Signs with SVG | 334 |
-| Missing SVG | 2 |
-| Overall | **99%** |
+| Metric         | Value   |
+| -------------- | ------- |
+| Signs scraped  | 336     |
+| Signs with SVG | 334     |
+| Missing SVG    | 2       |
+| Overall        | **99%** |
 
-| Category | Scraped | With SVG | Missing | % |
-| -------- | ------: | -------: | ------: | -: |
-| `warning` | 30 | 29 | 1 | 97% |
-| `priority` | 9 | 9 | 0 | 100% |
-| `prohibitory` | 88 | 88 | 0 | 100% |
-| `mandatory` | 1 | 1 | 0 | 100% |
-| `information` | 208 | 207 | 1 | 100% |
+| Category      | Scraped | With SVG | Missing |    % |
+| ------------- | ------: | -------: | ------: | ---: |
+| `warning`     |      30 |       29 |       1 |  97% |
+| `priority`    |       9 |        9 |       0 | 100% |
+| `prohibitory` |      88 |       88 |       0 | 100% |
+| `mandatory`   |       1 |        1 |       0 | 100% |
+| `information` |     208 |      207 |       1 | 100% |
 
 **Standard:** Vienna Convention (Code de la route) — shared with France
 

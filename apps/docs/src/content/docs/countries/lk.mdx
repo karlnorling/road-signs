@@ -5,7 +5,6 @@ description: Sri Lanka road signs — categories, installation, and usage.
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-
 {/* HERO:START */}
 
 import CountryHero from '../../../components/CountryHero.astro';
@@ -18,12 +17,12 @@ import CountryHero from '../../../components/CountryHero.astro';
 
 ## Quick facts
 
-| Field | Value |
-| ----- | ----- |
-| Drive side | Left-hand |
-| Language(s) | Sinhala, Tamil, English |
-| Regulator | RDA |
-| Standard | British-derived (Motor Traffic Act) |
+| Field       | Value                               |
+| ----------- | ----------------------------------- |
+| Drive side  | Left-hand                           |
+| Language(s) | Sinhala, Tamil, English             |
+| Regulator   | RDA                                 |
+| Standard    | British-derived (Motor Traffic Act) |
 
 {/* QUICK_FACTS:END */}
 
@@ -38,10 +37,10 @@ npm install @road-signs/lk
 
 ## Sign categories
 
-| Category | Series | Description |
-| -------- | ------ | ----------- |
-| `warning` | Warning | Hazard and warning signs |
-| `priority` | Priority | Priority and right-of-way signs |
+| Category      | Series     | Description                      |
+| ------------- | ---------- | -------------------------------- |
+| `warning`     | Warning    | Hazard and warning signs         |
+| `priority`    | Priority   | Priority and right-of-way signs  |
 | `prohibitory` | Regulatory | Regulatory and prohibition signs |
 
 {/* USAGE:START */}
@@ -67,6 +66,7 @@ npm install @road-signs/lk
     // All warning signs
     const filtered = getSignsByCategory("warning");
     ```
+
   </TabItem>
   <TabItem label="React">
     ```tsx
@@ -85,6 +85,7 @@ npm install @road-signs/lk
       );
     }
     ```
+
   </TabItem>
   <TabItem label="Vue 3">
     ```vue
@@ -101,6 +102,7 @@ npm install @road-signs/lk
       </div>
     </template>
     ```
+
   </TabItem>
 </Tabs>
 
@@ -110,20 +112,20 @@ npm install @road-signs/lk
 
 ## Coverage
 
-| Metric | Value |
-| ------ | ----- |
-| Signs scraped | 184 |
-| Signs with SVG | 184 |
-| Missing SVG | 0 |
-| Overall | **100%** |
+| Metric         | Value    |
+| -------------- | -------- |
+| Signs scraped  | 184      |
+| Signs with SVG | 184      |
+| Missing SVG    | 0        |
+| Overall        | **100%** |
 
-| Category | Scraped | With SVG | Missing | % |
-| -------- | ------: | -------: | ------: | -: |
-| `warning` | 49 | 49 | 0 | 100% |
-| `priority` | 4 | 4 | 0 | 100% |
-| `prohibitory` | 26 | 26 | 0 | 100% |
-| `mandatory` | 53 | 53 | 0 | 100% |
-| `information` | 52 | 52 | 0 | 100% |
+| Category      | Scraped | With SVG | Missing |    % |
+| ------------- | ------: | -------: | ------: | ---: |
+| `warning`     |      49 |       49 |       0 | 100% |
+| `priority`    |       4 |        4 |       0 | 100% |
+| `prohibitory` |      26 |       26 |       0 | 100% |
+| `mandatory`   |      53 |       53 |       0 | 100% |
+| `information` |      52 |       52 |       0 | 100% |
 
 **Standard:** British-derived (Motor Traffic Act)
 

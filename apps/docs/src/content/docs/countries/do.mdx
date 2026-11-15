@@ -5,7 +5,6 @@ description: Dominican Republic road signs — categories, installation, and usa
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-
 {/* HERO:START */}
 
 import CountryHero from '../../../components/CountryHero.astro';
@@ -25,10 +24,10 @@ npm install @road-signs/do
 
 ## Sign categories
 
-| Category | Series | Description |
-| -------- | ------ | ----------- |
-| `warning` | Warning | Hazard and warning signs |
-| `prohibitory` | Prohibitory | Prohibition and restriction signs |
+| Category      | Series                             | Description                                      |
+| ------------- | ---------------------------------- | ------------------------------------------------ |
+| `warning`     | Warning                            | Hazard and warning signs                         |
+| `prohibitory` | Prohibitory                        | Prohibition and restriction signs                |
 | `information` | Information / Service / Additional | Information, service, and additional plate signs |
 
 {/* USAGE:START */}
@@ -54,6 +53,7 @@ npm install @road-signs/do
     // All information signs
     const filtered = getSignsByCategory("information");
     ```
+
   </TabItem>
   <TabItem label="React">
     ```tsx
@@ -72,6 +72,7 @@ npm install @road-signs/do
       );
     }
     ```
+
   </TabItem>
   <TabItem label="Vue 3">
     ```vue
@@ -88,6 +89,7 @@ npm install @road-signs/do
       </div>
     </template>
     ```
+
   </TabItem>
 </Tabs>
 
@@ -97,20 +99,20 @@ npm install @road-signs/do
 
 ## Coverage
 
-| Metric | Value |
-| ------ | ----- |
-| Signs scraped | 51 |
-| Signs with SVG | 51 |
-| Missing SVG | 0 |
-| Overall | **100%** |
+| Metric         | Value    |
+| -------------- | -------- |
+| Signs scraped  | 51       |
+| Signs with SVG | 51       |
+| Missing SVG    | 0        |
+| Overall        | **100%** |
 
-| Category | Scraped | With SVG | Missing | % |
-| -------- | ------: | -------: | ------: | -: |
-| `warning` | 0 | 0 | 0 | — |
-| `priority` | 0 | 0 | 0 | — |
-| `prohibitory` | 0 | 0 | 0 | — |
-| `mandatory` | 0 | 0 | 0 | — |
-| `information` | 51 | 51 | 0 | 100% |
+| Category      | Scraped | With SVG | Missing |    % |
+| ------------- | ------: | -------: | ------: | ---: |
+| `warning`     |       0 |        0 |       0 |    — |
+| `priority`    |       0 |        0 |       0 |    — |
+| `prohibitory` |       0 |        0 |       0 |    — |
+| `mandatory`   |       0 |        0 |       0 |    — |
+| `information` |      51 |       51 |       0 | 100% |
 
 **Standard:** MUTCD-influenced / Vienna Convention variant
 

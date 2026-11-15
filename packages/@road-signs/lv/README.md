@@ -1,6 +1,6 @@
 # @road-signs/lv
 
-Road signs for Latvia — a TypeScript registry with every sign's artwork inlined as SVG, plus typed lookup helpers.
+Road signs for Latvia — a TypeScript registry with most signs' artwork inlined as SVG, plus typed lookup helpers.
 
 ## Install
 
@@ -13,7 +13,7 @@ npm install @road-signs/lv
 |                     |                                                                  |
 | ------------------- | ---------------------------------------------------------------- |
 | Signs               | 224                                                              |
-| With vector artwork | 224                                                              |
+| With vector artwork | 223                                                              |
 | Categories          | `information`, `mandatory`, `priority`, `prohibitory`, `warning` |
 | Standard            | Ceļu satiksmes noteikumi — Vienna Convention                     |
 | Regulator           | CSDD                                                             |
@@ -42,6 +42,12 @@ const sign = getSign(
 
 sign.svg; // inline, SVGO-optimised SVG markup
 ```
+
+> **1 of these signs carry inline artwork.**
+> They have no usable vector source — either none was published upstream,
+> or the only artwork is a monochrome trace that renders as a black shape.
+> Vector sources for Latvia are welcome:
+> see [the coverage notes](https://karlnorling.github.io/road-signs/countries/lv/).
 
 > `sign.assets` holds paths into this repo's build-time `assets/` tree.
 > That directory is ~16GB across all countries and is **not published** —

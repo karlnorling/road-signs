@@ -5,7 +5,6 @@ description: Brazilian CTB road signs — categories, installation, and usage.
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-
 {/* HERO:START */}
 
 import CountryHero from '../../../components/CountryHero.astro';
@@ -18,13 +17,13 @@ import CountryHero from '../../../components/CountryHero.astro';
 
 ## Quick facts
 
-| Field | Value |
-| ----- | ----- |
-| Drive side | Right-hand |
-| Language(s) | Portuguese |
-| Regulator | CONTRAN (CTB) |
-| Code format | `A-1a / R-1 / I-1` |
-| Standard | CTB (Código de Trânsito Brasileiro) — Vienna Convention variant |
+| Field       | Value                                                           |
+| ----------- | --------------------------------------------------------------- |
+| Drive side  | Right-hand                                                      |
+| Language(s) | Portuguese                                                      |
+| Regulator   | CONTRAN (CTB)                                                   |
+| Code format | `A-1a / R-1 / I-1`                                              |
+| Standard    | CTB (Código de Trânsito Brasileiro) — Vienna Convention variant |
 
 {/* QUICK_FACTS:END */}
 
@@ -39,13 +38,13 @@ npm install @road-signs/br
 
 ## Sign categories
 
-| Category | Series | Description |
-| -------- | ------ | ----------- |
-| `warning` | A-xx | Advertência — diamond hazard warnings |
-| `priority` | — | Give way / stop |
-| `prohibitory` | R-xx | Regulamentação — regulatory signs |
-| `mandatory` | — | Compulsory actions |
-| `information` | D-xx / S-xx | Indicação / Serviço signs |
+| Category      | Series      | Description                           |
+| ------------- | ----------- | ------------------------------------- |
+| `warning`     | A-xx        | Advertência — diamond hazard warnings |
+| `priority`    | —           | Give way / stop                       |
+| `prohibitory` | R-xx        | Regulamentação — regulatory signs     |
+| `mandatory`   | —           | Compulsory actions                    |
+| `information` | D-xx / S-xx | Indicação / Serviço signs             |
 
 {/* USAGE:START */}
 
@@ -70,6 +69,7 @@ npm install @road-signs/br
     // All warning signs
     const filtered = getSignsByCategory("warning");
     ```
+
   </TabItem>
   <TabItem label="React">
     ```tsx
@@ -88,6 +88,7 @@ npm install @road-signs/br
       );
     }
     ```
+
   </TabItem>
   <TabItem label="Vue 3">
     ```vue
@@ -104,6 +105,7 @@ npm install @road-signs/br
       </div>
     </template>
     ```
+
   </TabItem>
 </Tabs>
 
@@ -113,20 +115,20 @@ npm install @road-signs/br
 
 ## Coverage
 
-| Metric | Value |
-| ------ | ----- |
-| Signs scraped | 171 |
-| Signs with SVG | 171 |
-| Missing SVG | 0 |
-| Overall | **100%** |
+| Metric         | Value    |
+| -------------- | -------- |
+| Signs scraped  | 171      |
+| Signs with SVG | 171      |
+| Missing SVG    | 0        |
+| Overall        | **100%** |
 
-| Category | Scraped | With SVG | Missing | % |
-| -------- | ------: | -------: | ------: | -: |
-| `warning` | 104 | 104 | 0 | 100% |
-| `priority` | 0 | 0 | 0 | — |
-| `prohibitory` | 67 | 67 | 0 | 100% |
-| `mandatory` | 0 | 0 | 0 | — |
-| `information` | 0 | 0 | 0 | — |
+| Category      | Scraped | With SVG | Missing |    % |
+| ------------- | ------: | -------: | ------: | ---: |
+| `warning`     |     104 |      104 |       0 | 100% |
+| `priority`    |       0 |        0 |       0 |    — |
+| `prohibitory` |      67 |       67 |       0 | 100% |
+| `mandatory`   |       0 |        0 |       0 |    — |
+| `information` |       0 |        0 |       0 |    — |
 
 **Standard:** CTB (Código de Trânsito Brasileiro) — Vienna Convention variant
 
@@ -144,20 +146,15 @@ _Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.c
 ```ts
 import type { BRSign, BRCategory } from '@road-signs/br';
 
-type BRCategory =
-  | 'information'
-  | 'mandatory'
-  | 'priority'
-  | 'prohibitory'
-  | 'warning';
+type BRCategory = 'information' | 'mandatory' | 'priority' | 'prohibitory' | 'warning';
 
 interface BRSign {
-  id: string;          // e.g. "a-1-curves-ahead"
-  code: string;        // e.g. "A-1"
+  id: string; // e.g. "a-1-curves-ahead"
+  code: string; // e.g. "A-1"
   name: string;
   description: string;
   category: BRCategory;
-  svg: string;         // inline SVG string
+  svg: string; // inline SVG string
   assets: {
     svg: string;
     png: Record<number, string>;

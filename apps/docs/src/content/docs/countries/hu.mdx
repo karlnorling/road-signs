@@ -5,7 +5,6 @@ description: Hungarian KRESZ road signs — categories, installation, and usage.
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-
 {/* HERO:START */}
 
 import CountryHero from '../../../components/CountryHero.astro';
@@ -18,12 +17,12 @@ import CountryHero from '../../../components/CountryHero.astro';
 
 ## Quick facts
 
-| Field | Value |
-| ----- | ----- |
-| Drive side | Right-hand |
-| Language(s) | Hungarian |
-| Regulator | NKH (KRESZ) |
-| Standard | KRESZ (Közúti Közlekedési Szabályzat) — Vienna Convention |
+| Field       | Value                                                     |
+| ----------- | --------------------------------------------------------- |
+| Drive side  | Right-hand                                                |
+| Language(s) | Hungarian                                                 |
+| Regulator   | NKH (KRESZ)                                               |
+| Standard    | KRESZ (Közúti Közlekedési Szabályzat) — Vienna Convention |
 
 {/* QUICK_FACTS:END */}
 
@@ -38,12 +37,12 @@ npm install @road-signs/hu
 
 ## Sign categories
 
-| Category | Series | Description |
-| -------- | ------ | ----------- |
-| `warning` | A series | Veszélyt jelző táblák — hazard warnings |
-| `priority` | B series | Elsőbbséget szabályozó táblák — right-of-way |
-| `prohibitory` | C series | Tiltó és korlátozó táblák — prohibitions |
-| `mandatory` | D series | Kötelező magatartást előíró táblák — mandatory |
+| Category      | Series     | Description                                    |
+| ------------- | ---------- | ---------------------------------------------- |
+| `warning`     | A series   | Veszélyt jelző táblák — hazard warnings        |
+| `priority`    | B series   | Elsőbbséget szabályozó táblák — right-of-way   |
+| `prohibitory` | C series   | Tiltó és korlátozó táblák — prohibitions       |
+| `mandatory`   | D series   | Kötelező magatartást előíró táblák — mandatory |
 | `information` | E–T series | Tájékoztató táblák — information and direction |
 
 {/* USAGE:START */}
@@ -69,6 +68,7 @@ npm install @road-signs/hu
     // All warning signs
     const filtered = getSignsByCategory("warning");
     ```
+
   </TabItem>
   <TabItem label="React">
     ```tsx
@@ -87,6 +87,7 @@ npm install @road-signs/hu
       );
     }
     ```
+
   </TabItem>
   <TabItem label="Vue 3">
     ```vue
@@ -103,6 +104,7 @@ npm install @road-signs/hu
       </div>
     </template>
     ```
+
   </TabItem>
 </Tabs>
 
@@ -112,20 +114,20 @@ npm install @road-signs/hu
 
 ## Coverage
 
-| Metric | Value |
-| ------ | ----- |
-| Signs scraped | 417 |
-| Signs with SVG | 417 |
-| Missing SVG | 0 |
-| Overall | **100%** |
+| Metric         | Value    |
+| -------------- | -------- |
+| Signs scraped  | 417      |
+| Signs with SVG | 417      |
+| Missing SVG    | 0        |
+| Overall        | **100%** |
 
-| Category | Scraped | With SVG | Missing | % |
-| -------- | ------: | -------: | ------: | -: |
-| `warning` | 57 | 57 | 0 | 100% |
-| `priority` | 6 | 6 | 0 | 100% |
-| `prohibitory` | 49 | 49 | 0 | 100% |
-| `mandatory` | 36 | 36 | 0 | 100% |
-| `information` | 269 | 269 | 0 | 100% |
+| Category      | Scraped | With SVG | Missing |    % |
+| ------------- | ------: | -------: | ------: | ---: |
+| `warning`     |      57 |       57 |       0 | 100% |
+| `priority`    |       6 |        6 |       0 | 100% |
+| `prohibitory` |      49 |       49 |       0 | 100% |
+| `mandatory`   |      36 |       36 |       0 | 100% |
+| `information` |     269 |      269 |       0 | 100% |
 
 **Standard:** KRESZ (Közúti Közlekedési Szabályzat) — Vienna Convention
 
@@ -142,20 +144,15 @@ _Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.c
 ```ts
 import type { HUSign, HUCategory } from '@road-signs/hu';
 
-type HUCategory =
-  | 'information'
-  | 'mandatory'
-  | 'priority'
-  | 'prohibitory'
-  | 'warning';
+type HUCategory = 'information' | 'mandatory' | 'priority' | 'prohibitory' | 'warning';
 
 interface HUSign {
-  id: string;          // e.g. "a1-sharp-bend"
-  code: string;        // sign code, e.g. "A1"
+  id: string; // e.g. "a1-sharp-bend"
+  code: string; // sign code, e.g. "A1"
   name: string;
   description: string;
   category: HUCategory;
-  svg: string;         // inline SVG string
+  svg: string; // inline SVG string
   assets: {
     svg: string;
     png: Record<number, string>;

@@ -5,7 +5,6 @@ description: Cambodia road signs — categories, installation, and usage.
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-
 {/* HERO:START */}
 
 import CountryHero from '../../../components/CountryHero.astro';
@@ -18,12 +17,12 @@ import CountryHero from '../../../components/CountryHero.astro';
 
 ## Quick facts
 
-| Field | Value |
-| ----- | ----- |
-| Drive side | Right-hand |
-| Language(s) | Khmer |
-| Regulator | MPWT |
-| Standard | Vienna Convention (Prakas on Road Signs 2014) |
+| Field       | Value                                         |
+| ----------- | --------------------------------------------- |
+| Drive side  | Right-hand                                    |
+| Language(s) | Khmer                                         |
+| Regulator   | MPWT                                          |
+| Standard    | Vienna Convention (Prakas on Road Signs 2014) |
 
 {/* QUICK_FACTS:END */}
 
@@ -38,11 +37,11 @@ npm install @road-signs/kh
 
 ## Sign categories
 
-| Category | Series | Description |
-| -------- | ------ | ----------- |
-| `warning` | Warning | Hazard and warning signs |
+| Category      | Series     | Description                      |
+| ------------- | ---------- | -------------------------------- |
+| `warning`     | Warning    | Hazard and warning signs         |
 | `prohibitory` | Regulatory | Regulatory and prohibition signs |
-| `mandatory` | Mandatory | Mandatory instruction signs |
+| `mandatory`   | Mandatory  | Mandatory instruction signs      |
 
 {/* USAGE:START */}
 
@@ -67,6 +66,7 @@ npm install @road-signs/kh
     // All warning signs
     const filtered = getSignsByCategory("warning");
     ```
+
   </TabItem>
   <TabItem label="React">
     ```tsx
@@ -85,6 +85,7 @@ npm install @road-signs/kh
       );
     }
     ```
+
   </TabItem>
   <TabItem label="Vue 3">
     ```vue
@@ -101,6 +102,7 @@ npm install @road-signs/kh
       </div>
     </template>
     ```
+
   </TabItem>
 </Tabs>
 
@@ -110,20 +112,20 @@ npm install @road-signs/kh
 
 ## Coverage
 
-| Metric | Value |
-| ------ | ----- |
-| Signs scraped | 465 |
-| Signs with SVG | 465 |
-| Missing SVG | 0 |
-| Overall | **100%** |
+| Metric         | Value    |
+| -------------- | -------- |
+| Signs scraped  | 465      |
+| Signs with SVG | 465      |
+| Missing SVG    | 0        |
+| Overall        | **100%** |
 
-| Category | Scraped | With SVG | Missing | % |
-| -------- | ------: | -------: | ------: | -: |
-| `warning` | 61 | 61 | 0 | 100% |
-| `priority` | 11 | 11 | 0 | 100% |
-| `prohibitory` | 46 | 46 | 0 | 100% |
-| `mandatory` | 23 | 23 | 0 | 100% |
-| `information` | 324 | 324 | 0 | 100% |
+| Category      | Scraped | With SVG | Missing |    % |
+| ------------- | ------: | -------: | ------: | ---: |
+| `warning`     |      61 |       61 |       0 | 100% |
+| `priority`    |      11 |       11 |       0 | 100% |
+| `prohibitory` |      46 |       46 |       0 | 100% |
+| `mandatory`   |      23 |       23 |       0 | 100% |
+| `information` |     324 |      324 |       0 | 100% |
 
 **Standard:** Vienna Convention (Prakas on Road Signs 2014)
 

@@ -5,7 +5,6 @@ description: Austrian StVO road signs — categories, installation, and usage.
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-
 {/* HERO:START */}
 
 import CountryHero from '../../../components/CountryHero.astro';
@@ -18,13 +17,13 @@ import CountryHero from '../../../components/CountryHero.astro';
 
 ## Quick facts
 
-| Field | Value |
-| ----- | ----- |
-| Drive side | Right-hand |
-| Language(s) | German |
-| Regulator | BMK (StVO) |
-| Code format | `Zeichen NNN` |
-| Standard | StVO (Straßenverkehrs-Ordnung) — Vienna Convention |
+| Field       | Value                                              |
+| ----------- | -------------------------------------------------- |
+| Drive side  | Right-hand                                         |
+| Language(s) | German                                             |
+| Regulator   | BMK (StVO)                                         |
+| Code format | `Zeichen NNN`                                      |
+| Standard    | StVO (Straßenverkehrs-Ordnung) — Vienna Convention |
 
 {/* QUICK_FACTS:END */}
 
@@ -39,13 +38,13 @@ npm install @road-signs/at
 
 ## Sign categories
 
-| Category | Series | Description |
-| -------- | ------ | ----------- |
-| `warning` | Gefahrenzeichen | Hazard warnings |
-| `priority` | Vorrangzeichen | Right-of-way signs |
-| `prohibitory` | Verbotszeichen | Prohibitions and restrictions |
-| `mandatory` | Gebotszeichen | Compulsory actions |
-| `information` | Hinweiszeichen | Information and direction signs |
+| Category      | Series          | Description                     |
+| ------------- | --------------- | ------------------------------- |
+| `warning`     | Gefahrenzeichen | Hazard warnings                 |
+| `priority`    | Vorrangzeichen  | Right-of-way signs              |
+| `prohibitory` | Verbotszeichen  | Prohibitions and restrictions   |
+| `mandatory`   | Gebotszeichen   | Compulsory actions              |
+| `information` | Hinweiszeichen  | Information and direction signs |
 
 {/* USAGE:START */}
 
@@ -70,6 +69,7 @@ npm install @road-signs/at
     // All warning signs
     const filtered = getSignsByCategory("warning");
     ```
+
   </TabItem>
   <TabItem label="React">
     ```tsx
@@ -88,6 +88,7 @@ npm install @road-signs/at
       );
     }
     ```
+
   </TabItem>
   <TabItem label="Vue 3">
     ```vue
@@ -104,6 +105,7 @@ npm install @road-signs/at
       </div>
     </template>
     ```
+
   </TabItem>
 </Tabs>
 
@@ -113,20 +115,20 @@ npm install @road-signs/at
 
 ## Coverage
 
-| Metric | Value |
-| ------ | ----- |
-| Signs scraped | 200 |
-| Signs with SVG | 200 |
-| Missing SVG | 0 |
-| Overall | **100%** |
+| Metric         | Value    |
+| -------------- | -------- |
+| Signs scraped  | 200      |
+| Signs with SVG | 200      |
+| Missing SVG    | 0        |
+| Overall        | **100%** |
 
-| Category | Scraped | With SVG | Missing | % |
-| -------- | ------: | -------: | ------: | -: |
-| `warning` | 44 | 44 | 0 | 100% |
-| `priority` | 4 | 4 | 0 | 100% |
-| `prohibitory` | 43 | 43 | 0 | 100% |
-| `mandatory` | 26 | 26 | 0 | 100% |
-| `information` | 83 | 83 | 0 | 100% |
+| Category      | Scraped | With SVG | Missing |    % |
+| ------------- | ------: | -------: | ------: | ---: |
+| `warning`     |      44 |       44 |       0 | 100% |
+| `priority`    |       4 |        4 |       0 | 100% |
+| `prohibitory` |      43 |       43 |       0 | 100% |
+| `mandatory`   |      26 |       26 |       0 | 100% |
+| `information` |      83 |       83 |       0 | 100% |
 
 **Standard:** StVO (Straßenverkehrs-Ordnung) — Vienna Convention
 
@@ -143,20 +145,15 @@ _Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.c
 ```ts
 import type { ATSign, ATCategory } from '@road-signs/at';
 
-type ATCategory =
-  | 'information'
-  | 'mandatory'
-  | 'priority'
-  | 'prohibitory'
-  | 'warning';
+type ATCategory = 'information' | 'mandatory' | 'priority' | 'prohibitory' | 'warning';
 
 interface ATSign {
-  id: string;          // e.g. "a1-danger-bend-right"
-  code: string;        // e.g. "A1"
+  id: string; // e.g. "a1-danger-bend-right"
+  code: string; // e.g. "A1"
   name: string;
   description: string;
   category: ATCategory;
-  svg: string;         // inline SVG string
+  svg: string; // inline SVG string
   assets: {
     svg: string;
     png: Record<number, string>;

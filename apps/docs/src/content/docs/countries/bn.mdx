@@ -5,7 +5,6 @@ description: Brunei road signs — categories, installation, and usage.
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-
 {/* HERO:START */}
 
 import CountryHero from '../../../components/CountryHero.astro';
@@ -18,12 +17,12 @@ import CountryHero from '../../../components/CountryHero.astro';
 
 ## Quick facts
 
-| Field | Value |
-| ----- | ----- |
-| Drive side | Left-hand |
-| Language(s) | Malay, English |
-| Regulator | Land Transport Department |
-| Standard | Road Traffic Act — Vienna Convention variant |
+| Field       | Value                                        |
+| ----------- | -------------------------------------------- |
+| Drive side  | Left-hand                                    |
+| Language(s) | Malay, English                               |
+| Regulator   | Land Transport Department                    |
+| Standard    | Road Traffic Act — Vienna Convention variant |
 
 {/* QUICK_FACTS:END */}
 
@@ -38,12 +37,12 @@ npm install @road-signs/bn
 
 ## Sign categories
 
-| Category | Series | Description |
-| -------- | ------ | ----------- |
-| `warning` | Warning | Hazard and warning signs |
-| `priority` | Priority | Priority and right-of-way signs |
-| `prohibitory` | Prohibitory | Prohibition and restriction signs |
-| `mandatory` | Mandatory | Mandatory instruction signs |
+| Category      | Series                             | Description                                |
+| ------------- | ---------------------------------- | ------------------------------------------ |
+| `warning`     | Warning                            | Hazard and warning signs                   |
+| `priority`    | Priority                           | Priority and right-of-way signs            |
+| `prohibitory` | Prohibitory                        | Prohibition and restriction signs          |
+| `mandatory`   | Mandatory                          | Mandatory instruction signs                |
 | `information` | Information / Service / Additional | Information, service, and additional signs |
 
 {/* USAGE:START */}
@@ -69,6 +68,7 @@ npm install @road-signs/bn
     // All warning signs
     const filtered = getSignsByCategory("warning");
     ```
+
   </TabItem>
   <TabItem label="React">
     ```tsx
@@ -87,6 +87,7 @@ npm install @road-signs/bn
       );
     }
     ```
+
   </TabItem>
   <TabItem label="Vue 3">
     ```vue
@@ -103,6 +104,7 @@ npm install @road-signs/bn
       </div>
     </template>
     ```
+
   </TabItem>
 </Tabs>
 
@@ -112,20 +114,20 @@ npm install @road-signs/bn
 
 ## Coverage
 
-| Metric | Value |
-| ------ | ----- |
-| Signs scraped | 136 |
-| Signs with SVG | 136 |
-| Missing SVG | 0 |
-| Overall | **100%** |
+| Metric         | Value    |
+| -------------- | -------- |
+| Signs scraped  | 136      |
+| Signs with SVG | 136      |
+| Missing SVG    | 0        |
+| Overall        | **100%** |
 
-| Category | Scraped | With SVG | Missing | % |
-| -------- | ------: | -------: | ------: | -: |
-| `warning` | 59 | 59 | 0 | 100% |
-| `priority` | 6 | 6 | 0 | 100% |
-| `prohibitory` | 16 | 16 | 0 | 100% |
-| `mandatory` | 10 | 10 | 0 | 100% |
-| `information` | 45 | 45 | 0 | 100% |
+| Category      | Scraped | With SVG | Missing |    % |
+| ------------- | ------: | -------: | ------: | ---: |
+| `warning`     |      59 |       59 |       0 | 100% |
+| `priority`    |       6 |        6 |       0 | 100% |
+| `prohibitory` |      16 |       16 |       0 | 100% |
+| `mandatory`   |      10 |       10 |       0 | 100% |
+| `information` |      45 |       45 |       0 | 100% |
 
 **Standard:** Road Traffic Act — Vienna Convention variant
 

@@ -143,7 +143,12 @@ const findPrimaryAsset = (code: string, assetsRoot: string): PrimaryAsset | unde
   const svgFiles = globSync(path.join(assetsRoot, '**', '*.svg')).filter(
     (f) => !/_\d+x\d+\.svg$/.test(f),
   );
-  const svgFile = svgFiles.find((f) => codeMatchesPath(lower, normalisePath(f)));
+  // Prefer a real SVG over a potrace trace. `yarn refetch-svgs` writes the
+  // recovered file alongside the existing `<code>.traced.svg`, both match the
+  // code, and glob order is unspecified -- so without this the monochrome
+  // trace can win and the recovery silently does nothing.
+  const svgMatches = svgFiles.filter((f) => codeMatchesPath(lower, normalisePath(f)));
+  const svgFile = svgMatches.find((f) => !f.endsWith('.traced.svg')) ?? svgMatches[0];
   if (svgFile) return { filePath: svgFile, isPng: false };
 
   // Fall back to PNG (PDF-extracted signs have no SVG source).

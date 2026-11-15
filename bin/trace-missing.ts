@@ -151,7 +151,17 @@ const preprocessPng = async (pngBuffer: Buffer): Promise<Buffer> => {
 
 /**
  * Trace a PNG buffer to an SVG string using potrace posterize.
- * Posterize produces a layered, multi-colour vector approximation.
+ *
+ * NOTE: posterize does NOT produce colour, whatever this comment used to say.
+ * It emits layers of a single colour at varying `fill-opacity`, so the result
+ * is a black-and-grey approximation -- and the `background` option below
+ * becomes `<rect fill="#fff"/>` with no width or height, which paints nothing.
+ * 1,242 signs across 49 countries shipped like this and rendered as black
+ * blobs; `yarn audit-svgs` finds them and `yarn refetch-svgs` recovers the ones
+ * that had a real SVG upstream all along.
+ *
+ * Only use this where no SVG source exists, and do not let the output count as
+ * vector coverage.
  */
 const traceToSvg = (pngBuffer: Buffer): Promise<string> =>
   new Promise((resolve, reject) => {

@@ -1,6 +1,6 @@
 # @road-signs/no
 
-Road signs for Norway — a TypeScript registry with every sign's artwork inlined as SVG, plus typed lookup helpers.
+Road signs for Norway — a TypeScript registry with most signs' artwork inlined as SVG, plus typed lookup helpers.
 
 ## Install
 
@@ -13,7 +13,7 @@ npm install @road-signs/no
 |                     |                                                                  |
 | ------------------- | ---------------------------------------------------------------- |
 | Signs               | 266                                                              |
-| With vector artwork | 266                                                              |
+| With vector artwork | 256                                                              |
 | Categories          | `information`, `mandatory`, `priority`, `prohibitory`, `warning` |
 | Standard            | Skiltforskriften — Vienna Convention                             |
 | Regulator           | Statens vegvesen                                                 |
@@ -38,6 +38,12 @@ const sign = getSign('curve-to-right-curve-to-right')!;
 
 sign.svg; // inline, SVGO-optimised SVG markup
 ```
+
+> **10 of these signs carry inline artwork.**
+> They have no usable vector source — either none was published upstream,
+> or the only artwork is a monochrome trace that renders as a black shape.
+> Vector sources for Norway are welcome:
+> see [the coverage notes](https://karlnorling.github.io/road-signs/countries/no/).
 
 > `sign.assets` holds paths into this repo's build-time `assets/` tree.
 > That directory is ~16GB across all countries and is **not published** —

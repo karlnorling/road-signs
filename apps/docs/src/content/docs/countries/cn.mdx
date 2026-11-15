@@ -5,7 +5,6 @@ description: China road signs — categories, installation, and usage.
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-
 {/* HERO:START */}
 
 import CountryHero from '../../../components/CountryHero.astro';
@@ -18,12 +17,12 @@ import CountryHero from '../../../components/CountryHero.astro';
 
 ## Quick facts
 
-| Field | Value |
-| ----- | ----- |
-| Drive side | Right-hand |
-| Language(s) | Chinese |
-| Regulator | MPS (GB 5768) |
-| Standard | GB 5768 national standard (non-Vienna) |
+| Field       | Value                                  |
+| ----------- | -------------------------------------- |
+| Drive side  | Right-hand                             |
+| Language(s) | Chinese                                |
+| Regulator   | MPS (GB 5768)                          |
+| Standard    | GB 5768 national standard (non-Vienna) |
 
 {/* QUICK_FACTS:END */}
 
@@ -38,11 +37,11 @@ npm install @road-signs/cn
 
 ## Sign categories
 
-| Category | Series | Description |
-| -------- | ------ | ----------- |
-| `warning` | Warning | Hazard and warning signs |
-| `prohibitory` | Prohibitory | Prohibition and restriction signs |
-| `mandatory` | Mandatory | Mandatory instruction signs |
+| Category      | Series                     | Description                       |
+| ------------- | -------------------------- | --------------------------------- |
+| `warning`     | Warning                    | Hazard and warning signs          |
+| `prohibitory` | Prohibitory                | Prohibition and restriction signs |
+| `mandatory`   | Mandatory                  | Mandatory instruction signs       |
 | `information` | Indicative / Informational | Information and directional signs |
 
 {/* USAGE:START */}
@@ -68,6 +67,7 @@ npm install @road-signs/cn
     // All information signs
     const filtered = getSignsByCategory("information");
     ```
+
   </TabItem>
   <TabItem label="React">
     ```tsx
@@ -86,6 +86,7 @@ npm install @road-signs/cn
       );
     }
     ```
+
   </TabItem>
   <TabItem label="Vue 3">
     ```vue
@@ -102,6 +103,7 @@ npm install @road-signs/cn
       </div>
     </template>
     ```
+
   </TabItem>
 </Tabs>
 
@@ -111,20 +113,20 @@ npm install @road-signs/cn
 
 ## Coverage
 
-| Metric | Value |
-| ------ | ----- |
-| Signs scraped | 429 |
-| Signs with SVG | 429 |
-| Missing SVG | 0 |
-| Overall | **100%** |
+| Metric         | Value   |
+| -------------- | ------- |
+| Signs scraped  | 429     |
+| Signs with SVG | 290     |
+| Missing SVG    | 139     |
+| Overall        | **68%** |
 
-| Category | Scraped | With SVG | Missing | % |
-| -------- | ------: | -------: | ------: | -: |
-| `warning` | 87 | 87 | 0 | 100% |
-| `priority` | 0 | 0 | 0 | — |
-| `prohibitory` | 52 | 52 | 0 | 100% |
-| `mandatory` | 0 | 0 | 0 | — |
-| `information` | 290 | 290 | 0 | 100% |
+| Category      | Scraped | With SVG | Missing |   % |
+| ------------- | ------: | -------: | ------: | --: |
+| `warning`     |      87 |       76 |      11 | 87% |
+| `priority`    |       0 |        0 |       0 |   — |
+| `prohibitory` |      52 |       51 |       1 | 98% |
+| `mandatory`   |       0 |        0 |       0 |   — |
+| `information` |     290 |      163 |     127 | 56% |
 
 **Standard:** GB 5768 national standard (non-Vienna)
 

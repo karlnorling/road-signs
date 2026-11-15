@@ -5,7 +5,6 @@ description: Tajikistan road signs — categories, installation, and usage.
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-
 {/* HERO:START */}
 
 import CountryHero from '../../../components/CountryHero.astro';
@@ -25,12 +24,12 @@ npm install @road-signs/tj
 
 ## Sign categories
 
-| Category | Series | Description |
-| -------- | ------ | ----------- |
-| `warning` | Warning | Hazard and warning signs |
-| `priority` | Priority | Priority and right-of-way signs |
-| `prohibitory` | Prohibitory | Prohibition and restriction signs |
-| `mandatory` | Mandatory | Mandatory instruction signs |
+| Category      | Series                             | Description                                      |
+| ------------- | ---------------------------------- | ------------------------------------------------ |
+| `warning`     | Warning                            | Hazard and warning signs                         |
+| `priority`    | Priority                           | Priority and right-of-way signs                  |
+| `prohibitory` | Prohibitory                        | Prohibition and restriction signs                |
+| `mandatory`   | Mandatory                          | Mandatory instruction signs                      |
 | `information` | Information / Service / Additional | Information, service, and additional plate signs |
 
 {/* USAGE:START */}
@@ -56,6 +55,7 @@ npm install @road-signs/tj
     // All warning signs
     const filtered = getSignsByCategory("warning");
     ```
+
   </TabItem>
   <TabItem label="React">
     ```tsx
@@ -74,6 +74,7 @@ npm install @road-signs/tj
       );
     }
     ```
+
   </TabItem>
   <TabItem label="Vue 3">
     ```vue
@@ -90,6 +91,7 @@ npm install @road-signs/tj
       </div>
     </template>
     ```
+
   </TabItem>
 </Tabs>
 
@@ -99,20 +101,20 @@ npm install @road-signs/tj
 
 ## Coverage
 
-| Metric | Value |
-| ------ | ----- |
-| Signs scraped | 288 |
-| Signs with SVG | 288 |
-| Missing SVG | 0 |
-| Overall | **100%** |
+| Metric         | Value    |
+| -------------- | -------- |
+| Signs scraped  | 288      |
+| Signs with SVG | 288      |
+| Missing SVG    | 0        |
+| Overall        | **100%** |
 
-| Category | Scraped | With SVG | Missing | % |
-| -------- | ------: | -------: | ------: | -: |
-| `warning` | 47 | 47 | 0 | 100% |
-| `priority` | 13 | 13 | 0 | 100% |
-| `prohibitory` | 38 | 38 | 0 | 100% |
-| `mandatory` | 20 | 20 | 0 | 100% |
-| `information` | 170 | 170 | 0 | 100% |
+| Category      | Scraped | With SVG | Missing |    % |
+| ------------- | ------: | -------: | ------: | ---: |
+| `warning`     |      47 |       47 |       0 | 100% |
+| `priority`    |      13 |       13 |       0 | 100% |
+| `prohibitory` |      38 |       38 |       0 | 100% |
+| `mandatory`   |      20 |       20 |       0 | 100% |
+| `information` |     170 |      170 |       0 | 100% |
 
 **Standard:** Vienna Convention
 

@@ -5,7 +5,6 @@ description: New Zealand road signs — categories, installation, and usage.
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-
 {/* HERO:START */}
 
 import CountryHero from '../../../components/CountryHero.astro';
@@ -18,12 +17,12 @@ import CountryHero from '../../../components/CountryHero.astro';
 
 ## Quick facts
 
-| Field | Value |
-| ----- | ----- |
-| Drive side | Left-hand |
-| Language(s) | English, Māori |
-| Regulator | NZTA (TCD Rule) |
-| Standard | Traffic Control Devices Rule (NZTA) |
+| Field       | Value                               |
+| ----------- | ----------------------------------- |
+| Drive side  | Left-hand                           |
+| Language(s) | English, Māori                      |
+| Regulator   | NZTA (TCD Rule)                     |
+| Standard    | Traffic Control Devices Rule (NZTA) |
 
 {/* QUICK_FACTS:END */}
 
@@ -38,13 +37,13 @@ npm install @road-signs/nz
 
 ## Sign categories
 
-| Category | Series | Description |
-| -------- | ------ | ----------- |
-| `warning` | Warning | Hazard warnings |
-| `regulatory` | Regulatory | Regulatory signs |
-| `mandatory` | Mandatory | Mandatory actions |
-| `information` | Information | Information and direction |
-| `temporary` | Temporary | Temporary traffic management |
+| Category      | Series      | Description                  |
+| ------------- | ----------- | ---------------------------- |
+| `warning`     | Warning     | Hazard warnings              |
+| `regulatory`  | Regulatory  | Regulatory signs             |
+| `mandatory`   | Mandatory   | Mandatory actions            |
+| `information` | Information | Information and direction    |
+| `temporary`   | Temporary   | Temporary traffic management |
 
 {/* USAGE:START */}
 
@@ -69,6 +68,7 @@ npm install @road-signs/nz
     // All prohibitory signs
     const filtered = getSignsByCategory("prohibitory");
     ```
+
   </TabItem>
   <TabItem label="React">
     ```tsx
@@ -87,6 +87,7 @@ npm install @road-signs/nz
       );
     }
     ```
+
   </TabItem>
   <TabItem label="Vue 3">
     ```vue
@@ -103,6 +104,7 @@ npm install @road-signs/nz
       </div>
     </template>
     ```
+
   </TabItem>
 </Tabs>
 
@@ -112,20 +114,20 @@ npm install @road-signs/nz
 
 ## Coverage
 
-| Metric | Value |
-| ------ | ----- |
-| Signs scraped | 417 |
-| Signs with SVG | 417 |
-| Missing SVG | 0 |
-| Overall | **100%** |
+| Metric         | Value   |
+| -------------- | ------- |
+| Signs scraped  | 417     |
+| Signs with SVG | 407     |
+| Missing SVG    | 10      |
+| Overall        | **98%** |
 
-| Category | Scraped | With SVG | Missing | % |
-| -------- | ------: | -------: | ------: | -: |
-| `warning` | 152 | 152 | 0 | 100% |
-| `priority` | 0 | 0 | 0 | — |
-| `prohibitory` | 120 | 120 | 0 | 100% |
-| `mandatory` | 0 | 0 | 0 | — |
-| `information` | 145 | 145 | 0 | 100% |
+| Category      | Scraped | With SVG | Missing |   % |
+| ------------- | ------: | -------: | ------: | --: |
+| `warning`     |     152 |      151 |       1 | 99% |
+| `priority`    |       0 |        0 |       0 |   — |
+| `prohibitory` |     120 |      112 |       8 | 93% |
+| `mandatory`   |       0 |        0 |       0 |   — |
+| `information` |     145 |      144 |       1 | 99% |
 
 **Standard:** Traffic Control Devices Rule (NZTA)
 
@@ -143,20 +145,15 @@ _Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.c
 ```ts
 import type { NZSign, NZCategory } from '@road-signs/nz';
 
-type NZCategory =
-  | 'information'
-  | 'mandatory'
-  | 'regulatory'
-  | 'temporary'
-  | 'warning';
+type NZCategory = 'information' | 'mandatory' | 'regulatory' | 'temporary' | 'warning';
 
 interface NZSign {
-  id: string;          // e.g. "w1-sharp-bend"
-  code: string;        // sign code, e.g. "W1"
+  id: string; // e.g. "w1-sharp-bend"
+  code: string; // sign code, e.g. "W1"
   name: string;
   description: string;
   category: NZCategory;
-  svg: string;         // inline SVG string
+  svg: string; // inline SVG string
   assets: {
     svg: string;
     png: Record<number, string>;

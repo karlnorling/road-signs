@@ -5,7 +5,6 @@ description: Latvian road signs — categories, installation, and usage.
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-
 {/* HERO:START */}
 
 import CountryHero from '../../../components/CountryHero.astro';
@@ -18,12 +17,12 @@ import CountryHero from '../../../components/CountryHero.astro';
 
 ## Quick facts
 
-| Field | Value |
-| ----- | ----- |
-| Drive side | Right-hand |
-| Language(s) | Latvian |
-| Regulator | CSDD |
-| Standard | Ceļu satiksmes noteikumi — Vienna Convention |
+| Field       | Value                                        |
+| ----------- | -------------------------------------------- |
+| Drive side  | Right-hand                                   |
+| Language(s) | Latvian                                      |
+| Regulator   | CSDD                                         |
+| Standard    | Ceļu satiksmes noteikumi — Vienna Convention |
 
 {/* QUICK_FACTS:END */}
 
@@ -38,13 +37,13 @@ npm install @road-signs/lv
 
 ## Sign categories
 
-| Category | Series | Description |
-| -------- | ------ | ----------- |
-| `warning` | A series | Hazard warnings |
-| `priority` | B series | Right-of-way |
-| `prohibitory` | C series | Prohibitions and restrictions |
-| `mandatory` | D series | Mandatory actions |
-| `information` | E–F series | Information and direction |
+| Category      | Series     | Description                   |
+| ------------- | ---------- | ----------------------------- |
+| `warning`     | A series   | Hazard warnings               |
+| `priority`    | B series   | Right-of-way                  |
+| `prohibitory` | C series   | Prohibitions and restrictions |
+| `mandatory`   | D series   | Mandatory actions             |
+| `information` | E–F series | Information and direction     |
 
 {/* USAGE:START */}
 
@@ -69,6 +68,7 @@ npm install @road-signs/lv
     // All mandatory signs
     const filtered = getSignsByCategory("mandatory");
     ```
+
   </TabItem>
   <TabItem label="React">
     ```tsx
@@ -87,6 +87,7 @@ npm install @road-signs/lv
       );
     }
     ```
+
   </TabItem>
   <TabItem label="Vue 3">
     ```vue
@@ -103,6 +104,7 @@ npm install @road-signs/lv
       </div>
     </template>
     ```
+
   </TabItem>
 </Tabs>
 
@@ -112,20 +114,20 @@ npm install @road-signs/lv
 
 ## Coverage
 
-| Metric | Value |
-| ------ | ----- |
-| Signs scraped | 224 |
-| Signs with SVG | 224 |
-| Missing SVG | 0 |
-| Overall | **100%** |
+| Metric         | Value    |
+| -------------- | -------- |
+| Signs scraped  | 224      |
+| Signs with SVG | 223      |
+| Missing SVG    | 1        |
+| Overall        | **100%** |
 
-| Category | Scraped | With SVG | Missing | % |
-| -------- | ------: | -------: | ------: | -: |
-| `warning` | 39 | 39 | 0 | 100% |
-| `priority` | 9 | 9 | 0 | 100% |
-| `prohibitory` | 34 | 34 | 0 | 100% |
-| `mandatory` | 25 | 25 | 0 | 100% |
-| `information` | 117 | 117 | 0 | 100% |
+| Category      | Scraped | With SVG | Missing |    % |
+| ------------- | ------: | -------: | ------: | ---: |
+| `warning`     |      39 |       39 |       0 | 100% |
+| `priority`    |       9 |        9 |       0 | 100% |
+| `prohibitory` |      34 |       34 |       0 | 100% |
+| `mandatory`   |      25 |       25 |       0 | 100% |
+| `information` |     117 |      116 |       1 |  99% |
 
 **Standard:** Ceļu satiksmes noteikumi — Vienna Convention
 
@@ -142,20 +144,15 @@ _Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.c
 ```ts
 import type { LVSign, LVCategory } from '@road-signs/lv';
 
-type LVCategory =
-  | 'information'
-  | 'mandatory'
-  | 'priority'
-  | 'prohibitory'
-  | 'warning';
+type LVCategory = 'information' | 'mandatory' | 'priority' | 'prohibitory' | 'warning';
 
 interface LVSign {
-  id: string;          // e.g. "a1-sharp-bend"
-  code: string;        // sign code, e.g. "A1"
+  id: string; // e.g. "a1-sharp-bend"
+  code: string; // sign code, e.g. "A1"
   name: string;
   description: string;
   category: LVCategory;
-  svg: string;         // inline SVG string
+  svg: string; // inline SVG string
   assets: {
     svg: string;
     png: Record<number, string>;

@@ -1,6 +1,6 @@
 # @road-signs/in
 
-Road signs for India — a TypeScript registry with every sign's artwork inlined as SVG, plus typed lookup helpers.
+Road signs for India — a TypeScript registry with most signs' artwork inlined as SVG, plus typed lookup helpers.
 
 ## Install
 
@@ -13,7 +13,7 @@ npm install @road-signs/in
 |                     |                                                      |
 | ------------------- | ---------------------------------------------------- |
 | Signs               | 214                                                  |
-| With vector artwork | 214                                                  |
+| With vector artwork | 213                                                  |
 | Categories          | `information`, `mandatory`, `prohibitory`, `warning` |
 | Standard            | Motor Vehicles Act — IRC:67 standard                 |
 | Regulator           | IRC:67                                               |
@@ -38,6 +38,12 @@ const sign = getSign('left-curve-left-curve')!;
 
 sign.svg; // inline, SVGO-optimised SVG markup
 ```
+
+> **1 of these signs carry inline artwork.**
+> They have no usable vector source — either none was published upstream,
+> or the only artwork is a monochrome trace that renders as a black shape.
+> Vector sources for India are welcome:
+> see [the coverage notes](https://karlnorling.github.io/road-signs/countries/in/).
 
 > `sign.assets` holds paths into this repo's build-time `assets/` tree.
 > That directory is ~16GB across all countries and is **not published** —

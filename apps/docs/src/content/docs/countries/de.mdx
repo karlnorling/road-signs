@@ -5,7 +5,6 @@ description: German StVO road signs — categories, installation, and usage.
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-
 {/* HERO:START */}
 
 import CountryHero from '../../../components/CountryHero.astro';
@@ -18,13 +17,13 @@ import CountryHero from '../../../components/CountryHero.astro';
 
 ## Quick facts
 
-| Field | Value |
-| ----- | ----- |
-| Drive side | Right-hand |
-| Language(s) | German |
-| Regulator | BMVI (StVO) |
-| Code format | `Zeichen 101 / 274` |
-| Standard | StVO (Straßenverkehrs-Ordnung) — Vienna Convention |
+| Field       | Value                                              |
+| ----------- | -------------------------------------------------- |
+| Drive side  | Right-hand                                         |
+| Language(s) | German                                             |
+| Regulator   | BMVI (StVO)                                        |
+| Code format | `Zeichen 101 / 274`                                |
+| Standard    | StVO (Straßenverkehrs-Ordnung) — Vienna Convention |
 
 {/* QUICK_FACTS:END */}
 
@@ -39,13 +38,13 @@ npm install @road-signs/de
 
 ## Sign categories
 
-| Category | Series | Description |
-| -------- | ------ | ----------- |
-| `warning` | Gefahrenzeichen | Hazard warnings — triangular, yellow/black |
-| `priority` | Vorfahrtzeichen | Right-of-way, stop, and yield signs |
-| `prohibitory` | Verbotszeichen | Prohibitions and restrictions — circular, red border |
-| `mandatory` | Gebotszeichen | Compulsory actions — circular, blue background |
-| `information` | Hinweiszeichen | Information, directions, and services — rectangular |
+| Category      | Series          | Description                                          |
+| ------------- | --------------- | ---------------------------------------------------- |
+| `warning`     | Gefahrenzeichen | Hazard warnings — triangular, yellow/black           |
+| `priority`    | Vorfahrtzeichen | Right-of-way, stop, and yield signs                  |
+| `prohibitory` | Verbotszeichen  | Prohibitions and restrictions — circular, red border |
+| `mandatory`   | Gebotszeichen   | Compulsory actions — circular, blue background       |
+| `information` | Hinweiszeichen  | Information, directions, and services — rectangular  |
 
 {/* USAGE:START */}
 
@@ -70,6 +69,7 @@ npm install @road-signs/de
     // All warning signs
     const filtered = getSignsByCategory("warning");
     ```
+
   </TabItem>
   <TabItem label="React">
     ```tsx
@@ -88,6 +88,7 @@ npm install @road-signs/de
       );
     }
     ```
+
   </TabItem>
   <TabItem label="Vue 3">
     ```vue
@@ -104,6 +105,7 @@ npm install @road-signs/de
       </div>
     </template>
     ```
+
   </TabItem>
 </Tabs>
 
@@ -113,27 +115,27 @@ npm install @road-signs/de
 
 ## Coverage
 
-| Metric | Value |
-| ------ | ----- |
-| Signs scraped | 666 |
-| Signs with SVG | 666 |
-| Missing SVG | 0 |
-| Overall | **100%** |
+| Metric         | Value    |
+| -------------- | -------- |
+| Signs scraped  | 666      |
+| Signs with SVG | 666      |
+| Missing SVG    | 0        |
+| Overall        | **100%** |
 
-| Category | Scraped | With SVG | Missing | % |
-| -------- | ------: | -------: | ------: | -: |
-| `warning` | 54 | 54 | 0 | 100% |
-| `priority` | 1 | 1 | 0 | 100% |
-| `prohibitory` | 118 | 118 | 0 | 100% |
-| `mandatory` | 0 | 0 | 0 | — |
-| `information` | 493 | 493 | 0 | 100% |
+| Category      | Scraped | With SVG | Missing |    % |
+| ------------- | ------: | -------: | ------: | ---: |
+| `warning`     |      54 |       54 |       0 | 100% |
+| `priority`    |       1 |        1 |       0 | 100% |
+| `prohibitory` |     118 |      118 |       0 | 100% |
+| `mandatory`   |       0 |        0 |       0 |    — |
+| `information` |     493 |      493 |       0 | 100% |
 
 **Standard:** StVO (Straßenverkehrs-Ordnung) — Vienna Convention
 
 **SVG sources:**
 
 - [Wikimedia Commons — Road signs in Germany](https://commons.wikimedia.org/wiki/Category:SVG_road_signs_in_Germany)
-- [Wikimedia Commons — Warnschilder (Deutschland)](https://commons.wikimedia.org/wiki/Category:Warnschilder_(Deutschland))
+- [Wikimedia Commons — Warnschilder (Deutschland)](<https://commons.wikimedia.org/wiki/Category:Warnschilder_(Deutschland)>)
 
 _Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.com/package/@road-signs/docs) package._
 
@@ -144,20 +146,15 @@ _Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.c
 ```ts
 import type { DESign, DECategory } from '@road-signs/de';
 
-type DECategory =
-  | 'information'
-  | 'mandatory'
-  | 'priority'
-  | 'prohibitory'
-  | 'warning';
+type DECategory = 'information' | 'mandatory' | 'priority' | 'prohibitory' | 'warning';
 
 interface DESign {
-  id: string;          // e.g. "101-danger-bend-right"
-  code: string;        // Zeichen number, e.g. "101"
+  id: string; // e.g. "101-danger-bend-right"
+  code: string; // Zeichen number, e.g. "101"
   name: string;
   description: string;
   category: DECategory;
-  svg: string;         // inline SVG string
+  svg: string; // inline SVG string
   assets: {
     svg: string;
     png: Record<number, string>;

@@ -3,29 +3,29 @@
   "version": "0.1.1",
   "description": "Coverage documentation for the @road-signs/* packages — sign counts, SVG coverage, and sources by country",
   "keywords": [
-    "road-signs",
     "coverage",
     "documentation",
+    "road-signs",
     "svg"
   ],
   "license": "MIT",
+  "author": {
+    "name": "Karl Norling",
+    "url": "https://github.com/karlnorling"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/karlnorling/road-signs",
     "directory": "packages/@road-signs/docs"
-  },
-  "scripts": {
-    "compile": "echo 'docs package — no compilation needed'",
-    "test": "echo 'docs package — no tests'",
-    "type-check": "echo 'docs package — no types'"
   },
   "files": [
     "coverage/",
     "README.md",
     "package.json"
   ],
-  "author": {
-    "name": "Karl Norling",
-    "url": "https://github.com/karlnorling"
+  "scripts": {
+    "compile": "echo 'docs package — no compilation needed'",
+    "test": "echo 'docs package — no tests'",
+    "type-check": "echo 'docs package — no types'"
   }
 }

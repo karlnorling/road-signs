@@ -5,7 +5,6 @@ description: Croatian road signs — categories, installation, and usage.
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-
 {/* HERO:START */}
 
 import CountryHero from '../../../components/CountryHero.astro';
@@ -18,12 +17,12 @@ import CountryHero from '../../../components/CountryHero.astro';
 
 ## Quick facts
 
-| Field | Value |
-| ----- | ----- |
-| Drive side | Right-hand |
-| Language(s) | Croatian |
-| Regulator | HAK |
-| Standard | Pravilnik o prometnim znakovima — Vienna Convention |
+| Field       | Value                                               |
+| ----------- | --------------------------------------------------- |
+| Drive side  | Right-hand                                          |
+| Language(s) | Croatian                                            |
+| Regulator   | HAK                                                 |
+| Standard    | Pravilnik o prometnim znakovima — Vienna Convention |
 
 {/* QUICK_FACTS:END */}
 
@@ -38,12 +37,12 @@ npm install @road-signs/hr
 
 ## Sign categories
 
-| Category | Series | Description |
-| -------- | ------ | ----------- |
-| `warning` | A series | Opasnost — hazard warnings |
-| `priority` | B series | Prednost prolaza — right-of-way |
-| `prohibitory` | C series | Zabrane i ograničenja — prohibitions |
-| `mandatory` | D series | Obveze — mandatory actions |
+| Category      | Series     | Description                            |
+| ------------- | ---------- | -------------------------------------- |
+| `warning`     | A series   | Opasnost — hazard warnings             |
+| `priority`    | B series   | Prednost prolaza — right-of-way        |
+| `prohibitory` | C series   | Zabrane i ograničenja — prohibitions   |
+| `mandatory`   | D series   | Obveze — mandatory actions             |
 | `information` | E–F series | Obavijesti — information and direction |
 
 {/* USAGE:START */}
@@ -69,6 +68,7 @@ npm install @road-signs/hr
     // All warning signs
     const filtered = getSignsByCategory("warning");
     ```
+
   </TabItem>
   <TabItem label="React">
     ```tsx
@@ -87,6 +87,7 @@ npm install @road-signs/hr
       );
     }
     ```
+
   </TabItem>
   <TabItem label="Vue 3">
     ```vue
@@ -103,6 +104,7 @@ npm install @road-signs/hr
       </div>
     </template>
     ```
+
   </TabItem>
 </Tabs>
 
@@ -112,20 +114,20 @@ npm install @road-signs/hr
 
 ## Coverage
 
-| Metric | Value |
-| ------ | ----- |
-| Signs scraped | 337 |
-| Signs with SVG | 337 |
-| Missing SVG | 0 |
-| Overall | **100%** |
+| Metric         | Value    |
+| -------------- | -------- |
+| Signs scraped  | 337      |
+| Signs with SVG | 337      |
+| Missing SVG    | 0        |
+| Overall        | **100%** |
 
-| Category | Scraped | With SVG | Missing | % |
-| -------- | ------: | -------: | ------: | -: |
-| `warning` | 66 | 66 | 0 | 100% |
-| `priority` | 1 | 1 | 0 | 100% |
-| `prohibitory` | 61 | 61 | 0 | 100% |
-| `mandatory` | 0 | 0 | 0 | — |
-| `information` | 209 | 209 | 0 | 100% |
+| Category      | Scraped | With SVG | Missing |    % |
+| ------------- | ------: | -------: | ------: | ---: |
+| `warning`     |      66 |       66 |       0 | 100% |
+| `priority`    |       1 |        1 |       0 | 100% |
+| `prohibitory` |      61 |       61 |       0 | 100% |
+| `mandatory`   |       0 |        0 |       0 |    — |
+| `information` |     209 |      209 |       0 | 100% |
 
 **Standard:** Pravilnik o prometnim znakovima — Vienna Convention
 
@@ -142,20 +144,15 @@ _Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.c
 ```ts
 import type { HRSign, HRCategory } from '@road-signs/hr';
 
-type HRCategory =
-  | 'information'
-  | 'mandatory'
-  | 'priority'
-  | 'prohibitory'
-  | 'warning';
+type HRCategory = 'information' | 'mandatory' | 'priority' | 'prohibitory' | 'warning';
 
 interface HRSign {
-  id: string;          // e.g. "a1-sharp-bend"
-  code: string;        // sign code, e.g. "A1"
+  id: string; // e.g. "a1-sharp-bend"
+  code: string; // sign code, e.g. "A1"
   name: string;
   description: string;
   category: HRCategory;
-  svg: string;         // inline SVG string
+  svg: string; // inline SVG string
   assets: {
     svg: string;
     png: Record<number, string>;

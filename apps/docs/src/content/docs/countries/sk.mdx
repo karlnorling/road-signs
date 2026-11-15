@@ -5,7 +5,6 @@ description: Slovak road signs — categories, installation, and usage.
 
 import { Tabs, TabItem } from '@astrojs/starlight/components';
 
-
 {/* HERO:START */}
 
 import CountryHero from '../../../components/CountryHero.astro';
@@ -18,13 +17,13 @@ import CountryHero from '../../../components/CountryHero.astro';
 
 ## Quick facts
 
-| Field | Value |
-| ----- | ----- |
-| Drive side | Right-hand |
-| Language(s) | Slovak |
-| Regulator | MDV SR |
-| Code format | `A-1 / B-1 / C-1` |
-| Standard | Zákon č. 8/2009 Z. z. — Vienna Convention |
+| Field       | Value                                     |
+| ----------- | ----------------------------------------- |
+| Drive side  | Right-hand                                |
+| Language(s) | Slovak                                    |
+| Regulator   | MDV SR                                    |
+| Code format | `A-1 / B-1 / C-1`                         |
+| Standard    | Zákon č. 8/2009 Z. z. — Vienna Convention |
 
 {/* QUICK_FACTS:END */}
 
@@ -39,13 +38,13 @@ npm install @road-signs/sk
 
 ## Sign categories
 
-| Category | Series | Description |
-| -------- | ------ | ----------- |
-| `warning` | A series | Výstražné značky — hazard warnings |
-| `priority` | B series | Značky upravujúce prednosť — right-of-way |
-| `prohibitory` | B/C series | Zákazové a príkazové značky — prohibitions |
-| `mandatory` | C series | Príkazové značky — mandatory |
-| `information` | IP/IJ/IS series | Informatívne značky — information |
+| Category      | Series          | Description                                |
+| ------------- | --------------- | ------------------------------------------ |
+| `warning`     | A series        | Výstražné značky — hazard warnings         |
+| `priority`    | B series        | Značky upravujúce prednosť — right-of-way  |
+| `prohibitory` | B/C series      | Zákazové a príkazové značky — prohibitions |
+| `mandatory`   | C series        | Príkazové značky — mandatory               |
+| `information` | IP/IJ/IS series | Informatívne značky — information          |
 
 {/* USAGE:START */}
 
@@ -70,6 +69,7 @@ npm install @road-signs/sk
     // All warning signs
     const filtered = getSignsByCategory("warning");
     ```
+
   </TabItem>
   <TabItem label="React">
     ```tsx
@@ -88,6 +88,7 @@ npm install @road-signs/sk
       );
     }
     ```
+
   </TabItem>
   <TabItem label="Vue 3">
     ```vue
@@ -104,6 +105,7 @@ npm install @road-signs/sk
       </div>
     </template>
     ```
+
   </TabItem>
 </Tabs>
 
@@ -113,20 +115,20 @@ npm install @road-signs/sk
 
 ## Coverage
 
-| Metric | Value |
-| ------ | ----- |
-| Signs scraped | 133 |
-| Signs with SVG | 133 |
-| Missing SVG | 0 |
-| Overall | **100%** |
+| Metric         | Value    |
+| -------------- | -------- |
+| Signs scraped  | 133      |
+| Signs with SVG | 133      |
+| Missing SVG    | 0        |
+| Overall        | **100%** |
 
-| Category | Scraped | With SVG | Missing | % |
-| -------- | ------: | -------: | ------: | -: |
-| `warning` | 40 | 40 | 0 | 100% |
-| `priority` | 6 | 6 | 0 | 100% |
-| `prohibitory` | 39 | 39 | 0 | 100% |
-| `mandatory` | 20 | 20 | 0 | 100% |
-| `information` | 28 | 28 | 0 | 100% |
+| Category      | Scraped | With SVG | Missing |    % |
+| ------------- | ------: | -------: | ------: | ---: |
+| `warning`     |      40 |       40 |       0 | 100% |
+| `priority`    |       6 |        6 |       0 | 100% |
+| `prohibitory` |      39 |       39 |       0 | 100% |
+| `mandatory`   |      20 |       20 |       0 | 100% |
+| `information` |      28 |       28 |       0 | 100% |
 
 **Standard:** Zákon č. 8/2009 Z. z. — Vienna Convention
 
@@ -143,20 +145,15 @@ _Coverage data is also published in the [`@road-signs/docs`](https://www.npmjs.c
 ```ts
 import type { SKSign, SKCategory } from '@road-signs/sk';
 
-type SKCategory =
-  | 'information'
-  | 'mandatory'
-  | 'priority'
-  | 'prohibitory'
-  | 'warning';
+type SKCategory = 'information' | 'mandatory' | 'priority' | 'prohibitory' | 'warning';
 
 interface SKSign {
-  id: string;          // e.g. "a1-sharp-bend"
-  code: string;        // sign code, e.g. "A1"
+  id: string; // e.g. "a1-sharp-bend"
+  code: string; // sign code, e.g. "A1"
   name: string;
   description: string;
   category: SKCategory;
-  svg: string;         // inline SVG string
+  svg: string; // inline SVG string
   assets: {
     svg: string;
     png: Record<number, string>;

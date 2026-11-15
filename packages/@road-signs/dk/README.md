@@ -1,6 +1,6 @@
 # @road-signs/dk
 
-Road signs for Denmark — a TypeScript registry with every sign's artwork inlined as SVG, plus typed lookup helpers.
+Road signs for Denmark — a TypeScript registry with most signs' artwork inlined as SVG, plus typed lookup helpers.
 
 ## Install
 
@@ -13,7 +13,7 @@ npm install @road-signs/dk
 |                     |                                                                  |
 | ------------------- | ---------------------------------------------------------------- |
 | Signs               | 290                                                              |
-| With vector artwork | 290                                                              |
+| With vector artwork | 289                                                              |
 | Categories          | `information`, `mandatory`, `priority`, `prohibitory`, `warning` |
 | Standard            | Færdselsloven — Vienna Convention                                |
 | Regulator           | Vejdirektoratet                                                  |
@@ -38,6 +38,12 @@ const sign = getSign('a11-dangerous-junction-with-a-non-priority-road-variants-a
 
 sign.svg; // inline, SVGO-optimised SVG markup
 ```
+
+> **1 of these signs carry inline artwork.**
+> They have no usable vector source — either none was published upstream,
+> or the only artwork is a monochrome trace that renders as a black shape.
+> Vector sources for Denmark are welcome:
+> see [the coverage notes](https://karlnorling.github.io/road-signs/countries/dk/).
 
 > `sign.assets` holds paths into this repo's build-time `assets/` tree.
 > That directory is ~16GB across all countries and is **not published** —

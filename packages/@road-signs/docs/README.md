@@ -4,18 +4,18 @@ Coverage documentation for the [`@road-signs/*`](https://github.com/karlnorling/
 All SVG assets are sourced from [Wikimedia Commons](https://commons.wikimedia.org/) and are in the public domain
 (Creative Commons or similar open licences).
 
-_Last updated: 2026-06-17_
+_Last updated: 2026-11-15_
 
 ## Coverage Summary
 
 | Country                                              | Package                                                          | Signs |  SVG | Missing | Coverage |
 | ---------------------------------------------------- | ---------------------------------------------------------------- | ----: | ---: | ------: | -------: |
-| [Albania](./coverage/al.md)                          | [`@road-signs/al`](https://www.npmjs.com/package/@road-signs/al) |   157 |  157 |       0 |     100% |
+| [Albania](./coverage/al.md)                          | [`@road-signs/al`](https://www.npmjs.com/package/@road-signs/al) |   157 |  126 |      31 |      80% |
 | [Argentina](./coverage/ar.md)                        | [`@road-signs/ar`](https://www.npmjs.com/package/@road-signs/ar) |   140 |  140 |       0 |     100% |
 | [Austria](./coverage/at.md)                          | [`@road-signs/at`](https://www.npmjs.com/package/@road-signs/at) |   200 |  200 |       0 |     100% |
-| [Australia](./coverage/au.md)                        | [`@road-signs/au`](https://www.npmjs.com/package/@road-signs/au) |   446 |  446 |       0 |     100% |
+| [Australia](./coverage/au.md)                        | [`@road-signs/au`](https://www.npmjs.com/package/@road-signs/au) |   446 |  443 |       3 |      99% |
 | [Bosnia and Herzegovina](./coverage/ba.md)           | [`@road-signs/ba`](https://www.npmjs.com/package/@road-signs/ba) |   298 |  298 |       0 |     100% |
-| [Belgium](./coverage/be.md)                          | [`@road-signs/be`](https://www.npmjs.com/package/@road-signs/be) |   113 |  113 |       0 |     100% |
+| [Belgium](./coverage/be.md)                          | [`@road-signs/be`](https://www.npmjs.com/package/@road-signs/be) |   113 |  111 |       2 |      98% |
 | [Bulgaria](./coverage/bg.md)                         | [`@road-signs/bg`](https://www.npmjs.com/package/@road-signs/bg) |   188 |  188 |       0 |     100% |
 | [Brunei](./coverage/bn.md)                           | [`@road-signs/bn`](https://www.npmjs.com/package/@road-signs/bn) |   136 |  136 |       0 |     100% |
 | [Chile](./coverage/cl.md)                            | [`@road-signs/cl`](https://www.npmjs.com/package/@road-signs/cl) |   144 |  144 |       0 |     100% |
@@ -23,64 +23,64 @@ _Last updated: 2026-06-17_
 | [Costa Rica](./coverage/cr.md)                       | [`@road-signs/cr`](https://www.npmjs.com/package/@road-signs/cr) |   417 |  417 |       0 |     100% |
 | [Cyprus](./coverage/cy.md)                           | [`@road-signs/cy`](https://www.npmjs.com/package/@road-signs/cy) |   153 |  153 |       0 |     100% |
 | [Brazil](./coverage/br.md)                           | [`@road-signs/br`](https://www.npmjs.com/package/@road-signs/br) |   171 |  171 |       0 |     100% |
-| [Canada](./coverage/ca.md)                           | [`@road-signs/ca`](https://www.npmjs.com/package/@road-signs/ca) |   245 |  245 |       0 |     100% |
+| [Canada](./coverage/ca.md)                           | [`@road-signs/ca`](https://www.npmjs.com/package/@road-signs/ca) |   245 |  244 |       1 |     100% |
 | [Switzerland](./coverage/ch.md)                      | [`@road-signs/ch`](https://www.npmjs.com/package/@road-signs/ch) |   192 |  192 |       0 |     100% |
 | [Ecuador](./coverage/ec.md)                          | [`@road-signs/ec`](https://www.npmjs.com/package/@road-signs/ec) |   221 |  221 |       0 |     100% |
 | [Germany](./coverage/de.md)                          | [`@road-signs/de`](https://www.npmjs.com/package/@road-signs/de) |   666 |  666 |       0 |     100% |
 | [Denmark](./coverage/dk.md)                          | [`@road-signs/dk`](https://www.npmjs.com/package/@road-signs/dk) |   290 |  290 |       0 |     100% |
-| [Estonia](./coverage/ee.md)                          | [`@road-signs/ee`](https://www.npmjs.com/package/@road-signs/ee) |   151 |  151 |       0 |     100% |
+| [Estonia](./coverage/ee.md)                          | [`@road-signs/ee`](https://www.npmjs.com/package/@road-signs/ee) |   151 |  147 |       4 |      97% |
 | [Iceland](./coverage/is.md)                          | [`@road-signs/is`](https://www.npmjs.com/package/@road-signs/is) |   335 |  331 |       4 |      99% |
-| [Spain](./coverage/es.md)                            | [`@road-signs/es`](https://www.npmjs.com/package/@road-signs/es) |   419 |  419 |       0 |     100% |
-| [Finland](./coverage/fi.md)                          | [`@road-signs/fi`](https://www.npmjs.com/package/@road-signs/fi) |   450 |  450 |       0 |     100% |
-| [France](./coverage/fr.md)                           | [`@road-signs/fr`](https://www.npmjs.com/package/@road-signs/fr) |   323 |  323 |       0 |     100% |
-| [Czech Republic](./coverage/cz.md)                   | [`@road-signs/cz`](https://www.npmjs.com/package/@road-signs/cz) |   275 |  274 |       1 |     100% |
-| [Greece](./coverage/gr.md)                           | [`@road-signs/gr`](https://www.npmjs.com/package/@road-signs/gr) |   452 |  452 |       0 |     100% |
+| [Spain](./coverage/es.md)                            | [`@road-signs/es`](https://www.npmjs.com/package/@road-signs/es) |   419 |  395 |      24 |      94% |
+| [Finland](./coverage/fi.md)                          | [`@road-signs/fi`](https://www.npmjs.com/package/@road-signs/fi) |   450 |  406 |      44 |      90% |
+| [France](./coverage/fr.md)                           | [`@road-signs/fr`](https://www.npmjs.com/package/@road-signs/fr) |   323 |  321 |       2 |      99% |
+| [Czech Republic](./coverage/cz.md)                   | [`@road-signs/cz`](https://www.npmjs.com/package/@road-signs/cz) |   275 |  197 |      78 |      72% |
+| [Greece](./coverage/gr.md)                           | [`@road-signs/gr`](https://www.npmjs.com/package/@road-signs/gr) |   452 |  433 |      19 |      96% |
 | [Croatia](./coverage/hr.md)                          | [`@road-signs/hr`](https://www.npmjs.com/package/@road-signs/hr) |   337 |  337 |       0 |     100% |
 | [Hungary](./coverage/hu.md)                          | [`@road-signs/hu`](https://www.npmjs.com/package/@road-signs/hu) |   417 |  417 |       0 |     100% |
-| [India](./coverage/in.md)                            | [`@road-signs/in`](https://www.npmjs.com/package/@road-signs/in) |   214 |  214 |       0 |     100% |
+| [India](./coverage/in.md)                            | [`@road-signs/in`](https://www.npmjs.com/package/@road-signs/in) |   214 |  213 |       1 |     100% |
 | [Ireland](./coverage/ie.md)                          | [`@road-signs/ie`](https://www.npmjs.com/package/@road-signs/ie) |   299 |  299 |       0 |     100% |
-| [Israel](./coverage/il.md)                           | [`@road-signs/il`](https://www.npmjs.com/package/@road-signs/il) |   137 |  137 |       0 |     100% |
-| [Italy](./coverage/it.md)                            | [`@road-signs/it`](https://www.npmjs.com/package/@road-signs/it) |   326 |  326 |       0 |     100% |
+| [Israel](./coverage/il.md)                           | [`@road-signs/il`](https://www.npmjs.com/package/@road-signs/il) |   137 |  135 |       2 |      99% |
+| [Italy](./coverage/it.md)                            | [`@road-signs/it`](https://www.npmjs.com/package/@road-signs/it) |   326 |  317 |       9 |      97% |
 | [Japan](./coverage/jp.md)                            | [`@road-signs/jp`](https://www.npmjs.com/package/@road-signs/jp) |   126 |  126 |       0 |     100% |
-| [South Korea](./coverage/kr.md)                      | [`@road-signs/kr`](https://www.npmjs.com/package/@road-signs/kr) |   150 |  150 |       0 |     100% |
+| [South Korea](./coverage/kr.md)                      | [`@road-signs/kr`](https://www.npmjs.com/package/@road-signs/kr) |   150 |  125 |      25 |      83% |
 | [Liechtenstein](./coverage/li.md)                    | [`@road-signs/li`](https://www.npmjs.com/package/@road-signs/li) |   251 |  251 |       0 |     100% |
 | [Lithuania](./coverage/lt.md)                        | [`@road-signs/lt`](https://www.npmjs.com/package/@road-signs/lt) |   229 |  229 |       0 |     100% |
 | [Luxembourg](./coverage/lu.md)                       | [`@road-signs/lu`](https://www.npmjs.com/package/@road-signs/lu) |     0 |    0 |       0 |        — |
-| [Latvia](./coverage/lv.md)                           | [`@road-signs/lv`](https://www.npmjs.com/package/@road-signs/lv) |   224 |  224 |       0 |     100% |
+| [Latvia](./coverage/lv.md)                           | [`@road-signs/lv`](https://www.npmjs.com/package/@road-signs/lv) |   224 |  223 |       1 |     100% |
 | [Morocco](./coverage/ma.md)                          | [`@road-signs/ma`](https://www.npmjs.com/package/@road-signs/ma) |   281 |  281 |       0 |     100% |
-| [Montenegro](./coverage/me.md)                       | [`@road-signs/me`](https://www.npmjs.com/package/@road-signs/me) |   273 |  273 |       0 |     100% |
+| [Montenegro](./coverage/me.md)                       | [`@road-signs/me`](https://www.npmjs.com/package/@road-signs/me) |   273 |  262 |      11 |      96% |
 | [Madagascar](./coverage/mg.md)                       | [`@road-signs/mg`](https://www.npmjs.com/package/@road-signs/mg) |     0 |    0 |       0 |        — |
-| [Malaysia](./coverage/my.md)                         | [`@road-signs/my`](https://www.npmjs.com/package/@road-signs/my) |   358 |  346 |      12 |      97% |
+| [Malaysia](./coverage/my.md)                         | [`@road-signs/my`](https://www.npmjs.com/package/@road-signs/my) |   358 |  156 |     202 |      44% |
 | [North Macedonia](./coverage/mk.md)                  | [`@road-signs/mk`](https://www.npmjs.com/package/@road-signs/mk) |   233 |  233 |       0 |     100% |
 | [Malta](./coverage/mt.md)                            | [`@road-signs/mt`](https://www.npmjs.com/package/@road-signs/mt) |    81 |   81 |       0 |     100% |
 | [Mauritius](./coverage/mu.md)                        | [`@road-signs/mu`](https://www.npmjs.com/package/@road-signs/mu) |   104 |  104 |       0 |     100% |
-| [Mexico](./coverage/mx.md)                           | [`@road-signs/mx`](https://www.npmjs.com/package/@road-signs/mx) |   317 |  317 |       0 |     100% |
+| [Mexico](./coverage/mx.md)                           | [`@road-signs/mx`](https://www.npmjs.com/package/@road-signs/mx) |   317 |  315 |       2 |      99% |
 | [Netherlands](./coverage/nl.md)                      | [`@road-signs/nl`](https://www.npmjs.com/package/@road-signs/nl) |   240 |  240 |       0 |     100% |
-| [Norway](./coverage/no.md)                           | [`@road-signs/no`](https://www.npmjs.com/package/@road-signs/no) |   270 |  270 |       0 |     100% |
-| [New Zealand](./coverage/nz.md)                      | [`@road-signs/nz`](https://www.npmjs.com/package/@road-signs/nz) |   417 |  417 |       0 |     100% |
+| [Norway](./coverage/no.md)                           | [`@road-signs/no`](https://www.npmjs.com/package/@road-signs/no) |   270 |  260 |      10 |      96% |
+| [New Zealand](./coverage/nz.md)                      | [`@road-signs/nz`](https://www.npmjs.com/package/@road-signs/nz) |   417 |  407 |      10 |      98% |
 | [Peru](./coverage/pe.md)                             | [`@road-signs/pe`](https://www.npmjs.com/package/@road-signs/pe) |    11 |   11 |       0 |     100% |
 | [Poland](./coverage/pl.md)                           | [`@road-signs/pl`](https://www.npmjs.com/package/@road-signs/pl) |   415 |  415 |       0 |     100% |
 | [Portugal](./coverage/pt.md)                         | [`@road-signs/pt`](https://www.npmjs.com/package/@road-signs/pt) |   228 |  228 |       0 |     100% |
 | [Romania](./coverage/ro.md)                          | [`@road-signs/ro`](https://www.npmjs.com/package/@road-signs/ro) |   305 |  305 |       0 |     100% |
 | [Serbia](./coverage/rs.md)                           | [`@road-signs/rs`](https://www.npmjs.com/package/@road-signs/rs) |   234 |  234 |       0 |     100% |
 | [Sweden](./coverage/se.md)                           | [`@road-signs/se`](https://www.npmjs.com/package/@road-signs/se) |   267 |  267 |       0 |     100% |
-| [Singapore](./coverage/sg.md)                        | [`@road-signs/sg`](https://www.npmjs.com/package/@road-signs/sg) |   137 |  137 |       0 |     100% |
-| [Slovenia](./coverage/si.md)                         | [`@road-signs/si`](https://www.npmjs.com/package/@road-signs/si) |   184 |  184 |       0 |     100% |
+| [Singapore](./coverage/sg.md)                        | [`@road-signs/sg`](https://www.npmjs.com/package/@road-signs/sg) |   137 |  136 |       1 |      99% |
+| [Slovenia](./coverage/si.md)                         | [`@road-signs/si`](https://www.npmjs.com/package/@road-signs/si) |   184 |  182 |       2 |      99% |
 | [Slovakia](./coverage/sk.md)                         | [`@road-signs/sk`](https://www.npmjs.com/package/@road-signs/sk) |   133 |  133 |       0 |     100% |
-| [United Kingdom](./coverage/uk.md)                   | [`@road-signs/uk`](https://www.npmjs.com/package/@road-signs/uk) |   468 |  468 |       0 |     100% |
+| [United Kingdom](./coverage/uk.md)                   | [`@road-signs/uk`](https://www.npmjs.com/package/@road-signs/uk) |   468 |  453 |      15 |      97% |
 | [Thailand](./coverage/th.md)                         | [`@road-signs/th`](https://www.npmjs.com/package/@road-signs/th) |   445 |  445 |       0 |     100% |
 | [Turkey](./coverage/tr.md)                           | [`@road-signs/tr`](https://www.npmjs.com/package/@road-signs/tr) |   155 |  155 |       0 |     100% |
 | [Taiwan](./coverage/tw.md)                           | [`@road-signs/tw`](https://www.npmjs.com/package/@road-signs/tw) |   215 |  215 |       0 |     100% |
-| [Ukraine](./coverage/ua.md)                          | [`@road-signs/ua`](https://www.npmjs.com/package/@road-signs/ua) |   309 |  309 |       0 |     100% |
+| [Ukraine](./coverage/ua.md)                          | [`@road-signs/ua`](https://www.npmjs.com/package/@road-signs/ua) |   309 |  303 |       6 |      98% |
 | [United States](./coverage/us.md)                    | [`@road-signs/us`](https://www.npmjs.com/package/@road-signs/us) |  1521 | 1449 |      72 |      95% |
 | [Uruguay](./coverage/uy.md)                          | [`@road-signs/uy`](https://www.npmjs.com/package/@road-signs/uy) |    62 |   62 |       0 |     100% |
-| [South Africa](./coverage/za.md)                     | [`@road-signs/za`](https://www.npmjs.com/package/@road-signs/za) |   322 |  322 |       0 |     100% |
+| [South Africa](./coverage/za.md)                     | [`@road-signs/za`](https://www.npmjs.com/package/@road-signs/za) |   322 |  321 |       1 |     100% |
 | [United Arab Emirates](./coverage/ae.md)             | [`@road-signs/ae`](https://www.npmjs.com/package/@road-signs/ae) |   169 |  169 |       0 |     100% |
 | [Belarus](./coverage/by.md)                          | [`@road-signs/by`](https://www.npmjs.com/package/@road-signs/by) |   360 |  358 |       2 |      99% |
-| [China](./coverage/cn.md)                            | [`@road-signs/cn`](https://www.npmjs.com/package/@road-signs/cn) |   429 |  429 |       0 |     100% |
+| [China](./coverage/cn.md)                            | [`@road-signs/cn`](https://www.npmjs.com/package/@road-signs/cn) |   429 |  290 |     139 |      68% |
 | [Egypt](./coverage/eg.md)                            | [`@road-signs/eg`](https://www.npmjs.com/package/@road-signs/eg) |     1 |    1 |       0 |     100% |
 | [Georgia](./coverage/ge.md)                          | [`@road-signs/ge`](https://www.npmjs.com/package/@road-signs/ge) |   245 |  245 |       0 |     100% |
-| [Indonesia](./coverage/id.md)                        | [`@road-signs/id`](https://www.npmjs.com/package/@road-signs/id) |   298 |  298 |       0 |     100% |
+| [Indonesia](./coverage/id.md)                        | [`@road-signs/id`](https://www.npmjs.com/package/@road-signs/id) |   298 |  213 |      85 |      71% |
 | [Kenya](./coverage/ke.md)                            | [`@road-signs/ke`](https://www.npmjs.com/package/@road-signs/ke) |    16 |   16 |       0 |     100% |
 | [Nigeria](./coverage/ng.md)                          | [`@road-signs/ng`](https://www.npmjs.com/package/@road-signs/ng) |    89 |   89 |       0 |     100% |
 | [Philippines](./coverage/ph.md)                      | [`@road-signs/ph`](https://www.npmjs.com/package/@road-signs/ph) |   435 |  435 |       0 |     100% |
@@ -93,16 +93,16 @@ _Last updated: 2026-06-17_
 | [Ethiopia](./coverage/et.md)                         | [`@road-signs/et`](https://www.npmjs.com/package/@road-signs/et) |     0 |    0 |       0 |        — |
 | [Ghana](./coverage/gh.md)                            | [`@road-signs/gh`](https://www.npmjs.com/package/@road-signs/gh) |     0 |    0 |       0 |        — |
 | [Kyrgyzstan](./coverage/kg.md)                       | [`@road-signs/kg`](https://www.npmjs.com/package/@road-signs/kg) |   157 |  157 |       0 |     100% |
-| [Laos](./coverage/la.md)                             | [`@road-signs/la`](https://www.npmjs.com/package/@road-signs/la) |    33 |   33 |       0 |     100% |
+| [Laos](./coverage/la.md)                             | [`@road-signs/la`](https://www.npmjs.com/package/@road-signs/la) |    33 |   32 |       1 |      97% |
 | [Mongolia](./coverage/mn.md)                         | [`@road-signs/mn`](https://www.npmjs.com/package/@road-signs/mn) |   167 |  167 |       0 |     100% |
 | [Nicaragua](./coverage/ni.md)                        | [`@road-signs/ni`](https://www.npmjs.com/package/@road-signs/ni) |   420 |  420 |       0 |     100% |
 | [Nepal](./coverage/np.md)                            | [`@road-signs/np`](https://www.npmjs.com/package/@road-signs/np) |   118 |  118 |       0 |     100% |
 | [El Salvador](./coverage/sv.md)                      | [`@road-signs/sv`](https://www.npmjs.com/package/@road-signs/sv) |   420 |  420 |       0 |     100% |
 | [Tajikistan](./coverage/tj.md)                       | [`@road-signs/tj`](https://www.npmjs.com/package/@road-signs/tj) |   288 |  288 |       0 |     100% |
 | [Turkmenistan](./coverage/tm.md)                     | [`@road-signs/tm`](https://www.npmjs.com/package/@road-signs/tm) |     0 |    0 |       0 |        — |
-| [Tanzania](./coverage/tz.md)                         | [`@road-signs/tz`](https://www.npmjs.com/package/@road-signs/tz) |   322 |  322 |       0 |     100% |
+| [Tanzania](./coverage/tz.md)                         | [`@road-signs/tz`](https://www.npmjs.com/package/@road-signs/tz) |   322 |  321 |       1 |     100% |
 | [Uzbekistan](./coverage/uz.md)                       | [`@road-signs/uz`](https://www.npmjs.com/package/@road-signs/uz) |   279 |  279 |       0 |     100% |
-| [Zimbabwe](./coverage/zw.md)                         | [`@road-signs/zw`](https://www.npmjs.com/package/@road-signs/zw) |   322 |  322 |       0 |     100% |
+| [Zimbabwe](./coverage/zw.md)                         | [`@road-signs/zw`](https://www.npmjs.com/package/@road-signs/zw) |   322 |  321 |       1 |     100% |
 | [Armenia](./coverage/am.md)                          | [`@road-signs/am`](https://www.npmjs.com/package/@road-signs/am) |   173 |  173 |       0 |     100% |
 | [Azerbaijan](./coverage/az.md)                       | [`@road-signs/az`](https://www.npmjs.com/package/@road-signs/az) |   266 |  265 |       1 |     100% |
 | [Bangladesh](./coverage/bd.md)                       | [`@road-signs/bd`](https://www.npmjs.com/package/@road-signs/bd) |   316 |  316 |       0 |     100% |
@@ -118,7 +118,7 @@ _Last updated: 2026-06-17_
 | [Sri Lanka](./coverage/lk.md)                        | [`@road-signs/lk`](https://www.npmjs.com/package/@road-signs/lk) |   184 |  184 |       0 |     100% |
 | [Libya](./coverage/ly.md)                            | [`@road-signs/ly`](https://www.npmjs.com/package/@road-signs/ly) |     0 |    0 |       0 |        — |
 | [Moldova](./coverage/md.md)                          | [`@road-signs/md`](https://www.npmjs.com/package/@road-signs/md) |   296 |  294 |       2 |      99% |
-| [Myanmar](./coverage/mm.md)                          | [`@road-signs/mm`](https://www.npmjs.com/package/@road-signs/mm) |   233 |  233 |       0 |     100% |
+| [Myanmar](./coverage/mm.md)                          | [`@road-signs/mm`](https://www.npmjs.com/package/@road-signs/mm) |   233 |    2 |     231 |       1% |
 | [Oman](./coverage/om.md)                             | [`@road-signs/om`](https://www.npmjs.com/package/@road-signs/om) |   136 |  136 |       0 |     100% |
 | [Panama](./coverage/pa.md)                           | [`@road-signs/pa`](https://www.npmjs.com/package/@road-signs/pa) |   114 |  114 |       0 |     100% |
 | [Pakistan](./coverage/pk.md)                         | [`@road-signs/pk`](https://www.npmjs.com/package/@road-signs/pk) |   166 |  166 |       0 |     100% |

@@ -1,6 +1,6 @@
 # @road-signs/sm
 
-Road signs for San Marino — a TypeScript registry with every sign's artwork inlined as SVG, plus typed lookup helpers.
+Road signs for San Marino — a TypeScript registry with most signs' artwork inlined as SVG, plus typed lookup helpers.
 
 > San Marino is fully integrated into Italy's sign system, so this package
 > re-exports [`@road-signs/it`](https://github.com/karlnorling/road-signs/tree/main/packages/@road-signs/it)
@@ -17,7 +17,7 @@ npm install @road-signs/sm
 |                     |                                                             |
 | ------------------- | ----------------------------------------------------------- |
 | Signs               | 326                                                         |
-| With vector artwork | 326                                                         |
+| With vector artwork | 317                                                         |
 | Categories          | `information`, `prohibitory`, `warning`                     |
 | Standard            | Vienna Convention (Codice della strada) — shared with Italy |
 | Regulator           | Italian Codice della Strada                                 |
@@ -46,6 +46,12 @@ const sign = getSign(
 
 sign.svg; // inline, SVGO-optimised SVG markup
 ```
+
+> **9 of these signs carry inline artwork.**
+> They have no usable vector source — either none was published upstream,
+> or the only artwork is a monochrome trace that renders as a black shape.
+> Vector sources for San Marino are welcome:
+> see [the coverage notes](https://karlnorling.github.io/road-signs/countries/sm/).
 
 > `sign.assets` holds paths into this repo's build-time `assets/` tree.
 > That directory is ~16GB across all countries and is **not published** —
