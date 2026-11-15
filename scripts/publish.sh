@@ -33,6 +33,29 @@ ONLY="${PUBLISH_ONLY:-}"
 TMP=$(mktemp -d)
 trap 'rm -rf "$TMP"' EXIT
 
+# changesets/action v2 does not parse stdout for "New tag:" lines the way v1
+# did. It passes a file path in CHANGESETS_OUTPUT and reads newline-delimited
+# JSON from it, one object per published package:
+#
+#   {"type":"git-tag","tag":"<pkg>@<version>","packageName":"<pkg>"}
+#
+# Without that file the action logs "GitHub releases and git tags cannot be
+# created without this output" and skips both -- which is why 136 published
+# versions have no tag and no release. The file must exist even when nothing is
+# published, or the read itself fails. Unset on the workflow_dispatch smoke
+# test, which calls this script directly.
+if [ -n "${CHANGESETS_OUTPUT:-}" ]; then
+  : > "$CHANGESETS_OUTPUT"
+fi
+
+# Appends one git-tag event. `packageName` must match the workspace package
+# exactly; the action throws if it cannot resolve it.
+record_published() {
+  [ -n "${CHANGESETS_OUTPUT:-}" ] || return 0
+  printf '{"type":"git-tag","tag":"%s@%s","packageName":"%s"}\n' "$1" "$2" "$1" \
+    >> "$CHANGESETS_OUTPUT"
+}
+
 # Which packages are worth publishing is decided by bin/publishable.ts, next to
 # the registry reader that enforces it: it drops the 63 scaffolded placeholders
 # with empty registries and anything under the 50% artwork-coverage bar set for
@@ -81,9 +104,8 @@ for dir in packages/@road-signs/*/; do
   fi
 
   if npm publish "$tarball" --provenance --access public; then
-    # changesets/action scans publish output for this exact shape to decide
-    # which GitHub Releases to create.
-    echo "New tag: ${name}@${version}"
+    record_published "$name" "$version"
+    echo "Published ${name}@${version}"
     published=$((published + 1))
   else
     echo "  publish failed for ${name}" >&2
