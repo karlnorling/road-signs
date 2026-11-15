@@ -1,7 +1,7 @@
 {
   "name": "road-signs-monorepo",
   "private": true,
-  "description": "Road sign SVGs, React, Vue 3, and web components — one package per country",
+  "description": "Road sign SVGs, React, Vue 3, and web components \u2014 one package per country",
   "workspaces": [
     "packages/@road-signs/*",
     "apps/*"
@@ -21,6 +21,7 @@
     "format:check": "oxfmt --check --ignore-path=.oxfmtignore .",
     "generate": "tsx bin/generate-source.ts",
     "generate-docs": "tsx bin/generate-docs.ts",
+    "generate-readmes": "tsx bin/generate-readmes.ts",
     "generate-search-index": "tsx bin/generate-search-index.ts",
     "lint": "oxlint .",
     "prepare": "lefthook install",
