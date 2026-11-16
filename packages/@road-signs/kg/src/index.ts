@@ -1,7 +1,7 @@
-import type { KGCategory, KGSign } from './types';
-import { signs } from './signs.generated';
+import type { KGCategory, KGSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { KGCategory, KGSign } from './types';
+export type { KGCategory, KGSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): KGSign[] => [...signs];

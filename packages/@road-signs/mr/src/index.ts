@@ -1,7 +1,7 @@
-import type { MRCategory, MRSign } from './types';
-import { signs } from './signs.generated';
+import type { MRCategory, MRSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { MRCategory, MRSign } from './types';
+export type { MRCategory, MRSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): MRSign[] => [...signs];

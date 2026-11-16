@@ -1,7 +1,7 @@
-import type { MECategory, MESign } from './types';
-import { signs } from './signs.generated';
+import type { MECategory, MESign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { MECategory, MESign } from './types';
+export type { MECategory, MESign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): MESign[] => [...signs];

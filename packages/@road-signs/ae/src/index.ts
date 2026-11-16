@@ -1,7 +1,7 @@
-import type { AECategory, AESign } from './types';
-import { signs } from './signs.generated';
+import type { AECategory, AESign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { AECategory, AESign } from './types';
+export type { AECategory, AESign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): AESign[] => [...signs];

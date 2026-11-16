@@ -1,7 +1,7 @@
-import type { CGCategory, CGSign } from './types';
-import { signs } from './signs.generated';
+import type { CGCategory, CGSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { CGCategory, CGSign } from './types';
+export type { CGCategory, CGSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): CGSign[] => [...signs];

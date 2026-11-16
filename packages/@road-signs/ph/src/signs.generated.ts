@@ -2,7 +2,7 @@
 // Run 'yarn update --country=ph' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { PHSign } from './types';
+import type { PHSign } from './types.js';
 
 export const signs: PHSign[] = [
   {

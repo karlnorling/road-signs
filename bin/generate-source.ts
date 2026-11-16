@@ -226,7 +226,7 @@ const wrapShard = (cc: string, name: string, body: string[]): string => {
     `// Run 'yarn update --country=${cc}' to regenerate.`,
     `// @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.`,
     ``,
-    `import type { ${cc.toUpperCase()}Sign } from './types';`,
+    `import type { ${cc.toUpperCase()}Sign } from './types.js';`,
     ``,
     `export const signs${name}: ${cc.toUpperCase()}Sign[] = [`,
   ];
@@ -334,11 +334,11 @@ export const generateSource = async (cc: string): Promise<void> => {
     `// Run 'yarn update --country=${cc}' to regenerate.`,
     `// Sharded across ${shards.length} files because the combined registry exceeded ${SHARD_THRESHOLD_BYTES / 1024 / 1024}MB.`,
     ``,
-    `import type { ${cc.toUpperCase()}Sign } from './types';`,
+    `import type { ${cc.toUpperCase()}Sign } from './types.js';`,
   ];
   for (const shard of shards) {
     const slug = shard.name.replace(/[^a-z0-9]+/gi, '_').toLowerCase();
-    primary.push(`import { signs_${pascalCase(slug)} } from './signs.${slug}.generated';`);
+    primary.push(`import { signs_${pascalCase(slug)} } from './signs.${slug}.generated.js';`);
   }
   primary.push(
     ``,

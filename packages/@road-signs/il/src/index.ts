@@ -1,7 +1,7 @@
-import type { ILCategory, ILSign } from './types';
-import { signs } from './signs.generated';
+import type { ILCategory, ILSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { ILCategory, ILSign } from './types';
+export type { ILCategory, ILSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): ILSign[] => [...signs];

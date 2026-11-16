@@ -1,7 +1,7 @@
-import type { ECCategory, ECSign } from './types';
-import { signs } from './signs.generated';
+import type { ECCategory, ECSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { ECCategory, ECSign } from './types';
+export type { ECCategory, ECSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): ECSign[] => [...signs];

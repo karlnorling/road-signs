@@ -1,7 +1,7 @@
-import type { NRCategory, NRSign } from './types';
-import { signs } from './signs.generated';
+import type { NRCategory, NRSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { NRCategory, NRSign } from './types';
+export type { NRCategory, NRSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): NRSign[] => [...signs];

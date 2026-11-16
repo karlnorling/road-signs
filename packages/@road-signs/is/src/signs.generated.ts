@@ -2,7 +2,7 @@
 // Run 'yarn update --country=is' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { ISSign } from './types';
+import type { ISSign } from './types.js';
 
 export const signs: ISSign[] = [
   {

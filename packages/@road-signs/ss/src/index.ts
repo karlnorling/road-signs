@@ -1,7 +1,7 @@
-import type { SSCategory, SSSign } from './types';
-import { signs } from './signs.generated';
+import type { SSCategory, SSSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { SSCategory, SSSign } from './types';
+export type { SSCategory, SSSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): SSSign[] => [...signs];

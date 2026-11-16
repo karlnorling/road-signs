@@ -1,7 +1,7 @@
-import type { BACategory, BASign } from './types';
-import { signs } from './signs.generated';
+import type { BACategory, BASign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { BACategory, BASign } from './types';
+export type { BACategory, BASign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): BASign[] => [...signs];

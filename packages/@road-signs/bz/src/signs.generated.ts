@@ -2,7 +2,7 @@
 // Run 'yarn update --country=bz' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { BZSign } from './types';
+import type { BZSign } from './types.js';
 
 export const signs: BZSign[] = [
   {

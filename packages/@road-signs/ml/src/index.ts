@@ -1,7 +1,7 @@
-import type { MLCategory, MLSign } from './types';
-import { signs } from './signs.generated';
+import type { MLCategory, MLSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { MLCategory, MLSign } from './types';
+export type { MLCategory, MLSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): MLSign[] => [...signs];

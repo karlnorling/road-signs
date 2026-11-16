@@ -1,7 +1,7 @@
-import type { MKCategory, MKSign } from './types';
-import { signs } from './signs.generated';
+import type { MKCategory, MKSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { MKCategory, MKSign } from './types';
+export type { MKCategory, MKSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): MKSign[] => [...signs];

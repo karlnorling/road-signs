@@ -2,7 +2,7 @@
 // Run 'yarn update --country=gd' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { GDSign } from './types';
+import type { GDSign } from './types.js';
 
 export const signs: GDSign[] = [
 ];

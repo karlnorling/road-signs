@@ -2,7 +2,7 @@
 // Run 'yarn update --country=am' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { AMSign } from './types';
+import type { AMSign } from './types.js';
 
 export const signs: AMSign[] = [
   {

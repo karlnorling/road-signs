@@ -1,7 +1,7 @@
-import type { VECategory, VESign } from './types';
-import { signs } from './signs.generated';
+import type { VECategory, VESign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { VECategory, VESign } from './types';
+export type { VECategory, VESign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): VESign[] => [...signs];

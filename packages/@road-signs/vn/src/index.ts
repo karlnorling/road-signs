@@ -1,7 +1,7 @@
-import type { VNCategory, VNSign } from './types';
-import { signs } from './signs.generated';
+import type { VNCategory, VNSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { VNCategory, VNSign } from './types';
+export type { VNCategory, VNSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): VNSign[] => [...signs];

@@ -1,7 +1,7 @@
-import type { SZCategory, SZSign } from './types';
-import { signs } from './signs.generated';
+import type { SZCategory, SZSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { SZCategory, SZSign } from './types';
+export type { SZCategory, SZSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): SZSign[] => [...signs];

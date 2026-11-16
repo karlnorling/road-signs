@@ -1,7 +1,7 @@
-import type { FJCategory, FJSign } from './types';
-import { signs } from './signs.generated';
+import type { FJCategory, FJSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { FJCategory, FJSign } from './types';
+export type { FJCategory, FJSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): FJSign[] => [...signs];

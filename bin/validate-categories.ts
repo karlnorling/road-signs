@@ -77,7 +77,7 @@ const collectSignSources = (signsPath: string, srcDir: string): string[] => {
   const src = fs.readFileSync(signsPath, 'utf-8');
   // If this is a shard manifest (`import { signs_X } from './signs.X.generated';`), follow them.
   const shardImports: ShardImport[] = [];
-  for (const m of src.matchAll(/from\s+['"]\.\/(signs\.[a-z0-9_]+\.generated)['"]/gi)) {
+  for (const m of src.matchAll(/from\s+['"]\.\/(signs\.[a-z0-9_]+\.generated)(?:\.js)?['"]/gi)) {
     shardImports.push({ shardName: m[1], filePath: path.join(srcDir, `${m[1]}.ts`) });
   }
   if (shardImports.length > 0) return shardImports.map((s) => s.filePath).filter(fs.existsSync);

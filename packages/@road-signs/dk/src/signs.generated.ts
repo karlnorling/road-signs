@@ -2,7 +2,7 @@
 // Run 'yarn update --country=dk' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { DKSign } from './types';
+import type { DKSign } from './types.js';
 
 export const signs: DKSign[] = [
   {

@@ -2,7 +2,7 @@
 // Run 'yarn update --country=cz' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { CZSign } from './types';
+import type { CZSign } from './types.js';
 
 export const signs: CZSign[] = [
   {

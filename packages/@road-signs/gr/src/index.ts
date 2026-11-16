@@ -1,7 +1,7 @@
-import type { GRCategory, GRSign } from './types';
-import { signs } from './signs.generated';
+import type { GRCategory, GRSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { GRCategory, GRSign } from './types';
+export type { GRCategory, GRSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): GRSign[] => [...signs];

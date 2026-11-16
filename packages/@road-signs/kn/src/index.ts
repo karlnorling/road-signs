@@ -1,7 +1,7 @@
-import type { KNCategory, KNSign } from './types';
-import { signs } from './signs.generated';
+import type { KNCategory, KNSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { KNCategory, KNSign } from './types';
+export type { KNCategory, KNSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): KNSign[] => [...signs];

@@ -1,7 +1,7 @@
-import type { PTCategory, PTSign } from './types';
-import { signs } from './signs.generated';
+import type { PTCategory, PTSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { PTCategory, PTSign } from './types';
+export type { PTCategory, PTSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): PTSign[] => [...signs];

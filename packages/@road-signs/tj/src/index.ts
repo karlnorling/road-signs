@@ -1,7 +1,7 @@
-import type { TJCategory, TJSign } from './types';
-import { signs } from './signs.generated';
+import type { TJCategory, TJSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { TJCategory, TJSign } from './types';
+export type { TJCategory, TJSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): TJSign[] => [...signs];

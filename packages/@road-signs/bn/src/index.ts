@@ -1,7 +1,7 @@
-import type { BNCategory, BNSign } from './types';
-import { signs } from './signs.generated';
+import type { BNCategory, BNSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { BNCategory, BNSign } from './types';
+export type { BNCategory, BNSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): BNSign[] => [...signs];

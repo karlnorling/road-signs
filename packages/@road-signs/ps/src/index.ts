@@ -1,7 +1,7 @@
-import type { PSCategory, PSSign } from './types';
-import { signs } from './signs.generated';
+import type { PSCategory, PSSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { PSCategory, PSSign } from './types';
+export type { PSCategory, PSSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): PSSign[] => [...signs];

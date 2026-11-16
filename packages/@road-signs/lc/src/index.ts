@@ -1,7 +1,7 @@
-import type { LCCategory, LCSign } from './types';
-import { signs } from './signs.generated';
+import type { LCCategory, LCSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { LCCategory, LCSign } from './types';
+export type { LCCategory, LCSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): LCSign[] => [...signs];

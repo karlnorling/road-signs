@@ -1,7 +1,7 @@
-import type { IECategory, IESign } from './types';
-import { signs } from './signs.generated';
+import type { IECategory, IESign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { IECategory, IESign } from './types';
+export type { IECategory, IESign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): IESign[] => [...signs];

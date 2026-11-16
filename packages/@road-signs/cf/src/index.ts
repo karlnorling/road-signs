@@ -1,7 +1,7 @@
-import type { CFCategory, CFSign } from './types';
-import { signs } from './signs.generated';
+import type { CFCategory, CFSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { CFCategory, CFSign } from './types';
+export type { CFCategory, CFSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): CFSign[] => [...signs];

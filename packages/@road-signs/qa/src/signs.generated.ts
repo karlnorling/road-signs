@@ -2,7 +2,7 @@
 // Run 'yarn update --country=qa' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { QASign } from './types';
+import type { QASign } from './types.js';
 
 export const signs: QASign[] = [
   {

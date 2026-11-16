@@ -1,7 +1,7 @@
-import type { SBCategory, SBSign } from './types';
-import { signs } from './signs.generated';
+import type { SBCategory, SBSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { SBCategory, SBSign } from './types';
+export type { SBCategory, SBSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): SBSign[] => [...signs];

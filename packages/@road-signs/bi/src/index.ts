@@ -1,7 +1,7 @@
-import type { BICategory, BISign } from './types';
-import { signs } from './signs.generated';
+import type { BICategory, BISign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { BICategory, BISign } from './types';
+export type { BICategory, BISign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): BISign[] => [...signs];

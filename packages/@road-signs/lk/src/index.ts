@@ -1,7 +1,7 @@
-import type { LKCategory, LKSign } from './types';
-import { signs } from './signs.generated';
+import type { LKCategory, LKSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { LKCategory, LKSign } from './types';
+export type { LKCategory, LKSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): LKSign[] => [...signs];

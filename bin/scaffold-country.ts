@@ -197,9 +197,9 @@ const standaloneTypes = (cc: string): string =>
   `export type { ViennaCategory as ${upper(cc)}Category, ViennaSign as ${upper(cc)}Sign } from '@road-signs/core';\n`;
 
 const standaloneIndex = (cc: string): string =>
-  `import type { ${upper(cc)}Category, ${upper(cc)}Sign } from './types';\n` +
-  `import { signs } from './signs.generated';\n\n` +
-  `export type { ${upper(cc)}Category, ${upper(cc)}Sign } from './types';\n` +
+  `import type { ${upper(cc)}Category, ${upper(cc)}Sign } from './types.js';\n` +
+  `import { signs } from './signs.generated.js';\n\n` +
+  `export type { ${upper(cc)}Category, ${upper(cc)}Sign } from './types.js';\n` +
   `export { signs };\n\n` +
   `export const getAllSigns = (): ${upper(cc)}Sign[] => [...signs];\n\n` +
   `export const getSign = (id: string): ${upper(cc)}Sign | undefined =>\n` +
@@ -213,7 +213,7 @@ const emptySignsGenerated = (cc: string): string =>
   `// THIS FILE IS AUTO-GENERATED. DO NOT EDIT MANUALLY.\n` +
   `// Run 'yarn update --country=${cc}' to regenerate.\n` +
   `// Empty: no signs scraped yet.\n\n` +
-  `import type { ${upper(cc)}Sign } from './types';\n\n` +
+  `import type { ${upper(cc)}Sign } from './types.js';\n\n` +
   `export const signs: ${upper(cc)}Sign[] = [];\n`;
 
 const overviewMdx = (cc: string, name: string, reexport?: string): string => {

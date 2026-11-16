@@ -1,7 +1,7 @@
-import type { NPCategory, NPSign } from './types';
-import { signs } from './signs.generated';
+import type { NPCategory, NPSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { NPCategory, NPSign } from './types';
+export type { NPCategory, NPSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): NPSign[] => [...signs];

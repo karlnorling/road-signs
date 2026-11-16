@@ -61,6 +61,9 @@ jobs:
       - name: Compile workspace packages
         run: yarn compile
 
+      - name: Load the builds in Node (ESM and CommonJS)
+        run: yarn check-builds
+
       - name: Type-check
         run: yarn type-check
 

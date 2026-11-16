@@ -2,7 +2,7 @@
 // Run 'yarn update --country=vu' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { VUSign } from './types';
+import type { VUSign } from './types.js';
 
 export const signs: VUSign[] = [
   {

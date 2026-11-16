@@ -1,7 +1,7 @@
-import type { LTCategory, LTSign } from './types';
-import { signs } from './signs.generated';
+import type { LTCategory, LTSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { LTCategory, LTSign } from './types';
+export type { LTCategory, LTSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): LTSign[] => [...signs];

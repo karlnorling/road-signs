@@ -1,7 +1,7 @@
-import type { SICategory, SISign } from './types';
-import { signs } from './signs.generated';
+import type { SICategory, SISign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { SICategory, SISign } from './types';
+export type { SICategory, SISign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): SISign[] => [...signs];

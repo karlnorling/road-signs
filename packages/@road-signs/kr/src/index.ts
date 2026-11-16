@@ -1,7 +1,7 @@
-import type { KRCategory, KRSign } from './types';
-import { signs } from './signs.generated';
+import type { KRCategory, KRSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { KRCategory, KRSign } from './types';
+export type { KRCategory, KRSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): KRSign[] => [...signs];

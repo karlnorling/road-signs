@@ -2,7 +2,7 @@
 // Run 'yarn update --country=al' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { ALSign } from './types';
+import type { ALSign } from './types.js';
 
 export const signs: ALSign[] = [
   {

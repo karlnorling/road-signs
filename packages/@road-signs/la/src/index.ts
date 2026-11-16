@@ -1,7 +1,7 @@
-import type { LACategory, LASign } from './types';
-import { signs } from './signs.generated';
+import type { LACategory, LASign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { LACategory, LASign } from './types';
+export type { LACategory, LASign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): LASign[] => [...signs];

@@ -1,7 +1,7 @@
-import type { MDCategory, MDSign } from './types';
-import { signs } from './signs.generated';
+import type { MDCategory, MDSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { MDCategory, MDSign } from './types';
+export type { MDCategory, MDSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): MDSign[] => [...signs];

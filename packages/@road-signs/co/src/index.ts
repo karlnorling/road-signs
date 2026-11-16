@@ -1,7 +1,7 @@
-import type { COCategory, COSign } from './types';
-import { signs } from './signs.generated';
+import type { COCategory, COSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { COCategory, COSign } from './types';
+export type { COCategory, COSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): COSign[] => [...signs];

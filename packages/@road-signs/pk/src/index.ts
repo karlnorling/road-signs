@@ -1,7 +1,7 @@
-import type { PKCategory, PKSign } from './types';
-import { signs } from './signs.generated';
+import type { PKCategory, PKSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { PKCategory, PKSign } from './types';
+export type { PKCategory, PKSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): PKSign[] => [...signs];

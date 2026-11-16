@@ -1,7 +1,7 @@
-import type { CACategory, CASign } from './types';
-import { signs } from './signs.generated';
+import type { CACategory, CASign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { CACategory, CASign } from './types';
+export type { CACategory, CASign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): CASign[] => [...signs];

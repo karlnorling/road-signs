@@ -12,6 +12,7 @@
     "build-docs": "yarn workspace @road-signs-docs/app build",
     "changeset": "changeset",
     "check": "manypkg check",
+    "check-builds": "node scripts/check-esm.mjs",
     "compile": "yarn workspaces foreach -A --topological-dev run compile",
     "create-assets": "tsx bin/create-assets.ts",
     "docs": "yarn workspace @road-signs-docs/app dev",

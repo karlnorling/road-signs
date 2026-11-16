@@ -1,7 +1,7 @@
-import type { GWCategory, GWSign } from './types';
-import { signs } from './signs.generated';
+import type { GWCategory, GWSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { GWCategory, GWSign } from './types';
+export type { GWCategory, GWSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): GWSign[] => [...signs];

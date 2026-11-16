@@ -1,7 +1,7 @@
-import type { GQCategory, GQSign } from './types';
-import { signs } from './signs.generated';
+import type { GQCategory, GQSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { GQCategory, GQSign } from './types';
+export type { GQCategory, GQSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): GQSign[] => [...signs];

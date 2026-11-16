@@ -1,7 +1,7 @@
-import type { KICategory, KISign } from './types';
-import { signs } from './signs.generated';
+import type { KICategory, KISign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { KICategory, KISign } from './types';
+export type { KICategory, KISign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): KISign[] => [...signs];

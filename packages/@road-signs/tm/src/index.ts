@@ -1,7 +1,7 @@
-import type { TMCategory, TMSign } from './types';
-import { signs } from './signs.generated';
+import type { TMCategory, TMSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { TMCategory, TMSign } from './types';
+export type { TMCategory, TMSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): TMSign[] => [...signs];

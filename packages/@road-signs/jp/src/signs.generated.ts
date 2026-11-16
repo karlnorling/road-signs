@@ -2,7 +2,7 @@
 // Run 'yarn update --country=jp' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { JPSign } from './types';
+import type { JPSign } from './types.js';
 
 export const signs: JPSign[] = [
   {

@@ -2,7 +2,7 @@
 // Run 'yarn update --country=np' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { NPSign } from './types';
+import type { NPSign } from './types.js';
 
 export const signs: NPSign[] = [
   {

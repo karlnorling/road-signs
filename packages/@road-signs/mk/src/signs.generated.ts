@@ -2,7 +2,7 @@
 // Run 'yarn update --country=mk' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { MKSign } from './types';
+import type { MKSign } from './types.js';
 
 export const signs: MKSign[] = [
   {

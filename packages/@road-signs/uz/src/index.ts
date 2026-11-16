@@ -1,7 +1,7 @@
-import type { UZCategory, UZSign } from './types';
-import { signs } from './signs.generated';
+import type { UZCategory, UZSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { UZCategory, UZSign } from './types';
+export type { UZCategory, UZSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): UZSign[] => [...signs];

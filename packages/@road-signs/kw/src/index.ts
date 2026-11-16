@@ -1,7 +1,7 @@
-import type { KWCategory, KWSign } from './types';
-import { signs } from './signs.generated';
+import type { KWCategory, KWSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { KWCategory, KWSign } from './types';
+export type { KWCategory, KWSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): KWSign[] => [...signs];

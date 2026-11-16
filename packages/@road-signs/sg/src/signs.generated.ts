@@ -2,7 +2,7 @@
 // Run 'yarn update --country=sg' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { SGSign } from './types';
+import type { SGSign } from './types.js';
 
 export const signs: SGSign[] = [
   {

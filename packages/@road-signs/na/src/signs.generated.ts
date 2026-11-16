@@ -2,7 +2,7 @@
 // Run 'yarn update --country=na' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { NASign } from './types';
+import type { NASign } from './types.js';
 
 export const signs: NASign[] = [
   {

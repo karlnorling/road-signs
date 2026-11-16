@@ -2,7 +2,7 @@
 // Run 'yarn update --country=mc' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { MCSign } from './types';
+import type { MCSign } from './types.js';
 
 export const signs: MCSign[] = [
   {

@@ -1,7 +1,7 @@
-import type { PLCategory, PLSign } from './types';
-import { signs } from './signs.generated';
+import type { PLCategory, PLSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { PLCategory, PLSign } from './types';
+export type { PLCategory, PLSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): PLSign[] => [...signs];

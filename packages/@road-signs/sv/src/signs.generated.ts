@@ -2,7 +2,7 @@
 // Run 'yarn update --country=sv' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { SVSign } from './types';
+import type { SVSign } from './types.js';
 
 export const signs: SVSign[] = [
   {

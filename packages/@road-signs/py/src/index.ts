@@ -1,7 +1,7 @@
-import type { PYCategory, PYSign } from './types';
-import { signs } from './signs.generated';
+import type { PYCategory, PYSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { PYCategory, PYSign } from './types';
+export type { PYCategory, PYSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): PYSign[] => [...signs];

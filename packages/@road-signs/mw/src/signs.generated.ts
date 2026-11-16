@@ -2,7 +2,7 @@
 // Run 'yarn update --country=mw' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { MWSign } from './types';
+import type { MWSign } from './types.js';
 
 export const signs: MWSign[] = [
   {

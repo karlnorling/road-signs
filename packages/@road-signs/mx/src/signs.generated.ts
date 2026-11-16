@@ -2,7 +2,7 @@
 // Run 'yarn update --country=mx' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { MXSign } from './types';
+import type { MXSign } from './types.js';
 
 export const signs: MXSign[] = [
   {

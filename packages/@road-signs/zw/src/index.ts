@@ -1,7 +1,7 @@
-import type { ZWCategory, ZWSign } from './types';
-import { signs } from './signs.generated';
+import type { ZWCategory, ZWSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { ZWCategory, ZWSign } from './types';
+export type { ZWCategory, ZWSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): ZWSign[] => [...signs];

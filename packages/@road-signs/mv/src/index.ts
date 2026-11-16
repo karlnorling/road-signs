@@ -1,7 +1,7 @@
-import type { MVCategory, MVSign } from './types';
-import { signs } from './signs.generated';
+import type { MVCategory, MVSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { MVCategory, MVSign } from './types';
+export type { MVCategory, MVSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): MVSign[] => [...signs];

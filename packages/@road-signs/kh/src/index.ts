@@ -1,7 +1,7 @@
-import type { KHCategory, KHSign } from './types';
-import { signs } from './signs.generated';
+import type { KHCategory, KHSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { KHCategory, KHSign } from './types';
+export type { KHCategory, KHSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): KHSign[] => [...signs];

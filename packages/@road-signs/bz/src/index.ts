@@ -1,7 +1,7 @@
-import type { BZCategory, BZSign } from './types';
-import { signs } from './signs.generated';
+import type { BZCategory, BZSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { BZCategory, BZSign } from './types';
+export type { BZCategory, BZSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): BZSign[] => [...signs];

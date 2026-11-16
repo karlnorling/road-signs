@@ -1,3 +1,3 @@
-export { RoadSign } from './RoadSign';
-export type { RoadSignProps } from './RoadSign';
+export { RoadSign } from './RoadSign.js';
+export type { RoadSignProps } from './RoadSign.js';
 export type { Sign, SignAssets } from '@road-signs/core';

@@ -1,7 +1,7 @@
-import type { NGCategory, NGSign } from './types';
-import { signs } from './signs.generated';
+import type { NGCategory, NGSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { NGCategory, NGSign } from './types';
+export type { NGCategory, NGSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): NGSign[] => [...signs];

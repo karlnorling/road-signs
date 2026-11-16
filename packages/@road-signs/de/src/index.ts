@@ -1,7 +1,7 @@
-import type { DECategory, DESign } from './types';
-import { signs } from './signs.generated';
+import type { DECategory, DESign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { DECategory, DESign } from './types';
+export type { DECategory, DESign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): DESign[] => [...signs];

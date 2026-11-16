@@ -2,7 +2,7 @@
 // Run 'yarn update --country=ma' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { MASign } from './types';
+import type { MASign } from './types.js';
 
 export const signs: MASign[] = [
   {

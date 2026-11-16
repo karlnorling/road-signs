@@ -1,7 +1,7 @@
-import type { DMCategory, DMSign } from './types';
-import { signs } from './signs.generated';
+import type { DMCategory, DMSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { DMCategory, DMSign } from './types';
+export type { DMCategory, DMSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): DMSign[] => [...signs];

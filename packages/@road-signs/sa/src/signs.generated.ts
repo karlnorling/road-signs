@@ -2,7 +2,7 @@
 // Run 'yarn update --country=sa' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { SASign } from './types';
+import type { SASign } from './types.js';
 
 export const signs: SASign[] = [
   {

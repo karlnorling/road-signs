@@ -1,7 +1,7 @@
-import type { LRCategory, LRSign } from './types';
-import { signs } from './signs.generated';
+import type { LRCategory, LRSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { LRCategory, LRSign } from './types';
+export type { LRCategory, LRSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): LRSign[] => [...signs];

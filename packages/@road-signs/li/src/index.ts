@@ -1,7 +1,7 @@
-import type { LICategory, LISign } from './types';
-import { signs } from './signs.generated';
+import type { LICategory, LISign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { LICategory, LISign } from './types';
+export type { LICategory, LISign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): LISign[] => [...signs];

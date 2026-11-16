@@ -1,7 +1,7 @@
-import type { YECategory, YESign } from './types';
-import { signs } from './signs.generated';
+import type { YECategory, YESign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { YECategory, YESign } from './types';
+export type { YECategory, YESign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): YESign[] => [...signs];

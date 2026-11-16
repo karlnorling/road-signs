@@ -2,6 +2,6 @@
 // Run 'yarn update --country=cv' to regenerate.
 // Empty: no signs scraped yet.
 
-import type { CVSign } from './types';
+import type { CVSign } from './types.js';
 
 export const signs: CVSign[] = [];

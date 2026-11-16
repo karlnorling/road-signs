@@ -1,7 +1,7 @@
-import type { UKCategory, UKSign } from './types';
-import { signs } from './signs.generated';
+import type { UKCategory, UKSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { UKCategory, UKSign } from './types';
+export type { UKCategory, UKSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): UKSign[] => [...signs];

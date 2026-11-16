@@ -1,7 +1,7 @@
-import type { SVCategory, SVSign } from './types';
-import { signs } from './signs.generated';
+import type { SVCategory, SVSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { SVCategory, SVSign } from './types';
+export type { SVCategory, SVSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): SVSign[] => [...signs];

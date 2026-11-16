@@ -1,7 +1,7 @@
-import type { AGCategory, AGSign } from './types';
-import { signs } from './signs.generated';
+import type { AGCategory, AGSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { AGCategory, AGSign } from './types';
+export type { AGCategory, AGSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): AGSign[] => [...signs];

@@ -1,7 +1,7 @@
-import type { BRCategory, BRSign } from './types';
-import { signs } from './signs.generated';
+import type { BRCategory, BRSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { BRCategory, BRSign } from './types';
+export type { BRCategory, BRSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): BRSign[] => [...signs];

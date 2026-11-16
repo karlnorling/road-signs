@@ -2,7 +2,7 @@
 // Run 'yarn update --country=xk' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { XKSign } from './types';
+import type { XKSign } from './types.js';
 
 export const signs: XKSign[] = [
   {

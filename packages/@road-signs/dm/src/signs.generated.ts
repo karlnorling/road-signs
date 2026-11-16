@@ -2,7 +2,7 @@
 // Run 'yarn update --country=dm' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { DMSign } from './types';
+import type { DMSign } from './types.js';
 
 export const signs: DMSign[] = [
 ];

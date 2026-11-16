@@ -2,7 +2,7 @@
 // Run 'yarn update --country=ws' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { WSSign } from './types';
+import type { WSSign } from './types.js';
 
 export const signs: WSSign[] = [
   {

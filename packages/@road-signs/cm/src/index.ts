@@ -1,7 +1,7 @@
-import type { CMCategory, CMSign } from './types';
-import { signs } from './signs.generated';
+import type { CMCategory, CMSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { CMCategory, CMSign } from './types';
+export type { CMCategory, CMSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): CMSign[] => [...signs];

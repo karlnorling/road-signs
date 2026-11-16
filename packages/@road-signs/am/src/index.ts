@@ -1,7 +1,7 @@
-import type { AMCategory, AMSign } from './types';
-import { signs } from './signs.generated';
+import type { AMCategory, AMSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { AMCategory, AMSign } from './types';
+export type { AMCategory, AMSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): AMSign[] => [...signs];

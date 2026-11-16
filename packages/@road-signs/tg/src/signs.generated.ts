@@ -2,6 +2,6 @@
 // Run 'yarn update --country=tg' to regenerate.
 // Empty: no signs scraped yet.
 
-import type { TGSign } from './types';
+import type { TGSign } from './types.js';
 
 export const signs: TGSign[] = [];

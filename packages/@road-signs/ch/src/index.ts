@@ -1,7 +1,7 @@
-import type { CHCategory, CHSign } from './types';
-import { signs } from './signs.generated';
+import type { CHCategory, CHSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { CHCategory, CHSign } from './types';
+export type { CHCategory, CHSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): CHSign[] => [...signs];

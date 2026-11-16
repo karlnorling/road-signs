@@ -1,7 +1,7 @@
-import type { GMCategory, GMSign } from './types';
-import { signs } from './signs.generated';
+import type { GMCategory, GMSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { GMCategory, GMSign } from './types';
+export type { GMCategory, GMSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): GMSign[] => [...signs];

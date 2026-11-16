@@ -1,7 +1,7 @@
-import type { BWCategory, BWSign } from './types';
-import { signs } from './signs.generated';
+import type { BWCategory, BWSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { BWCategory, BWSign } from './types';
+export type { BWCategory, BWSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): BWSign[] => [...signs];

@@ -2,6 +2,6 @@
 // Run 'yarn update --country=cd' to regenerate.
 // Empty: no signs scraped yet.
 
-import type { CDSign } from './types';
+import type { CDSign } from './types.js';
 
 export const signs: CDSign[] = [];

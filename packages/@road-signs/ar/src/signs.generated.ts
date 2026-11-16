@@ -2,7 +2,7 @@
 // Run 'yarn update --country=ar' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { ARSign } from './types';
+import type { ARSign } from './types.js';
 
 export const signs: ARSign[] = [
   {

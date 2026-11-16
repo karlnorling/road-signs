@@ -1,7 +1,7 @@
-import type { VUCategory, VUSign } from './types';
-import { signs } from './signs.generated';
+import type { VUCategory, VUSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { VUCategory, VUSign } from './types';
+export type { VUCategory, VUSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): VUSign[] => [...signs];

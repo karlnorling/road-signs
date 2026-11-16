@@ -1,7 +1,7 @@
-import type { SOCategory, SOSign } from './types';
-import { signs } from './signs.generated';
+import type { SOCategory, SOSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { SOCategory, SOSign } from './types';
+export type { SOCategory, SOSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): SOSign[] => [...signs];

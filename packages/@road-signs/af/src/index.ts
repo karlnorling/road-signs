@@ -1,7 +1,7 @@
-import type { AFCategory, AFSign } from './types';
-import { signs } from './signs.generated';
+import type { AFCategory, AFSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { AFCategory, AFSign } from './types';
+export type { AFCategory, AFSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): AFSign[] => [...signs];

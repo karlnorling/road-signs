@@ -1,7 +1,7 @@
-import type { TVCategory, TVSign } from './types';
-import { signs } from './signs.generated';
+import type { TVCategory, TVSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { TVCategory, TVSign } from './types';
+export type { TVCategory, TVSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): TVSign[] => [...signs];

@@ -2,6 +2,6 @@
 // Run 'yarn update --country=bf' to regenerate.
 // Empty: no signs scraped yet.
 
-import type { BFSign } from './types';
+import type { BFSign } from './types.js';
 
 export const signs: BFSign[] = [];

@@ -53,7 +53,9 @@ export const collectSignSources = (srcDir: string): string[] => {
   const primary = path.join(srcDir, 'signs.generated.ts');
   if (!fs.existsSync(primary)) return [];
   const src = fs.readFileSync(primary, 'utf-8');
-  const shardImports = [...src.matchAll(/from\s+['"]\.\/(signs\.[a-z0-9_]+\.generated)['"]/gi)];
+  const shardImports = [
+    ...src.matchAll(/from\s+['"]\.\/(signs\.[a-z0-9_]+\.generated)(?:\.js)?['"]/gi),
+  ];
   if (shardImports.length === 0) return [primary];
   return shardImports.map((m) => path.join(srcDir, `${m[1]}.ts`)).filter((f) => fs.existsSync(f));
 };

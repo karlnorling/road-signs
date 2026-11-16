@@ -1,7 +1,7 @@
-import type { BJCategory, BJSign } from './types';
-import { signs } from './signs.generated';
+import type { BJCategory, BJSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { BJCategory, BJSign } from './types';
+export type { BJCategory, BJSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): BJSign[] => [...signs];

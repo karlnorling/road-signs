@@ -2,6 +2,6 @@
 // Run 'yarn update --country=td' to regenerate.
 // Empty: no signs scraped yet.
 
-import type { TDSign } from './types';
+import type { TDSign } from './types.js';
 
 export const signs: TDSign[] = [];

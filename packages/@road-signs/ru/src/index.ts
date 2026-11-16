@@ -1,7 +1,7 @@
-import type { RUCategory, RUSign } from './types';
-import { signs } from './signs.generated';
+import type { RUCategory, RUSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { RUCategory, RUSign } from './types';
+export type { RUCategory, RUSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): RUSign[] => [...signs];

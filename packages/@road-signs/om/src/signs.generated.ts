@@ -2,7 +2,7 @@
 // Run 'yarn update --country=om' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { OMSign } from './types';
+import type { OMSign } from './types.js';
 
 export const signs: OMSign[] = [
   {

@@ -1,7 +1,7 @@
-import type { AZCategory, AZSign } from './types';
-import { signs } from './signs.generated';
+import type { AZCategory, AZSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { AZCategory, AZSign } from './types';
+export type { AZCategory, AZSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): AZSign[] => [...signs];

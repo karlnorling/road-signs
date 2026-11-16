@@ -1,7 +1,7 @@
-import type { RWCategory, RWSign } from './types';
-import { signs } from './signs.generated';
+import type { RWCategory, RWSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { RWCategory, RWSign } from './types';
+export type { RWCategory, RWSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): RWSign[] => [...signs];

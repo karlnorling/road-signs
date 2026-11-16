@@ -2,7 +2,7 @@
 // Run 'yarn update --country=ni' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { NISign } from './types';
+import type { NISign } from './types.js';
 
 export const signs: NISign[] = [
   {

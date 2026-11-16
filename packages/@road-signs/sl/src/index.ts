@@ -1,7 +1,7 @@
-import type { SLCategory, SLSign } from './types';
-import { signs } from './signs.generated';
+import type { SLCategory, SLSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { SLCategory, SLSign } from './types';
+export type { SLCategory, SLSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): SLSign[] => [...signs];

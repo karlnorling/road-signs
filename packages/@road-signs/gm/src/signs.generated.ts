@@ -2,6 +2,6 @@
 // Run 'yarn update --country=gm' to regenerate.
 // Empty: no signs scraped yet.
 
-import type { GMSign } from './types';
+import type { GMSign } from './types.js';
 
 export const signs: GMSign[] = [];

@@ -1,7 +1,7 @@
-import type { FICategory, FISign } from './types';
-import { signs } from './signs.generated';
+import type { FICategory, FISign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { FICategory, FISign } from './types';
+export type { FICategory, FISign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): FISign[] => [...signs];

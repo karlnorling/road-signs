@@ -2,7 +2,7 @@
 // Run 'yarn update --country=ir' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { IRSign } from './types';
+import type { IRSign } from './types.js';
 
 export const signs: IRSign[] = [
   {

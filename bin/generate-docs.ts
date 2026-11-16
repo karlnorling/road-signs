@@ -353,7 +353,7 @@ const extractSampleSign = (cc: string): SampleSign | null => {
   const sources: string[] = [];
   const primarySrc = fs.readFileSync(primary, 'utf-8');
   const shardMatches = [
-    ...primarySrc.matchAll(/from\s+['"]\.\/(signs\.[a-z0-9_]+\.generated)['"]/gi),
+    ...primarySrc.matchAll(/from\s+['"]\.\/(signs\.[a-z0-9_]+\.generated)(?:\.js)?['"]/gi),
   ];
   if (shardMatches.length > 0) {
     for (const m of shardMatches) {

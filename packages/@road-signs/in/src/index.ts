@@ -1,7 +1,7 @@
-import type { INCategory, INSign } from './types';
-import { signs } from './signs.generated';
+import type { INCategory, INSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { INCategory, INSign } from './types';
+export type { INCategory, INSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): INSign[] => [...signs];

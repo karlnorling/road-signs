@@ -1,7 +1,7 @@
-import type { ZACategory, ZASign } from './types';
-import { signs } from './signs.generated';
+import type { ZACategory, ZASign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { ZACategory, ZASign } from './types';
+export type { ZACategory, ZASign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): ZASign[] => [...signs];

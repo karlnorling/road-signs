@@ -1,7 +1,7 @@
-import type { GTCategory, GTSign } from './types';
-import { signs } from './signs.generated';
+import type { GTCategory, GTSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { GTCategory, GTSign } from './types';
+export type { GTCategory, GTSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): GTSign[] => [...signs];

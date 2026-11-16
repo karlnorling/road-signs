@@ -1,7 +1,7 @@
-import type { DKCategory, DKSign } from './types';
-import { signs } from './signs.generated';
+import type { DKCategory, DKSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { DKCategory, DKSign } from './types';
+export type { DKCategory, DKSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): DKSign[] => [...signs];

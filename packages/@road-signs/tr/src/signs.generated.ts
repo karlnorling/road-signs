@@ -2,7 +2,7 @@
 // Run 'yarn update --country=tr' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { TRSign } from './types';
+import type { TRSign } from './types.js';
 
 export const signs: TRSign[] = [
   {

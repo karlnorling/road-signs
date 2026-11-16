@@ -1,7 +1,7 @@
-import type { EGCategory, EGSign } from './types';
-import { signs } from './signs.generated';
+import type { EGCategory, EGSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { EGCategory, EGSign } from './types';
+export type { EGCategory, EGSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): EGSign[] => [...signs];

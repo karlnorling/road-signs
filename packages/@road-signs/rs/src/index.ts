@@ -1,7 +1,7 @@
-import type { RSCategory, RSSign } from './types';
-import { signs } from './signs.generated';
+import type { RSCategory, RSSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { RSCategory, RSSign } from './types';
+export type { RSCategory, RSSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): RSSign[] => [...signs];

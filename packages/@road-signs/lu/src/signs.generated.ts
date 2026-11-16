@@ -2,7 +2,7 @@
 // Run 'yarn update --country=lu' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { LUSign } from './types';
+import type { LUSign } from './types.js';
 
 export const signs: LUSign[] = [
 ];

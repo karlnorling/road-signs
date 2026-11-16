@@ -2,7 +2,7 @@
 // Run 'yarn update --country=pk' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { PKSign } from './types';
+import type { PKSign } from './types.js';
 
 export const signs: PKSign[] = [
   {

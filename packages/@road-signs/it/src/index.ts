@@ -1,7 +1,7 @@
-import type { ITCategory, ITSign } from './types';
-import { signs } from './signs.generated';
+import type { ITCategory, ITSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { ITCategory, ITSign } from './types';
+export type { ITCategory, ITSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): ITSign[] => [...signs];

@@ -1,7 +1,7 @@
-import type { JMCategory, JMSign } from './types';
-import { signs } from './signs.generated';
+import type { JMCategory, JMSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { JMCategory, JMSign } from './types';
+export type { JMCategory, JMSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): JMSign[] => [...signs];

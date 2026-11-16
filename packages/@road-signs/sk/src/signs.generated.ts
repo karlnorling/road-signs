@@ -2,7 +2,7 @@
 // Run 'yarn update --country=sk' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { SKSign } from './types';
+import type { SKSign } from './types.js';
 
 export const signs: SKSign[] = [
   {

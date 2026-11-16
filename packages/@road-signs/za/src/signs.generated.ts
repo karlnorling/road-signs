@@ -2,7 +2,7 @@
 // Run 'yarn update --country=za' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { ZASign } from './types';
+import type { ZASign } from './types.js';
 
 export const signs: ZASign[] = [
   {

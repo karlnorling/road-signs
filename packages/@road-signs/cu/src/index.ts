@@ -1,7 +1,7 @@
-import type { CUCategory, CUSign } from './types';
-import { signs } from './signs.generated';
+import type { CUCategory, CUSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { CUCategory, CUSign } from './types';
+export type { CUCategory, CUSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): CUSign[] => [...signs];

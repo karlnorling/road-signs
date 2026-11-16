@@ -1,7 +1,7 @@
-import type { IRCategory, IRSign } from './types';
-import { signs } from './signs.generated';
+import type { IRCategory, IRSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { IRCategory, IRSign } from './types';
+export type { IRCategory, IRSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): IRSign[] => [...signs];

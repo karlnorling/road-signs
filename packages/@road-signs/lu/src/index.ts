@@ -1,7 +1,7 @@
-import type { LUCategory, LUSign } from './types';
-import { signs } from './signs.generated';
+import type { LUCategory, LUSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { LUCategory, LUSign } from './types';
+export type { LUCategory, LUSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): LUSign[] => [...signs];
