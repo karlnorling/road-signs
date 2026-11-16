@@ -1,6 +1,6 @@
 {
   "name": "@road-signs/nz",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "New Zealand road signs — TypeScript registry, inline SVGs",
   "keywords": [
     "nzta",

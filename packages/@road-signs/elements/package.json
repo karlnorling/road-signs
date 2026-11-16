@@ -1,6 +1,6 @@
 {
   "name": "@road-signs/elements",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Web components for road signs — works with any @road-signs/* country package",
   "keywords": [
     "custom-elements",

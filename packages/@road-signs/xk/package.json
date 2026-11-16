@@ -1,6 +1,6 @@
 {
   "name": "@road-signs/xk",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Kosovo road signs — TypeScript registry, inline SVGs",
   "keywords": [
     "road-signs",

@@ -1,6 +1,6 @@
 {
   "name": "@road-signs/mx",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Mexican road signs — TypeScript registry, inline SVGs",
   "keywords": [
     "sct",
