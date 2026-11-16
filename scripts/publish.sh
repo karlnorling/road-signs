@@ -125,7 +125,7 @@ if [ "$failed" -gt 0 ]; then
   exit 1
 fi
 
-# Tags only make sense for a full release, not a single-package smoke test.
-if [ -z "$ONLY" ]; then
-  yarn changeset tag
-fi
+# No `changeset tag` here: it also appends to CHANGESETS_OUTPUT, which records
+# every tag twice and makes the action create each GitHub release twice (the
+# second fails with already_exists). The action creates the tags itself,
+# through the API, from the events recorded above.
