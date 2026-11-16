@@ -2,7 +2,7 @@
 // Run 'yarn update --country=cn' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { CNSign } from './types';
+import type { CNSign } from './types.js';
 
 export const signs: CNSign[] = [
   {

@@ -1,7 +1,7 @@
-import type { HTCategory, HTSign } from './types';
-import { signs } from './signs.generated';
+import type { HTCategory, HTSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { HTCategory, HTSign } from './types';
+export type { HTCategory, HTSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): HTSign[] => [...signs];

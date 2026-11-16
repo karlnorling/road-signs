@@ -1,7 +1,7 @@
-import type { CDCategory, CDSign } from './types';
-import { signs } from './signs.generated';
+import type { CDCategory, CDSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { CDCategory, CDSign } from './types';
+export type { CDCategory, CDSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): CDSign[] => [...signs];

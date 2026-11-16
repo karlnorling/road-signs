@@ -1,7 +1,7 @@
-import type { HNCategory, HNSign } from './types';
-import { signs } from './signs.generated';
+import type { HNCategory, HNSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { HNCategory, HNSign } from './types';
+export type { HNCategory, HNSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): HNSign[] => [...signs];

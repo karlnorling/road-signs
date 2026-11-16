@@ -2,7 +2,7 @@
 // Run 'yarn update --country=lk' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { LKSign } from './types';
+import type { LKSign } from './types.js';
 
 export const signs: LKSign[] = [
   {

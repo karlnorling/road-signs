@@ -2,7 +2,7 @@
 // Run 'yarn update --country=pt' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { PTSign } from './types';
+import type { PTSign } from './types.js';
 
 export const signs: PTSign[] = [
   {

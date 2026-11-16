@@ -1,7 +1,7 @@
-import type { OMCategory, OMSign } from './types';
-import { signs } from './signs.generated';
+import type { OMCategory, OMSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { OMCategory, OMSign } from './types';
+export type { OMCategory, OMSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): OMSign[] => [...signs];

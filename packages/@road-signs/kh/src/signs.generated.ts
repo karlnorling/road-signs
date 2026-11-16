@@ -2,7 +2,7 @@
 // Run 'yarn update --country=kh' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { KHSign } from './types';
+import type { KHSign } from './types.js';
 
 export const signs: KHSign[] = [
   {

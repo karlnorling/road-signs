@@ -2,7 +2,7 @@
 // Run 'yarn update --country=ru' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { RUSign } from './types';
+import type { RUSign } from './types.js';
 
 export const signs: RUSign[] = [
   {

@@ -1,7 +1,7 @@
-import type { SECategory, SESign } from './types';
-import { signs } from './signs.generated';
+import type { SECategory, SESign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { SECategory, SESign } from './types';
+export type { SECategory, SESign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): SESign[] => [...signs];

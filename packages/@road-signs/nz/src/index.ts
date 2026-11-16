@@ -1,7 +1,7 @@
-import type { NZCategory, NZSign } from './types';
-import { signs } from './signs.generated';
+import type { NZCategory, NZSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { NZCategory, NZSign } from './types';
+export type { NZCategory, NZSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): NZSign[] => [...signs];

@@ -2,6 +2,6 @@
 // Run 'yarn update --country=ps' to regenerate.
 // Empty: no signs scraped yet.
 
-import type { PSSign } from './types';
+import type { PSSign } from './types.js';
 
 export const signs: PSSign[] = [];

@@ -2,7 +2,7 @@
 // Run 'yarn update --country=iq' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { IQSign } from './types';
+import type { IQSign } from './types.js';
 
 export const signs: IQSign[] = [
 ];

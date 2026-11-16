@@ -1,7 +1,7 @@
-import type { SDCategory, SDSign } from './types';
-import { signs } from './signs.generated';
+import type { SDCategory, SDSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { SDCategory, SDSign } from './types';
+export type { SDCategory, SDSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): SDSign[] => [...signs];

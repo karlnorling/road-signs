@@ -1,7 +1,7 @@
-import type { ROCategory, ROSign } from './types';
-import { signs } from './signs.generated';
+import type { ROCategory, ROSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { ROCategory, ROSign } from './types';
+export type { ROCategory, ROSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): ROSign[] => [...signs];

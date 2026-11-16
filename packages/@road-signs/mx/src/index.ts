@@ -1,7 +1,7 @@
-import type { MXCategory, MXSign } from './types';
-import { signs } from './signs.generated';
+import type { MXCategory, MXSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { MXCategory, MXSign } from './types';
+export type { MXCategory, MXSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): MXSign[] => [...signs];

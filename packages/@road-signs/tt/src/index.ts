@@ -1,7 +1,7 @@
-import type { TTCategory, TTSign } from './types';
-import { signs } from './signs.generated';
+import type { TTCategory, TTSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { TTCategory, TTSign } from './types';
+export type { TTCategory, TTSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): TTSign[] => [...signs];

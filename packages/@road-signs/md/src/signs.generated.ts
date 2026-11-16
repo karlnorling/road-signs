@@ -2,7 +2,7 @@
 // Run 'yarn update --country=md' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { MDSign } from './types';
+import type { MDSign } from './types.js';
 
 export const signs: MDSign[] = [
   {

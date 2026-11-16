@@ -1,7 +1,7 @@
-import type { FMCategory, FMSign } from './types';
-import { signs } from './signs.generated';
+import type { FMCategory, FMSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { FMCategory, FMSign } from './types';
+export type { FMCategory, FMSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): FMSign[] => [...signs];

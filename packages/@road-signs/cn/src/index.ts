@@ -1,7 +1,7 @@
-import type { CNCategory, CNSign } from './types';
-import { signs } from './signs.generated';
+import type { CNCategory, CNSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { CNCategory, CNSign } from './types';
+export type { CNCategory, CNSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): CNSign[] => [...signs];

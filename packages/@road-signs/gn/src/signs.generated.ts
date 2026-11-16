@@ -2,6 +2,6 @@
 // Run 'yarn update --country=gn' to regenerate.
 // Empty: no signs scraped yet.
 
-import type { GNSign } from './types';
+import type { GNSign } from './types.js';
 
 export const signs: GNSign[] = [];

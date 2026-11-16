@@ -2,6 +2,6 @@
 // Run 'yarn update --country=mh' to regenerate.
 // Empty: no signs scraped yet.
 
-import type { MHSign } from './types';
+import type { MHSign } from './types.js';
 
 export const signs: MHSign[] = [];

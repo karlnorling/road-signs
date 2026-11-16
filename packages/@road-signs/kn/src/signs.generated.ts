@@ -2,7 +2,7 @@
 // Run 'yarn update --country=kn' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { KNSign } from './types';
+import type { KNSign } from './types.js';
 
 export const signs: KNSign[] = [
 ];

@@ -1,7 +1,7 @@
-import type { NICategory, NISign } from './types';
-import { signs } from './signs.generated';
+import type { NICategory, NISign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { NICategory, NISign } from './types';
+export type { NICategory, NISign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): NISign[] => [...signs];

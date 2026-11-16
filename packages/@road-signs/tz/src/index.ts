@@ -1,7 +1,7 @@
-import type { TZCategory, TZSign } from './types';
-import { signs } from './signs.generated';
+import type { TZCategory, TZSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { TZCategory, TZSign } from './types';
+export type { TZCategory, TZSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): TZSign[] => [...signs];

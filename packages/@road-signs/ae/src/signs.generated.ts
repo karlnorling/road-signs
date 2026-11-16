@@ -2,7 +2,7 @@
 // Run 'yarn update --country=ae' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { AESign } from './types';
+import type { AESign } from './types.js';
 
 export const signs: AESign[] = [
   {

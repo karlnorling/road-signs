@@ -2,7 +2,7 @@
 // Run 'yarn update --country=jm' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { JMSign } from './types';
+import type { JMSign } from './types.js';
 
 export const signs: JMSign[] = [
   {

@@ -1,7 +1,7 @@
-import type { GYCategory, GYSign } from './types';
-import { signs } from './signs.generated';
+import type { GYCategory, GYSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { GYCategory, GYSign } from './types';
+export type { GYCategory, GYSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): GYSign[] => [...signs];

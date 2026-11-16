@@ -2,7 +2,7 @@
 // Run 'yarn update --country=ch' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { CHSign } from './types';
+import type { CHSign } from './types.js';
 
 export const signs: CHSign[] = [
   {

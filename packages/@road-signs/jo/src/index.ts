@@ -1,7 +1,7 @@
-import type { JOCategory, JOSign } from './types';
-import { signs } from './signs.generated';
+import type { JOCategory, JOSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { JOCategory, JOSign } from './types';
+export type { JOCategory, JOSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): JOSign[] => [...signs];

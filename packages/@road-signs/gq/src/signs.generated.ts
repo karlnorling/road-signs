@@ -2,6 +2,6 @@
 // Run 'yarn update --country=gq' to regenerate.
 // Empty: no signs scraped yet.
 
-import type { GQSign } from './types';
+import type { GQSign } from './types.js';
 
 export const signs: GQSign[] = [];

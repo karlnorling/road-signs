@@ -1,7 +1,7 @@
-import type { ERCategory, ERSign } from './types';
-import { signs } from './signs.generated';
+import type { ERCategory, ERSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { ERCategory, ERSign } from './types';
+export type { ERCategory, ERSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): ERSign[] => [...signs];

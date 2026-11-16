@@ -2,7 +2,7 @@
 // Run 'yarn update --country=ng' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { NGSign } from './types';
+import type { NGSign } from './types.js';
 
 export const signs: NGSign[] = [
   {

@@ -2,7 +2,7 @@
 // Run 'yarn update --country=nl' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { NLSign } from './types';
+import type { NLSign } from './types.js';
 
 export const signs: NLSign[] = [
   {

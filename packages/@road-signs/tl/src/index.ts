@@ -1,7 +1,7 @@
-import type { TLCategory, TLSign } from './types';
-import { signs } from './signs.generated';
+import type { TLCategory, TLSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { TLCategory, TLSign } from './types';
+export type { TLCategory, TLSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): TLSign[] => [...signs];

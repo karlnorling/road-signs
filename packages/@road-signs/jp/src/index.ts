@@ -1,7 +1,7 @@
-import type { JPCategory, JPSign } from './types';
-import { signs } from './signs.generated';
+import type { JPCategory, JPSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { JPCategory, JPSign } from './types';
+export type { JPCategory, JPSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): JPSign[] => [...signs];

@@ -1,7 +1,7 @@
-import type { VCCategory, VCSign } from './types';
-import { signs } from './signs.generated';
+import type { VCCategory, VCSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { VCCategory, VCSign } from './types';
+export type { VCCategory, VCSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): VCSign[] => [...signs];

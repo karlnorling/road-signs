@@ -1,7 +1,7 @@
-import type { HRCategory, HRSign } from './types';
-import { signs } from './signs.generated';
+import type { HRCategory, HRSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { HRCategory, HRSign } from './types';
+export type { HRCategory, HRSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): HRSign[] => [...signs];

@@ -1,7 +1,7 @@
-import type { KECategory, KESign } from './types';
-import { signs } from './signs.generated';
+import type { KECategory, KESign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { KECategory, KESign } from './types';
+export type { KECategory, KESign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): KESign[] => [...signs];

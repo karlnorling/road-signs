@@ -1,7 +1,7 @@
-import type { IDCategory, IDSign } from './types';
-import { signs } from './signs.generated';
+import type { IDCategory, IDSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { IDCategory, IDSign } from './types';
+export type { IDCategory, IDSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): IDSign[] => [...signs];

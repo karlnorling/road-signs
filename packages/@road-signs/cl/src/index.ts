@@ -1,7 +1,7 @@
-import type { CLCategory, CLSign } from './types';
-import { signs } from './signs.generated';
+import type { CLCategory, CLSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { CLCategory, CLSign } from './types';
+export type { CLCategory, CLSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): CLSign[] => [...signs];

@@ -1,7 +1,7 @@
-import type { GACategory, GASign } from './types';
-import { signs } from './signs.generated';
+import type { GACategory, GASign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { GACategory, GASign } from './types';
+export type { GACategory, GASign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): GASign[] => [...signs];

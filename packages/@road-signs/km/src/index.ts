@@ -1,7 +1,7 @@
-import type { KMCategory, KMSign } from './types';
-import { signs } from './signs.generated';
+import type { KMCategory, KMSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { KMCategory, KMSign } from './types';
+export type { KMCategory, KMSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): KMSign[] => [...signs];

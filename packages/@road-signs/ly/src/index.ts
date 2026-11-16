@@ -1,7 +1,7 @@
-import type { LYCategory, LYSign } from './types';
-import { signs } from './signs.generated';
+import type { LYCategory, LYSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { LYCategory, LYSign } from './types';
+export type { LYCategory, LYSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): LYSign[] => [...signs];

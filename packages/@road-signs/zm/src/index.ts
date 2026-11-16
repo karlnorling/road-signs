@@ -1,7 +1,7 @@
-import type { ZMCategory, ZMSign } from './types';
-import { signs } from './signs.generated';
+import type { ZMCategory, ZMSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { ZMCategory, ZMSign } from './types';
+export type { ZMCategory, ZMSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): ZMSign[] => [...signs];

@@ -2,7 +2,7 @@
 // Run 'yarn update --country=se' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { SESign } from './types';
+import type { SESign } from './types.js';
 
 export const signs: SESign[] = [
   {

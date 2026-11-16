@@ -1,7 +1,7 @@
-import type { NLCategory, NLSign } from './types';
-import { signs } from './signs.generated';
+import type { NLCategory, NLSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { NLCategory, NLSign } from './types';
+export type { NLCategory, NLSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): NLSign[] => [...signs];

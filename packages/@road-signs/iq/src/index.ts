@@ -1,7 +1,7 @@
-import type { IQCategory, IQSign } from './types';
-import { signs } from './signs.generated';
+import type { IQCategory, IQSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { IQCategory, IQSign } from './types';
+export type { IQCategory, IQSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): IQSign[] => [...signs];

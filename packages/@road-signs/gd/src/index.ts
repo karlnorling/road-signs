@@ -1,7 +1,7 @@
-import type { GDCategory, GDSign } from './types';
-import { signs } from './signs.generated';
+import type { GDCategory, GDSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { GDCategory, GDSign } from './types';
+export type { GDCategory, GDSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): GDSign[] => [...signs];

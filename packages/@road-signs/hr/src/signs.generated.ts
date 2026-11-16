@@ -2,7 +2,7 @@
 // Run 'yarn update --country=hr' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { HRSign } from './types';
+import type { HRSign } from './types.js';
 
 export const signs: HRSign[] = [
   {

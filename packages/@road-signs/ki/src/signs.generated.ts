@@ -2,6 +2,6 @@
 // Run 'yarn update --country=ki' to regenerate.
 // Empty: no signs scraped yet.
 
-import type { KISign } from './types';
+import type { KISign } from './types.js';
 
 export const signs: KISign[] = [];

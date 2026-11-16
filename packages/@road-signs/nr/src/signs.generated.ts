@@ -2,6 +2,6 @@
 // Run 'yarn update --country=nr' to regenerate.
 // Empty: no signs scraped yet.
 
-import type { NRSign } from './types';
+import type { NRSign } from './types.js';
 
 export const signs: NRSign[] = [];

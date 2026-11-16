@@ -1,7 +1,7 @@
-import type { CICategory, CISign } from './types';
-import { signs } from './signs.generated';
+import type { CICategory, CISign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { CICategory, CISign } from './types';
+export type { CICategory, CISign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): CISign[] => [...signs];

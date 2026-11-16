@@ -2,7 +2,7 @@
 // Run 'yarn update --country=mu' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { MUSign } from './types';
+import type { MUSign } from './types.js';
 
 export const signs: MUSign[] = [
   {

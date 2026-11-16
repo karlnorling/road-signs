@@ -2,6 +2,6 @@
 // Run 'yarn update --country=tl' to regenerate.
 // Empty: no signs scraped yet.
 
-import type { TLSign } from './types';
+import type { TLSign } from './types.js';
 
 export const signs: TLSign[] = [];

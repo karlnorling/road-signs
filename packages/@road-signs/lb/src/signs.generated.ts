@@ -2,7 +2,7 @@
 // Run 'yarn update --country=lb' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { LBSign } from './types';
+import type { LBSign } from './types.js';
 
 export const signs: LBSign[] = [
 ];

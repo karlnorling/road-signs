@@ -1,7 +1,7 @@
-import type { PHCategory, PHSign } from './types';
-import { signs } from './signs.generated';
+import type { PHCategory, PHSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { PHCategory, PHSign } from './types';
+export type { PHCategory, PHSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): PHSign[] => [...signs];

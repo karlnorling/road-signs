@@ -1,7 +1,7 @@
-import type { PWCategory, PWSign } from './types';
-import { signs } from './signs.generated';
+import type { PWCategory, PWSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { PWCategory, PWSign } from './types';
+export type { PWCategory, PWSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): PWSign[] => [...signs];

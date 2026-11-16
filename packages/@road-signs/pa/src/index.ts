@@ -1,7 +1,7 @@
-import type { PACategory, PASign } from './types';
-import { signs } from './signs.generated';
+import type { PACategory, PASign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { PACategory, PASign } from './types';
+export type { PACategory, PASign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): PASign[] => [...signs];

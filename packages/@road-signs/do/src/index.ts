@@ -1,7 +1,7 @@
-import type { DOCategory, DOSign } from './types';
-import { signs } from './signs.generated';
+import type { DOCategory, DOSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { DOCategory, DOSign } from './types';
+export type { DOCategory, DOSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): DOSign[] => [...signs];

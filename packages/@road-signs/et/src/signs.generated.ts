@@ -2,7 +2,7 @@
 // Run 'yarn update --country=et' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { ETSign } from './types';
+import type { ETSign } from './types.js';
 
 export const signs: ETSign[] = [
 ];

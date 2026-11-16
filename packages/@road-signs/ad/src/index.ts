@@ -1,7 +1,7 @@
-import type { ADCategory, ADSign } from './types';
-import { signs } from './signs.generated';
+import type { ADCategory, ADSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { ADCategory, ADSign } from './types';
+export type { ADCategory, ADSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): ADSign[] => [...signs];

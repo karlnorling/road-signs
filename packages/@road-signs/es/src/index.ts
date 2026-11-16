@@ -1,7 +1,7 @@
-import type { ESCategory, ESSign } from './types';
-import { signs } from './signs.generated';
+import type { ESCategory, ESSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { ESCategory, ESSign } from './types';
+export type { ESCategory, ESSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): ESSign[] => [...signs];

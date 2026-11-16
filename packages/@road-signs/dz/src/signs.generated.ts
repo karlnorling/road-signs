@@ -2,7 +2,7 @@
 // Run 'yarn update --country=dz' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { DZSign } from './types';
+import type { DZSign } from './types.js';
 
 export const signs: DZSign[] = [
   {

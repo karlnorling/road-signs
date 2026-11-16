@@ -2,7 +2,7 @@
 // Run 'yarn update --country=si' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { SISign } from './types';
+import type { SISign } from './types.js';
 
 export const signs: SISign[] = [
   {

@@ -2,7 +2,7 @@
 // Run 'yarn update --country=vc' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { VCSign } from './types';
+import type { VCSign } from './types.js';
 
 export const signs: VCSign[] = [
 ];

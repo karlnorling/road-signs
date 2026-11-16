@@ -2,6 +2,6 @@
 // Run 'yarn update --country=bj' to regenerate.
 // Empty: no signs scraped yet.
 
-import type { BJSign } from './types';
+import type { BJSign } from './types.js';
 
 export const signs: BJSign[] = [];

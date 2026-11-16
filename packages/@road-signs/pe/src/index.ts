@@ -1,7 +1,7 @@
-import type { PECategory, PESign } from './types';
-import { signs } from './signs.generated';
+import type { PECategory, PESign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { PECategory, PESign } from './types';
+export type { PECategory, PESign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): PESign[] => [...signs];

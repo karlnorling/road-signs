@@ -1,7 +1,7 @@
-import type { SYCategory, SYSign } from './types';
-import { signs } from './signs.generated';
+import type { SYCategory, SYSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { SYCategory, SYSign } from './types';
+export type { SYCategory, SYSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): SYSign[] => [...signs];

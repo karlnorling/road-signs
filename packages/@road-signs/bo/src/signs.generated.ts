@@ -2,7 +2,7 @@
 // Run 'yarn update --country=bo' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { BOSign } from './types';
+import type { BOSign } from './types.js';
 
 export const signs: BOSign[] = [
   {

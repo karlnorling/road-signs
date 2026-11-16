@@ -1,7 +1,7 @@
-import type { UYCategory, UYSign } from './types';
-import { signs } from './signs.generated';
+import type { UYCategory, UYSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { UYCategory, UYSign } from './types';
+export type { UYCategory, UYSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): UYSign[] => [...signs];

@@ -2,7 +2,7 @@
 // Run 'yarn update --country=mz' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { MZSign } from './types';
+import type { MZSign } from './types.js';
 
 export const signs: MZSign[] = [
   {

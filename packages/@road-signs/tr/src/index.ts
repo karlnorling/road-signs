@@ -1,7 +1,7 @@
-import type { TRCategory, TRSign } from './types';
-import { signs } from './signs.generated';
+import type { TRCategory, TRSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { TRCategory, TRSign } from './types';
+export type { TRCategory, TRSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): TRSign[] => [...signs];

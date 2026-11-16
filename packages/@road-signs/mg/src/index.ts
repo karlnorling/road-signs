@@ -1,7 +1,7 @@
-import type { MGCategory, MGSign } from './types';
-import { signs } from './signs.generated';
+import type { MGCategory, MGSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { MGCategory, MGSign } from './types';
+export type { MGCategory, MGSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): MGSign[] => [...signs];

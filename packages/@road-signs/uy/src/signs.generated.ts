@@ -2,7 +2,7 @@
 // Run 'yarn update --country=uy' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { UYSign } from './types';
+import type { UYSign } from './types.js';
 
 export const signs: UYSign[] = [
   {

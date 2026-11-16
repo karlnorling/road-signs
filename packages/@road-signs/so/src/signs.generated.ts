@@ -2,6 +2,6 @@
 // Run 'yarn update --country=so' to regenerate.
 // Empty: no signs scraped yet.
 
-import type { SOSign } from './types';
+import type { SOSign } from './types.js';
 
 export const signs: SOSign[] = [];

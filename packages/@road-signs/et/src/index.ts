@@ -1,7 +1,7 @@
-import type { ETCategory, ETSign } from './types';
-import { signs } from './signs.generated';
+import type { ETCategory, ETSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { ETCategory, ETSign } from './types';
+export type { ETCategory, ETSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): ETSign[] => [...signs];

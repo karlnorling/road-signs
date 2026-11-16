@@ -1,7 +1,7 @@
-import type { SACategory, SASign } from './types';
-import { signs } from './signs.generated';
+import type { SACategory, SASign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { SACategory, SASign } from './types';
+export type { SACategory, SASign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): SASign[] => [...signs];

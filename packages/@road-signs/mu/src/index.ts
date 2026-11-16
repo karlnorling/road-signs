@@ -1,7 +1,7 @@
-import type { MUCategory, MUSign } from './types';
-import { signs } from './signs.generated';
+import type { MUCategory, MUSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { MUCategory, MUSign } from './types';
+export type { MUCategory, MUSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): MUSign[] => [...signs];

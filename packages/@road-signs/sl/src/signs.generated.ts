@@ -2,6 +2,6 @@
 // Run 'yarn update --country=sl' to regenerate.
 // Empty: no signs scraped yet.
 
-import type { SLSign } from './types';
+import type { SLSign } from './types.js';
 
 export const signs: SLSign[] = [];

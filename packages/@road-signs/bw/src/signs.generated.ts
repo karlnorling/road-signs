@@ -2,7 +2,7 @@
 // Run 'yarn update --country=bw' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { BWSign } from './types';
+import type { BWSign } from './types.js';
 
 export const signs: BWSign[] = [
   {

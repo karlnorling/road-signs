@@ -1,7 +1,7 @@
-import type { NOCategory, NOSign } from './types';
-import { signs } from './signs.generated';
+import type { NOCategory, NOSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { NOCategory, NOSign } from './types';
+export type { NOCategory, NOSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): NOSign[] => [...signs];

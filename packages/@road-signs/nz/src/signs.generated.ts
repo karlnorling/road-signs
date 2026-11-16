@@ -2,7 +2,7 @@
 // Run 'yarn update --country=nz' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { NZSign } from './types';
+import type { NZSign } from './types.js';
 
 export const signs: NZSign[] = [
   {

@@ -2,7 +2,7 @@
 // Run 'yarn update --country=zm' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { ZMSign } from './types';
+import type { ZMSign } from './types.js';
 
 export const signs: ZMSign[] = [
   {

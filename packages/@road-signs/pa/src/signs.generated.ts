@@ -2,7 +2,7 @@
 // Run 'yarn update --country=pa' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { PASign } from './types';
+import type { PASign } from './types.js';
 
 export const signs: PASign[] = [
   {

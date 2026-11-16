@@ -1,7 +1,7 @@
-import type { GNCategory, GNSign } from './types';
-import { signs } from './signs.generated';
+import type { GNCategory, GNSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { GNCategory, GNSign } from './types';
+export type { GNCategory, GNSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): GNSign[] => [...signs];

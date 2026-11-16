@@ -2,7 +2,7 @@
 // Run 'yarn update --country=at' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { ATSign } from './types';
+import type { ATSign } from './types.js';
 
 export const signs: ATSign[] = [
   {

@@ -2,7 +2,7 @@
 // Run 'yarn update --country=cu' to regenerate.
 // @ts-nocheck — 1000+ literal objects exceed TypeScript's union complexity limit.
 
-import type { CUSign } from './types';
+import type { CUSign } from './types.js';
 
 export const signs: CUSign[] = [
   {

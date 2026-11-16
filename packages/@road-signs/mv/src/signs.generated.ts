@@ -2,6 +2,6 @@
 // Run 'yarn update --country=mv' to regenerate.
 // Empty: no signs scraped yet.
 
-import type { MVSign } from './types';
+import type { MVSign } from './types.js';
 
 export const signs: MVSign[] = [];

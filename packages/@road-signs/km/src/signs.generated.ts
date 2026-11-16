@@ -2,6 +2,6 @@
 // Run 'yarn update --country=km' to regenerate.
 // Empty: no signs scraped yet.
 
-import type { KMSign } from './types';
+import type { KMSign } from './types.js';
 
 export const signs: KMSign[] = [];

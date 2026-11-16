@@ -1,7 +1,7 @@
-import type { GECategory, GESign } from './types';
-import { signs } from './signs.generated';
+import type { GECategory, GESign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { GECategory, GESign } from './types';
+export type { GECategory, GESign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): GESign[] => [...signs];

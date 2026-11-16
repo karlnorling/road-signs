@@ -1,7 +1,7 @@
-import type { TWCategory, TWSign } from './types';
-import { signs } from './signs.generated';
+import type { TWCategory, TWSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { TWCategory, TWSign } from './types';
+export type { TWCategory, TWSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): TWSign[] => [...signs];

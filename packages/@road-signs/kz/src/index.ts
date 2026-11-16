@@ -1,7 +1,7 @@
-import type { KZCategory, KZSign } from './types';
-import { signs } from './signs.generated';
+import type { KZCategory, KZSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { KZCategory, KZSign } from './types';
+export type { KZCategory, KZSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): KZSign[] => [...signs];

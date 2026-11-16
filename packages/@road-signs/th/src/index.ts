@@ -1,7 +1,7 @@
-import type { THCategory, THSign } from './types';
-import { signs } from './signs.generated';
+import type { THCategory, THSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { THCategory, THSign } from './types';
+export type { THCategory, THSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): THSign[] => [...signs];

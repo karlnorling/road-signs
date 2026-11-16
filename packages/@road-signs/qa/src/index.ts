@@ -1,7 +1,7 @@
-import type { QACategory, QASign } from './types';
-import { signs } from './signs.generated';
+import type { QACategory, QASign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { QACategory, QASign } from './types';
+export type { QACategory, QASign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): QASign[] => [...signs];

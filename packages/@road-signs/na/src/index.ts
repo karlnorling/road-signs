@@ -1,7 +1,7 @@
-import type { NACategory, NASign } from './types';
-import { signs } from './signs.generated';
+import type { NACategory, NASign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { NACategory, NASign } from './types';
+export type { NACategory, NASign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): NASign[] => [...signs];

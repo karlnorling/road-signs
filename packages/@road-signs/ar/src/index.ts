@@ -1,7 +1,7 @@
-import type { ARCategory, ARSign } from './types';
-import { signs } from './signs.generated';
+import type { ARCategory, ARSign } from './types.js';
+import { signs } from './signs.generated.js';
 
-export type { ARCategory, ARSign } from './types';
+export type { ARCategory, ARSign } from './types.js';
 export { signs };
 
 export const getAllSigns = (): ARSign[] => [...signs];

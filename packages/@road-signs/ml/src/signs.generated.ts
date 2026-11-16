@@ -2,6 +2,6 @@
 // Run 'yarn update --country=ml' to regenerate.
 // Empty: no signs scraped yet.
 
-import type { MLSign } from './types';
+import type { MLSign } from './types.js';
 
 export const signs: MLSign[] = [];
