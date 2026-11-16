@@ -365,9 +365,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/starlight@npm:^0.42.9":
-  version: 0.42.9
-  resolution: "@astrojs/starlight@npm:0.42.9"
+"@astrojs/starlight@npm:^0.42.10":
+  version: 0.42.10
+  resolution: "@astrojs/starlight@npm:0.42.10"
   dependencies:
     "@astrojs/markdown-satteri": "npm:^0.4.3"
     "@astrojs/mdx": "npm:^8.0.3"
@@ -402,7 +402,7 @@ __metadata:
   peerDependenciesMeta:
     "@astrojs/markdown-remark":
       optional: true
-  checksum: 10c0/bd6db388795929495f141b5ec22a6fa3dec5da00ecaed523a224d8cfdd54c94dfb4dcb492028ed164de02e42ee60d35c19551cdcd5a016b241f7a743d36a9e63
+  checksum: 10c0/49545e8de88c116ffedf6bfb93f18ebd5ddd13e58c847c2765a078ceb499ede4973eeec5b5a1d6fb061eeb648551b376c81311e34f4ea4a66c929c52430ee673
   languageName: node
   linkType: hard
 
@@ -3780,7 +3780,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@road-signs-docs/app@workspace:apps/docs"
   dependencies:
-    "@astrojs/starlight": "npm:^0.42.9"
+    "@astrojs/starlight": "npm:^0.42.10"
     "@road-signs/core": "workspace:*"
     "@road-signs/us": "workspace:*"
     "@typescript/native": "npm:typescript@^7.0.2"
