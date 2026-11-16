@@ -1,6 +1,6 @@
 {
   "name": "@road-signs/it",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Italian road signs (Codice della Strada) — TypeScript registry, inline SVGs, and image assets",
   "keywords": [
     "codice-della-strada",

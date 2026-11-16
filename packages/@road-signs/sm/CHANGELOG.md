@@ -1,5 +1,13 @@
 # @road-signs/sm
 
+## 0.1.2
+
+### Patch Changes
+
+- Updated dependencies [29e5d76]
+  - @road-signs/core@0.1.2
+  - @road-signs/it@0.1.2
+
 ## 0.1.1
 
 ### Patch Changes

@@ -1,6 +1,6 @@
 {
   "name": "@road-signs/lt",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Lithuanian road signs — TypeScript registry, inline SVGs",
   "keywords": [
     "ket",

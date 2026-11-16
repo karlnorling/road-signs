@@ -1,6 +1,6 @@
 {
   "name": "@road-signs/va",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Vatican City road signs — TypeScript registry, inline SVGs, and image assets (re-exports @road-signs/it)",
   "keywords": [
     "road-signs",

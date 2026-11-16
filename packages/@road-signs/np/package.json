@@ -1,6 +1,6 @@
 {
   "name": "@road-signs/np",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Nepal road signs — TypeScript registry, inline SVGs, and image assets",
   "keywords": [
     "road-signs",
