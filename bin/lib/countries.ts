@@ -804,7 +804,8 @@ export const COUNTRIES: Record<string, CountryMeta> = {
   },
   mx: {
     name: 'Mexico',
-    standard: 'SCT (Secretaría de Comunicaciones y Transportes) — Vienna Convention variant',
+    standard:
+      'SICT (Secretaría de Infraestructura, Comunicaciones y Transportes) — Vienna Convention variant',
     sources: [
       {
         label: 'Wikimedia Commons — Road signs in Mexico',
@@ -817,7 +818,7 @@ export const COUNTRIES: Record<string, CountryMeta> = {
     ],
     driveSide: 'right',
     languages: ['Spanish'],
-    regulator: 'SCT',
+    regulator: 'SICT',
     codePrefix: 'SR-1 / SP-1 / SI-1',
   },
   nl: {
