@@ -1,6 +1,6 @@
 {
   "name": "@road-signs/docs",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Coverage documentation for the @road-signs/* packages — sign counts, SVG coverage, and sources by country",
   "keywords": [
     "coverage",
