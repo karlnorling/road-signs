@@ -1,6 +1,6 @@
 # Mexico (MX)
 
-**Standard:** SCT (Secretaría de Comunicaciones y Transportes) — Vienna Convention variant
+**Standard:** SICT (Secretaría de Infraestructura, Comunicaciones y Transportes) — Vienna Convention variant
 
 **Package:** [`@road-signs/mx`](https://www.npmjs.com/package/@road-signs/mx)
 
