@@ -1,5 +1,12 @@
 # @road-signs/docs
 
+## 0.1.2
+
+### Patch Changes
+
+- ed5c967: Correct Mexico's regulator: SCT became SICT (Secretaría de Infraestructura,
+  Comunicaciones y Transportes) in 2021.
+
 ## 0.1.1
 
 ### Patch Changes
