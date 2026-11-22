@@ -18,6 +18,22 @@
 import fs from 'fs';
 import path from 'path';
 
+/**
+ * Largest SVG that is inlined into a registry entry or embedded in a sprite.
+ *
+ * p95 of the 47,502 source SVGs is 49 KB and p99 is 178 KB, so this excludes
+ * roughly 0.5% of files. Those outliers are not really vectors: the worst, an
+ * Inkscape export of a bilingual Friulian `passo carrabile` sign, is 29 MB of
+ * 261 embedded base64 bitmaps. Inlining it into both the CJS and the ESM build
+ * is what makes `@road-signs/it` 116.7 MB unpacked on npm, and running SVGO
+ * `multipass` over it is what made one country build take 85 minutes.
+ *
+ * Oversized artwork still ships as a standalone asset file, and the registry
+ * entry still carries its `assets.svg` path -- only the inline string is
+ * dropped.
+ */
+export const MAX_INLINE_SVG_BYTES = 256 * 1024;
+
 export const PACKAGES_DIR = path.join('packages', '@road-signs');
 
 /** Workspaces under packages/@road-signs that aren't countries. */
@@ -30,10 +46,17 @@ export interface RegistrySign {
   description: string;
   id: string;
   name: string;
-  /** Base64 PNG data URI — present only when `svg` is absent. */
+  /**
+   * Base64 PNG data URI. Present only when `svg` is absent, which happens when
+   * the source SVG exceeded `MAX_INLINE_SVG_BYTES`. Since `assets/` is never
+   * published, this is the only artwork a consumer can load for those signs.
+   */
   png?: string;
-  /** Inline, SVGO-optimised SVG markup. */
+  /** Inline, SVGO-optimised SVG markup. Absent when the source exceeded
+   * `MAX_INLINE_SVG_BYTES`, in which case `assetSvg` still points at the file. */
   svg?: string;
+  /** Relative path to the standalone SVG asset, from the entry's `assets` block. */
+  assetSvg?: string;
 }
 
 /** Every country package directory name, sorted. Excludes framework packages. */
@@ -84,11 +107,26 @@ export const parseRegistrySource = (cc: string, src: string): RegistrySign[] => 
           name: rec.name ?? '',
           png: rec.png,
           svg: rec.svg,
+          assetSvg: rec.assetSvg,
         });
       }
       rec = null;
       continue;
     }
+    // `assets: { svg: ... }` is indented by six spaces; the four-space field
+    // loop below deliberately ignores it so an inline `svg` is never confused
+    // with an asset path. Read it separately -- it is the only way to tell a
+    // sign with no artwork from one whose artwork was too big to inline.
+    const assetPrefix = '      svg: ';
+    if (rawLine.startsWith(assetPrefix)) {
+      try {
+        rec.assetSvg = JSON.parse(rawLine.slice(assetPrefix.length).replace(/,$/, '')) as string;
+      } catch {
+        // A malformed literal is a generator bug; validate-registries reports it.
+      }
+      continue;
+    }
+
     for (const field of STRING_FIELDS) {
       const prefix = `    ${field}: `;
       if (!rawLine.startsWith(prefix)) continue;

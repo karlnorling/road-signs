@@ -1,7 +1,7 @@
 {
   "name": "road-signs-monorepo",
   "private": true,
-  "description": "Road sign SVGs, React, Vue 3, and web components — one package per country",
+  "description": "Road sign SVGs, React, Vue 3, and web components \u2014 one package per country",
   "workspaces": [
     "packages/@road-signs/*",
     "apps/*"
@@ -36,7 +36,8 @@
     "type-check": "yarn workspaces foreach -A --include '@road-signs/*' run type-check",
     "update": "tsx bin/update.ts",
     "validate-categories": "tsx bin/validate-categories.ts",
-    "verify": "tsx bin/verify.ts"
+    "verify": "tsx bin/verify.ts",
+    "prune-traced": "tsx bin/prune-traced.ts"
   },
   "devDependencies": {
     "@changesets/cli": "^3.0.3",

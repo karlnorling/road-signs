@@ -32,7 +32,7 @@
 import { listCountries, readRegistry } from './lib/registry';
 import { MIRRORS } from './lib/countries';
 
-export type Verdict = 'missing' | 'traced' | 'partial' | 'mono' | 'ok';
+export type Verdict = 'missing' | 'oversized' | 'traced' | 'partial' | 'mono' | 'ok';
 
 /**
  * Every colour the SVG actually paints with. Colour lives in an attribute
@@ -61,8 +61,23 @@ export const paintedColours = (svg: string): Set<string> => {
 export const looksTraced = (svg: string): boolean =>
   /<rect fill="#fff"\s*\/>/.test(svg) || /fill-opacity="\.\d+"/.test(svg);
 
-export const classify = (svg: string | undefined): Verdict => {
-  if (!svg) return 'missing';
+/**
+ * Judges one sign's artwork.
+ *
+ * `assetSvg` distinguishes the two reasons an entry can lack inline markup: no
+ * artwork was ever found (`missing`), or the artwork exists on disk but was
+ * over `MAX_INLINE_SVG_BYTES` so only its path shipped (`oversized`). Without
+ * that second argument an oversized sign reads as missing, which would have
+ * quietly dropped five Italian signs out of the coverage numbers.
+ */
+export const classify = (svg: string | undefined, assetSvg?: string): Verdict => {
+  if (!svg) {
+    if (!assetSvg) return 'missing';
+    // A trace that happened to exceed the inline cap is still a trace, not
+    // artwork. Ten of them (kr 6, my 3, nz 1) slipped into `oversized` and so
+    // counted toward coverage until this check was added.
+    return assetSvg.includes('.traced.svg') ? 'traced' : 'oversized';
+  }
   const traced = looksTraced(svg);
   const colours = paintedColours(svg);
   if (traced) return colours.size === 0 ? 'traced' : 'partial';
@@ -78,10 +93,17 @@ export interface CountryAudit {
 
 export const auditCountry = (cc: string): CountryAudit => {
   const signs = readRegistry(MIRRORS[cc] ?? cc);
-  const counts: Record<Verdict, number> = { missing: 0, traced: 0, partial: 0, mono: 0, ok: 0 };
+  const counts: Record<Verdict, number> = {
+    missing: 0,
+    oversized: 0,
+    traced: 0,
+    partial: 0,
+    mono: 0,
+    ok: 0,
+  };
   const bad: CountryAudit['bad'] = [];
   for (const sign of signs) {
-    const verdict = classify(sign.svg);
+    const verdict = classify(sign.svg, sign.assetSvg);
     counts[verdict]++;
     if (verdict === 'missing' || verdict === 'traced' || verdict === 'partial') {
       bad.push({ id: sign.id, code: sign.code, verdict });
