@@ -242,9 +242,26 @@ const runCountry = async (cc: string, cached: boolean, sourceOnly: boolean): Pro
     data = deduped.result;
     if (deduped.removed > 0) console.log(`  Removed ${deduped.removed} duplicate sign(s)`);
 
-    await fs.promises.mkdir(dataDir, { recursive: true });
-    await fs.promises.writeFile(cacheFile, JSON.stringify(data, null, 2), 'utf-8');
-    console.log(`  Cached to ${cacheFile}`);
+    const count = (d: typeof data): number =>
+      Object.values(d).reduce((n, signs) => n + signs.length, 0);
+
+    // Never let an empty scrape clobber a populated cache. Several countries
+    // have a stub scraper that returns empty arrays by design, because their
+    // signs come from `yarn fill-gaps` instead -- Luxembourg says exactly that
+    // in its own header comment. Overwriting here deleted everything fill-gaps
+    // had registered, so the two tools silently undid each other and the
+    // package shipped nothing despite holding 407 SVGs on disk.
+    if (count(data) === 0 && fs.existsSync(cacheFile)) {
+      const cached = JSON.parse(await fs.promises.readFile(cacheFile, 'utf-8')) as typeof data;
+      if (count(cached) > 0) {
+        console.log(`  Scrape found 0 signs; keeping the ${count(cached)} already cached`);
+        data = cached;
+      }
+    } else {
+      await fs.promises.mkdir(dataDir, { recursive: true });
+      await fs.promises.writeFile(cacheFile, JSON.stringify(data, null, 2), 'utf-8');
+      console.log(`  Cached to ${cacheFile}`);
+    }
   }
 
   if (sourceOnly) {
