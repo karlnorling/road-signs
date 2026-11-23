@@ -1,6 +1,6 @@
 {
   "name": "@road-signs/tm",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Turkmenistan road signs — TypeScript registry, inline SVGs, and image assets",
   "keywords": [
     "road-signs",

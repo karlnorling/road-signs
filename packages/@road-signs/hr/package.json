@@ -1,6 +1,6 @@
 {
   "name": "@road-signs/hr",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Croatian road signs — TypeScript registry, inline SVGs, and image assets",
   "keywords": [
     "stvo",
