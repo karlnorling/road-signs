@@ -14,6 +14,7 @@ import fs from 'fs';
 import path from 'path';
 import { optimize } from 'svgo';
 import { globSync } from 'glob';
+import { MAX_INLINE_SVG_BYTES } from './lib/registry';
 
 const IMAGE_SIZES = [240, 512, 768, 1024, 2048] as const;
 
@@ -161,6 +162,33 @@ const findPrimaryAsset = (code: string, assetsRoot: string): PrimaryAsset | unde
   return undefined;
 };
 
+/** Raster sizes to fall back on for an oversized SVG, best first. */
+const RASTER_FALLBACK_SIZES = [512, 240] as const;
+
+/**
+ * Returns a `data:image/png;base64,...` URI for the pre-rendered raster beside
+ * `svgPath`, or undefined when none was produced.
+ *
+ * Nine signs have no raster at any size: they are the files so pathological
+ * that librsvg refused them inside `convertToRaster` (the 29 MB Italian
+ * `passo carrabile` export among them), which is the same reason they are
+ * over the inline cap in the first place.
+ */
+const readRasterDataUri = async (svgPath: string): Promise<string | undefined> => {
+  const dir = path.dirname(svgPath);
+  const base = path.basename(svgPath, '.svg');
+  for (const size of RASTER_FALLBACK_SIZES) {
+    const candidate = path.join(dir, `${base}_${size}x${size}.png`);
+    try {
+      const buf = await fs.promises.readFile(candidate);
+      return `data:image/png;base64,${buf.toString('base64')}`;
+    } catch {
+      // try the next size down
+    }
+  }
+  return undefined;
+};
+
 /** Build the literal-object lines for a single sign (no leading/trailing array brackets). */
 const buildSignLiteral = async (
   category: string,
@@ -186,6 +214,40 @@ const buildSignLiteral = async (
       `  },`,
     ];
   }
+  // Checked before the file is read: an oversized SVG is both the thing that
+  // bloats the published package and the thing that makes SVGO hang.
+  const { size } = await fs.promises.stat(asset.filePath);
+  if (size > MAX_INLINE_SVG_BYTES) {
+    // The published tarball is `dist/` only -- `assets/` is gitignored and
+    // never shipped -- so the `assets.*` paths are documentation, not something
+    // a consumer can load. Dropping the inline SVG without a replacement would
+    // leave these signs with no artwork at all, so fall back to the raster that
+    // `convertToRaster` already wrote beside the SVG. At 512px that is 1.9 MB
+    // of base64 across all 155 affected signs, against 233 MB of raw SVG.
+    const rasterDataUri = await readRasterDataUri(asset.filePath);
+    console.warn(
+      `  ${sign.code}: ${Math.round(size / 1024)} KB of SVG exceeds the ` +
+        `${MAX_INLINE_SVG_BYTES / 1024} KB inline cap — ` +
+        (rasterDataUri ? 'substituting a PNG raster' : 'NO raster available, sign has no artwork'),
+    );
+    return [
+      `  {`,
+      `    assets: {`,
+      `      jpg: ${JSON.stringify(assets.jpg)},`,
+      `      png: ${JSON.stringify(assets.png)},`,
+      `      svg: ${JSON.stringify(assets.svg)},`,
+      `      webp: ${JSON.stringify(assets.webp)},`,
+      `    },`,
+      `    category: ${JSON.stringify(category)},`,
+      `    code: ${JSON.stringify(sign.code)},`,
+      `    description: ${JSON.stringify(sign.name)},`,
+      `    id: ${JSON.stringify(id)},`,
+      `    name: ${JSON.stringify(sign.name)},`,
+      ...(rasterDataUri ? [`    png: ${JSON.stringify(rasterDataUri)},`] : []),
+      `  },`,
+    ];
+  }
+
   const raw = await fs.promises.readFile(asset.filePath, 'utf-8');
   let optimized: string;
   try {

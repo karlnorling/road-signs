@@ -61,8 +61,8 @@ const countryReadme = (cc: string, meta: CountryMeta | undefined): string => {
   // counting it here is what let a README claim 100% vector coverage for a
   // country that was 231/233 traced. See `yarn audit-svgs`.
   const withSvg = signs.filter((s) => {
-    const verdict = classify(s.svg);
-    return verdict === 'ok' || verdict === 'mono';
+    const verdict = classify(s.svg, s.assetSvg);
+    return verdict === 'ok' || verdict === 'mono' || verdict === 'oversized';
   }).length;
   const name = meta?.name ?? U;
 

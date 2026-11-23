@@ -196,6 +196,51 @@ const buildResolveCategory = (
   };
 };
 
+/**
+ * Strips a leading sign code, and whatever punctuation separated it, from a
+ * caption: "I-1a: Dangerous curve to the right" -> "Dangerous curve to the right".
+ *
+ * Two faults met here. `defaultExtractCode` upper-cases what it matched, so a
+ * plain `caption.replace(code, '')` silently missed every caption whose code
+ * was not already upper-case and left the code sitting inside `name`. The
+ * captions that did match were then left reading ": Intersection", because the
+ * separator class covered dashes but not a colon. Between them, 1,310 signs
+ * across 10 countries carried a malformed name.
+ */
+const stripCodePrefix = (caption: string, code: string | null): string => {
+  let text = caption;
+  if (code) {
+    const escaped = code.replace(/[.*+?^${}()|[\]\\-]/g, '\\$&');
+    text = text.replace(new RegExp(escaped, 'i'), '');
+  }
+  return text.replace(/^[\s_:.,;·|)\]\-–—]+/, '').trim();
+};
+
+const WIKIPEDIA_ORIGIN = 'https://en.wikipedia.org';
+
+/**
+ * Resolves a wiki href to an absolute `File:` page URL, or null when the link
+ * does not point at a file page.
+ *
+ * Wikipedia serves gallery hrefs as absolute URLs on some pages and
+ * root-relative paths on others. Blindly prefixing the origin produced
+ * `https://en.wikipedia.orghttps://en.wikipedia.org/wiki/File:...`, and the
+ * table path's `startsWith('/wiki/File:')` guard dropped the absolute form to
+ * null instead. Neither surfaced as an error because the cached scrapes in
+ * `data/` predate the upstream markup change — the damage only appears the
+ * next time a country is re-scraped.
+ */
+const resolveFilePageUrl = (href: string | null): string | null => {
+  if (!href) return null;
+  let resolved: URL;
+  try {
+    resolved = new URL(href, WIKIPEDIA_ORIGIN);
+  } catch {
+    return null;
+  }
+  return /\/wiki\/File:/i.test(resolved.pathname) ? resolved.toString() : null;
+};
+
 const buildScrapeGallery =
   (extract: (text: string) => string | null) =>
   (galleryNode: ReturnType<typeof parse>, category: ViennaCategory): ScrapedSign[] => {
@@ -203,18 +248,13 @@ const buildScrapeGallery =
     for (const li of galleryNode.querySelectorAll('li.gallerybox')) {
       const imgLink = li.querySelector('.thumb a, .gallery-image-body a');
       const href = imgLink?.getAttribute('href') ?? null;
-      const imageUrl = href ? `https://en.wikipedia.org${href}` : null;
+      const imageUrl = resolveFilePageUrl(href);
 
       const captionEl = li.querySelector('.gallerytext, figcaption');
       const caption = captionEl?.textContent?.trim() ?? '';
 
       const code = extract(caption) ?? (href ? extract(decodeURIComponent(href)) : null);
-      const name =
-        caption
-          .replace(code ?? '', '')
-          .replace(/^[\s\-–—]+/, '')
-          .trim() ||
-        (code ?? '');
+      const name = stripCodePrefix(caption, code) || (code ?? '');
 
       if (!code && !name) continue;
       signs.push({ code: code ?? slugify(name), name, imageUrl, category });
@@ -235,7 +275,7 @@ const buildScrapeTable =
       const imgCell = cells[0];
       const imgLink = imgCell.querySelector('a');
       const href = imgLink?.getAttribute('href') ?? null;
-      const imageUrl = href?.startsWith('/wiki/File:') ? `https://en.wikipedia.org${href}` : null;
+      const imageUrl = resolveFilePageUrl(href);
 
       let code: string | null = null;
       let name = '';
@@ -245,10 +285,7 @@ const buildScrapeTable =
         const found = extract(text);
         if (found && !code) {
           code = found;
-          name = text
-            .replace(found, '')
-            .replace(/^[\s\-–—]+/, '')
-            .trim();
+          name = stripCodePrefix(text, found);
         }
       }
 
@@ -309,11 +346,7 @@ const fetchCommonsCategory = async (
 
         signs.push({
           code,
-          name:
-            stripped
-              .replace(code, '')
-              .replace(/^[\s_\-–—]+/, '')
-              .trim() || code,
+          name: stripCodePrefix(stripped, code) || code,
           imageUrl,
           category,
         });

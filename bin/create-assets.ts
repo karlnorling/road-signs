@@ -12,8 +12,8 @@
 
 import fs from 'fs';
 import path from 'path';
-import { parse } from 'node-html-parser';
 import { globSync } from 'glob';
+import { MAX_INLINE_SVG_BYTES } from './lib/registry';
 import { optimize } from 'svgo';
 import sharp from 'sharp';
 
@@ -132,19 +132,95 @@ const withConcurrency = async <T>(
   await Promise.all(workers);
 };
 
-const resolveWikimediaDirectUrl = async (filePageUrl: string): Promise<string | undefined> => {
+/** A file page URL -> the API endpoint and bare title needed to look it up. */
+const parseFilePageUrl = (filePageUrl: string): { host: string; title: string } | undefined => {
   try {
-    const res = await fetchWithRetry(filePageUrl);
-    const html = await res.text();
-    const doc = parse(html);
-    const href = doc.querySelector('.fullImageLink a')?.getAttribute('href');
-    if (!href) return undefined;
-    // Wikipedia uses protocol-relative //upload... ; Commons uses full https://upload...
-    return href.startsWith('http') ? href : `https:${href}`;
-  } catch (err) {
-    console.error(`  Error resolving image page ${filePageUrl}:`, (err as Error).message);
+    const { host, pathname } = new URL(filePageUrl);
+    const match = /\/wiki\/(.+)$/.exec(pathname);
+    if (!match) return undefined;
+    return { host, title: decodeURIComponent(match[1]).replace(/^File:/i, '') };
+  } catch {
     return undefined;
   }
+};
+
+interface ResolvedFile {
+  url: string;
+  mime: string;
+}
+
+/**
+ * Asks a MediaWiki API for a file's direct upload URL and MIME type.
+ * Returns undefined when the wiki does not hold that title.
+ */
+const queryImageInfo = async (host: string, title: string): Promise<ResolvedFile | undefined> => {
+  const query = new URLSearchParams({
+    action: 'query',
+    titles: `File:${title}`,
+    prop: 'imageinfo',
+    iiprop: 'url|mime',
+    redirects: '1',
+    format: 'json',
+    formatversion: '2',
+  });
+  try {
+    const res = await fetchWithRetry(`https://${host}/w/api.php?${query}`);
+    const body = (await res.json()) as {
+      query?: {
+        pages?: Array<{ missing?: boolean; invalid?: boolean; imageinfo?: ResolvedFile[] }>;
+      };
+    };
+    for (const page of body.query?.pages ?? []) {
+      if (page.missing || page.invalid) continue;
+      const info = page.imageinfo?.[0];
+      if (info?.url) return { url: info.url, mime: info.mime };
+    }
+  } catch (err) {
+    console.error(`  Error querying ${host} for File:${title}:`, (err as Error).message);
+  }
+  return undefined;
+};
+
+/**
+ * Resolves a Wikimedia `File:` page to its direct upload URL, preferring SVG.
+ *
+ * This used to scrape the file page's HTML for `.fullImageLink a`. That
+ * selector is missing from several page layouts — most importantly when an
+ * en.wikipedia `File:` page is a local stub for a file actually hosted on
+ * Commons — so the resolve silently returned undefined. 287 signs whose
+ * scraped record already named an `.svg` were filled in with a traced
+ * approximation on that basis; asking the API instead resolves all of them.
+ *
+ * Two further behaviours the HTML scrape did not have:
+ *   • falls back to Commons when the originating wiki does not hold the title,
+ *   • when the record names a raster, retries the same stem as `.svg`, since
+ *     a handful of signs have since gained a vector version on Commons.
+ */
+const resolveWikimediaDirectUrl = async (filePageUrl: string): Promise<string | undefined> => {
+  const parsed = parseFilePageUrl(filePageUrl);
+  if (!parsed) {
+    console.error(`  Unparseable file page URL: ${filePageUrl}`);
+    return undefined;
+  }
+
+  const hosts = [...new Set([parsed.host, 'commons.wikimedia.org'])];
+  const stem = parsed.title.replace(/\.[^.]+$/, '');
+  const namedSvg = /\.svg$/i.test(parsed.title);
+
+  // Preferred first: the exact title when it is already an SVG, otherwise the
+  // same stem with an .svg extension. Fall back to the recorded raster.
+  const candidates = namedSvg ? [parsed.title] : [`${stem}.svg`, parsed.title];
+
+  for (const title of candidates) {
+    for (const host of hosts) {
+      const found = await queryImageInfo(host, title);
+      if (!found) continue;
+      // Only accept a substituted .svg title if it really is a vector.
+      if (title !== parsed.title && found.mime !== 'image/svg+xml') continue;
+      return found.url;
+    }
+  }
+  return undefined;
 };
 
 const downloadSvg = async (dest: string, url: string): Promise<void> => {
@@ -346,6 +422,15 @@ export const processSign = async (
     if (stat.size > 0) {
       console.log(`  Skipping (exists): ${path.basename(dest)}`);
       await convertToRaster(dest);
+      // The download path below falls back to Commons' server-side renderer
+      // when local librsvg refuses a file, but this early return skipped that
+      // check -- so a sign whose SVG was already on disk and unrenderable kept
+      // no raster at all, run after run. Nine signs (es 5, it 4) were in that
+      // state, and since `generate-source` now substitutes a raster for an
+      // oversized SVG, having none means the sign ships with no artwork.
+      if (!hasAnyRasterFor(dest)) {
+        await rasterFromCommonsThumbnail(dest);
+      }
       return;
     }
   } catch {
@@ -392,6 +477,14 @@ const createSvgMap = async (assetsRoot: string): Promise<Record<string, string>>
   );
   for (const file of files) {
     const key = path.relative(assetsRoot, file).replace(/\\/g, '/');
+    const { size } = await fs.promises.stat(file);
+    if (size > MAX_INLINE_SVG_BYTES) {
+      console.warn(
+        `  Excluding from sprite (${Math.round(size / 1024)} KB > ` +
+          `${MAX_INLINE_SVG_BYTES / 1024} KB): ${key}`,
+      );
+      continue;
+    }
     svgMap[key] = await fs.promises.readFile(file, 'utf-8');
   }
   return svgMap;

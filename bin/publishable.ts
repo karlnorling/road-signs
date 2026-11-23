@@ -63,8 +63,10 @@ for (const pkg of packages) {
   // potrace trace pass as coverage, which makes the gate meaningless: mm would
   // score 99% while 231 of its 233 signs render as black blobs.
   const withArtwork = signs.filter((s) => {
-    const verdict = classify(s.svg);
-    return verdict === 'ok' || verdict === 'mono';
+    const verdict = classify(s.svg, s.assetSvg);
+    // `oversized` artwork is real artwork -- it ships as a file rather than
+    // inline, so it counts toward coverage just like `ok` and `mono`.
+    return verdict === 'ok' || verdict === 'mono' || verdict === 'oversized';
   }).length;
   const coverage = withArtwork / signs.length;
   if (coverage < MIN_COVERAGE) {
