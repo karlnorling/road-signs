@@ -989,7 +989,7 @@ const slugify = (str: string): string =>
  * Extract a sign code from a Commons filename, or fall back to the slugified
  * filename so nothing is skipped.
  */
-const extractCode = (title: string): string => {
+export const extractCode = (title: string): string => {
   const base = title
     .replace(/^File:/i, '')
     .replace(/\.svg$/i, '')
@@ -1006,6 +1006,14 @@ const extractCode = (title: string): string => {
     .replace(/^(?:France|Germany|Italy|Spain|Sweden|Poland|Netherlands)\s+road\s+sign\s+/i, '')
     .replace(/^UK\s+traffic\s+sign\s+/i, '')
     .trim();
+
+  // NOTE: deriving a better code here is tempting -- most of these end up as a
+  // slugified filename rather than the country's real sign code. Resist it in
+  // isolation. `processSign` names each asset directory `sanitize(code)` at
+  // download time, so changing the derivation desynchronises every registry
+  // entry from artwork already on disk: anchoring on the leading code token
+  // turned Luxembourg's 405 resolvable signs into 66, with 273 skipped for
+  // "no matching asset file". Codes and asset paths have to move together.
 
   // Try to match a real sign code: letters + numbers pattern.
   const codeMatch = stripped.toUpperCase().match(/\b([A-Z]{1,4}-?\d+(?:[.-]\d+)*[A-Z]{0,2})\b/);
@@ -1231,17 +1239,34 @@ const fillCountry = async (cc: string): Promise<void> => {
   let totalDownloaded = 0;
   let totalAdded = 0;
 
+  /** Registry entry for one Commons file, or undefined when its code is taken. */
+  const register = (title: string, signCategory: string, filePageUrl: string): boolean => {
+    const code = extractCode(title);
+    if (existingCodes.has(code)) return false;
+    const name =
+      title
+        .replace(/^File:/i, '')
+        .replace(/\.svg$/i, '')
+        .replace(/_/g, ' ')
+        .replace(new RegExp(code.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i'), '')
+        .trim() || code;
+
+    if (!scraped[signCategory]) scraped[signCategory] = [];
+    scraped[signCategory].push({ code, name, imageUrl: filePageUrl, category: signCategory });
+    existingCodes.add(code);
+    return true;
+  };
+
   for (const entry of entries) {
     console.log(`  [${cc}] ${entry.category}`);
     const remoteFiles = await fetchCommonsCategory(entry.category);
     const missing = remoteFiles.filter((f) => isMissingLocally(f, localTokens));
 
-    if (missing.length === 0) {
-      console.log(`    ✓ nothing missing (${remoteFiles.length} remote)`);
-      continue;
+    if (missing.length > 0) {
+      console.log(`    ${missing.length} missing of ${remoteFiles.length} remote — downloading…`);
+    } else {
+      console.log(`    ✓ all ${remoteFiles.length} already on disk`);
     }
-
-    console.log(`    ${missing.length} missing of ${remoteFiles.length} remote — downloading…`);
 
     for (const title of missing) {
       const code = extractCode(title);
@@ -1256,25 +1281,24 @@ const fillCountry = async (cc: string): Promise<void> => {
 
         // Refresh local token set so subsequent deduplication is accurate.
         localTokens = buildLocalPathTokens(assetsRoot);
-
-        // Add to scraped.json if code is new.
-        if (!existingCodes.has(code)) {
-          const name =
-            title
-              .replace(/^File:/i, '')
-              .replace(/\.svg$/i, '')
-              .replace(/_/g, ' ')
-              .replace(new RegExp(code.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i'), '')
-              .trim() || code;
-
-          if (!scraped[signCategory]) scraped[signCategory] = [];
-          scraped[signCategory].push({ code, name, imageUrl: filePageUrl, category: signCategory });
-          existingCodes.add(code);
-          totalAdded++;
-        }
       } catch (err) {
         console.warn(`    ✗ ${code}: ${(err as Error).message}`);
       }
+    }
+
+    // Registration runs over EVERY file in the category, not only the ones this
+    // run downloaded. Registering inside the download loop meant a country whose
+    // artwork was already on disk got nothing: Luxembourg had 407 SVGs and four
+    // registry entries, because a previous run had fetched the files and the
+    // run that would have registered them found nothing left to download.
+    // `generate-source` skips a sign whose asset is absent, so registering a
+    // file whose download failed cannot create a phantom entry.
+    for (const title of remoteFiles) {
+      const code = extractCode(title);
+      const signCategory =
+        entry.signCategory === 'infer' ? inferCategory(code, cc) : entry.signCategory;
+      const filePageUrl = `https://commons.wikimedia.org/wiki/${encodeURIComponent(title).replace(/%20/g, '_')}`;
+      if (register(title, signCategory, filePageUrl)) totalAdded++;
     }
 
     // Persist after each category so partial progress is saved.
@@ -1283,7 +1307,7 @@ const fillCountry = async (cc: string): Promise<void> => {
 
   console.log(`  Done: ${totalDownloaded} downloaded, ${totalAdded} added to scraped.json`);
 
-  if (totalDownloaded > 0) {
+  if (totalDownloaded > 0 || totalAdded > 0) {
     console.log(`  Regenerating source…`);
     await generateSource(cc);
   }
@@ -1309,14 +1333,18 @@ const getCountries = (): string[] => {
   return [cc];
 };
 
-(async () => {
-  const countries = getCountries();
-  console.log(`fill-gaps: ${countries.join(', ')}\n`);
+// Guarded so the module can be imported (by a test, or by `update.ts`) without
+// starting a full network run, matching `audit-svgs.ts` and `prune-traced.ts`.
+if (process.argv[1]?.endsWith('fill-gaps.ts')) {
+  void (async () => {
+    const countries = getCountries();
+    console.log(`fill-gaps: ${countries.join(', ')}\n`);
 
-  for (const cc of countries) {
-    console.log(`\n=== ${cc.toUpperCase()} ===`);
-    await fillCountry(cc);
-  }
+    for (const cc of countries) {
+      console.log(`\n=== ${cc.toUpperCase()} ===`);
+      await fillCountry(cc);
+    }
 
-  console.log('\nAll done.');
-})();
+    console.log('\nAll done.');
+  })();
+}
