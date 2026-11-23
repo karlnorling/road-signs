@@ -1,5 +1,12 @@
 # @road-signs/va
 
+## 0.1.3
+
+### Patch Changes
+
+- Updated dependencies [c3e8add]
+  - @road-signs/it@0.2.0
+
 ## 0.1.2
 
 ### Patch Changes

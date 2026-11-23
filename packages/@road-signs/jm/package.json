@@ -1,6 +1,6 @@
 {
   "name": "@road-signs/jm",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Jamaica road signs — TypeScript registry, inline SVGs, and image assets",
   "keywords": [
     "road-signs",

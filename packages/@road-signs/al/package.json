@@ -1,6 +1,6 @@
 {
   "name": "@road-signs/al",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "description": "Albania road signs — TypeScript registry, inline SVGs, and image assets",
   "keywords": [
     "kodi-rrugor",

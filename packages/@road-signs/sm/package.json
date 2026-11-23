@@ -1,6 +1,6 @@
 {
   "name": "@road-signs/sm",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "San Marino road signs — TypeScript registry, inline SVGs, and image assets",
   "keywords": [
     "road-signs",
