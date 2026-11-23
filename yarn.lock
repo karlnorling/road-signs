@@ -278,7 +278,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/internal-helpers@npm:0.13.2":
+"@astrojs/internal-helpers@npm:^0.13.2":
   version: 0.13.2
   resolution: "@astrojs/internal-helpers@npm:0.13.2"
   dependencies:
@@ -306,15 +306,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/markdown-satteri@npm:0.4.9":
-  version: 0.4.9
-  resolution: "@astrojs/markdown-satteri@npm:0.4.9"
+"@astrojs/markdown-satteri@npm:^0.4.10":
+  version: 0.4.10
+  resolution: "@astrojs/markdown-satteri@npm:0.4.10"
   dependencies:
-    "@astrojs/internal-helpers": "npm:0.13.2"
-    "@astrojs/prism": "npm:4.1.2"
+    "@astrojs/internal-helpers": "npm:^0.13.2"
+    "@astrojs/prism": "npm:^4.1.2"
     github-slugger: "npm:^2.0.0"
     satteri: "npm:^0.11.6"
-  checksum: 10c0/51661fba930a5f7d158433a78132e1038d14047da1325466e215f9fad645272a3607e46fe02a54ac30c8d9101b5072f0104a0b45cf06ac7ab7e5664ad198a4be
+  checksum: 10c0/0f4ec491d40fde052db1e39e0d77022d981091644e32cbaa5458055edad48810755be902e57ac14a46b445bd4a6f7f980d2ade05e6e917c05b988a290d3ca8fd
   languageName: node
   linkType: hard
 
@@ -336,7 +336,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/prism@npm:4.1.2":
+"@astrojs/prism@npm:4.1.2, @astrojs/prism@npm:^4.1.2":
   version: 4.1.2
   resolution: "@astrojs/prism@npm:4.1.2"
   dependencies:
@@ -345,7 +345,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/runtime@npm:0.1.1":
+"@astrojs/runtime@npm:^0.1.1":
   version: 0.1.1
   resolution: "@astrojs/runtime@npm:0.1.1"
   dependencies:
@@ -365,9 +365,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/starlight@npm:^0.42.10":
-  version: 0.42.10
-  resolution: "@astrojs/starlight@npm:0.42.10"
+"@astrojs/starlight@npm:^0.43.1":
+  version: 0.43.1
+  resolution: "@astrojs/starlight@npm:0.43.1"
   dependencies:
     "@astrojs/markdown-satteri": "npm:^0.4.3"
     "@astrojs/mdx": "npm:^8.0.3"
@@ -382,7 +382,7 @@ __metadata:
     hast-util-to-html: "npm:^9.0.5"
     hast-util-to-string: "npm:^3.0.1"
     hastscript: "npm:^9.0.1"
-    i18next: "npm:^26.0.7"
+    i18next: "npm:^27.0.1"
     klona: "npm:^2.0.6"
     magic-string: "npm:^1.2.3"
     mdast-util-directive: "npm:^3.1.0"
@@ -402,11 +402,11 @@ __metadata:
   peerDependenciesMeta:
     "@astrojs/markdown-remark":
       optional: true
-  checksum: 10c0/49545e8de88c116ffedf6bfb93f18ebd5ddd13e58c847c2765a078ceb499ede4973eeec5b5a1d6fb061eeb648551b376c81311e34f4ea4a66c929c52430ee673
+  checksum: 10c0/d3eef260649e0ba0f76d138aeb16412371cfb30bdc0b0427daf261fbbae0f48ea43f30980ace3b03fe7662a1fd86a8dc540e30c9cc4492d899e8fdf67dc6df98
   languageName: node
   linkType: hard
 
-"@astrojs/telemetry@npm:3.4.2":
+"@astrojs/telemetry@npm:^3.4.2":
   version: 3.4.2
   resolution: "@astrojs/telemetry@npm:3.4.2"
   dependencies:
@@ -418,13 +418,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@astrojs/vite-plugin-astro@npm:0.1.2":
-  version: 0.1.2
-  resolution: "@astrojs/vite-plugin-astro@npm:0.1.2"
+"@astrojs/vite-plugin-astro@npm:^0.1.3":
+  version: 0.1.3
+  resolution: "@astrojs/vite-plugin-astro@npm:0.1.3"
   dependencies:
     "@astrojs/compiler-rs": "npm:^0.5.1"
-    "@astrojs/internal-helpers": "npm:0.13.2"
-    "@astrojs/runtime": "npm:0.1.1"
+    "@astrojs/internal-helpers": "npm:^0.13.2"
+    "@astrojs/runtime": "npm:^0.1.1"
     common-ancestor-path: "npm:^2.0.0"
     devalue: "npm:^6.0.2"
     magic-string: "npm:^1.4.2"
@@ -433,7 +433,7 @@ __metadata:
     zod: "npm:^4.6.5"
   peerDependencies:
     vite: ^8.3.3
-  checksum: 10c0/9208409ad7619a5f2bd118f7dc3983c2aca4a723b3ec1dd5f577ac0cb623d696099cff116bbf640d479af3782f4b4459db5e1943c712e56e91cac19d081ffff1
+  checksum: 10c0/80f08298247678d0353822c2ae3722a4f19e10ef9c9ad8468201b50b683901d16b23d44043a85071cdc6e100d5ae6cb240246b2cc475eab94d088ecd9b37e5c4
   languageName: node
   linkType: hard
 
@@ -3780,11 +3780,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@road-signs-docs/app@workspace:apps/docs"
   dependencies:
-    "@astrojs/starlight": "npm:^0.42.10"
+    "@astrojs/starlight": "npm:^0.43.1"
     "@road-signs/core": "workspace:*"
     "@road-signs/us": "workspace:*"
     "@typescript/native": "npm:typescript@^7.0.2"
-    astro: "npm:^7.4.11"
+    astro: "npm:^7.4.12"
     typescript: "npm:@typescript/typescript6@^6.0.2"
   languageName: unknown
   linkType: soft
@@ -7750,16 +7750,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro@npm:^7.4.11":
-  version: 7.4.11
-  resolution: "astro@npm:7.4.11"
+"astro@npm:^7.4.12":
+  version: 7.4.12
+  resolution: "astro@npm:7.4.12"
   dependencies:
     "@astrojs/compiler-rs": "npm:^0.5.2"
-    "@astrojs/internal-helpers": "npm:0.13.2"
-    "@astrojs/markdown-satteri": "npm:0.4.9"
-    "@astrojs/runtime": "npm:0.1.1"
-    "@astrojs/telemetry": "npm:3.4.2"
-    "@astrojs/vite-plugin-astro": "npm:0.1.2"
+    "@astrojs/internal-helpers": "npm:^0.13.2"
+    "@astrojs/markdown-satteri": "npm:^0.4.10"
+    "@astrojs/runtime": "npm:^0.1.1"
+    "@astrojs/telemetry": "npm:^3.4.2"
+    "@astrojs/vite-plugin-astro": "npm:^0.1.3"
     "@capsizecss/unpack": "npm:^4.0.1"
     "@clack/prompts": "npm:^1.8.1"
     "@oslojs/encoding": "npm:^1.1.0"
@@ -7817,7 +7817,7 @@ __metadata:
       optional: true
   bin:
     astro: ./bin/astro.mjs
-  checksum: 10c0/3f78f9e869ad896068745938a24eb5293bd9e32dd8feb701f06c311994a8fffdf9d5fc5f1f93a848a936aec2f50004a6cee62105a11044723cbcfb5567db1491
+  checksum: 10c0/3e58db1bedc62ccec0bde337eb28986dfbc8b929f7582ee9ade942671f135180ce97da22a07606b2058f39ec44773f33b6cd388ea9d8e0c4c7d85a16c85331fe
   languageName: node
   linkType: hard
 
@@ -9477,15 +9477,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"i18next@npm:^26.0.7":
-  version: 26.2.0
-  resolution: "i18next@npm:26.2.0"
+"i18next@npm:^27.0.1":
+  version: 27.1.3
+  resolution: "i18next@npm:27.1.3"
   peerDependencies:
-    typescript: ^5 || ^6
+    typescript: ^5 || ^6 || ^7
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 10c0/8ce453de86422503141ece62785089236894173d50c269d1b4ea1da5f362bc9a3023c1af25c90979decbddb007b35812726cd90de973c445785609ae3c775e75
+  checksum: 10c0/3c4f1ae3ee43f2dfdc721c5677d9676ea9dec46a1d640f62f02ee44f05cc9ec7ee55db48c86042851d8213caf2c5644e1b3273463a575cf696ce232bad6c6974
   languageName: node
   linkType: hard
 

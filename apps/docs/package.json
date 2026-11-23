@@ -11,10 +11,10 @@
     "type-check": "astro check"
   },
   "dependencies": {
-    "@astrojs/starlight": "^0.42.10",
+    "@astrojs/starlight": "^0.43.1",
     "@road-signs/core": "workspace:*",
     "@road-signs/us": "workspace:*",
-    "astro": "^7.4.11"
+    "astro": "^7.4.12"
   },
   "devDependencies": {
     "@typescript/native": "npm:typescript@^7.0.2",
